@@ -1,0 +1,1 @@
+cat cross_sections_and_abundance.txt |awk '{if(NR>1&&NR<9){system("cat "$1"_ngam_WFast.txt");}}'

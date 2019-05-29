@@ -1,0 +1,31 @@
+Using the code I've made to do a first-pass analysis of simple cascades, the purpose of the code
+in this directory is to create a library that can be used to (quickly) generate arbitrary
+non-continuum cascade realizations.  By "non-continuum" I mean ignoring the continuum contribution
+and focusing only on cascades that are supplied in an input file, with specified relative
+abundances and intermediate level details.
+
+INPUT:
+
+The input should consist of a file with several cascades listed and the relative weights of said
+cascades.  In addition the user should specify how many realizations of the capture process are
+desired. 
+
+Here is a possible row of an input file
+
+weight Sn [..,E2,E1,E0] [..,tau2,tau1,inf]
+
+weight: weight of this cascade realization. It will be normalized to unity with all other cascades
+
+Sn: neutron separation energy (MeV), can include several isotopes if energy different. 
+
+[..,E2,E1,E0]: ordered list of the energy levels traversed (keV), including the ground state
+
+[..,tau2,tau1,inf]: ordered list of the lifetimes of the energy levels traversed (fs), it must be
+the same length as the previous list.
+
+
+
+OUTPUT:
+
+A file that contains the separate NR deposits, along with their Ionization deposits (see
+N-MISC-16-001 pg 35).  In addition all of the exiting gamma energies and times should be listed.

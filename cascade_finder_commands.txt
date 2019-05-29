@@ -1,0 +1,6 @@
+cdms1:cascadeSim villaa$root -l /data/chocula/villaa/cascadeSimData/normge_fast.root
+root [12] TH1D *h = new TH1D("test","test",1000,182,182.5);
+Warning in <TFile::Append>: Replacing existing TH1: test (Potential memory leak).
+root [13] t->Draw("Sum$(E)>>test","","")
+(Long64_t)1073996
+root [14] t->Scan("Sum$(E):n:Eg:Sum$(I):Sum$(Eg)","Sum$(E)>182.055 && Sum$(E)<182.06","precision=21 colsize=16")

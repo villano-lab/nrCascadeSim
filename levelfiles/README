@@ -1,0 +1,23 @@
+The format of the files in this director are:
+
+Each line represents an individual cascade realization for a capture. Each number in the line is defined as follows:
+
+(total fraction): the absolute fraction that this cascade represents in this capture sample
+
+(symbol for post-capture nucleus): like 71Ge represents the final nucleus after the capture
+
+(A value for post-capture nucleus): This is redundant for now
+
+(vector of the energy levels): these are the energy levels AFTER the neutron separation energy.
+
+(vector of level lifetimes): these are the lifetimes in attoseconds of each intermediate level
+
+Here is an example:
+
+
+0.000671	29Si	29	[4840.4	0.0]	[3500	100000000000000]
+
+Here, this cascade is meant to be simulated with an overall fraction of 0.07%. The capture happens
+on 28-Si and proceeds with two emitted gammas. First a gamma is emitted by the difference
+between the neutron separation energy and the 4840.4 keV. The next gamma is emitted between the
+4840.4 level and the ground state. 
