@@ -1,0 +1,10 @@
+#binaries
+*.o
+*.so
+cascadeTest
+cascadePrint
+realizeCascades
+evalCascades
+
+#root files
+*.root
