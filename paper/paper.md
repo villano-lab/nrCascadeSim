@@ -1,66 +1,22 @@
-<<<<<<< Updated upstream
----
-title: '`SCALAR` - A Platform for Real-time Machine Learning Competitions on Data Streams'
-bibliography: references.bib
-tags:
-  - Python
-  - Stream Data Mining
-  - Real-time Machine Learning
-  - Information Flow Processing
-authors:
-  - name: Nedeljko Radulovic
-    affiliation: 1
-  - name: Dihia Boulegane
-    affiliation: "1, 2"
-  - name: Albert Bifet
-    affiliation: "1, 3"
-affiliations:
- - name: LTCI, Télécom Paris, IP-Paris, Paris, France
-   index: 1
- - name: Orange Labs, Grenoble, France
-   index: 2
- - name: University of Waikato, New Zealand
-   index: 3
-date: 26 August 2020
-nocite: '@*'
----
-
-^ Update the above - left as examples
-
-# Summary
-
-# Statement of need
-
-# Acknowledgements
-
 =======
 ---
-title: '`SCALAR` - A Platform for Real-time Machine Learning Competitions on Data Streams'
+title: '`NR Cascade Sim` - A simulation tool for nuclear recoil cascades resulting from neutron capture'
 bibliography: references.bib
 tags:
-  - Python
-  - Stream Data Mining
-  - Real-time Machine Learning
-  - Information Flow Processing
+  - C++
+  - Simulation
+  - Nuclear Physics
 authors:
-  - name: Nedeljko Radulovic
+  - name: Anthony Villano
     affiliation: 1
-  - name: Dihia Boulegane
-    affiliation: "1, 2"
-  - name: Albert Bifet
-    affiliation: "1, 3"
+  - name: Kitty Harris
+    affiliation: 1
 affiliations:
- - name: LTCI, Télécom Paris, IP-Paris, Paris, France
+ - name: University of Colorado Denver, United States
    index: 1
- - name: Orange Labs, Grenoble, France
-   index: 2
- - name: University of Waikato, New Zealand
-   index: 3
-date: 26 August 2020
+date: 12 December 2020
 nocite: '@*'
 ---
-
-^ Update the above - left as examples
 
 # Summary
 
@@ -68,5 +24,4 @@ nocite: '@*'
 
 # Acknowledgements
 
->>>>>>> Stashed changes
 # References
