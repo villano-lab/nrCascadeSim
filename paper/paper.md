@@ -1,4 +1,3 @@
-=======
 ---
 title: '`NR Cascade Sim` - A simulation tool for nuclear recoil cascades resulting from neutron capture'
 bibliography: references.bib
@@ -22,9 +21,9 @@ nocite: '@*'
 
 NR Cascade Sim is a straightforward tool for generating simulation data to represent energy deposits resulting from nuclear cascade events in silicon, germanium, neon, or argon. While the software was developed for solid state detector calibration, it can be used for any application which requires simulated nuclear recoil data.
 
-// *it says the audience should be "non-specialist", so I'm trying to explain as much as possible (but still concisely) below.*
-// *having trouble with organization*
-// *^ I know this isn't a comment format but there is none in markdown so here we are*
+% *it says the audience should be "non-specialist", so I'm trying to explain as much as possible (but still concisely) below.*
+% *having trouble with organization*
+% *^ I know this isn't a comment format but there is none in markdown so here we are*
 
 A "cascade" occurs when a neutron becomes part of a nucleus. 
 The neutron can be captured to one of many discrete energy levels, or states; 
@@ -53,17 +52,14 @@ Pre-defined energy level files exist for silicon and germanium, which are constr
 Outputs include energy deposits at each step, total kinetic energy deposits, and ionization energy deposits,
 making them useful for a variety of applications.
 
-// *I know discussed whether to cite Nudat2 directly before - but this is what I have for now.*
+% *I know discussed whether to cite Nudat2 directly before - but this is what I have for now.*
 
-// # Statement of need // *I think I included this above - let me know if you think it's covered.*
+% # Statement of need % *I think I included this above - let me know if you think it's covered.*
 
 
 
 # Acknowledgements
 
-(Not sure what to put here)
+(Not sure what to put here - if anything is needed?)
 
 # References
-
-* Need to cite sources for energy levels
-* Any other references that need to be included?
