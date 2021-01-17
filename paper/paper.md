@@ -45,21 +45,19 @@ The time between steps is simulated as an exponential function based on the stat
 and the angle is simulated as having a uniform distribution on the surface of a sphere.
 Cascade selection is weighted by isotope abundance and cross-section as well as the probability of the energy level.
 
-NR Cascade Sim is a C++ package for generating a specified number of energy deposits based on this process.
+% *I know discussed whether to cite Nudat2 directly before - but this is what I have for now.*
+
+# Statement of Need
+
+NR Cascade Sim is a C++ package for generating a specified number of energy deposits resulting from nuetron capture-induced nuclear recoils.
 The energy levels and their lifetimes are customizable,
 and multiple isotopes of the same element can be present within the simulation.
 Pre-defined energy level files exist for silicon and germanium, which are constructed from the data in \cite{abundances} and \cite{nudat2}. 
 Outputs include energy deposits at each step, total kinetic energy deposits, and ionization energy deposits,
 making them useful for a variety of applications.
 
-% *I know discussed whether to cite Nudat2 directly before - but this is what I have for now.*
+% # Acknowledgements
 
-% # Statement of need % *I think I included this above - let me know if you think it's covered.*
-
-
-
-# Acknowledgements
-
-(Not sure what to put here - if anything is needed?)
+% *(Not sure what to put here - if anything is needed?)*
 
 # References
