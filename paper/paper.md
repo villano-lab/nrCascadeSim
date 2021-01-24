@@ -59,10 +59,11 @@ or the user may already have a particular process they will use for converting t
 However, we include, for convenience, the ionization yield and ionization energy of these recoils.
 This ionization yield assumes the Lindhard model\cite{Lindhard}:
 $$
-\array[rcl]
+\begin{array}[rcl]
   Y & = & \frac{kg_{(\eps)}}{1+kg_{(\eps)}} \\
   g_{(\eps)} & = & a\eps^\gamma + b\eps^w + \eps \\
   \eps_{(E_r)} & = & 11.5E_r\[keV\]Z^{-7/3}
+\end{array}
 $$
 Using the accepted value for Silicon ($k=0.143$) or Germanium ($k=0.159$), whichever is appropriate; $a=3$; and $b=0.7$.
 
