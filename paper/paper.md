@@ -35,7 +35,7 @@ the structure of which is outlined in \ref{rootfile_fig}.
 % ^ this part feels awkward but I needed to explain what the figure is doing in the paper.
 
 \begin{figure}
-  \includegraphics[width=\columnwidth](joss_fig.svg)
+  \includegraphics[width=0.9\columnwidth](joss_fig.svg)
   \caption{
     An outline of the structure of an output file "file.root".
     Everything is contained within a top-level key called "cascade."
