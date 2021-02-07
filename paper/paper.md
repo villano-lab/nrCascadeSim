@@ -55,6 +55,7 @@ the structure of which is outlined in \ref{rootfile_fig}.
     The gamma energies are not included in any of the other energy arrays.
   }
   \label{rootfile_fig}
+\end{figure}
 
 # Models Used
 
