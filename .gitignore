@@ -8,3 +8,6 @@ evalCascades
 
 #root files
 *.root
+
+#directories
+.vscode
