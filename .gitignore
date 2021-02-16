@@ -8,3 +8,9 @@ evalCascades
 
 #root files
 *.root
+
+#directories
+.vscode
+
+#jupyter-generated checkpoints
+*-checkpoint.*
