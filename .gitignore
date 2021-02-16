@@ -11,3 +11,6 @@ evalCascades
 
 #directories
 .vscode
+
+#jupyter-generated checkpoints
+*-checkpoint.*
