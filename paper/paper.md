@@ -96,4 +96,25 @@ Pre-defined energy level files exist for silicon and germanium, which are constr
 Outputs include energy deposits at each step, total kinetic energy deposits, and ionization energy deposits,
 making them useful for a variety of applications.
 
+# Example Use Case
+
+Included in the repository is an example `test-example/Yields_and_Resolutions.ipynb` which users can follow to ensure the code is running correctly. 
+This example both applies a yield model to the individual energy deposits and applies variation intended to simulate the resolution of the detector. 
+The yield and resolution models are described in more detail in the example notebook. 
+\ref{LindvSor_fig} shows overlaid histograms of different combinations of analysis on the same data file.
+
+\begin{figure}
+  \includegraphics[width=\columnwidth]{SorVsLin_fig.pdf}
+  \caption{
+    An overlaid histogram showing an example use case in which points are generated and then multiple yield models and resolutions are applied.
+    In this example, the x-axis represents the energy "yielded" by the cascade; 
+    this is effectively a way of noting what the detector reads out as opposed to what the pure kinetic energy of the cascade is.
+    The Lindhard yield\cite{Lind} is output by nrCascadeSim as Ei; 
+    the Sorenson yield\cite{Sor} is applied to the values from delE.
+    Resolutions are applied by adding random values generated from a Gaussian distribution of fixed width to the energy yield.
+    The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts.
+  }
+  \label{rootfile_fig}
+\end{figure}
+
 # References
