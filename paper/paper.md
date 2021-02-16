@@ -113,6 +113,7 @@ The yield and resolution models are described in more detail in the example note
     the Sorenson yield\cite{Sor} is applied to the values from delE.
     Resolutions are applied by adding random values generated from a Gaussian distribution of fixed width to the energy yield.
     The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts.
+    The y-axis represents the normalized frequency of energy yields.
   }
   \label{rootfile_fig}
 \end{figure}
