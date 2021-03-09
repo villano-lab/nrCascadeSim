@@ -11,6 +11,14 @@ evalCascades
 
 #directories
 .vscode
+*/__pycache__
+test-example/__pycache__
 
-#jupyter-generated checkpoints
+#checkpoints and caching
 *-checkpoint.*
+**.pyc
+**__pycache__
+test-example/__pycache__
+test-example/.ipynb_checkpoints
+**.ipynb_checkpoints
+test-example/__pycache__/*.pyc
