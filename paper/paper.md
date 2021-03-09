@@ -10,9 +10,13 @@ authors:
     affiliation: 1
   - name: Kitty Harris
     affiliation: 1
+  - name: Staci Brown
+    affiliation: 2
 affiliations:
  - name: University of Colorado Denver, United States
    index: 1
+ - name: University of New Mexico, United States
+   index: 2
 date: 12 December 2020
 nocite: '@*'
 ---
@@ -43,21 +47,22 @@ useful data to a single file, the structure of which is outlined in \ref{rootfil
 \begin{figure}
   \includegraphics[width=\columnwidth]{joss_fig.pdf}
   \caption{
-      An outline of the structure of an output file "file.root".  Everything is contained within a
-      top-level key called "cascade." Beneath "cascade" are several other keys, each pointing to an
-      array.  Each array element corresponds to one cascade; the same index will point to the same
-      cascade across arrays.  "n" notes the number of energy levels in the cascade.  "cid" is short for
-      "cascade ID" and refers to the row number of the levelfile which was used to generate the cascade.
-      Each element of "Elev" is an array noting the energy levels used, given in electron volts.
-      Similarly, "taus" notes the lifetimes used, given in attoseconds.  Both "Elev" and "taus" will
-      have entries with a length of the corresponding value of n, so if n[3] is four then the lengths of
-      Elev[3] and taus[3] will both be four.  "delE" lists the energies deposited during the cascade in
-      electron volts, and will always a length of one less than n.  "I" calculates the ionization in
-      terms of a number of charges, and "Ei" combines "I" with "delE" to list the ionization energy in
-      electron volts.  "time" describes the simulation-generated time that the neutron spent at each
-      energy level, in attoseconds, and has a length corresponding to n.  "Eg" provides gamma energies
-      associated with each decay, in electron volts, and has a length corresponding to one less than n.
-      The gamma energies are not included in any of the other energy arrays.
+    An outline of the structure of an output file `file.root`.
+    Everything is contained within a top-level key called `cascade`.
+    Beneath `cascade` are several other keys, each pointing to an array.
+    Each array element corresponds to one cascade; the same index will point to the same cascade across arrays.
+    `n` notes the number of energy levels in the cascade.
+    `cid` is short for "cascade ID" and refers to the row number of the levelfile which was used to generate the cascade.
+    Each element of `Elev` is an array noting the energy levels used, given in eV.
+    Similarly, `taus` notes the lifetimes used, given in attoseconds.
+    Both `Elev` and `taus` will have entries with a length of the corresponding value of n,
+    so if `n[3]` is four then the lengths of `Elev[3]` and `taus[3]` will both be four.
+    `delE` lists the energies deposited during the cascade in eV, and will always a length of one less than n.
+    `I` calculates the ionization in terms of a number of charges, 
+    and `Ei` combines `I` with `delE` to list the ionization energy in eV.
+    `time` describes the simulation-generated time that the neutron spent at each energy level, in attoseconds, and has a length corresponding to n.
+    `Eg` provides gamma energies associated with each decay, in MeV, and has a length corresponding to one less than n. 
+    The gamma energies are not included in any of the other energy arrays.
   }
   \label{rootfile_fig}
 \end{figure}
@@ -122,7 +127,7 @@ data file.
        multiple yield models and resolutions are applied.  In this example, the x-axis represents the
        ionization energy "yielded" by the cascade; this is effectively a way of noting what the detector reads out
        as opposed to what the pure kinetic energy of the cascade is.  The Lindhard yield\cite{Lind} is
-       output by `nrCascadeSim` as Ei; the Sorenson yield\cite{Sor} is applied to the values from delE.
+       output by `nrCascadeSim` as `Ei`; the Sorenson yield\cite{Sor} is applied to the values from `delE`.
        Resolutions are applied by adding random values generated from a Gaussian distribution of fixed
        width to the energy yield.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width
        of their counterparts.  The y-axis represents the normalized frequency of energy yields.
