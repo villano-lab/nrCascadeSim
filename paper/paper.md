@@ -23,7 +23,7 @@ nocite: '@*'
 
 # Summary
 
-`nrCascadeSim` is a straightforward tool for generating simulation data for energy deposits
+`nrCascadeSim` is a command-line tool for generating simulation data for energy deposits
 resulting from neutron capture on pure materials. Thus far silicon, germanium, neon, and argon are
 supported. While the software was developed for solid state detector calibration, it can be used
 for any application which requires simulated neutron capture-induced nuclear recoil data.
@@ -41,8 +41,6 @@ thermal neutron) is small compared to most nuclear recoil energy scales.
 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
 useful data to a single file, the structure of which is outlined in \ref{rootfile_fig}.
-
-% ^ this part feels awkward but I needed to explain what the figure is doing in the paper.
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{joss_fig.pdf}
@@ -132,7 +130,7 @@ data file.
        width to the energy yield.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width
        of their counterparts.  The y-axis represents the normalized frequency of energy yields.
   }
-  \label{rootfile_fig}
+  \label{LindvSor_fig}
 \end{figure}
 
 
