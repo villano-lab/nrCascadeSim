@@ -21,6 +21,8 @@ date: 12 December 2020
 nocite: '@*'
 ---
 
+\bibliographystyle{unsrt}
+
 # Summary
 
 `nrCascadeSim` is a command-line tool for generating simulation data for energy deposits
