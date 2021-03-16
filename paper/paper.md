@@ -13,9 +13,9 @@ authors:
   - name: Staci Brown
     affiliation: 2
 affiliations:
- - name: University of Colorado Denver, United States
+ - name: Department of Physics, University of Colorado Denver, CO, USA
    index: 1
- - name: University of New Mexico, United States
+ - name: Department of Applied Mathematics & Statistics, University of New Mexico, NM, USA
    index: 2
 date: 12 December 2020
 nocite: '@*'
@@ -86,7 +86,7 @@ for a cascade as well as the energy per step.  For some applications, this may b
 outcome, or the user may already have a particular process they will use for converting this
 energy to what they wish to measure.  However, we include, for convenience, the ionization yield
 and ionization energy of these recoils.  This ionization yield assumes the Lindhard
-model[@Lindhard]:
+model[@lindhard]:
 
 $$
 \begin{array}{rcl}
