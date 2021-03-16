@@ -78,7 +78,7 @@ down &mdash; and the angle between the nucleus' momentum before a decay and the 
 between steps is simulated as an exponentially-distributed random variable based on the state's
 half-life, and the angle is simulated as having a uniform distribution on the surface of a sphere.
 Cascade selection is weighted by isotope abundance and cross-section as well as the probability of
-the energy level.  For existing levelfiles, energy levels are derived from \cite{Ge} for germanium
+the energy level.  For existing levelfiles, energy levels are derived from [@Ge] for germanium
 and from \cite{Si} for Silicon.
 
 The above process models the recoil energies, and the output gives both the total recoil energy
