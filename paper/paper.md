@@ -79,14 +79,14 @@ between steps is simulated as an exponentially-distributed random variable based
 half-life, and the angle is simulated as having a uniform distribution on the surface of a sphere.
 Cascade selection is weighted by isotope abundance and cross-section as well as the probability of
 the energy level.  For existing levelfiles, energy levels are derived from [@Ge] for germanium
-and from \cite{Si} for Silicon.
+and from [@Si] for Silicon.
 
 The above process models the recoil energies, and the output gives both the total recoil energy
 for a cascade as well as the energy per step.  For some applications, this may be the desired
 outcome, or the user may already have a particular process they will use for converting this
 energy to what they wish to measure.  However, we include, for convenience, the ionization yield
 and ionization energy of these recoils.  This ionization yield assumes the Lindhard
-model\cite{Lindhard}:
+model[@Lindhard]:
 
 $$
 \begin{array}{rcl}
@@ -105,7 +105,7 @@ appropriate; $a=3$; and $b=0.7$.
 from nuetron capture-induced nuclear recoils.  The energy levels and their lifetimes are
 customizable, and multiple isotopes of the same element can be present within the simulation.
 Pre-defined energy level files exist for silicon and germanium, which are constructed from the
-data in \cite{abundances} and \cite{nudat2}.  Outputs include energy deposits at each step, total
+data in [@abundances] and [@nudat2].  Outputs include energy deposits at each step, total
 kinetic energy deposits, and ionization energy deposits, making them useful for a variety of
 applications.
 
