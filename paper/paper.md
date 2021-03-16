@@ -13,9 +13,9 @@ authors:
   - name: Staci Brown
     affiliation: 2
 affiliations:
- - name: University of Colorado Denver, United States
+ - name: Department of Physics, University of Colorado Denver, Denver CO 80217, USA
    index: 1
- - name: University of New Mexico, United States
+ - name: Department of Applied Mathematics & Statistics, University of New Mexico, Albuquerque NM 87131, USA
    index: 2
 date: 12 December 2020
 nocite: '@*'
@@ -23,7 +23,7 @@ nocite: '@*'
 
 # Summary
 
-`nrCascadeSim` is a straightforward tool for generating simulation data for energy deposits
+`nrCascadeSim` is a command-line tool for generating simulation data for energy deposits
 resulting from neutron capture on pure materials. Thus far silicon, germanium, neon, and argon are
 supported. While the software was developed for solid state detector calibration, it can be used
 for any application which requires simulated neutron capture-induced nuclear recoil data.
@@ -41,8 +41,6 @@ thermal neutron) is small compared to most nuclear recoil energy scales.
 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
 useful data to a single file, the structure of which is outlined in \ref{rootfile_fig}.
-
-% ^ this part feels awkward but I needed to explain what the figure is doing in the paper.
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{joss_fig.pdf}
@@ -80,15 +78,15 @@ down &mdash; and the angle between the nucleus' momentum before a decay and the 
 between steps is simulated as an exponentially-distributed random variable based on the state's
 half-life, and the angle is simulated as having a uniform distribution on the surface of a sphere.
 Cascade selection is weighted by isotope abundance and cross-section as well as the probability of
-the energy level.  For existing levelfiles, energy levels are derived from \cite{Ge} for germanium
-and from \cite{Si} for Silicon.
+the energy level.  For existing levelfiles, energy levels are derived from [@Ge] for germanium
+and from [@Si] for Silicon.
 
 The above process models the recoil energies, and the output gives both the total recoil energy
 for a cascade as well as the energy per step.  For some applications, this may be the desired
 outcome, or the user may already have a particular process they will use for converting this
 energy to what they wish to measure.  However, we include, for convenience, the ionization yield
 and ionization energy of these recoils.  This ionization yield assumes the Lindhard
-model\cite{Lindhard}:
+model[@lindhard]:
 
 $$
 \begin{array}{rcl}
@@ -107,7 +105,7 @@ appropriate; $a=3$; and $b=0.7$.
 from nuetron capture-induced nuclear recoils.  The energy levels and their lifetimes are
 customizable, and multiple isotopes of the same element can be present within the simulation.
 Pre-defined energy level files exist for silicon and germanium, which are constructed from the
-data in \cite{abundances} and \cite{nudat2}.  Outputs include energy deposits at each step, total
+data in [@abundances] and [@nudat2].  Outputs include energy deposits at each step, total
 kinetic energy deposits, and ionization energy deposits, making them useful for a variety of
 applications.
 
@@ -132,7 +130,7 @@ data file.
        width to the energy yield.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width
        of their counterparts.  The y-axis represents the normalized frequency of energy yields.
   }
-  \label{rootfile_fig}
+  \label{LindvSor_fig}
 \end{figure}
 
 

@@ -1,63 +1,61 @@
 ###############################################################
 #
 #
-# Makefile for cdmsRPF
+# Makefile for nrCascadeSim
 ###############################################################
 
 #everybody here needs root
 ROOTFLAGS=`root-config --cflags`
 
-#we also need cdmsbats
-CDMSBATSDIR=/data/chocula/villaa/cdmsbats_release/cdmsbats
-BUILDDIR=$(CDMSBATSDIR)/BUILD
-INCDIR=$(BUILDDIR)/include
-LIBDIR=$(BUILDDIR)/lib
-LINALGINCDIR=$(BUILDDIR)/linalgebra
-CDMSBATSINC= -IMersenne -I$(INCDIR) -I$(LINALGINCDIR)/linalgebra -I$(LINALGINCDIR)/boost-numeric/include
-CDMSBATSLIB= -L. -L$(LIBDIR)
-
-NOISELIB= ../noiselib
+#we also need # not cdmsbats
+BUILDDIR=bin
+INCDIROUT=$(BUILDDIR)/include
+LIBDIROUT=$(BUILDDIR)/lib
+INCDIR=inc/
+SRCDIR=src/
+INCFLAG= -IMersenne -Iinc
+LIBFLAG= -L. -L$(LIBDIROUT)
 
 #trick for getting the git version in the code
 GIT_VERSION = $(shell sh -c 'git describe --abbrev=4 --always')
 
 CFLAGS += -D__GIT_VERSION=\"$(GIT_VERSION)\"
 
-#CPPFLAGS+= $(ROOTFLAGS)
-#CPPFLAGS+= $(CDMSBATSINC)
+all: $(BUILDDIR)/realizeCascades $(LIBDIROUT)/rootUtil.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/libncap.so
 
-all: evalCascades realizeCascades cascadeTest rootUtil.o edepmath.o cascadeProd.o isotope_info.o weisskopf.o lindhard.o libncap.so
+$(LIBDIROUT)/isotope_info.o: $(SRCDIR)/isotope_info.c $(INCDIR)/isotope_info.h 
+	g++ -fPIC -c $(CFLAGS) $(INCFLAG) $(SRCDIR)/isotope_info.c `root-config --cflags --glibs` $(LIBFLAG) 
+	mv isotope_info.o $(LIBDIROUT)/
 
-isotope_info.o: isotope_info.c isotope_info.h 
-	g++ -fPIC -c $(CFLAGS) $(RQINC) $(CDMSBATSINC) isotope_info.c `root-config --cflags --glibs` $(CDMSBATSLIB) -lCdmsbats
+$(LIBDIROUT)/rootUtil.o: $(SRCDIR)/rootUtil.c $(INCDIR)/rootUtil.h 
+	g++ -fPIC -c $(CFLAGS) $(INCFLAG) $(SRCDIR)/rootUtil.c `root-config --cflags --glibs` $(LIBFLAG) 
+	mv rootUtil.o $(LIBDIROUT)/
 
-rootUtil.o: rootUtil.c rootUtil.h 
-	g++ -fPIC -c $(CFLAGS) $(RQINC) $(CDMSBATSINC) rootUtil.c `root-config --cflags --glibs` $(CDMSBATSLIB) -lCdmsbats
+$(LIBDIROUT)/edepmath.o: $(SRCDIR)/edepmath.c $(INCDIR)/edepmath.h 
+	g++ -fPIC -c $(CFLAGS) $(INCFLAG) $(SRCDIR)/edepmath.c `root-config --cflags --glibs` $(LIBFLAG) 
+	mv edepmath.o $(LIBDIROUT)/
 
-edepmath.o: edepmath.c edepmath.h 
-	g++ -fPIC -c $(CFLAGS) $(RQINC) $(CDMSBATSINC) edepmath.c `root-config --cflags --glibs` $(CDMSBATSLIB) -lCdmsbats
+$(LIBDIROUT)/weisskopf.o: $(SRCDIR)/weisskopf.c $(INCDIR)/weisskopf.h 
+	g++ -fPIC -c $(CFLAGS) $(INCFLAG) $(SRCDIR)/weisskopf.c `root-config --cflags --glibs` $(LIBFLAG) 
+	mv weisskopf.o $(LIBDIROUT)/
 
-weisskopf.o: weisskopf.c weisskopf.h 
-	g++ -fPIC -c $(CFLAGS) $(RQINC) $(CDMSBATSINC) weisskopf.c `root-config --cflags --glibs` $(CDMSBATSLIB) -lCdmsbats
+$(LIBDIROUT)/lindhard.o: $(SRCDIR)/lindhard.c $(INCDIR)/lindhard.h 
+	g++ -fPIC -c $(CFLAGS) $(INCFLAG) $(SRCDIR)/lindhard.c `root-config --cflags --glibs` $(LIBFLAG) 
+	mv lindhard.o $(LIBDIROUT)/
 
-lindhard.o: lindhard.c lindhard.h 
-	g++ -fPIC -c $(CFLAGS) $(RQINC) $(CDMSBATSINC) lindhard.c `root-config --cflags --glibs` $(CDMSBATSLIB) -lCdmsbats
+$(LIBDIROUT)/cascadeProd.o: $(SRCDIR)/cascadeProd.c $(INCDIR)/cascadeProd.h 
+	g++ -fPIC -c $(CFLAGS) $(INCFLAG) $(SRCDIR)/cascadeProd.c `root-config --cflags --glibs` $(LIBFLAG) 
+	mv cascadeProd.o $(LIBDIROUT)/
 
-cascadeProd.o: cascadeProd.c cascadeProd.h 
-	g++ -fPIC -c $(CFLAGS) $(RQINC) $(CDMSBATSINC) cascadeProd.c `root-config --cflags --glibs` $(CDMSBATSLIB) -lCdmsbats
+$(LIBDIROUT)/libncap.so: $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/rootUtil.o
+	g++ -fPIC -shared $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/rootUtil.o `root-config --cflags --glibs` -o $(LIBDIROUT)/libncap.so 
 
-libncap.so: isotope_info.o weisskopf.o lindhard.o cascadeProd.o edepmath.o rootUtil.o
-	g++ -fPIC -shared lindhard.o weisskopf.o isotope_info.o cascadeProd.o edepmath.o rootUtil.o `root-config --cflags --glibs` -o libncap.so
-
-cascadeTest: libncap.so cascadeTest.cpp
-	g++ -fPIC -Wl,-rpath=./ $(CFLAGS) $(CDMSBATSINC) $(CDMSBATSLIB) cascadeTest.cpp `root-config --cflags --glibs` -lncap -o cascadeTest 
-
-realizeCascades: libncap.so realizeCascades.cpp
-	g++ -fPIC -Wl,-rpath=./ $(CFLAGS) $(CDMSBATSINC) $(CDMSBATSLIB) realizeCascades.cpp `root-config --cflags --glibs` -lncap -o realizeCascades 
-
-evalCascades: libncap.so evalCascades.cpp
-	g++ -fPIC -Wl,-rpath=./ $(CFLAGS) $(CDMSBATSINC) $(CDMSBATSLIB) evalCascades.cpp `root-config --cflags --glibs` -lncap -o evalCascades 
+$(BUILDDIR)/realizeCascades: $(LIBDIROUT)/libncap.so $(BUILDDIR)/realizeCascades.cpp
+	g++ -fPIC -Wl,-rpath=$(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/realizeCascades.cpp `root-config --cflags --glibs` -lncap -o $(BUILDDIR)/realizeCascades 
 
 clean:
+	rm -f $(LIBDIROUT)/*.o
+	rm -f $(LIBDIROUT)/*.so
+	rm -f $(BUILDDIR)/realizeCascades
 	rm -f *.o
 	rm -f *.so
