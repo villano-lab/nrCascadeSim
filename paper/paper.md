@@ -30,7 +30,7 @@ for any application which requires simulated neutron capture-induced nuclear rec
 
 A "cascade" occurs when a neutron becomes part of a nucleus.  The neutron can be captured to one
 of many discrete energy levels, or states; if the energy level is nonzero (not the ground state),
-then the state will eventually change so that it is.  This can happen either all at once or in
+then the state will eventually change so that it is zero.  This can happen either all at once or in
 multiple steps &mdash; that is, the captured neutron may go from its state to the ground state, or
 it may go to another state with lower energy that is not the ground state (provided that one
 exists).  The cascade refers to the particular "path" of energy levels that a captured neutron
