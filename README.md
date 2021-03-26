@@ -1,35 +1,3 @@
-Using the code I've made to do a first-pass analysis of simple cascades, the purpose of the code
-in this directory is to create a library that can be used to (quickly) generate arbitrary
-non-continuum cascade realizations.  By "non-continuum" I mean ignoring the continuum contribution
-and focusing only on cascades that are supplied in an input file, with specified relative
-abundances and intermediate level details.
-
-INPUT:
-
-The input should consist of a file with several cascades listed and the relative weights of said
-cascades.  In addition the user should specify how many realizations of the capture process are
-desired. 
-
-Here is a possible row of an input file
-
-weight Sn [..,E2,E1,E0] [..,tau2,tau1,inf]
-
-weight: weight of this cascade realization. It will be normalized to unity with all other cascades
-
-Sn: neutron separation energy (MeV), can include several isotopes if energy different. 
-
-[..,E2,E1,E0]: ordered list of the energy levels traversed (keV), including the ground state
-
-[..,tau2,tau1,inf]: ordered list of the lifetimes of the energy levels traversed (fs), it must be
-the same length as the previous list.
-
-
-
-OUTPUT:
-
-A file that contains the separate NR deposits, along with their Ionization deposits (see
-N-MISC-16-001 pg 35).  In addition all of the exiting gamma energies and times should be listed.
-
 # Summary
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels following neutron capture. 
@@ -86,10 +54,30 @@ Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfile
 
 # Levelfile (Input) Format
 
-The levelfile is a text file read by the program using regular expressions.
-Each row in a levelfile corresponds to one cascade.
+The levelfile is a singular text file read by the program using regular expressions.
+Each row in a levelfile corresponds to one cascade, 
+which should include a relative weight for the probability of the cascade's occurence.
 While it is helfpul to create columns that are easy for the user to read,
 columns can be delineated by any number of spaces.
+
+The general format of one row of an input file is:
+
+weight Sn [..,E2,E1,E0] [..,tau2,tau1,inf]
+
+Each portion of this row is described below.
+
+## Brief Descriptions
+
+``weight``: weight of this cascade realization. It will be normalized to unity with all other cascades
+
+``Sn``: neutron separation energy (MeV), can include several isotopes if energy different. 
+
+``[..,E2,E1,E0]``: ordered list of the energy levels traversed (keV), including the ground state
+
+``[..,tau2,tau1,inf]``: ordered list of the lifetimes of the energy levels traversed (fs), it must be
+the same length as the previous list.
+
+## Full Descriptions
 
 The first column is the probability of a cascade occuring. 
 This can be in scientific notation or a "standard" decimal (0.000671 or 6.71e-04).
@@ -132,6 +120,11 @@ The lifetimes are again all contained within brackets and separated with spaces:
 [24000	215000	1e+14]
 
 # Root file (output) format
+
+*Note: [ROOT](https://root.cern/install/) is needed to open these files.*
+
+A file that contains the separate NR deposits, along with their Ionization deposits (INTERNAL: see
+lab notebook N-MISC-16-001 pg 35).  In addition all of the exiting gamma energies and times should be listed.
 
 The output files are *.root files and therefore cannot be read as text.
 Instead, they need to be imported to a program to be read out.
