@@ -44,28 +44,7 @@ thermal neutron) is small compared to most nuclear recoil energy scales.
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
 useful data to a single file, the structure of which is outlined in Figure \ref{rootfile_fig}.
 
-\begin{figure}
-  \includegraphics[width=\columnwidth]{joss_fig.pdf}
-  \caption{
-    An outline of the structure of a ROOT[@ROOT] output file \texttt{file.root}.
-    Everything is contained within a top-level key called \texttt{cascade}.
-    Beneath \texttt{cascade} are several other keys, each pointing to an array.
-    Each array element corresponds to one cascade; the same index will point to the same cascade across arrays.
-    \texttt{n} notes the number of energy levels in the cascade.
-    \texttt{cid} is short for "cascade ID" and refers to the row number of the levelfile which was used to generate the cascade, starting from zero.
-    Each element of \texttt{Elev} is an array noting the energy levels used, given in eV.
-    Similarly, \texttt{taus} notes the lifetimes used, given in attoseconds.
-    Both \texttt{Elev} and \texttt{taus} will have entries with a length of the corresponding value of n,
-    so if \texttt{n[3]} is four then the lengths of \texttt{Elev[3]} and \texttt{taus[3]} will both be four.
-    \texttt{delE} lists the energies deposited during the cascade in eV, and will always a length of one less than n.
-    \texttt{I} calculates the ionization in terms of a number of charges, 
-    and \texttt{Ei} combines \texttt{I} with \texttt{delE} to list the ionization energy in eV.
-    \texttt{time} describes the simulation-generated time that the neutron spent at each energy level, in attoseconds, and has a length corresponding to n.
-    \texttt{Eg} provides gamma energies associated with each decay, in MeV, and has a length corresponding to one less than n. 
-    The gamma energies are not included in any of the other energy arrays.
-  }
-  \label{rootfile_fig}
-\end{figure}
+![An outline of the structure of a ROOT [@ROOT] output file \texttt{file.root}. Everything is contained within a top-level key called \texttt{cascade}. Beneath \texttt{cascade} are several other keys, each pointing to an array. Each array element corresponds to one cascade; the same index will point to the same cascade across arrays. \texttt{n} notes the number of energy levels in the cascade. \texttt{cid} is short for "cascade ID" and refers to the row number of the levelfile which was used to generate the cascade, starting from zero. Each element of \texttt{Elev} is an array noting the energy levels used, given in eV. Similarly, \texttt{taus} notes the lifetimes used, given in attoseconds. Both \texttt{Elev} and \texttt{taus} will have entries with a length of the corresponding value of n, so if \texttt{n[3]} is four then the lengths of \texttt{Elev[3]} and \texttt{taus[3]} will both be four. \texttt{delE} lists the energies deposited during the cascade in eV, and will always a length of one less than n. \texttt{I} calculates the ionization in terms of a number of charges, and \texttt{Ei} combines \texttt{I} with \texttt{delE} to list the ionization energy in eV. \texttt{time} describes the simulation-generated time that the neutron spent at each energy level, in attoseconds, and has a length corresponding to n. \texttt{Eg} provides gamma energies associated with each decay, in MeV, and has a length corresponding to one less than n. The gamma energies are not included in any of the other energy arrays. \label{rootfile_fig}](joss_fig.pdf)
 
 # Models Used
 
@@ -123,7 +102,7 @@ detector.  The yield and resolution models are described in more detail in the e
 Figure \ref{LindvSor_fig} shows overlaid histograms of different combinations of analysis on the same
 data file.
 
-![An overlaid histogram showing an example use case in which points are generated and then multiple yield models and resolutions are applied.  In this example, the x-axis represents the ionization energy "yielded" by the cascade; this is effectively a way of noting what the detector reads out as opposed to what the pure kinetic energy of the cascade is.  The Lindhard yield[@lindhard] is output by \texttt{nrCascadeSim} as \texttt{Ei}; the Sorenson yield[@sorensen] is applied to the values from \texttt{delE}.Resolutions are applied by adding random values generated from a Gaussian distribution of fixed width to the energy yield.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts.  The y-axis represents the normalized frequency of energy yields.\label{LindvSor_fig}](SorVsLin_fig.pdf)
+![An overlaid histogram showing an example use case in which points are generated and then multiple yield models and resolutions are applied.  In this example, the x-axis represents the ionization energy "yielded" by the cascade; this is effectively a way of noting what the detector reads out as opposed to what the pure kinetic energy of the cascade is.  The Lindhard yield [@lindhard] is output by \texttt{nrCascadeSim} as \texttt{Ei}; the Sorenson yield [@sorensen] is applied to the values from \texttt{delE}.Resolutions are applied by adding random values generated from a Gaussian distribution of fixed width to the energy yield.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts.  The y-axis represents the normalized frequency of energy yields.\label{LindvSor_fig}](SorVsLin_fig.pdf)
 
 
 # References
