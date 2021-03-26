@@ -8,8 +8,10 @@ tags:
 authors:
   - name: Anthony Villano
     affiliation: 1
+    orcid: 0000-0002-3893-7259
   - name: Kitty Harris
     affiliation: 1
+    orcid: 0000-0001-5406-8367
   - name: Staci Brown
     affiliation: 2
 affiliations:
