@@ -47,7 +47,7 @@ useful data to a single file, the structure of which is outlined in Figure \ref{
 \begin{figure}
   \includegraphics[width=\columnwidth]{joss_fig.pdf}
   \caption{
-    An outline of the structure of a ROOT\cite{ROOT} output file \texttt{file.root}.
+    An outline of the structure of a ROOT[@ROOT] output file \texttt{file.root}.
     Everything is contained within a top-level key called \texttt{cascade}.
     Beneath \texttt{cascade} are several other keys, each pointing to an array.
     Each array element corresponds to one cascade; the same index will point to the same cascade across arrays.
@@ -78,7 +78,7 @@ steps of the cascade, the time between each state &mdash; to calculate how much 
 down &mdash; and the angle between the nucleus' momentum before a decay and the momentum boost
 (gamma ray) resulting from the decay &mdash; to calculate the resulting momentum.  The time
 between steps is simulated as an exponentially-distributed random variable based on the state's
-half-life\footnote{It is most correct to the half-life for the state given the state it will decay to. 
+half-life\footnote{It is most correct to use the half-life for the state given the state it will decay to. 
 However, these are not generally well-known unless the branching ratios are well-known. 
 If the ratios are well-known, then a correction can be made and incorporated into the input file.}, 
 and the angle is simulated as having a uniform distribution on the surface of a sphere.
@@ -129,8 +129,8 @@ data file.
        An overlaid histogram showing an example use case in which points are generated and then
        multiple yield models and resolutions are applied.  In this example, the x-axis represents the
        ionization energy "yielded" by the cascade; this is effectively a way of noting what the detector reads out
-       as opposed to what the pure kinetic energy of the cascade is.  The Lindhard yield\cite{lindhard} is
-       output by \texttt{nrCascadeSim} as \texttt{Ei}; the Sorenson yield\cite{sorenson} is applied to the values from \texttt{delE}.
+       as opposed to what the pure kinetic energy of the cascade is.  The Lindhard yield[@lindhard] is
+       output by \texttt{nrCascadeSim} as \texttt{Ei}; the Sorenson yield[@sorenson] is applied to the values from \texttt{delE}.
        Resolutions are applied by adding random values generated from a Gaussian distribution of fixed
        width to the energy yield.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width
        of their counterparts.  The y-axis represents the normalized frequency of energy yields.
