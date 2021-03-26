@@ -47,7 +47,7 @@ useful data to a single file, the structure of which is outlined in Figure \ref{
 \begin{figure}
   \includegraphics[width=\columnwidth]{joss_fig.pdf}
   \caption{
-    An outline of the structure of an output file \texttt{file.root}.
+    An outline of the structure of a ROOT\cite{ROOT} output file \texttt{file.root}.
     Everything is contained within a top-level key called \texttt{cascade}.
     Beneath \texttt{cascade} are several other keys, each pointing to an array.
     Each array element corresponds to one cascade; the same index will point to the same cascade across arrays.
