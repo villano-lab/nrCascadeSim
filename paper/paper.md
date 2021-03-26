@@ -38,7 +38,7 @@ it may go to another state with lower energy that is not the ground state (provi
 exists).  The cascade refers to the particular "path" of energy levels that a captured neutron
 takes to get to the ground state from the neutron separation energy. Currently the code assumes
 that the neutrons that enter the nuclear system have negligible (zero) kinetic energy; this is a
-good approximation for thermal neutrons because 0.0254\,eV (the average kinetic energy of a
+good approximation for thermal neutrons because 0.0254\ eV (the average kinetic energy of a
 thermal neutron) is small compared to most nuclear recoil energy scales.
 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
@@ -52,7 +52,7 @@ useful data to a single file, the structure of which is outlined in Figure \ref{
     Beneath \texttt{cascade} are several other keys, each pointing to an array.
     Each array element corresponds to one cascade; the same index will point to the same cascade across arrays.
     \texttt{n} notes the number of energy levels in the cascade.
-    \texttt{cid} is short for "cascade ID" and refers to the row number of the levelfile which was used to generate the cascade.
+    \texttt{cid} is short for "cascade ID" and refers to the row number of the levelfile which was used to generate the cascade, starting from zero.
     Each element of \texttt{Elev} is an array noting the energy levels used, given in eV.
     Similarly, \texttt{taus} notes the lifetimes used, given in attoseconds.
     Both \texttt{Elev} and \texttt{taus} will have entries with a length of the corresponding value of n,
