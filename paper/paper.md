@@ -25,10 +25,14 @@ nocite: '@*'
 
 # Summary
 
+<<<<<<< Updated upstream
 `nrCascadeSim` is a command-line tool for generating simulation data for energy deposits
 resulting from neutron capture on pure materials. Thus far silicon, germanium, neon, and argon are
 supported. While the software was developed for solid state detector calibration, it can be used
 for any application which requires simulated neutron capture-induced nuclear recoil data.
+=======
+NR Cascade Sim is a command-line tool for generating simulation data to represent energy deposits resulting from nuclear energy deposits in silicon, germanium, neon, or argon. While the software was developed for solid state detector calibration, it can be used for any application which requires simulated nuclear recoil data.
+>>>>>>> Stashed changes
 
 A "cascade" occurs when a neutron becomes part of a nucleus.  The neutron can be captured to one
 of many discrete energy levels, or states; if the energy level is nonzero (not the ground state),
