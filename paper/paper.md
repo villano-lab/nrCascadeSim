@@ -40,7 +40,7 @@ good approximation for thermal neutrons because 0.0254\,eV (the average kinetic 
 thermal neutron) is small compared to most nuclear recoil energy scales.
 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
-useful data to a single file, the structure of which is outlined in \ref{rootfile_fig}.
+useful data to a single file, the structure of which is outlined in Figure \ref{rootfile_fig}.
 
 \begin{figure}
   \includegraphics[width=\columnwidth]{joss_fig.pdf}
@@ -115,7 +115,7 @@ Included in the repository is an example `test-example/Yields_and_Resolutions.ip
 can follow to ensure the code is running correctly.  This example both applies a yield model to
 the individual energy deposits and applies variation intended to simulate the resolution of the
 detector.  The yield and resolution models are described in more detail in the example notebook.
-\ref{LindvSor_fig} shows overlaid histograms of different combinations of analysis on the same
+Figure \ref{LindvSor_fig} shows overlaid histograms of different combinations of analysis on the same
 data file.
 
 \begin{figure}
