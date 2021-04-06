@@ -26,7 +26,7 @@ nocite: '@*'
 # Summary
 
 Neutron capture-induced nuclear recoils have emerged as an important
-tool for detector calibrations in direct dark matter detection and coherent elastic neutrino-nucleus scattering (CE$\nu$NS).
+tool for detector calibrations in direct dark matter detection and coherent elastic neutrino-nucleus scattering (CE$\mathrm{\nu}$NS).
 `nrCascadeSim` is a command-line tool for generating simulation data for energy deposits
 resulting from neutron capture on pure materials. Presently, silicon, germanium, neon, and argon are
 supported. While the software was developed for solid state detector calibration, it can be used
@@ -94,7 +94,7 @@ Pre-defined energy level files exist for silicon and germanium, which are constr
 data in [@abundances] and [@nudat2].  Outputs include energy deposits at each step, total
 kinetic energy deposits, and ionization energy deposits, making them useful for a variety of
 applications, including nuclear recoil calibrations for dark matter direct detection or coherent
-neutrino detection (CE$\nu$NS).
+neutrino detection (CE$\mathrm{\nu}$NS).
 
 # Example Use Case
 
