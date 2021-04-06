@@ -6,7 +6,7 @@ tags:
   - Simulation
   - Nuclear Physics
 authors:
-  - name: Anthony Villano
+  - name: A.N. Villano
     affiliation: 1
     orcid: 0000-0002-3893-7259
   - name: Kitty Harris
