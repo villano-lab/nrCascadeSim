@@ -110,4 +110,6 @@ data file.
 
 # Acknowledgements
 
+This material is based upon work supported by the U.S. Department of Energy, Office of Science, Office of High Energy Physics (HEP) under Award Number DE-SC0021364.
+
 # References
