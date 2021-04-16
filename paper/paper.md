@@ -108,5 +108,8 @@ data file.
 
 ![An overlaid histogram showing an example use case in which points are generated and then multiple yield models and resolutions are applied.  In this example, the x-axis represents the ionization energy "yielded" by the cascade; this is effectively a way of noting what the detector reads out as opposed to what the pure kinetic energy of the cascade is.  The Lindhard yield [@lindhard] is output by \texttt{nrCascadeSim} as \texttt{Ei}; the Sorenson yield [@sorensen] is applied to the values from \texttt{delE}.Resolutions are applied by adding random values generated from a Gaussian distribution of fixed width to the energy yield.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts.  The y-axis represents the normalized frequency of energy yields.\label{LindvSor_fig}](SorVsLin_fig.pdf)
 
+# Acknowledgements
+
+This material is based upon work supported by the U.S. Department of Energy, Office of Science, Office of High Energy Physics (HEP) under Award Number DE-SC0021364.
 
 # References
