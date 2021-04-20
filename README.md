@@ -14,7 +14,7 @@ This program is designed to run in a Unix-based system and has been tested on Ub
 ## Dependencies
 
 Required:
-* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern.install/)
+* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern/install/)
 * gcc, which can be installed via the command line (ex: `sudo apt-get install gcc`).
 
 Optional:
