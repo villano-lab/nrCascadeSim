@@ -14,7 +14,7 @@ This program is designed to run in a Unix-based system and has been tested on Ub
 ## Dependencies
 
 Required:
-* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern/install/)
+* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern/install/). Intended compatible with all versions; known compatibile with version 6.
 * gcc, which can be installed via the command line (ex: `sudo apt-get install gcc`).
 
 Optional:
@@ -144,3 +144,9 @@ The *.root files store information in a tree-like structure. The top-most key in
 The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
 The length of each main array should be equal to the number of simulations; that is, 
 if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
+
+# For Contributors
+
+When submitting a pull request, please set the target at `develop`. 
+This allows us to assign version numbers appropriately.
+Thanks for contributing!
