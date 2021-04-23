@@ -18,6 +18,8 @@ dependencies:
   - anaconda::pytest
   - pip
   - pip:
+    - uproot
+    - awkward
     - svgpathtools
     - bootstrapped 
     - papermill
