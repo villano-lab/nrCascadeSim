@@ -1,25 +1,13 @@
-name: nrCascadeSim_env 
+name: nrCascadeSim
 dependencies:
   - python>=3.6
   - anaconda
   - numpy
   - scipy
-  - conda-forge::emcee
-  - pandas
-  - astropy::gammapy
-  - astropy::corner
   - matplotlib
-  - mpld3
-  - tabulate
-  - h5py
-  - lmfit
   - ipykernel
   - nb_conda_kernels
   - anaconda::pytest
   - pip
   - pip:
     - uproot
-    - awkward
-    - svgpathtools
-    - bootstrapped 
-    - papermill
