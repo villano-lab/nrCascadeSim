@@ -10,5 +10,5 @@ dependencies:
   - anaconda::pytest
   - pip
   - pip:
-    - uproot
+    - uproot==3.12.0
     - papermill 
