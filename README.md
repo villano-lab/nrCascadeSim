@@ -2,7 +2,7 @@
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels following neutron capture. 
 This code was written for use in nuclear recoil calibration for dark matter detectors, 
-but may be useful in other particle physics applications as well, including coherent neutrino detection.
+but may be useful in other particle physics applications as well, including coherent elastic neutrino nucleus scattering (CE&nu;NS).
 Currently, we use a constant acceleration model for the atom slowing down and calculation of the ionization energy.
 We also use the Lindhard model for calculating the ionization,
 but the output is complete enough to allow the user to choose their ionization yield model after simulation.
@@ -37,7 +37,7 @@ Optional:
 
 1) If ROOT is not part of the current environment, switch to an appropriate environment (ex: `conda activate name_of_root_env`)
 2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim/bin`)
-3) ./realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt
+3) Run `./realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt`
 
 # Instructions for Use
 
@@ -119,7 +119,6 @@ All other energy levels of the cascade, including the ground state, are listed i
 So, an entry of \[0\] indicates the straight-to-ground case,
 while an entry of [8104.8	2235.3	0] will capture to the 8104.8 keV energy level, decay to 2235.3 keV, and then finally go to the ground state.
 
-***Check that the below is correct!***
 The final column is formatted much as the forth one.
 It contains the lifetimes of the energy levels in attoseconds \[as\],
 or thousandths of femtoseconds.
@@ -147,8 +146,8 @@ The *.root files store information in a tree-like structure. The top-most key in
 * `Elev` - *Jagged Array* - **keV** - Array of energy level inputs. Each entry is an array of size `n`.
 * `taus` - *Jagged Array* - **as** - Array of lifetime inputs. Each entry is an array of size `n`.
 * `delE` - *Jagged Array* - **eV** - Array of energy deposits between energy levels. Each entry is an array of size `n - 1`. It contains the individual energy deposits, not the total energy deposit. If using a custom nonlinear ionization model, these are the best to operate on.
-* `I` - *Jagged Array* - Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges. ***Check this - how are these determined?***
-* `Ei` - *Jagged Array* - **eV** - Array of calculated ionization energy per step. These are conversions of delE. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here.
+* `I` - *Jagged Array* - Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges.
+* `Ei` - *Jagged Array* - **eV** - Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here.
 * `time` - *Jagged Array* - **as** - Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times.
 * `Eg` - *Jagged Array* - **eV** - Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit.
 
