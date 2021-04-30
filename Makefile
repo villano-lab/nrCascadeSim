@@ -21,6 +21,8 @@ GIT_VERSION = $(shell sh -c 'git describe --abbrev=4 --always')
 
 CFLAGS += -D__GIT_VERSION=\"$(GIT_VERSION)\"
 
+RUN_SCRIPT := $(shell mkdir -p 'bin/lib')
+
 all: $(BUILDDIR)/realizeCascades $(LIBDIROUT)/rootUtil.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/libncap.so
 
 $(LIBDIROUT)/isotope_info.o: $(SRCDIR)/isotope_info.c $(INCDIR)/isotope_info.h 
@@ -59,3 +61,4 @@ clean:
 	rm -f $(BUILDDIR)/realizeCascades
 	rm -f *.o
 	rm -f *.so
+	rm -rf $(LIBDIROUT)
