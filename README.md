@@ -1,6 +1,8 @@
 # Summary
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels following neutron capture. 
+This code was written for use in nuclear recoil calibration for dark matter detectors, 
+but may be useful in other particle physics applications as well, including coherent neutrino detection.
 Currently, we use a constant acceleration model for the atom slowing down and calculation of the ionization energy.
 We also use the Lindhard model for calculating the ionization,
 but the output is complete enough to allow the user to choose their ionization yield model after simulation.
@@ -15,11 +17,11 @@ This program is designed to run in a Unix-based system and has been tested on Ub
 
 Required:
 * CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern/install/). Intended compatible with all versions; known compatibile with version 6.
-* gcc, which can be installed via the command line (ex: `sudo apt-get install gcc`).
+* gcc, which can be installed via the command line (ex: `sudo apt-get install gcc`). Currently compatible with version 4.4.7 or newer.
 
 Optional:
 * Anaconda or conda, as optionally used in the ROOT installation process: [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
-* A package for reading *.root files (for Python, one example of this is [uproot](https://pypi.org/project/uproot/) `pip install uproot`)
+* A package for reading *.root files (for Python, one example of this is [uproot](https://pypi.org/project/uproot/) `pip install uproot` - if you choose to use uproot, ensure that you are using version 3.)
 
 ## Steps
 
@@ -34,7 +36,7 @@ Optional:
 # Quick Start
 
 1) If ROOT is not part of the current environment, switch to an appropriate environment (ex: `conda activate name_of_root_env`)
-2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim`)
+2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim/bin`)
 3) ./realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt
 
 # Instructions for Use
@@ -44,6 +46,9 @@ Currently, this is the only program in this package.
 It is possible for the user to create additional programs based on teh libraries included,
 and we may provide additional programs with the library in the future.
 
+Note that `./realizeCascades` must be run from the `bin` directory within the `nrCascadeSim` directory unless the user has added it to the path.
+Also note that `ROOT` must be present in the current environment for this command to work.
+
 ## Arguments
 
 All three of these arguments are required:
@@ -51,6 +56,12 @@ All three of these arguments are required:
 * `-o` specifies the location of the output file. (example: `-o ~/output.root`)
 * The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt`)
 Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt`
+
+(More detailed examples below.)
+
+## Examples
+
+
 
 # Levelfile (Input) Format
 
@@ -148,5 +159,5 @@ if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged
 # For Contributors
 
 When submitting a pull request, please set the target at `develop`. 
-This allows us to assign version numbers appropriately.
+This allows us to assign version numbers appropriately. 
 Thanks for contributing!
