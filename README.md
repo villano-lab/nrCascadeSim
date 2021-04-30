@@ -55,7 +55,11 @@ All three of these arguments are required:
 * The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt`)
 Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt`
 
-(For more detailed examples, see the "Exmaples" section.)
+(More detailed examples below.)
+
+## Examples
+
+
 
 # Levelfile (Input) Format
 
@@ -149,10 +153,6 @@ The *.root files store information in a tree-like structure. The top-most key in
 The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
 The length of each main array should be equal to the number of simulations; that is, 
 if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
-
-# Examples
-
-
 
 # For Contributors
 
