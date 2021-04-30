@@ -44,6 +44,9 @@ Currently, this is the only program in this package.
 It is possible for the user to create additional programs based on teh libraries included,
 and we may provide additional programs with the library in the future.
 
+Note that `./realizeCascades` must be run from the `bin` directory within the `nrCascadeSim` directory unless the user has added it to the path.
+Also note that `ROOT` must be present in the current environment for this command to work.
+
 ## Arguments
 
 All three of these arguments are required:
