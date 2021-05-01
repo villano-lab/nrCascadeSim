@@ -64,7 +64,7 @@ Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfile
 
 
 There is also a directory `example-usecase` containing one example of how data can be used once generated in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
-This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed. h
+This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
 The processed data in this notebook is an example of what might be used for neutron caputre-based calibration.
 
 # Levelfile (Input) Format
@@ -95,8 +95,8 @@ the same length as the previous list.
 ## Full Descriptions
 
 The first column is the probability of a cascade occuring. 
-This can be in scientific notation or a "standard" decimal (0.000671 or 6.71e-04).
-This should be weighted by the relative abundance of the material to other materials present in the same levelfile.
+This probability can be in scientific notation or a "standard" decimal (0.000671 or 6.71e-04).
+It should be weighted by the relative abundance of the material to other materials present in the same levelfile.
 It should also be weighted by the cross-section for interactions and the probability of the particular energy levels being reached.
 The sum of the probabilities must be less than or equal to one in order for the simulation to work properly.
 If the sum is less than one, the simulation may skip generating some points in the output
