@@ -14,7 +14,7 @@ install:
   - conda info -a
 
   - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
-  - source activate test-environment
+  - conda activate test-environment
 
   # Useful for debugging version of emcee 
   #- echo 'Conda searching emcee:'
