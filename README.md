@@ -52,16 +52,20 @@ Also note that `ROOT` must be present in the current environment for this comman
 ## Arguments
 
 All three of these arguments are required:
-* `-n` specfies the total number of cascade events to be simulated. (example: `-n 100000`)
-* `-o` specifies the location of the output file. (example: `-o ~/output.root`)
-* The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt`)
-Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt`
+* `-n` specfies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
+* `-o` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
+* The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
+Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
 (More detailed examples below.)
 
 ## Examples
 
 
+
+There is also a directory `example-usecase` containing one example of how data can be used once generated in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
+This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed. h
+The processed data in this notebook is an example of what might be used for neutron caputre-based calibration.
 
 # Levelfile (Input) Format
 
