@@ -14,8 +14,7 @@ install:
   - conda info -a
 
   - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
-  - conda init bash
-  - conda activate test-environment
+  - source activate test-environment
 
   # Useful for debugging version of emcee 
   #- echo 'Conda searching emcee:'
@@ -32,6 +31,7 @@ before_script: cd example-usecase
 script:
 - travis_wait 50 py.test
 - cd ../bin
+- conda activate test-environment
 - ./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
 
 
