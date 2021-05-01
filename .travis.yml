@@ -23,8 +23,7 @@ install:
   #- echo $TRAVIS_PYTHON_VERSION
   #- conda list |grep emcee 
 
-  - conda create -c conda-forge --name root_env root
-  - conda activate root_env
+  - conda install root -c conda-forge
   - make
 
 before_script: cd example-usecase 
