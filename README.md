@@ -36,7 +36,7 @@ Optional:
 # Quick Start
 
 1) If ROOT is not part of the current environment, switch to an appropriate environment (ex: `conda activate name_of_root_env`)
-2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim/bin`)
+2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim/`)
 3) Run `./realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt`
 
 # Instructions for Use
@@ -46,7 +46,7 @@ Currently, this is the only program in this package.
 It is possible for the user to create additional programs based on teh libraries included,
 and we may provide additional programs with the library in the future.
 
-Note that `./realizeCascades` must be run from the `bin` directory within the `nrCascadeSim` directory unless the user has added it to the path.
+Note that `./realizeCascades` must be run from the top-level `nrCascadeSim` directory unless the user has added it to the path.
 Also note that `ROOT` must be present in the current environment for this command to work.
 
 ## Arguments
