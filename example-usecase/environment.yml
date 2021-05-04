@@ -5,8 +5,8 @@ dependencies:
   - numpy
   - scipy
   - matplotlib
-  - ipykernel
-  - nb_conda_kernels
+#  - ipykernel
+#  - nb_conda_kernels
   - anaconda::pytest
   - pip
   - pip:
