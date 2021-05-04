@@ -7,8 +7,8 @@
 #everybody here needs root
 ROOTFLAGS=`root-config --cflags`
 
-#we also need # not cdmsbats
-BUILDDIR=bin
+TOPDIR=$(shell pwd)
+BUILDDIR=$(TOPDIR)/bin
 INCDIROUT=$(BUILDDIR)/include
 LIBDIROUT=$(BUILDDIR)/lib
 INCDIR=inc/
