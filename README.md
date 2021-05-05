@@ -1,6 +1,8 @@
 # Summary
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels following neutron capture. 
+This code was written for use in nuclear recoil calibration for dark matter detectors, 
+but may be useful in other particle physics applications as well, including coherent elastic neutrino nucleus scattering (CE&nu;NS).
 Currently, we use a constant acceleration model for the atom slowing down and calculation of the ionization energy.
 We also use the Lindhard model for calculating the ionization,
 but the output is complete enough to allow the user to choose their ionization yield model after simulation.
@@ -14,12 +16,12 @@ This program is designed to run in a Unix-based system and has been tested on Ub
 ## Dependencies
 
 Required:
-* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern.install/)
-* gcc, which can be installed via the command line (ex: `sudo apt-get install gcc`).
+* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern/install/). Intended compatible with all versions; known compatibile with version 6.
+* gcc, which can be installed via the command line (ex: `sudo apt-get install gcc`). Currently compatible with version 4.4.7 or newer.
 
 Optional:
 * Anaconda or conda, as optionally used in the ROOT installation process: [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
-* A package for reading *.root files (for Python, one example of this is [uproot](https://pypi.org/project/uproot/) `pip install uproot`)
+* A package for reading *.root files (for Python, one example of this is [uproot](https://pypi.org/project/uproot/) `pip install uproot` - if you choose to use uproot, ensure that you are using version 3.)
 
 ## Steps
 
@@ -34,8 +36,8 @@ Optional:
 # Quick Start
 
 1) If ROOT is not part of the current environment, switch to an appropriate environment (ex: `conda activate name_of_root_env`)
-2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim`)
-3) ./realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt
+2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim/`)
+3) Run `./realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt`
 
 # Instructions for Use
 
@@ -44,13 +46,26 @@ Currently, this is the only program in this package.
 It is possible for the user to create additional programs based on teh libraries included,
 and we may provide additional programs with the library in the future.
 
+Note that `./realizeCascades` must be run from the top-level `nrCascadeSim` directory unless the user has added it to the path.
+Also note that `ROOT` must be present in the current environment for this command to work.
+
 ## Arguments
 
 All three of these arguments are required:
-* `-n` specfies the total number of cascade events to be simulated. (example: `-n 100000`)
-* `-o` specifies the location of the output file. (example: `-o ~/output.root`)
-* The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt`)
-Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt`
+* `-n` specfies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
+* `-o` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
+* The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
+Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
+
+(More detailed examples below.)
+
+## Examples
+
+
+
+There is also a directory `example-usecase` containing one example of how data can be used once generated in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
+This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
+The processed data in this notebook is an example of what might be used for neutron caputre-based calibration.
 
 # Levelfile (Input) Format
 
@@ -80,8 +95,8 @@ the same length as the previous list.
 ## Full Descriptions
 
 The first column is the probability of a cascade occuring. 
-This can be in scientific notation or a "standard" decimal (0.000671 or 6.71e-04).
-This should be weighted by the relative abundance of the material to other materials present in the same levelfile.
+This probability can be in scientific notation or a "standard" decimal (0.000671 or 6.71e-04).
+It should be weighted by the relative abundance of the material to other materials present in the same levelfile.
 It should also be weighted by the cross-section for interactions and the probability of the particular energy levels being reached.
 The sum of the probabilities must be less than or equal to one in order for the simulation to work properly.
 If the sum is less than one, the simulation may skip generating some points in the output
@@ -108,7 +123,6 @@ All other energy levels of the cascade, including the ground state, are listed i
 So, an entry of \[0\] indicates the straight-to-ground case,
 while an entry of [8104.8	2235.3	0] will capture to the 8104.8 keV energy level, decay to 2235.3 keV, and then finally go to the ground state.
 
-***Check that the below is correct!***
 The final column is formatted much as the forth one.
 It contains the lifetimes of the energy levels in attoseconds \[as\],
 or thousandths of femtoseconds.
@@ -136,8 +150,8 @@ The *.root files store information in a tree-like structure. The top-most key in
 * `Elev` - *Jagged Array* - **keV** - Array of energy level inputs. Each entry is an array of size `n`.
 * `taus` - *Jagged Array* - **as** - Array of lifetime inputs. Each entry is an array of size `n`.
 * `delE` - *Jagged Array* - **eV** - Array of energy deposits between energy levels. Each entry is an array of size `n - 1`. It contains the individual energy deposits, not the total energy deposit. If using a custom nonlinear ionization model, these are the best to operate on.
-* `I` - *Jagged Array* - Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges. ***Check this - how are these determined?***
-* `Ei` - *Jagged Array* - **eV** - Array of calculated ionization energy per step. These are conversions of delE. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here.
+* `I` - *Jagged Array* - Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges.
+* `Ei` - *Jagged Array* - **eV** - Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here.
 * `time` - *Jagged Array* - **as** - Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times.
 * `Eg` - *Jagged Array* - **eV** - Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit.
 
