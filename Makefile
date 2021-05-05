@@ -7,8 +7,8 @@
 #everybody here needs root
 ROOTFLAGS=`root-config --cflags`
 
-#we also need # not cdmsbats
-BUILDDIR=bin
+TOPDIR=$(shell pwd)
+BUILDDIR=$(TOPDIR)/bin
 INCDIROUT=$(BUILDDIR)/include
 LIBDIROUT=$(BUILDDIR)/lib
 INCDIR=inc/
@@ -20,6 +20,8 @@ LIBFLAG= -L. -L$(LIBDIROUT)
 GIT_VERSION = $(shell sh -c 'git describe --abbrev=4 --always')
 
 CFLAGS += -D__GIT_VERSION=\"$(GIT_VERSION)\"
+
+RUN_SCRIPT := $(shell mkdir -p 'bin/lib')
 
 all: $(BUILDDIR)/realizeCascades $(LIBDIROUT)/rootUtil.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/libncap.so
 
@@ -59,3 +61,4 @@ clean:
 	rm -f $(BUILDDIR)/realizeCascades
 	rm -f *.o
 	rm -f *.so
+	rm -rf $(LIBDIROUT)
