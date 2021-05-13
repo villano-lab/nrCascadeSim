@@ -31,7 +31,5 @@ before_script: cd example-usecase
 script:
 - travis_wait 50 py.test
 #- cd ../bin
-#- ./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
-
-
-
+- bin/realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
+# run some kind of script that checks the output.
