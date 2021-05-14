@@ -13,7 +13,7 @@ install:
   # Useful for debugging any issues with conda
   - conda info -a
 
-  - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
+  - conda env create --debug -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
   - source activate test-environment
 
   # Useful for debugging version of emcee 
