@@ -1,13 +1,10 @@
 name: nrCascadeSim
 channels:
-  - conda-forge
+#  - conda-forge
   - default
 dependencies:
   - python>=3.6
   - anaconda
-  - numpy
-  - scipy
-  - matplotlib
 #  - ipykernel
 #  - nb_conda_kernels
   - anaconda::pytest
@@ -15,4 +12,7 @@ dependencies:
   - pip:
     - uproot==3.12.0
     - papermill
+    - numpy
+    - scipy
+    - matplotlib
 #  - root
