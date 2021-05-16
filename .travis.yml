@@ -13,9 +13,13 @@ install:
   # Useful for debugging any issues with conda
   - conda info -a
 
-  - conda config --set channel_priority strict
+  #- conda config --set channel_priority strict
   - conda env create --debug -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
   - source activate test-environment
+
+  - sudo apt-get install snap
+  - sudo snap install root-framework
+  - sudo run root-framework
 
   # Useful for debugging version of emcee 
   #- echo 'Conda searching emcee:'
