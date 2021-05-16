@@ -84,11 +84,13 @@ int main(int argc, char** argv) {
     {"outfile",   required_argument,  0, 'o'},
     {"quiet",     optional_argument,  0, 'q'},
     {"silent",    no_argument,        0, 's'},
+    {"seed",      required_argument,  0, 'd'},
     {"verbose",   optional_argument,  0, 'v'},
     {"version",   no_argument,        0, 'V'},
     {0,0,0,0},
   };
 
+  int cl = rand();
   int index;
   int iarg=0;
 
@@ -97,7 +99,7 @@ int main(int argc, char** argv) {
 
   while(iarg != -1)
   {
-    iarg = getopt_long(argc, argv, "+n:o:q::sv::V", longopts, &index);
+    iarg = getopt_long(argc, argv, "+n:o:q::sd:v::V", longopts, &index);
 
     switch (iarg)
     {
@@ -131,6 +133,11 @@ int main(int argc, char** argv) {
       case 's':
         quiet = true;
         dataquiet = true;
+        break;
+
+      case 'd':
+        cl = atoi(optarg);
+        cout << "Seed provided: " << cl << endl;
         break;
 
       case 'v':
@@ -174,15 +181,13 @@ int main(int argc, char** argv) {
   //setup, get a boolean and some random numbers
   bool success=false;
   srand(time(NULL));
-  int cl=rand();
-  cout << "A clock tick: " << cl << endl;
+  cout << "Seed used: " << cl << endl;
 
   MTRand *mtrand = new MTRand(cl);
 
   //get a root file and make 
   TFile *f = new TFile(outputfile.c_str(),"recreate");
   TTree *t = new TTree("cascade","cascade");
-
 
   //go through the input files
   for(int i=0;i<filenames.size();i++){
