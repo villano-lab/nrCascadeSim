@@ -15,7 +15,7 @@ install:
 
   #- conda config --set channel_priority strict
   - conda env create --debug -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
-  - conda env create -n piptest
+  - conda create -n piptest pip
   - source activate piptest
   - pip install -r example-usecase/requirements.txt
   - source activate test-environment
