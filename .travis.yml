@@ -29,7 +29,7 @@ install:
   #- echo $TRAVIS_PYTHON_VERSION
   #- conda list |grep emcee 
 
-  - conda install root -c conda-forge
+  - conda install root
   - make
 
 before_script: cd example-usecase 
