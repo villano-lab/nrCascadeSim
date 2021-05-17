@@ -29,7 +29,14 @@ install:
   #- echo $TRAVIS_PYTHON_VERSION
   #- conda list |grep emcee 
 
-  - conda install root
+#  - conda install root
+
+  # Get ROOT via binary
+  - wget https://root.cern/download/root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
+  - tar -xzvf root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
+  - sudo apt-get install make cmake gcc-c gcc binutils libX11-devel libXpm-devel libXft-devel libXext-devel openssl-devel
+  - source root/bin/thisroot.sh
+
   - make
 
 before_script: cd example-usecase 
