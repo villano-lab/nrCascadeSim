@@ -48,8 +48,7 @@ script:
 - travis_wait 50 py.test
 - cd ../
 - bin/realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
-
-after_script:
 - source activate piptest
-- python example-usecase/Yields_and_Resolutions.py
+- cd example-usecase
+- python Yields_and_Resolutions.py
 # run some kind of script that checks the output.
