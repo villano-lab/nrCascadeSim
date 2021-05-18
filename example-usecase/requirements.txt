@@ -5,3 +5,4 @@ ipykernel
 pytest
 uproot==3.12.0
 papermill
+nbconvert

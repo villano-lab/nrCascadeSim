@@ -42,13 +42,10 @@ install:
 
   - make
 
-before_script: cd example-usecase 
-
 script:
-- travis_wait 50 py.test
-- cd ../
 - bin/realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
-- source activate piptest
 - cd example-usecase
-- python Yields_and_Resolutions.py
-# run some kind of script that checks the output.
+- travis_wait 50 py.test
+- source activate piptest
+- travis_wait 50 py.test
+# run some kind of script that checks the output of realizeCascades
