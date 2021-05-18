@@ -61,11 +61,9 @@ Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfile
 
 ## Examples
 
-
-
 There is also a directory `example-usecase` containing one example of how data can be used once generated in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
 This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
-The processed data in this notebook is an example of what might be used for neutron caputre-based calibration.
+The processed data in this notebook is an example of what might be used for neutron capture-based calibration.
 
 # Levelfile (Input) Format
 
