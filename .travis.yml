@@ -45,5 +45,6 @@ script:
 - travis_wait 50 py.test
 - cd ../
 - bin/realizeCascades -n 100000 -o ~/output.root -d 1 levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
+- md5sum ~/output.root
 - md5sum ~/output.root | awk '{if ($1=="0ddc9079f9977be671e132c23e959644"){print"Checksum passed!"} else {exit 1}}'
 # run some kind of script that checks the output. md5sum should give 0ddc9079f9977be671e132c23e959644
