@@ -34,7 +34,8 @@ install:
   # Get ROOT via binary
   - wget https://root.cern/download/root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
   - tar -xzvf root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
-  - sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
+  - sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev md5sum
+  #^md5sum is for later, just installing while we're here.
   - source root/bin/thisroot.sh
 
   - make
@@ -44,5 +45,6 @@ before_script: cd example-usecase
 script:
 - travis_wait 50 py.test
 - cd ../
-- bin/realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
-# run some kind of script that checks the output.
+- bin/realizeCascades -n 100000 -o ~/output.root -d 1 levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
+- md5sum .travis.yml | awk '{if ($1=="0ddc9079f9977be671e132c23e959644"){print"Checksum passed!"} else {exit 1}}'
+# run some kind of script that checks the output. md5sum should give 0ddc9079f9977be671e132c23e959644
