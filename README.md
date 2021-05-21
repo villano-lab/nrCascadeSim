@@ -71,13 +71,13 @@ This surpresses various forms of metadata that result in changes to the binary e
 (See [ROOT's page on the TFile class](https://root.cern.ch/doc/master/classTFile.html#ad0377adf2f3d88da1a1f77256a140d60).)
 
 Unfortunately, the binary still seems to be influenced by the environment it is generated in,
-so at present there is no md5sum to compare to.
+so at present there is no md5sum to compare to that will work across all devices.
 
 ## Examples
 
 There is also a directory `example-usecase` containing one example of how data can be used once generated in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
 This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
-The processed data in this notebook is an example of what might be used for neutron caputre-based calibration.
+The processed data in this notebook is an example of what might be used for neutron capture-based calibration.
 
 # Levelfile (Input) Format
 
