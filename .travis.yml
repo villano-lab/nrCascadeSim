@@ -44,8 +44,6 @@ before_script: cd example-usecase
 script:
 - travis_wait 50 py.test
 - cd ../
-- bin/realizeCascades -n 100000 -o ~/output.root -d 1 levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
-- md5sum --version
-- md5sum ~/output.root
-- md5sum ~/output.root | awk '{if ($1=="63f7cd67f54ec825d6b3361f6f8acde8"){print"Checksum passed!"} else {exit 1}}'
-# run some kind of script that checks the output. md5sum should give 0ddc9079f9977be671e132c23e959644
+- bin/realizeCascades -n 100000 -o output.root -d 1 levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
+- md5sum output.root | awk '{if ($1=="cafd595aa3e650b317fd8c72ed60d963"){print"Checksum passed!"} else {exit 1}}'
+# NOTE that the checksum seems for some reason to be dependent on the relative path given
