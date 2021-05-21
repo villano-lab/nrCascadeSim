@@ -204,7 +204,7 @@ int main(int argc, char** argv) {
     cli *cascadeFile = readCascadeDistributionFile(numc,filenames[i],success);
 
     if(success){
-      if (!empty(logfile)){
+      if (!logfile.empty()){
         logging << "**************" << filenames[i] << "***************" << endl;
         logging << endl;
         for(int i=0;i<numc;i++){
@@ -229,7 +229,7 @@ int main(int argc, char** argv) {
       //calculate the first cascade
       for(int k=0;k<numc;k++){
 	      int nrealize = num*cascadeFile[k].frac;
-        if(!empty(logfile)){  
+        if(!logfile.empty()){  
           logging << "Realizing " << nrealize << " events of cascade ID " << cascadeFile[k].cid << endl;
                 cri *cascade_data;
                 cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
