@@ -57,7 +57,8 @@ void print_usage (FILE* stream, int exit_code)
            "                                     1,: no standard event output\n"
            "  -s, --silent                       silent, no standard out \n"
            "  -v, --verbose       <level>        Print verbose messages at level <level>\n"
-           "  -V, --version                      print version and exit\n");
+           "  -V, --version                      print version and exit\n"
+           "  -l, --log           <filename>     Log additional output to the specified file. If this option is not used, no logging will occur.\n");
 
   exit (exit_code);
 }
@@ -80,6 +81,7 @@ int main(int argc, char** argv) {
    
   const struct option longopts[] =
   {
+    {"log",       required_argument,  0, 'l'},
     {"numgen",    required_argument,  0, 'n'},
     {"outfile",   required_argument,  0, 'o'},
     {"quiet",     optional_argument,  0, 'q'},
@@ -93,16 +95,20 @@ int main(int argc, char** argv) {
   int cl = rand();
   int index;
   int iarg=0;
+  string logfile;
 
   //turn off getopt error message
   opterr=1; 
 
   while(iarg != -1)
   {
-    iarg = getopt_long(argc, argv, "+n:o:q::sd:v::V", longopts, &index);
+    iarg = getopt_long(argc, argv, "+l:n:o:q::sd:v::V", longopts, &index);
 
     switch (iarg)
     {
+      case 'l':
+        logfile = optarg;
+        break;
 
       case 'n':
         num = atoi(optarg);
@@ -189,43 +195,49 @@ int main(int argc, char** argv) {
   TFile *f = new TFile(outputfile.c_str(),"recreate");
   TTree *t = new TTree("cascade","cascade");
 
+  ofstream logging;
+  logging.open(logfile);
+
   //go through the input files
   for(int i=0;i<filenames.size();i++){
     int numc;
     cli *cascadeFile = readCascadeDistributionFile(numc,filenames[i],success);
 
     if(success){
-      cout << "**************" << filenames[i] << "***************" << endl;
-      cout << endl;
-      for(int i=0;i<numc;i++){
-        cout << "Cascade ID: " << i+1 << "/" << numc << endl;
-        cout << "Fraction of this cascade: " << cascadeFile[i].frac << endl;
-        cout << "Neutron separation: " << cascadeFile[i].Sn << endl;
-        cout << "Mass number: " << cascadeFile[i].A << endl;
-        cout << "Number of steps: " << cascadeFile[i].n << endl;
-        cout << endl;
-        cout << "Energy Levels (keV)\t|\ttau (fs)" << endl;
-        cout << "------------------------------------------------" << endl;
-        cout << setfill('0') << setw(5) << setprecision(5);
-        cout << "      *****       " << "\t \t" << " ***** " << endl;
-        for(int j=0;j<cascadeFile[i].n;j++){
-          cout << "      "<< cascadeFile[i].Elev[j] << "       " << "\t \t" << " "<< cascadeFile[i].taus[j] << " " << endl;
+      if (!empty(logfile)){
+        logging << "**************" << filenames[i] << "***************" << endl;
+        logging << endl;
+        for(int i=0;i<numc;i++){
+          logging << "Cascade ID: " << i+1 << "/" << numc << endl;
+          logging << "Fraction of this cascade: " << cascadeFile[i].frac << endl;
+          logging << "Neutron separation: " << cascadeFile[i].Sn << endl;
+          logging << "Mass number: " << cascadeFile[i].A << endl;
+          logging << "Number of steps: " << cascadeFile[i].n << endl;
+          logging << endl;
+          logging << "Energy Levels (keV)\t|\ttau (fs)" << endl;
+          logging << "------------------------------------------------" << endl;
+          logging << setfill('0') << setw(5) << setprecision(5);
+          logging << "      *****       " << "\t \t" << " ***** " << endl;
+          for(int j=0;j<cascadeFile[i].n;j++){
+            logging << "      "<< cascadeFile[i].Elev[j] << "       " << "\t \t" << " "<< cascadeFile[i].taus[j] << " " << endl;
+          }
+          logging << endl;
         }
-        cout << endl;
       }
 
       //**************************do stuff with this cascade realization********************
       //calculate the first cascade
       for(int k=0;k<numc;k++){
-	int nrealize = num*cascadeFile[k].frac;
-	cout << "Realizing " << nrealize << " events of cascade ID " << cascadeFile[k].cid << endl;
-        cri *cascade_data;
-        cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
-        cout << "Cascade realization " << k << " success: " << addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]) << endl; 
-  
-        freecriarray(nrealize,cascade_data);
-      //************************************************************************************
-
+	      int nrealize = num*cascadeFile[k].frac;
+        if(!empty(logfile)){  
+          logging << "Realizing " << nrealize << " events of cascade ID " << cascadeFile[k].cid << endl;
+                cri *cascade_data;
+                cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
+                logging << "Cascade realization " << k << " success: " << addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]) << endl; 
+          
+                freecriarray(nrealize,cascade_data);
+              //************************************************************************************
+        }
       }
       freecliarray(numc,cascadeFile);
     }
@@ -236,6 +248,8 @@ int main(int argc, char** argv) {
 
   }
 
+  logging.close();
+  
   t->Write("",TObject::kOverwrite);
   f->Close();
 
