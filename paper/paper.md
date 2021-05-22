@@ -40,9 +40,9 @@ multiple steps &mdash; that is, the captured neutron may go from its state to th
 it may go to another state with lower energy that is not the ground state (provided that one
 exists).  The cascade refers to the particular "path" of energy levels that a captured neutron
 takes to get to the ground state from the neutron separation energy. Currently the code assumes
-that the neutrons that enter the nuclear system have negligible (zero) kinetic energy; this is a
+that the neutrons that enter the nuclear system have zero kinetic energy; this is a
 good approximation for thermal neutrons because 0.0254\ eV (the average kinetic energy of a
-thermal neutron) is small compared to most nuclear recoil energy scales.
+thermal neutron) is small compared to most nuclear recoil energy scales, making it negligible.
 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
 useful data to a single file, the structure of which is outlined in Figure \ref{rootfile_fig}.
