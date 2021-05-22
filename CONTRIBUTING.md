@@ -1,5 +1,9 @@
 # Code of Conduct
 
+The following code of conduct must be followed in all places associated with this repository. This includes issues, pull requests, and all files contained within the repository.
+
+In addition to following GitHub's terms of service and any laws applicable to you, please:
+
 
 # Standards
 
@@ -12,6 +16,33 @@ When submitting pull requests,
 please default to submitting to the `develop` branch and never submit directly to the `master` branch. 
 This allows us to correctly manage versioning. 
 If you submit a pull request directly to the `master` branch, you will be asked to change the target to `develop` (or another applicable branch).
+
+All pull requests should be tested by Travis-CI. 
+Please note whether you updated the CI or whether no change was needed. 
+If for some reason a new, untested feature is implemented,
+but you are unable to implement the necessary CI, 
+explain why and how it can be manually tested.
+
+## Template
+The following template is not required, but if you do not use it, please be sure to include all answers to all of the questions in some other way.
+
+**Does your pull request resolve or partially resolve an issue?** 
+\# / No.
+
+**Does your pull request implement any breaking changes?**
+Yes / No.
+
+**If breaking changes are implemented, please describe:**
+
+**Testing:**  
+This pull request:
+[ ] Alters the existing CI in some way.
+[ ] Adds a new step to the CI.
+[ ] Does not introduce any features that the CI could not already test.
+[ ] Is not accompanied by necessary CI changes due to some limitation described below. (Please also describe how new features can be manually tested.)
+
+**Other information:**
+Anything else you want to say.
 
 # GitHub Issues
 
@@ -114,16 +145,13 @@ An issue is not a documentation issue if:
 
 I am submitting a **documentation issue**.
 
-**The file affected is:**
-
+**The file(s) in question is/are:**
 README.md / CONTRIBUTING.md / LICENSE / etc.
 
 **The problem is in the following category/categories:**
-
 Clarity / Examples / Broken links and images / Typos, spelling, and grammar / Undocumented Information / Out-of-date / Other
 
 **Description of the problem:**
-
-Describe whatever is wrong with the docuemntation.
+Describe whatever is wrong with the documentation or could otherwise be improved.
 
 # GitHub Discussions
