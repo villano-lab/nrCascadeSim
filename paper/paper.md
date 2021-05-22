@@ -45,9 +45,7 @@ good approximation for thermal neutrons because 0.0254\ eV (the average kinetic 
 thermal neutron) is small compared to most nuclear recoil energy scales, making it negligible.
 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
-useful data to a single file, the structure of which is outlined in Figure \ref{rootfile_fig}.
-
-![An outline of the structure of a ROOT [@ROOT] output file named \texttt{file.root}. Everything is contained within a top-level key called \texttt{cascade}. Beneath \texttt{cascade} are several other keys, each pointing to an array. Each array element corresponds to one cascade; the same index will point to the same cascade across arrays. \texttt{n} notes the number of energy levels in the cascade. \texttt{cid} is short for "cascade ID" and refers to the row number of the levelfile which was used to generate the cascade, starting from zero. Each element of \texttt{Elev} is an array noting the energy levels used, given in eV. Similarly, \texttt{taus} notes the lifetimes of these states used, given in attoseconds. Both \texttt{Elev} and \texttt{taus} will have entries with a length of the corresponding value of n, so if \texttt{n[3]} is four then the lengths of \texttt{Elev[3]} and \texttt{taus[3]} will both be four. \texttt{delE} lists the energies deposited during the cascade in eV, and will always a length of one less than n. \texttt{I} calculates the ionization in terms of a number of charges, and \texttt{Ei} combines \texttt{I} with \texttt{delE} to list the ionization energy in eV. \texttt{time} describes the simulation-generated time that the neutron spent at each energy level, in attoseconds, and has a length corresponding to n. \texttt{Eg} provides gamma energies associated with each decay, in MeV, and has a length corresponding to one less than n. The gamma energies are not included in any of the other energy arrays. \label{rootfile_fig}](joss_fig.pdf)
+useful data to a single file.
 
 # Models Used
 
@@ -73,7 +71,7 @@ for a cascade as well as the energy per step.  For some applications, this may b
 output, or the user may already have a particular process they will use for converting this
 energy to what they wish to measure.  However, we also include, for convenience, the ionization yield
 and ionization energy of these recoils.  This ionization yield assumes the Lindhard
-model[@lindhard]:
+model [@lindhard]:
 
 $$
 \begin{array}{rcl}

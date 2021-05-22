@@ -25,9 +25,9 @@ Optional:
 
 ## Steps
 
-1) [Download](https://github.com/villano-lab/nrCascadeSim/archive/master.zip) or clone (`git clone https://github.com/villano-lab/nrCascadeSim.git`) the master branch of this repository
-    * If downloaded as a zip, unzip the file (`unzip "nrCascadeSim-master.zip"`)
-    * Download/clone to the location you want the final installation to be
+1) [Download](https://github.com/villano-lab/nrCascadeSim/archive/master.zip) or clone (`git clone https://github.com/villano-lab/nrCascadeSim.git`) the master branch of this repository.
+    * If downloaded as a zip, unzip the file (`unzip "nrCascadeSim-master.zip"`).
+    * Download/clone to the location you want the final installation to be.
 2) Install dependencies
 3) Enter the new directory (`cd nrCascadeSim`)
 4) Either add ROOT to the current enviornment or switch to an environment in which it is active (see [ROOT instalation instructions](https://root.cern/install/))
@@ -156,3 +156,6 @@ The *.root files store information in a tree-like structure. The top-most key in
 The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
 The length of each main array should be equal to the number of simulations; that is, 
 if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
+
+
+![An visual outline of the structure of a ROOT [@ROOT] output file named \texttt{file.root}. Everything is contained within a top-level key called \texttt{cascade}. Beneath \texttt{cascade} are several other keys, as described above.](joss_fig.pdf)
