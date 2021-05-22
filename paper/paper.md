@@ -28,8 +28,8 @@ nocite: '@*'
 Neutron capture-induced nuclear recoils have emerged as an important
 tool for detector calibrations in direct dark matter detection and coherent elastic neutrino-nucleus scattering (CE$\mathrm{\nu}$NS).
 
-`nrCascadeSim` is a command-line tool for generating simulation data for energy deposits
-resulting from neutron capture on pure materials. Presently, silicon, germanium, neon, and argon are
+`nrCascadeSim` is a C++ command-line tool for generating simulation data for energy deposits
+resulting from neutron capture on pure materials. Presently, capture events within silicon, germanium, neon, and argon are
 supported. While the software was developed for solid state detector calibration, it can be used
 for any application which requires simulated neutron capture-induced nuclear recoil data.
 
