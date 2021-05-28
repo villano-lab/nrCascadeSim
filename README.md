@@ -157,7 +157,7 @@ The ordering of values in the arrays are consistent; that is, the nth entry of `
 The length of each main array should be equal to the number of simulations; that is, 
 if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
 
-![A visual outline of the structure of a ROOT output file named `file.root`. Everything is contained within a top-level key called `cascade`. Beneath `cascade` are several other keys, as described above.](output_structure.pdf)
+![A visual outline of the structure of a ROOT output file named `file.root`. Everything is contained within a top-level key called `cascade`. Beneath `cascade` are several other keys, as described above.](output_structure.svg)
 
 ## Ionization
 
