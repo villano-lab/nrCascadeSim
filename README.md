@@ -157,5 +157,15 @@ The ordering of values in the arrays are consistent; that is, the nth entry of `
 The length of each main array should be equal to the number of simulations; that is, 
 if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
 
+![A visual outline of the structure of a ROOT output file named `file.root`. Everything is contained within a top-level key called `cascade`. Beneath `cascade` are several other keys, as described above.](output_structure.pdf)
 
-![An visual outline of the structure of a ROOT [@ROOT] output file named \texttt{file.root}. Everything is contained within a top-level key called \texttt{cascade}. Beneath \texttt{cascade} are several other keys, as described above.](joss_fig.pdf)
+## Ionization
+
+Ionization assumes the [Lindhard](https://www.osti.gov/biblio/4701226) model:
+
+  Y = k*g(&epsilon;)/(1+kg(&epsilon;))  
+  g(&epsilon;) = a\*&epsilon;<sup>&gamma;</sup> + b\*&epsilon;<sup>&omega;</sup> + &epsilon;  
+  &epsilon;(E<sub>r</sub>) = 11.5E<sub>r</sub>\[keV\]Z<sup>-7/3</sup>
+
+Using the accepted value for Silicon (*k = 0.143*) or Germanium (*k = 0.159*), whichever is
+appropriate; *a = 3*; *b = 0.7*; *&gamma; = 0.15*; and *&omega; = 0.6*.

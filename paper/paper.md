@@ -70,19 +70,11 @@ The above process models the recoil energies, and the output gives both the tota
 for a cascade as well as the energy per step.  For some applications, this may be the desired
 output, or the user may already have a particular process they will use for converting this
 energy to what they wish to measure.  However, we also include, for convenience, the ionization yield
-and ionization energy of these recoils.  This ionization yield assumes the Lindhard
-model [@lindhard]:
-
-$$
-\begin{array}{rcl}
-  Y & = & \frac{kg_{(\epsilon)}}{1+kg_{(\epsilon)}} \\
-  g_{(\epsilon)} & = & a\epsilon^\gamma + b\epsilon^w + \epsilon \\
-  \epsilon_{(E_r)} & = & 11.5E_r[keV]Z^{-7/3}
-\end{array}
-$$
-
-Using the accepted value for Silicon ($k=0.143$) or Germanium ($k=0.159$), whichever is
-appropriate; $a=3$; and $b=0.7$.
+and ionization energy of these recoils.  Ionization yield is a fraction that, when multiplied by the 
+energy, gives the ionization energy, and ionization energy is the amount of energy that would be 
+read out if an otherwise equivalent electron recoil were to occur. This calculation is useful because
+many solid-state detectors read out the ionization energy for nuclear recoils. This ionization yield $Y$
+assumes the Lindhard model [@lindhard].
 
 # Statement of Need
 
