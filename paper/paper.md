@@ -73,8 +73,14 @@ energy to what they wish to measure.  However, we also include, for convenience,
 and ionization energy of these recoils.  Ionization yield is a fraction that, when multiplied by the 
 energy, gives the ionization energy, and ionization energy is the amount of energy that would be 
 read out if an otherwise equivalent electron recoil were to occur. This calculation is useful because
-many solid-state detectors read out the ionization energy for nuclear recoils. This ionization yield $Y$
+many solid-state detectors read out the ionization energy for nuclear recoils. This ionization yield
 assumes the Lindhard model [@lindhard].
+
+Figure \ref{LindvSor_fig} compares the normalized frequencies of ionization energies from the Lindhard [@lindhard] 
+model with the Sorensen [@sorensen] yield model, which is applied after the simulation using python, and applies 
+detector resolution models applied to both. This figure demonstrates one example of user-applied analysis utilizing 
+the energy deposits at each step instead of the ionization energy.
+![An overlaid histogram showing an example use case in which points are generated and then multiple yield models and resolutions are applied.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts. \label{LindvSor_fig}](SorVsLin_fig.pdf)
 
 # Statement of Need
 
@@ -86,17 +92,6 @@ data in [@abundances] and [@nudat2].  Output values include energy deposits at e
 kinetic energy deposits, and ionization energy deposits, making them useful for a variety of
 applications, including nuclear recoil calibrations for dark matter direct detection or coherent
 neutrino detection (CE$\mathrm{\nu}$NS).
-
-# Example Use Case
-
-Included in the repository is an example `test-example/Yields_and_Resolutions.ipynb` which users
-can follow to ensure the code is running correctly.  This example both applies multiple yield models &mdash; Lindhard [@lindhard] and Sorensen [@sorensen] &mdash; to
-the individual energy deposits and applies variations intended to simulate the resolution of the
-detector.  It also normalizes the frequencies for each bin of energy yields. The yield and resolution models are described in more detail in the example notebook.
-Figure \ref{LindvSor_fig} shows overlaid histograms of different combinations of analysis on the same
-data file.
-
-![An overlaid histogram showing an example use case in which points are generated and then multiple yield models and resolutions are applied.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts. \label{LindvSor_fig}](SorVsLin_fig.pdf)
 
 # Acknowledgements
 
