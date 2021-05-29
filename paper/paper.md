@@ -94,7 +94,7 @@ applications, including nuclear recoil calibrations for dark matter direct detec
 neutrino detection (CE$\mathrm{\nu}$NS).
 
 While the GEANT4 [@Geant4] framework allows users to simulate neutron capture, it is not built specifically for
-neutron capture-based nuclear recoils as NR Cascade Sim is, and therefore uses some underlying assumptions that 
+neutron capture-based nuclear recoils as NR Cascade Sim is and therefore uses some underlying assumptions that 
 NR Cascade Sim does not. The main approximation used in GEANT4 that we avoid in NR Cascade Sim is that all recoils 
 decay directly to the ground state. While this works for some applications, it is necessary to be more precise 
 when an accurate spectrum of neutron capture-based recoils is needed for analyses such as calibration or noise subtraction.
