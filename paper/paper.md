@@ -85,6 +85,7 @@ Figure \ref{LindvSor_fig} compares the normalized frequencies of ionization ener
 model with the Sorensen [@sorensen] yield model, which is applied after the simulation using python, and applies 
 detector resolution models applied to both. This figure demonstrates one example of user-applied analysis utilizing 
 the energy deposits at each step instead of the ionization energy.
+
 ![An overlaid histogram showing an example use case in which points are generated and then multiple yield models and resolutions are applied.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts. \label{LindvSor_fig}](SorVsLin_fig.pdf)
 
 # Statement of Need
