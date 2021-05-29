@@ -84,7 +84,7 @@ the energy deposits at each step instead of the ionization energy.
 
 # Statement of Need
 
-`nrCascadeSim` allows users to generate nuclear recoil simulations that reflect a variety of physical detector setups.
+`nrCascadeSim` allows users to generate nuclear recoil simulations that reflect a variety of single-element detector setups.
 The energy levels that the recoiling nuclei may pass between and their respective lifetimes are
 customizable, and multiple isotopes of the same element can be present within the same simulation.
 Pre-defined energy level files exist for Silicon and Germanium, which are constructed from the
@@ -92,6 +92,12 @@ data in [@abundances] and [@nudat2].  Output values include energy deposits at e
 kinetic energy deposits, and ionization energy deposits, making them useful for a variety of
 applications, including nuclear recoil calibrations for dark matter direct detection or coherent
 neutrino detection (CE$\mathrm{\nu}$NS).
+
+While the GEANT4 [@Geant4] framework allows users to simulate neutron capture, it is not built specifically for
+neutron capture-based nuclear recoils as NR Cascade Sim is, and therefore uses some underlying assumptions that 
+NR Cascade Sim does not. The main approximation used in GEANT4 that we avoid in NR Cascade Sim is that all recoils 
+decay directly to the ground state. While this works for some applications, it is necessary to be more precise 
+when an accurate spectrum of neutron capture-based recoils is needed for analyses such as calibration or noise subtraction.
 
 # Acknowledgements
 
