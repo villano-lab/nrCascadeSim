@@ -19,6 +19,7 @@ You can report code of conduct violations to a maintainer (@gerudo7 or @villaa) 
 
 All features of nrCascadeSim should be tested with Travis-CI wherever possible. 
 This is done through the top-level `.travis.yml` file.
+You can find Travis-CI's docs [here](https://docs.travis-ci.com/).
 
 
 # Pull Requests
