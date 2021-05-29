@@ -17,7 +17,8 @@ You can report code of conduct violations to a maintainer (@gerudo7 or @villaa) 
 
 # Standards
 
-
+All features of nrCascadeSim should be tested with Travis-CI wherever possible. 
+This is done through the top-level `.travis.yml` file.
 
 
 # Pull Requests
@@ -27,7 +28,7 @@ please default to submitting to the `develop` branch and never submit directly t
 This allows us to correctly manage versioning. 
 If you submit a pull request directly to the `master` branch, you will be asked to change the target to `develop` (or another applicable branch).
 
-All pull requests should be tested by Travis-CI. 
+All pull requests will be automatically by Travis-CI. 
 Please note whether you updated the CI or whether no change was needed. 
 If for some reason a new, untested feature is implemented,
 but you are unable to implement the necessary CI, 
