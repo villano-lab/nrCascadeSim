@@ -165,6 +165,3 @@ Clarity / Examples / Broken links and images / Typos, spelling, and grammar / Un
 
 **Description of the problem:**
 Describe whatever is wrong with the documentation or could otherwise be improved.
-
-# GitHub Discussions
-
