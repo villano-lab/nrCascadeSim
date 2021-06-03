@@ -52,14 +52,21 @@ Also note that `ROOT` must be present in the current environment for this comman
 ## Arguments
 
 All three of these arguments are required:
-* `-n` specfies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
+* `-n` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
 * `-o` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
 * The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
 Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
-(More detailed examples below.)
+The following arguments are optional:
+* `-d` takes a positive integer provided and uses it as the random number seed. This can be useful for troubleshooting or replication. (example: `-d 123` to use the seed `123`.)
+* `-l` takes a filepath and prints additional logging information about the cascades to that file. Paths may be absolute or relative. (example: `-l example.log` to create a log file `example.log` in the working directory.) An example log file is included (`example.log`) at the top level of the repository.
+* `-s` prevents all standard out printing.
+* `-v` prints at the "verbose" level.
+* `-V` prints the version number and exits.
 
 ## Examples
+
+
 
 There is also a directory `example-usecase` containing one example of how data can be used once generated in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
 This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
@@ -69,8 +76,8 @@ The processed data in this notebook is an example of what might be used for neut
 
 The levelfile is a singular text file read by the program using regular expressions.
 Each row in a levelfile corresponds to one cascade, 
-which should include a relative weight for the probability of the cascade's occurence.
-While it is helfpul to create columns that are easy for the user to read,
+which should include a relative weight for the probability of the cascade's occurrence.
+While it is helpful to create columns that are easy for the user to read,
 columns can be delineated by any number of spaces.
 
 The general format of one row of an input file is:
@@ -156,3 +163,7 @@ The *.root files store information in a tree-like structure. The top-most key in
 The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
 The length of each main array should be equal to the number of simulations; that is, 
 if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
+
+---
+
+*Last updated 3 June, 2021, v1.0.6*
