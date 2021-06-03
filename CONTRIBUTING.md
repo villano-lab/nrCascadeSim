@@ -1,25 +1,71 @@
 # Code of Conduct
 
-The following code of conduct must be followed in all places associated with this repository. This includes issues, pull requests, and all files contained within the repository. It applies to all contributors and community members.
+The following code of conduct must be followed in all places associated with this repository itself. This includes issues, pull requests, and all files contained within the repository. The code of conduct applies to all contributors and community members.
 
 In addition to following GitHub's terms of service and any laws applicable to you, please:
 * Do your best to properly attribute any copied, vendored, or otherwise "borrowed" code. In particular, make sure to provide LICENSE files when necessary.
-* Be curteous to other contributors/community members.
+* Be courteous to other contributors/community members.
 * Do not make major changes to LICENSE or CONTRIBUTING.md
     * Clarifications and spelling/grammar fixes are fine; modifying the rules is not.
 * Avoid vulgar or offensive language.
 * Stay on-topic; all discussion, including issues and pull requests, must relate to this repository in some way, and should not focus on something other than the code and its modification.
 * No malicious code/malware of any kind, including but not limited to ransomware, adware, bloatware, and spyware.
 
-Failure to comply with this code of conduct could result in having your access to the community restricted, such as having offending posts removed or being barred from further submission.
+Failure to comply with this code of conduct could result in having your access to the community restricted, such as having offending posts removed or being barred from further submissions.
 
 You can report code of conduct violations to a maintainer (@gerudo7 or @villaa) or the @villano-lab group via direct message or email. If you see a violation of GitHub's ToS or of a local or federal law, please report it to the appropriate authorities first. Thanks!
 
 # Standards
 
 All features of nrCascadeSim should be tested with Travis-CI wherever possible. 
-This is done through the top-level `.travis.yml` file.
+This is done through the top-level `.travis.yml` file. 
 You can find Travis-CI's docs [here](https://docs.travis-ci.com/).
+
+Addition of features should be accompanied by some form of documentation outlining the use of 
+the new features. Similarly, if a feature is altered, documentation should be adjusted to match.
+
+Variable and function names should relate to what the variable or function is doing.  
+**Unacceptable:** `func` - Name does not describe what the function does at all.  
+**Acceptable:** `calculate` - The name indicates a category (that the function calculates something), but it is still vague.  
+**Best:** `integrate` - The name clearly indicates what the function does (take an integral).
+
+*(Spot something that's not up to our standards? Submit an issue or pull request!)*
+
+## C/C++ Standards
+
+Keep code neatly organized:
+* Leave space before and after multi-line function definitions
+* Indent code within braces, one indent per nested brace
+* Avoid long lines of code where it's possible to break the code up into multiple lines instead.
+
+Example:
+
+```C++
+int n = 0;
+
+int multiply(float a, float b){
+    return a*b;
+};
+
+void main(int n) {
+    if (1 == 1){
+        while (n < 3){
+            n += 1;
+            multiply(1,1);
+        }
+    }
+};
+```
+
+## Documentation Standards
+
+All functions accessible to the user should have at least one example provided, 
+possibly more if the usage is complex or varies significantly.
+
+All variables and options available to the user should be clearly defined.
+
+Documentation files should, at the end of the file, note the date corresponding to the 
+last time they were updated as well as the relevant version number.
 
 
 # Pull Requests
@@ -165,3 +211,7 @@ Clarity / Examples / Broken links and images / Typos, spelling, and grammar / Un
 
 **Description of the problem:**
 Describe whatever is wrong with the documentation or could otherwise be improved.
+
+---
+
+*Last updated 2 June, 2021, v1.0.6*
