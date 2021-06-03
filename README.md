@@ -30,7 +30,7 @@ Optional:
     * Download/clone to the location you want the final installation to be
 2) Install dependencies
 3) Enter the new directory (`cd nrCascadeSim`)
-4) Either add ROOT to the current enviornment or switch to an environment in which it is active (see [ROOT instalation instructions](https://root.cern/install/))
+4) Either add ROOT to the current environment or switch to an environment in which it is active (see [ROOT installation instructions](https://root.cern/install/))
 5) Run the command `make`
 
 # Quick Start
@@ -46,7 +46,8 @@ Currently, this is the only program in this package.
 It is possible for the user to create additional programs based on teh libraries included,
 and we may provide additional programs with the library in the future.
 
-Note that `./realizeCascades` must be run from the top-level `nrCascadeSim` directory unless the user has added it to the path.
+Note that `./realizeCascades` must be run from the `bin` directory within `nrCascadeSim` directory unless the user has added it to the path, 
+or you will need to include the path when calling the executable.
 Also note that `ROOT` must be present in the current environment for this command to work.
 
 ## Arguments
@@ -54,8 +55,8 @@ Also note that `ROOT` must be present in the current environment for this comman
 All three of these arguments are required:
 * `-n` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
 * `-o` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
-* The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
-Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
+* The main argument (no prefix) specifies the input file. (example: `../levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
+Making the full example: `./realizeCascades -n 100000 -o ~/output.root ../levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
 The following arguments are optional:
 * `-d` takes a positive integer provided and uses it as the random number seed. This can be useful for troubleshooting or replication. (example: `-d 123` to use the seed `123`.)
