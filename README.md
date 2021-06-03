@@ -16,11 +16,11 @@ This program is designed to run in a Unix-based system and has been tested on Ub
 ## Dependencies
 
 Required:
-* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern/install/). Intended compatible with all versions; known compatibile with version 6.
+* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern/install/). Intended compatible with all versions; known compatible with version 6.
 * gcc, which can be installed via the command line (ex: `sudo apt-get install gcc`). Currently compatible with version 4.4.7 or newer.
 
 Optional:
-* Anaconda or conda, as optionally used in the ROOT installation process: [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
+* Anaconda or Conda, as optionally used in the ROOT installation process: [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
 * A package for reading *.root files (for Python, one example of this is [uproot](https://pypi.org/project/uproot/) `pip install uproot` - if you choose to use uproot, ensure that you are using version 3.)
 
 ## Steps
@@ -30,7 +30,7 @@ Optional:
     * Download/clone to the location you want the final installation to be
 2) Install dependencies
 3) Enter the new directory (`cd nrCascadeSim`)
-4) Either add ROOT to the current enviornment or switch to an environment in which it is active (see [ROOT instalation instructions](https://root.cern/install/))
+4) Either add ROOT to the current environment or switch to an environment in which it is active (see [ROOT installation instructions](https://root.cern/install/))
 5) Run the command `make`
 
 # Quick Start
@@ -52,12 +52,11 @@ Also note that `ROOT` must be present in the current environment for this comman
 ## Arguments
 
 All three of these arguments are required:
-* `-n` specfies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
+* `-n` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
 * `-o` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
 * The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
-Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
-(More detailed examples below.)
+This makes the full example `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
 ## Examples
 
@@ -69,13 +68,13 @@ The processed data in this notebook is an example of what might be used for neut
 
 The levelfile is a singular text file read by the program using regular expressions.
 Each row in a levelfile corresponds to one possible cascade, 
-which should include a relative weight for the probability of the cascade's occurence.
-While it is helfpul to create columns that are easy for the user to read,
+which should include a relative weight for the probability of the cascade's occurrence.
+While it is helpful to create columns that are easy for the user to read,
 columns can be delineated by any number of spaces.
 
 The general format of one row of an input file is:
 
-weight isotope A [..,E2,E1,E0] [..,tau2,tau1,inf]
+`weight isotope A [..,E2,E1,E0] [..,tau2,tau1,inf]`
 
 Each portion of this row is described below.
 
@@ -115,7 +114,7 @@ weight? 31Si 31 [4999 0]    [0.15   100000000000000.0]
 weight? 31Si 31 [540  0]    [.954   100000000000000.0]
 ```
 
-Let's say the probabilities of the cascade occuring *within the respective isotopes* are as below:
+Let's say the probabilities of the cascade occurring *within the respective isotopes* are as below:
 
 | 29Si: | `[0]` | `[5000    0]` | `[3000    0]` | 
 | ---   | ---   | ---           |           --- |
