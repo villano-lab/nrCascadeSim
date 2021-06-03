@@ -79,13 +79,13 @@ weight isotope A [..,E2,E1,E0] [..,tau2,tau1,inf]
 
 Each portion of this row is described below.
 
-| `Name` | `Format` | Description |
-| ---   | ---   | --- |
-|`weight` | `#.##` or `#e+/-##` | The probability of this cascade occuring, normalized to unity with all other cascades. This variable includes a weight for the isotope's abundance compared to other isotopes listed within the same levelfile. (If only one isotope is present within the levelfile, the abundance weight is not needed.) Weights can be given in decimal form or scientific notation (e.g. 0.000671 or 6.71e-04). |
-| `isotope` | `##Xx` | The isotope of the nucleus *after* capture. (For example, if 28Si is present, it will become 29Si, so 29Si should be listed.) This should be formatted as two numbers, one capital letter, and one lower-case letter (e.g. 29Si, 74Ge).|
-| `A` | `##` | The number of particles in the nucleus after capture. This should match the first two digits of `isotope`. For example, if `isotope` is 72Ge, `A` should be 72. |
-| `energies` | `[... E2 E1 0]`| An ordered list of the energy levels traversed (keV), including the ground state (0 keV), separated by spaces. These should be in the decreasing order, the order in which the nucleus will go through the states. Do not include the separation energy to account for the initial unbound state before capture; this is already assumed.|
-| `lifetimes` | `[... tau2 tau1 inf]` | An ordered list of the lifetimes of the energy levels traversed (as), separated by spaces. It must be the same length as the list of energies, and the lifetimes should be in the same order as the energies. The last entry is `100000000000000.0` (1e+14 as, or 1 ms), which is effectively infinite on the timescale of the simulation, to indicate that the state is stable at the ground state.|
+| `Name`    | `Format`              | Description   |
+| ---       | ---                   | ---           |
+|`weight`   | `#.##` or `#e+/-##`   | The probability of this cascade occuring, normalized to unity with all other cascades. This variable includes a weight for the isotope's abundance compared to other isotopes listed within the same levelfile. (If only one isotope is present within the levelfile, the abundance weight is not needed.) Weights can be given in decimal form or scientific notation (e.g. 0.000671 or 6.71e-04). |
+| `isotope` | `##Xx`                | The isotope of the nucleus *after* capture. (For example, if 28Si is present, it will become 29Si, so 29Si should be listed.) This should be formatted as two numbers, one capital letter, and one lower-case letter (e.g. 29Si, 74Ge).|
+| `A`       | `##`                  | The number of particles in the nucleus after capture. This should match the first two digits of `isotope`. For example, if `isotope` is 72Ge, `A` should be 72. |
+| `energies`| `[... E2 E1 0]`       | An ordered list of the energy levels traversed (keV), including the ground state (0 keV), separated by spaces. These should be in the decreasing order, the order in which the nucleus will go through the states. Do not include the separation energy to account for the initial unbound state before capture; this is already assumed.|
+| `lifetimes`| `[... tau2 tau1 inf]`| An ordered list of the lifetimes of the energy levels traversed (as), separated by spaces. It must be the same length as the list of energies, and the lifetimes should be in the same order as the energies. The last entry is `100000000000000.0` (1e+14 as, or 1 ms), which is effectively infinite on the timescale of the simulation, to indicate that the state is stable at the ground state.|
 
 ## On Weights
 
@@ -188,19 +188,18 @@ One straightforward way of reading these files is with python and the [uproot](h
 
 The *.root files store information in a tree-like structure. The top-most key in the output files will be `cascade` (there are no other top-level keys). Beneath this, the following keys exist:  
 
-| `Name` | *Shape* | **Units**| Description |
-| ---   | ---   | ---   | ---   |
-| `n` | *1D Array* | N/A | Array denoting the number of energy levels in a given cascade. This includes intermediate levels and the ground state. |
-| `cid` | *1D Array* | N/A | Array of cascade IDs. The cascade ID is the number of the row in the levelfile which contains the cascade used. These count starting from zero. |
-| `Elev` | *Jagged Array* | **keV** | Array of energy level inputs. Each entry is an array of size `n`. |
-| `taus` | *Jagged Array* | **as** | Array of lifetime inputs. Each entry is an array of size `n`. |
-| `delE` | *Jagged Array* | **eV** | Array of energy deposits between energy levels. Each entry is an array of size `n - 1`. It contains the individual energy deposits, not the total energy deposit. If using a custom nonlinear ionization model, these are the best to operate on. |
-| `I` | *Jagged Array* | None | Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges. |
-| `Ei` | *Jagged Array* | **eV** | Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here. |
-| `time` | *Jagged Array* | **as** | Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times. |
-| `Eg` | *Jagged Array* | **eV** | Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit. |
+| `Name`    | *Shape*       | **Units** | Description   |
+| ---       | ---           | ---       | ---           |
+| `n`       | *1D Array*    | N/A       | Array denoting the number of energy levels in a given cascade. This includes intermediate levels and the ground state. |
+| `cid`     | *1D Array*    | N/A       | Array of cascade IDs. The cascade ID is the number of the row in the levelfile which contains the cascade used. These count starting from zero. |
+| `Elev`    | *Jagged Array*| **keV**   | Array of energy level inputs. Each entry is an array of size `n`. |
+| `taus`    | *Jagged Array*| **as**    | Array of lifetime inputs. Each entry is an array of size `n`. |
+| `delE`    | *Jagged Array*| **eV**    | Array of energy deposits between energy levels. Each entry is an array of size `n - 1`. It contains the individual energy deposits, not the total energy deposit. If using a custom nonlinear ionization model, these are the best to operate on. |
+| `I`       | *Jagged Array*| None      | Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges. |
+| `Ei`      | *Jagged Array*| **eV**    | Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here. |
+| `time`    | *Jagged Array*| **as**    | Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times. |
+| `Eg`      | *Jagged Array*| **eV**    | Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit. |
 
 The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
 The length of each main array should be equal to the number of simulations; that is, 
 if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
-
