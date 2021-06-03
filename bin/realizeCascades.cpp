@@ -51,10 +51,6 @@ void print_usage (FILE* stream, int exit_code)
 	   //"\n"
            "  -n, --numgen        <number>       number of traces to generate \n"
            "  -o, --outfile       <filename>     name the output file \n"
-           "  -q, --quiet         <level>        quiet printing \n"
-           "                                     optional argument integer > 0 \n"
-           "                                     0,default: no non-event output\n"
-           "                                     1,: no standard event output\n"
            "  -s, --silent                       silent, no standard out \n"
            "  -v, --verbose       <level>        Print verbose messages at level <level>\n"
            "  -V, --version                      print version and exit\n"
@@ -76,15 +72,13 @@ int main(int argc, char** argv) {
   uint num=1;
   uint verbosity=0;
   uint quietness=0;
-  bool quiet=false;
-  bool dataquiet=false;
+  bool seedquiet=false;
    
   const struct option longopts[] =
   {
     {"log",       required_argument,  0, 'l'},
     {"numgen",    required_argument,  0, 'n'},
     {"outfile",   required_argument,  0, 'o'},
-    {"quiet",     optional_argument,  0, 'q'},
     {"silent",    no_argument,        0, 's'},
     {"seed",      required_argument,  0, 'd'},
     {"verbose",   optional_argument,  0, 'v'},
@@ -102,7 +96,7 @@ int main(int argc, char** argv) {
 
   while(iarg != -1)
   {
-    iarg = getopt_long(argc, argv, "+l:n:o:q::sd:v::V", longopts, &index);
+    iarg = getopt_long(argc, argv, "+l:n:o:sd:v::V", longopts, &index);
 
     switch (iarg)
     {
@@ -118,32 +112,15 @@ int main(int argc, char** argv) {
         outputfile = optarg;
         break;
 
-      case 'q':
-        if(optarg)
-          quietness = atoi(optarg);
-
-        if(quietness == 0)
-          quiet = true;
-        else if(quietness == 1)
-          dataquiet = true;
-        else if(quietness == 2){
-          dataquiet = true;
-          quiet = true;
-        }
-        else{
-       	  std::cerr << "ERROR realizeCascades: invalid quietness value" << std::endl;
-          print_usage(stderr,1);
-        }
-        break;
-
       case 's':
-        quiet = true;
-        dataquiet = true;
+        seedquiet = true;
         break;
 
       case 'd':
         cl = atoi(optarg);
-        cout << "Seed provided: " << cl << endl;
+        if (seedquiet == false){
+          cout << "Seed provided: " << cl << endl;
+        }
         break;
 
       case 'v':
@@ -187,7 +164,9 @@ int main(int argc, char** argv) {
   //setup, get a boolean and some random numbers
   bool success=false;
   srand(time(NULL));
-  cout << "Seed used: " << cl << endl;
+  if (seedquiet==false){
+    cout << "Seed used: " << cl << endl;
+  }
 
   MTRand *mtrand = new MTRand(cl);
 
