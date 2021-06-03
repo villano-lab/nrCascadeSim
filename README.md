@@ -50,11 +50,20 @@ Note that `./realizeCascades` must be run from the `bin` directory within `nrCas
 or you will need to include the path when calling the executable.
 Also note that `ROOT` must be present in the current environment for this command to work.
 
+After running the command, you should see text confirming the seed used for the current run:
+
+```bash
+(root_env) gerudo7@Teldrassil:/mnt/d/git/nrCascadeSim$  bin/realizeCascades -n 100000 -o "output.root" levelfiles
+Seed used: 130618697
+```
+
+And there should be a new or overwritten file in the location specified (in this case, it should generate a file in the working directory named `output.root`).
+
 ## Arguments
 
 All three of these arguments are required:
 * `-n` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
-* `-o` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
+* `-o` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.) Appending `?reproducible=fixedname` reduces the amount of metadata present in the file to help with reproducibility and troubleshooting and must be used along with the `-d` argument to work as intended. The `?reproducible=fixedname` is not part of the filename.
 * The main argument (no prefix) specifies the input file. (example: `../levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
 Making the full example: `./realizeCascades -n 100000 -o ~/output.root ../levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
@@ -67,10 +76,39 @@ The following arguments are optional:
 
 ## Examples
 
+Below are some examples of using `realizeCascades` along with explanations of what exactly each call is doing.
 
+```bash
+(root_env) gerudo7@Teldrassil:/mnt/d/git/nrCascadeSim$ bin/realizeCascades -n 5000 -o "output.root?reproducible=fixedname" -d 400 levelfiles/custom_levelfile.txt
+Seed provided: 400
+Seed used: 400
+```
+Run realizeCascades from the top level `nrCascadeSim` directory (the 
+command would fail if run from anywhere else.) 5000 points are generated, and 
+the data is saved to `output.root` in the working directory with partially 
+suppressed metadata. The seed is set to 400. Because the seed is set and 
+`?reproducible=fixedname` is used, running the command again with a different 
+filename on the same computer will result in a file with the same md5 checksum
+as `output.root`. The levelfile used was made by the user.
 
-There is also a directory `example-usecase` containing one example of how data can be used once generated in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
-This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
+```bash
+(root_env) gerudo7@Teldrassil:/mnt/d/git/nrCascadeSim$ mnt/d/git/bin/realizeCascades -n 3 -o "~/output.root?reproducible=fixedname" -l "~/log.txt" mnt/d/git/levelfiles/20ne_ngam.txt
+Seed used: 1603622329
+```
+
+Run realizeCascades from the top level `nrCascadeSim` directory in a way that would work, on this computer, from any directory. Only 3 points are generated. The data is saved to `output.root` in the home directory with partially suppressed metadata. Because no seed is provided, a random seed is used; to replicate this data, the seed will need to be specified for the next set of data as `1603622329`. Additional information about the cascade generation is sent to `log.txt` in the home directory. The levelfile used is `20ne_ngam.txt`, one of the provided levelfiles.
+
+```bash
+(root_env) gerudo7@Teldrassil:/mnt/d/git/nrCascadeSim/bin$ ./realizeCascades -n 5000 -o "~/output.root" -d 100 -s ../levelfiles/custom_levelfile.txt
+```
+
+Run realizeCascades from inside the bin directory. 5000 points are generated, adn the data is saved to `output.root` in the home directory. The seed is set to 100. Because metadata is not suppressed, running the same command again will result in a file with a different md5 checksum than this one. However, the simulation data will be consistent because a seed is provided. There is no stdout output because of the `-s` flag. The levelfile used was made by the user.
+
+## Example Use Case
+
+There is also a directory `example-usecase` containing one example of how data can be used once generated. 
+This example is in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
+The notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
 The processed data in this notebook is an example of what might be used for neutron capture-based calibration.
 
 # Levelfile (Input) Format
@@ -100,7 +138,7 @@ the same length as the previous list.
 
 ## Full Descriptions
 
-The first column is the probability of a cascade occuring. 
+The first column is the probability of a cascade occurring. 
 This probability can be in scientific notation or a "standard" decimal (0.000671 or 6.71e-04).
 It should be weighted by the relative abundance of the material to other materials present in the same levelfile.
 It should also be weighted by the cross-section for interactions and the probability of the particular energy levels being reached.
