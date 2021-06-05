@@ -41,7 +41,7 @@ using namespace std;
 const char* program_name;
 
 //Prints usage information for this program to STREAM (typically
-//stdout or stderr), and exit the program with EXIT_CODE.  Does not
+//cout or stderr), and exit the program with EXIT_CODE.  Does not
 //return. 
 
 void print_usage (FILE* stream, int exit_code)
@@ -204,6 +204,26 @@ int main(int argc, char** argv) {
         }
       }
 
+      if (verbosity >= 2){
+        cout << "**************" << filenames[i] << "***************" << endl;
+        cout << endl;
+        for(int i=0;i<numc;i++){
+          cout << "Cascade ID: " << i+1 << "/" << numc << endl;
+          cout << "Fraction of this cascade: " << cascadeFile[i].frac << endl;
+          cout << "Neutron separation: " << cascadeFile[i].Sn << endl;
+          cout << "Mass number: " << cascadeFile[i].A << endl;
+          cout << "Number of steps: " << cascadeFile[i].n << endl;
+          cout << endl;
+          cout << "Energy Levels (keV)\t|\ttau (fs)" << endl;
+          cout << "------------------------------------------------" << endl;
+          cout << setfill('0') << setw(5) << setprecision(5);
+          cout << "      *****       " << "\t \t" << " ***** " << endl;
+          for(int j=0;j<cascadeFile[i].n;j++){
+            cout << "      "<< cascadeFile[i].Elev[j] << "       " << "\t \t" << " "<< cascadeFile[i].taus[j] << " " << endl;
+          }
+          cout << endl;
+        }
+      }
       //**************************do stuff with this cascade realization********************
       //calculate the first cascade
       for(int k=0;k<numc;k++){
@@ -213,6 +233,16 @@ int main(int argc, char** argv) {
                 cri *cascade_data;
                 cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
                 logging << "Cascade realization " << k << " success: " << addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]) << endl; 
+          
+                freecriarray(nrealize,cascade_data);
+              //************************************************************************************
+        }
+
+        if(verbosity >= 2){  
+          cout << "Realizing " << nrealize << " events of cascade ID " << cascadeFile[k].cid << endl;
+                cri *cascade_data;
+                cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
+                cout << "Cascade realization " << k << " success: " << addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]) << endl; 
           
                 freecriarray(nrealize,cascade_data);
               //************************************************************************************
