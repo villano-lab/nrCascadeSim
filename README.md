@@ -197,7 +197,7 @@ The *.root files store information in a tree-like structure. The top-most key in
 | `I`       | *Jagged Array*| None      | Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges. |
 | `Ei`      | *Jagged Array*| **eV**    | Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here. |
 | `time`    | *Jagged Array*| **as**    | Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times. |
-| `Eg`      | *Jagged Array*| **eV**    | Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit. |
+| `Eg`      | *Jagged Array*| **MeV**    | Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit. |
 
 The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
 The length of each main array should be equal to the number of simulations; that is, 
