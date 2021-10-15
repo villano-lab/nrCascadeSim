@@ -93,7 +93,7 @@ the energy deposits at each step instead of the ionization energy.
 `nrCascadeSim` allows users to generate nuclear recoil simulations that reflect a variety of single-element detector setups.
 The energy levels that the recoiling nuclei may pass between and their respective lifetimes are
 customizable, and multiple isotopes of the same element can be present within the same simulation.
-Pre-defined energy level files exist for Silicon and Germanium, which are constructed from the
+Pre-defined energy level files exist for silicon and germanium, which are constructed from the
 data in [@abundances] and [@nudat2].  Output values include energy deposits at each step along each individual cascade, total
 kinetic energy deposits, and ionization energy deposits, making them useful for a variety of
 applications, including nuclear recoil calibrations for dark matter direct detection or coherent
