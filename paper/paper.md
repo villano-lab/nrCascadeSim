@@ -99,6 +99,7 @@ kinetic energy deposits, and ionization energy deposits, making them useful for 
 applications, including nuclear recoil calibrations for dark matter direct detection or coherent
 neutrino detection (CE$\mathrm{\nu}$NS).
 
+# Statement of Need
 
 # Acknowledgements
 
