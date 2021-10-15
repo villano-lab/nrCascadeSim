@@ -47,8 +47,8 @@ thermal neutron) is small compared to most nuclear recoil energy scales, making 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
 useful data to a single file. 
 While there are tools, such as the GEANT4 [@Geant4] framework, that allow users to simulate neutron capture, 
-existing tools are not built specifically for neutron capture-based nuclear recoils as NR Cascade Sim is and therefore uses some underlying assumptions that 
-NR Cascade Sim does not. The main approximation used in GEANT4 that we avoid in NR Cascade Sim is that all recoils 
+existing tools are not built specifically for neutron capture-based nuclear recoils as `nrCascadeSim` is and therefore uses some underlying assumptions that 
+`nrCascadeSim` does not. The main approximation used in GEANT4 that we avoid in `nrCascadeSim` is that all recoils 
 decay directly to the ground state. While this works for some applications, it is necessary to be more precise 
 when an accurate spectrum of neutron capture-based recoils is needed for analyses such as calibration or noise subtraction.
 
