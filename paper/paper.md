@@ -29,7 +29,7 @@ Neutron capture-induced nuclear recoils have emerged as an important
 tool for detector calibrations in direct dark matter detection and coherent elastic neutrino-nucleus scattering (CE$\mathrm{\nu}$NS).
 
 `nrCascadeSim` is a C++ command-line tool for generating simulation data for energy deposits
-resulting from neutron capture on pure materials. Presently, capture events within Silicon, Germanium, Neon, and Argon are
+resulting from neutron capture on pure materials. Presently, capture events within silicon, germanium, neon, and argon are
 supported. While the software was developed for solid state detector calibration, it can be used
 for any application which requires simulated neutron capture-induced nuclear recoil data.
 
@@ -68,8 +68,8 @@ However, these are not generally well-known unless the branching ratios are well
 If the ratios are well-known, then a correction can be made and incorporated into the input file.}, 
 and the angle is simulated as having a uniform distribution on the surface of a sphere.
 Cascade selection is weighted by isotope abundance and cross-section as well as the probability of
-the energy level.  In existing levelfiles, energy levels are derived from [@Ge] for Germanium
-and from [@Si] for Silicon.
+the energy level.  In existing levelfiles, energy levels are derived from [@Ge] for germanium
+and from [@Si] for silicon.
 
 The above process models the recoil energies, and the output gives both the total recoil energy
 for a cascade as well as the energy per step.  For some applications, this may be the desired
@@ -82,7 +82,7 @@ many solid-state detectors read out the ionization energy for nuclear recoils. T
 assumes the Lindhard model [@lindhard].
 
 Figure \ref{LindvSor_fig} compares the normalized frequencies of ionization energies from the Lindhard [@lindhard] 
-model with the Sorensen [@sorensen] yield model, which is applied after the simulation using python, and applies 
+model with the Sorensen [@sorensen] yield model, which is applied after the simulation using Python, and applies 
 detector resolution models applied to both. This figure demonstrates one example of user-applied analysis utilizing 
 the energy deposits at each step instead of the ionization energy.
 
