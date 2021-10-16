@@ -20,32 +20,36 @@ affiliations:
  - name: Department of Applied Mathematics & Statistics, University of New Mexico, Albuquerque NM 87131, USA
    index: 2
 date: 12 December 2020
-nocite: '@\*'
+nocite: '@*'
 ---
 
 # Summary
 
-Neutron capture-induced nuclear recoils have emerged as an important
-tool for detector calibrations in direct dark matter detection and coherent elastic neutrino-nucleus scattering (CE$\mathrm{\nu}$NS).
+Neutron capture-induced nuclear recoils have emerged as an important tool for detector
+calibrations in direct dark matter detection and coherent elastic neutrino-nucleus scattering
+(CE$\mathrm{\nu}$NS).
 
 `nrCascadeSim` is a C++ command-line tool for generating simulation data for energy deposits
-resulting from neutron capture on pure materials. Presently, capture events within silicon, germanium, neon, and argon are
-supported. While the software was developed for solid state detector calibration, it can be used
-for any application which requires simulated neutron capture-induced nuclear recoil data.
+resulting from neutron capture on pure materials. Presently, capture events within silicon,
+germanium, neon, and argon are supported. While the software was developed for solid state
+detector calibration, it can be used for any application which requires simulated neutron
+capture-induced nuclear recoil data.
 
 A "cascade" occurs when a neutron becomes part of a nucleus.  The neutron can be captured to one
 of many discrete energy levels, or states; if the energy level is nonzero (not the ground state),
-then the state will eventually change so that it is zero.  This can happen either all at once or in
-multiple steps &mdash; that is, the captured neutron may go from its state to the ground state, or
-it may go to another state with lower energy that is not the ground state (provided that one
+then the state will eventually change so that it is zero.  This can happen either all at once or
+in multiple steps &mdash; that is, the captured neutron may go from its state to the ground state,
+or it may go to another state with lower energy that is not the ground state (provided that one
 exists).  The cascade refers to the particular "path" of energy levels that a captured neutron
 takes to get to the ground state from the neutron separation energy. Currently the code assumes
-that the neutrons that enter the nuclear system have zero kinetic energy; this is a
-good approximation for thermal neutrons because 0.0254\ eV (the average kinetic energy of a
-thermal neutron) is small compared to most nuclear recoil energy scales, making it negligible.
+that the neutrons that enter the nuclear system have zero kinetic energy; this is a good
+approximation for thermal neutrons because 0.0254\ eV (the average kinetic energy of a thermal
+neutron) is small compared to most nuclear recoil energy scales, making it negligible.
 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
 useful data to a single file. 
+
+
 While there are tools, such as the GEANT4 [@Geant4] framework, that allow users to simulate neutron capture, 
 existing tools are not built specifically for neutron capture-based nuclear recoils as `nrCascadeSim` is and therefore uses some underlying assumptions that 
 `nrCascadeSim` does not. The main approximation often used in GEANT4 that we avoid in `nrCascadeSim` is that all recoils 
