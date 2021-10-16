@@ -20,7 +20,7 @@ affiliations:
  - name: Department of Applied Mathematics & Statistics, University of New Mexico, Albuquerque NM 87131, USA
    index: 2
 date: 12 December 2020
-nocite: '@*'
+nocite: '@\*'
 ---
 
 # Summary
