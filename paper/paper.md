@@ -20,7 +20,7 @@ affiliations:
  - name: Department of Applied Mathematics & Statistics, University of New Mexico, Albuquerque NM 87131, USA
    index: 2
 date: 12 December 2020
-nocite: '@*'
+nocite: '@\*'
 ---
 
 # Summary
@@ -48,19 +48,19 @@ thermal neutron) is small compared to most nuclear recoil energy scales, making 
 useful data to a single file. 
 While there are tools, such as the GEANT4 [@Geant4] framework, that allow users to simulate neutron capture, 
 existing tools are not built specifically for neutron capture-based nuclear recoils as `nrCascadeSim` is and therefore uses some underlying assumptions that 
-`nrCascadeSim` does not. The main approximation used in GEANT4 that we avoid in `nrCascadeSim` is that all recoils 
+`nrCascadeSim` does not. The main approximation often used in GEANT4 that we avoid in `nrCascadeSim` is that all recoils 
 decay directly to the ground state. While this works for some applications, it is necessary to be more precise 
-when an accurate spectrum of neutron capture-based recoils is needed for analyses such as calibration or noise subtraction.
+when an accurate spectrum of neutron capture-based recoils is needed for analyses such as calibration or background subtraction.
 
 # Models Used
 
 When modeling deposits from neutron capture events, we want to look at the recoil of the nucleus
 as a result of these cascades.  To determine how much energy is deposited, we must track how
-much the nucleus slows down between steps of the cascade as well as *how* each state change
+much the nucleus slows down between steps of the cascade as well as how each state change
 affects the nucleus' travel.  `nrCascadeSim` assumes a constant deceleration that results from the
 nucleus colliding with other nearby nuclei.  This means that it must simulate, along with the
 steps of the cascade, the time between each state &mdash; to calculate how much the nucleus slows
-down &mdash; and the angle between the nucleus' momentum before a decay and the momentum boost
+down. And it must also simulate the angle between the nucleus' momentum before a decay and the momentum boost
 (gamma ray) resulting from the decay &mdash; to calculate the resulting momentum.  The time
 between steps is simulated as an exponentially-decaying random variable based on the state's
 half-life, 
