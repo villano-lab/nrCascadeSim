@@ -55,17 +55,17 @@ useful data to a single file. The output file is a `ROOT` file [@ROOT].
 
 When modeling deposits from neutron capture events, we want to look at the recoil of the atom as a
 result of these cascades.  To determine how much energy is deposited, we must track how much the
-atom slows down between steps of the cascade as well as how each state change affects the atom's
-kinetic energy.  `nrCascadeSim` assumes a constant deceleration that results from the atom
+atom slows down between steps of the cascade as well as how each nuclear state change affects the
+atom's kinetic energy.  `nrCascadeSim` assumes a constant deceleration that results from the atom
 colliding with other nearby electrons and nuclei. This means that it must simulate, along with the
 steps of the cascade, the time between each state &mdash; to calculate how much the atom slows
 down. And it must also simulate the angle between the atom's momentum before a decay and the
-momentum boost (gamma ray) resulting from the decay &mdash; to calculate the resulting momentum.
-The time between steps is simulated as an exponentially-decaying random variable based on the
-state's half-life, and the angle is simulated as having a uniform distribution on the surface of a
-sphere.  Cascade selection is weighted by isotope abundance [@abundances;@nudat2] and
-cross-section as well as the probability of the energy level.  In existing levelfiles, energy
-levels are derived from [@Ge] for germanium and from [@Si] for silicon.
+momentum boost (gamma ray) resulting from the decay &mdash; to calculate the resulting momenta.
+The time between steps is simulated as an exponential random variable based on the state's
+half-life, and the angle is simulated as having an isotropic distribution.  Cascade selection is
+weighted by isotope abundance [@abundances;@nudat2] and cross-section as well as the probability
+of the energy level.  In existing levelfiles, energy levels are derived from [@Ge] for germanium
+and from [@Si] for silicon.
 
 The above process models the recoil energies, and the output gives both the total recoil energy
 for a cascade as well as the energy per step.  For some applications, this may be the desired
@@ -79,9 +79,9 @@ ionization yield assumes the Lindhard model [@lindhard].
 
 Figure \ref{LindvSor_fig} compares the normalized frequencies of ionization energies from the
 Lindhard [@lindhard] model with the Sorensen [@sorensen] yield model, which is applied after the
-simulation using Python, and applies detector resolution models applied to both. This figure
-demonstrates one example of user-applied analysis utilizing the energy deposits at each step
-instead of the ionization energy.
+simulation using Python, and applies detector resolution models to both. This figure demonstrates
+one example of user-applied analysis utilizing the energy deposits at each step instead of the
+ionization energy.
 
 ![An overlaid histogram showing an example use case in which points are generated and then multiple yield models and resolutions are applied.  The "Small Res (1/5)" histograms have Gaussians with 1/5 of the width of their counterparts. \label{LindvSor_fig}](SorVsLin_fig.pdf)
 
@@ -109,7 +109,7 @@ individual cascade, total kinetic energy deposits, and ionization energy deposit
 
 While there are tools, such as the GEANT4 [@Geant4] framework, that allow users to simulate
 neutron capture, existing tools are not built specifically for neutron capture-based nuclear
-recoils as `nrCascadeSim` is and therefore uses some underlying assumptions that `nrCascadeSim`
+recoils as `nrCascadeSim` is and therefore use some underlying assumptions that `nrCascadeSim`
 does not. The main approximation often used in GEANT4 that we avoid in `nrCascadeSim` is that all
 recoils decay directly to the ground state. While this works for some applications, it is
 necessary to be more precise when an accurate spectrum of neutron capture-based recoils is needed
@@ -123,7 +123,7 @@ deexcitation [@FIFRELIN].  `nrCascadeSim` takes the complementary approach of be
 to medium-sized nuclei and modeling the cascades in more exact detail.  The goal is for the code
 to be extended to heavier nuclei but still using this detailed approach.     
 
-# Acknowledgements
+# Acknowledgments
 
 This material is based upon work supported by the U.S. Department of Energy, Office of Science,
 Office of High Energy Physics (HEP) under Award Number DE-SC0021364.
