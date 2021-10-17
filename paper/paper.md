@@ -47,14 +47,9 @@ approximation for thermal neutrons because 0.0254\ eV (the average kinetic energ
 neutron) is small compared to most nuclear recoil energy scales, making it negligible.
 
 `nrCascadeSim` models many of these cascades at once and saves the energies along with other
-useful data to a single file. 
+useful data to a single file. The output file is a `ROOT` file [@ROOT]. 
 
 
-While there are tools, such as the GEANT4 [@Geant4] framework, that allow users to simulate neutron capture, 
-existing tools are not built specifically for neutron capture-based nuclear recoils as `nrCascadeSim` is and therefore uses some underlying assumptions that 
-`nrCascadeSim` does not. The main approximation often used in GEANT4 that we avoid in `nrCascadeSim` is that all recoils 
-decay directly to the ground state. While this works for some applications, it is necessary to be more precise 
-when an accurate spectrum of neutron capture-based recoils is needed for analyses such as calibration or background subtraction.
 
 # Models Used
 
@@ -101,7 +96,13 @@ kinetic energy deposits, and ionization energy deposits, making them useful for 
 applications, including nuclear recoil calibrations for dark matter direct detection or coherent
 neutrino detection (CE$\mathrm{\nu}$NS).
 
-# Statement of Need
+# State of the Field
+
+While there are tools, such as the GEANT4 [@Geant4] framework, that allow users to simulate neutron capture, 
+existing tools are not built specifically for neutron capture-based nuclear recoils as `nrCascadeSim` is and therefore uses some underlying assumptions that 
+`nrCascadeSim` does not. The main approximation often used in GEANT4 that we avoid in `nrCascadeSim` is that all recoils 
+decay directly to the ground state. While this works for some applications, it is necessary to be more precise 
+when an accurate spectrum of neutron capture-based recoils is needed for analyses such as calibration or background subtraction.
 
 # Acknowledgements
 
