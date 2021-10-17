@@ -63,7 +63,7 @@ down. And it must also simulate the angle between the atom's momentum before a d
 momentum boost (gamma ray) resulting from the decay &mdash; to calculate the resulting momentum.
 The time between steps is simulated as an exponentially-decaying random variable based on the
 state's half-life, and the angle is simulated as having a uniform distribution on the surface of a
-sphere.  Cascade selection is weighted by isotope abundance [@abundances,@nudat2] and
+sphere.  Cascade selection is weighted by isotope abundance [@abundances;@nudat2] and
 cross-section as well as the probability of the energy level.  In existing levelfiles, energy
 levels are derived from [@Ge] for germanium and from [@Si] for silicon.
 
