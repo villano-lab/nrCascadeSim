@@ -16,11 +16,11 @@ authors:
     affiliation: 2
 affiliations:
  - name: Department of Physics, University of Colorado Denver, Denver CO 80217, USA
-   index: 1
+   index: 1 \\
  - name: Department of Applied Mathematics & Statistics, University of New Mexico, Albuquerque NM 87131, USA
    index: 2
 date: 12 December 2020
-nocite: '@\*'
+#nocite: '@*'
 ---
 
 # Summary
