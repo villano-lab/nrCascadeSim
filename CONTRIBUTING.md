@@ -106,11 +106,22 @@ All PRs will be automatically by Travis-CI.  Please note whether you updated the
 whether no change was needed.  If for some reason a new, untested feature is implemented, but you
 are unable to implement the necessary CI, explain why and how it can be manually tested.
 
+## Release Documentation
+
+When a PR is accepted it will be staged for a release. We will make note of all the currently
+staged changes in the RELEASENOTES.md file. It is helpful, but not necessary to put a short
+description under the `Next Release` section briefly describing the work done in a PR.  
+
 ## Template
 The following template is not required, but if you do not use it, please be sure to include all answers to all of the questions in some other way.
 
 **Does your pull request resolve or partially resolve an issue?** 
-\# / No.
+Yes / No.
+
+**If Yes, which issue?** 
+
+**Does your pull request implement code improvements?**
+Yes / No.
 
 **Does your pull request implement any breaking changes?**
 Yes / No.
