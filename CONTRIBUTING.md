@@ -17,7 +17,7 @@ You can report code of conduct violations to a maintainer (@gerudo7 or @villaa) 
 
 # Standards
 
-All features of nrCascadeSim should be tested with Travis-CI wherever possible. 
+All features of `nrCascadeSim` should be tested with Travis-CI wherever possible. 
 This is done through the top-level `.travis.yml` file. 
 You can find Travis-CI's docs [here](https://docs.travis-ci.com/).
 
@@ -70,16 +70,41 @@ last time they were updated as well as the relevant version number.
 
 # Pull Requests
 
-When submitting pull requests, 
-please default to submitting to the `develop` branch and never submit directly to the `master` branch. 
-This allows us to correctly manage versioning. 
-If you submit a pull request directly to the `master` branch, you will be asked to change the target to `develop` (or another applicable branch).
+Pull Requests (PRs) are created in order to submit to the owner(s) of the repository some code for
+consideration. Typically that code will address some issue or improve the code in some way, we
+should be clear about how we expect PRs to improve the code in our contributing documentation.
+When creating the pull request you have to supply a comparison branch.  When submitting PRs,
+please default to submitting to the `develop` branch and never submit directly to the `master`
+branch.  This allows us to correctly manage versioning.  If you submit a pull request directly to
+the `master` branch, you will be asked to change the target to `develop` (or another applicable
+branch).
 
-All pull requests will be automatically by Travis-CI. 
-Please note whether you updated the CI or whether no change was needed. 
-If for some reason a new, untested feature is implemented,
-but you are unable to implement the necessary CI, 
-explain why and how it can be manually tested.
+In order for us to be consistent with GitFlow we should adhere to the following:
+
+**PRs submitted by the development team:** we should locally create a feature branch using the
+gitflow protocol on our local machine, and then push that branch. That branch should then be
+selected as the "comparison" branch for the PR. Further for the merger to be compatible with
+gitflow we should define the base branch as "develop." So the steps are:
+
+1. create a feature branch locally make some changes and push it to the remote (GitHub)
+2. open a pull request with base branch `develop` and comparison branch the feature you just created `feature/XXX`
+3. When you're done committing (and pushing!) to the feature branch push the button on GitHub to merge the PR back--it will merge it to develop 
+4. Delete the branch on github and your local machine and add notes to the upcoming release
+5. the feature will be released when the code team does the next release. 
+
+**PR requests submitted from outside our development team:** are very similar to those from the
+development team, but the team won't have access to or control over the feature branch created. It
+would be created by a fork of the repository. So it looks like this:
+
+1. create a fork of the repository with a branch dedicated to the issue (could be the local `master` we can't enforce any naming conventions there). 
+2. open a PR with base branch `develop` and the comparison branch the branch on the fork you just created. 
+3. When you're done committing alert the development team in the PR by using the @villaa or other tags. 
+4. This will be merged back by the development team if the criteria for code improvement are met. 
+5. the feature will be released when the code team does the next release. 
+
+All PRs will be automatically by Travis-CI.  Please note whether you updated the CI or
+whether no change was needed.  If for some reason a new, untested feature is implemented, but you
+are unable to implement the necessary CI, explain why and how it can be manually tested.
 
 ## Template
 The following template is not required, but if you do not use it, please be sure to include all answers to all of the questions in some other way.
