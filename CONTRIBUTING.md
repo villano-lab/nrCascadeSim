@@ -1,6 +1,8 @@
 # Code of Conduct
 
-The following code of conduct must be followed in all places associated with this repository itself. This includes issues, pull requests, and all files contained within the repository. The code of conduct applies to all contributors and community members.
+The following code of conduct must be followed in all places associated with this repository
+itself. This includes issues, pull requests, and all files contained within the repository. The
+code of conduct applies to all contributors and community members.
 
 In addition to following GitHub's terms of service and any laws applicable to you, please:
 * Do your best to properly attribute any copied, vendored, or otherwise "borrowed" code. In particular, make sure to provide LICENSE files when necessary.
@@ -11,18 +13,21 @@ In addition to following GitHub's terms of service and any laws applicable to yo
 * Stay on-topic; all discussion, including issues and pull requests, must relate to this repository in some way, and should not focus on something other than the code and its modification.
 * No malicious code/malware of any kind, including but not limited to ransomware, adware, bloatware, and spyware.
 
-Failure to comply with this code of conduct could result in having your access to the community restricted, such as having offending posts removed or being barred from further submissions.
+Failure to comply with this code of conduct could result in having your access to the community
+restricted, such as having offending posts removed or being barred from further submissions.
 
-You can report code of conduct violations to a maintainer (@gerudo7 or @villaa) or the @villano-lab group via direct message or email. If you see a violation of GitHub's ToS or of a local or federal law, please report it to the appropriate authorities first. Thanks!
+You can report code of conduct violations to a maintainer (@gerudo7 or @villaa) or the
+@villano-lab group via direct message or email. If you see a violation of GitHub's ToS or of a
+local or federal law, please report it to the appropriate authorities first. Thanks!
 
 # Standards
 
-All features of `nrCascadeSim` should be tested with Travis-CI wherever possible. 
-This is done through the top-level `.travis.yml` file. 
-You can find Travis-CI's docs [here](https://docs.travis-ci.com/).
+All features of `nrCascadeSim` should be tested with Travis-CI wherever possible.  This is done
+through the top-level `.travis.yml` file.  You can find Travis-CI's docs
+[here](https://docs.travis-ci.com/).
 
-Addition of features should be accompanied by some form of documentation outlining the use of 
-the new features. Similarly, if a feature is altered, documentation should be adjusted to match.
+Addition of features should be accompanied by some form of documentation outlining the use of the
+new features. Similarly, if a feature is altered, documentation should be adjusted to match.
 
 Variable and function names should relate to what the variable or function is doing.  
 **Unacceptable:** `func` - Name does not describe what the function does at all.  
@@ -59,13 +64,13 @@ void main(int n) {
 
 ## Documentation Standards
 
-All functions accessible to the user should have at least one example provided, 
-possibly more if the usage is complex or varies significantly.
+All functions accessible to the user should have at least one example provided, possibly more if
+the usage is complex or varies significantly.
 
 All variables and options available to the user should be clearly defined.
 
-Documentation files should, at the end of the file, note the date corresponding to the 
-last time they were updated as well as the relevant version number.
+Documentation files should, at the end of the file, note the date corresponding to the last time
+they were updated as well as the relevant version number.
 
 
 # Pull Requests
@@ -145,15 +150,22 @@ Issues fall into three categories:
 * Feature request
 * Documentation issue
 
-When submitting issues, please be specific. We can only resolve a bug if we know what about the program isn't working, implement a feature if we know what aspect is being improved, and clarify documentation if we know what part is unclear.
+When submitting issues, please be specific. We can only resolve a bug if we know what about the
+program isn't working, implement a feature if we know what aspect is being improved, and clarify
+documentation if we know what part is unclear.
 
-Below are outlines for determining what your issue qualifies as and how to report them. When submitting an issue, please specify which of these three categories you think it belongs in. We understand that the three categories can overlap, so don't worry too much if you aren't sure if the category you chose is appropriate. Each section also provides a template; these are just to help people know what to write, and their use is not strictly required (although it may help us address the issue faster).
+Below are outlines for determining what your issue qualifies as and how to report them. When
+submitting an issue, please specify which of these three categories you think it belongs in. We
+understand that the three categories can overlap, so don't worry too much if you aren't sure if
+the category you chose is appropriate. Each section also provides a template; these are just to
+help people know what to write, and their use is not strictly required (although it may help us
+address the issue faster).
 
 ## Bug report
 
-When submitting a bug report, please make sure to include any information 
-necessary for us to reproduce the bug. If we can't reproduce it, it will be
-much harder to diagnose and solve the issue.
+When submitting a bug report, please make sure to include any information necessary for us to
+reproduce the bug. If we can't reproduce it, it will be much harder to diagnose and solve the
+issue.
 
 An issue is a bug report if:
 * The code does not run or only partially runs.
@@ -250,4 +262,4 @@ Describe whatever is wrong with the documentation or could otherwise be improved
 
 ---
 
-*Last updated 2 June, 2021, v1.0.6*
+*Last updated 17 October, 2021, v1.0.6*
