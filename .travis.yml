@@ -46,7 +46,7 @@ install:
 script:
 - bin/realizeCascades -n 100000 -o "output.root?reproducible=fixedname" -d 1 levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
 - md5sum output.root
-- md5sum output.root | awk '{if ($1=="2029e8b402b89d3a05d745e48f546370"){print"Checksum passed!"} else {exit 1}}'
+- md5sum output.root | awk '{if ($1=="e1f1e59be3e77cb2487e5729a86dc7e3"){print"Checksum passed!"} else {exit 1}}'
 # NOTE that the checksum seems for some reason to be dependent on the relative path given
 - cd example-usecase
 - travis_wait 50 py.test
