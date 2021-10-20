@@ -1,6 +1,4 @@
-master: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)   
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5579858.svg)](https://doi.org/10.5281/zenodo.5579858)
-<br/>
+master: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5579858.svg)](https://doi.org/10.5281/zenodo.5579858) <br/>
 develop: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=develop)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
 
 # Summary
