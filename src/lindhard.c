@@ -2,7 +2,7 @@
 #include <string>
 #include <iostream>
 #include <cmath>
-#include "MersenneTwister.hh"
+#include "MersenneTwister.h"
 #include "edepmath.h"
 
 using namespace std;
