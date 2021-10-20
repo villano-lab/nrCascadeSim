@@ -20,7 +20,6 @@ LIBFLAG= -L. -L$(LIBDIROUT)
 #https://github.com/danini/graph-cut-ransac/issues/23
 CXX=clang++
 #CXXFLAGS=-g -std=c++11 -Wall -pedantic
-CXXFLAGS=-fpermissive -std=c++98
 
 #trick for getting the git version in the code
 GIT_VERSION = $(shell sh -c 'git describe --abbrev=4 --always')

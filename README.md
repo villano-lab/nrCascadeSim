@@ -1,3 +1,6 @@
+master: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5579858.svg)](https://doi.org/10.5281/zenodo.5579858) <br/>
+develop: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=develop)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
+
 # Summary
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels following neutron capture. 
@@ -58,6 +61,20 @@ All three of these arguments are required:
 Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
 (More detailed examples below.)
+
+### Reproducible Files
+The `-d` flag for the seed will result in files with consistent data. 
+
+However, additional binary data may result in checksums being different despite the data being the same. 
+If you want a reproducible file that can be compared to another by an md5 checksum, append to the output file's name:  
+`?reproducible=fixedname`  
+(you will either need to put the filename in quotes or escape the `?` character).  
+Example: `-o "output.root?reproducible=fixedname"`  
+This surpresses various forms of metadata that result in changes to the binary even for the same data.
+(See [ROOT's page on the TFile class](https://root.cern.ch/doc/master/classTFile.html#ad0377adf2f3d88da1a1f77256a140d60).)
+
+Unfortunately, the binary still seems to be influenced by the environment it is generated in,
+so at present there is no md5sum to compare to that will work across all devices.
 
 ## Examples
 
