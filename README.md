@@ -1,4 +1,5 @@
-[![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
+master: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
+develop: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=develop)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
 
 # Summary
 
