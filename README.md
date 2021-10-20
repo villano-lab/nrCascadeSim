@@ -1,3 +1,5 @@
+[![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
+
 # Summary
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels following neutron capture. 
