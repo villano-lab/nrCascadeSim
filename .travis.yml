@@ -42,7 +42,7 @@ install:
   - source root/bin/thisroot.sh
 
   - make
-  - make install
+  - sudo make install
 
 script:
 - bin/realizeCascades -n 100000 -o "output.root?reproducible=fixedname" -d 1 levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
