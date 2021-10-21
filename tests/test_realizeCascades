@@ -1,7 +1,7 @@
 #!/bin/sh
 
 #for some systems like OSX
-alias md5sum='md5'
+#alias md5sum='md5'
 
 realizeCascades -n 100000 -o "output.root?reproducible=fixedname" -d 1 ../levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt 
 #> /dev/null

@@ -48,7 +48,9 @@ script:
 - md5sum output.root
 - md5sum output.root | awk '{if ($1=="e1f1e59be3e77cb2487e5729a86dc7e3"){print"Checksum passed!"} else {exit 1}}'
 # NOTE that the checksum seems for some reason to be dependent on the relative path given
-- cd example-usecase
+- cd tests
+- ./test_realizeCascades
+- cd ../example-usecase
 - travis_wait 50 py.test
 - source activate piptest
 - travis_wait 50 py.test
