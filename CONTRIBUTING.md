@@ -140,6 +140,8 @@ This pull request:
 [ ] Does not introduce any features that the CI could not already test.
 [ ] Is not accompanied by necessary CI changes due to some limitation described below. (Please also describe how new features can be manually tested.)
 
+See the `README.md` file in the `nrCascadeSim/tests` directory for more instructions on how to make tests. 
+
 **Other information:**
 Anything else you want to say.
 
