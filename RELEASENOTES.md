@@ -1,4 +1,7 @@
-## Next Release (v1.1.0)
+## Next Release (v1.1.1)
+
+
+## Release (v1.1.0) Date: 21.10.23
 
 * PR #18 and #25 implementing JOSS paper updates (solves issue #11)
 * PR #21 correcting the ROOT citation (solves issue #4)
