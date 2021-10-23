@@ -1,3 +1,6 @@
+master: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5579858.svg)](https://doi.org/10.5281/zenodo.5579858) <br/>
+develop: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=develop)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
+
 # Summary
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels following neutron capture. 
@@ -11,7 +14,10 @@ slowing down in a lattice of like material.
 
 # Installation Instructions
 
-This program is designed to run in a Unix-based system and has been tested on Ubuntu and MacOS.
+This program is designed to run in a Unix-based system and is tested via
+[Travis-CI](https://app.travis-ci.com/github/villano-lab/nrCascadeSim) using the
+[Xenial](https://docs.travis-ci.com/user/reference/xenial/) distribution, Ubuntu 16.04 on x86_64
+archetecture.
 
 ## Dependencies
 
@@ -25,28 +31,30 @@ Optional:
 
 ## Steps
 
-1) [Download](https://github.com/villano-lab/nrCascadeSim/archive/master.zip) or clone (`git clone https://github.com/villano-lab/nrCascadeSim.git`) the master branch of this repository
-    * If downloaded as a zip, unzip the file (`unzip "nrCascadeSim-master.zip"`)
-    * Download/clone to the location you want the final installation to be
+1) [Download](https://github.com/villano-lab/nrCascadeSim/archive/master.zip) or clone (`git clone https://github.com/villano-lab/nrCascadeSim.git`) the master branch of this repository.
+    * If downloaded as a zip, unzip the file (`unzip "nrCascadeSim-master.zip"`).
+    * Download/clone to the location you want the final installation to be.
 2) Install dependencies
 3) Enter the new directory (`cd nrCascadeSim`)
 4) Either add ROOT to the current enviornment or switch to an environment in which it is active (see [ROOT instalation instructions](https://root.cern/install/))
 5) Run the command `make`
+6) Run the command `sudo make install` if you want the programs to be accessible from anywhere in your directory structure.
+7) To uninstall do `make clean`
 
 # Quick Start
 
 1) If ROOT is not part of the current environment, switch to an appropriate environment (ex: `conda activate name_of_root_env`)
 2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim/`)
-3) Run `./realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt`
+3) Run `realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt`
 
 # Instructions for Use
 
-The `./realizeCascades` command will run the simulation a specified number of times for a given input file. 
+The `realizeCascades` command will run the simulation a specified number of times for a given input file. 
 Currently, this is the only program in this package.
 It is possible for the user to create additional programs based on teh libraries included,
 and we may provide additional programs with the library in the future.
 
-Note that `./realizeCascades` must be run from the top-level `nrCascadeSim` directory unless the user has added it to the path.
+Note that `realizeCascades` must be run from the `nrCascadeSim/bin` directory unless the user has added it to the path like by doing `sudo make install`.
 Also note that `ROOT` must be present in the current environment for this command to work.
 
 ## Arguments
@@ -59,13 +67,25 @@ Making the full example: `./realizeCascades -n 100000 -o ~/output.root levelfile
 
 (More detailed examples below.)
 
+### Reproducible Files
+The `-d` flag for the seed will result in files with consistent data. 
+
+However, additional binary data may result in checksums being different despite the data being the same. 
+If you want a reproducible file that can be compared to another by an md5 checksum, append to the output file's name:  
+`?reproducible=fixedname`  
+(you will either need to put the filename in quotes or escape the `?` character).  
+Example: `-o "output.root?reproducible=fixedname"`  
+This surpresses various forms of metadata that result in changes to the binary even for the same data.
+(See [ROOT's page on the TFile class](https://root.cern.ch/doc/master/classTFile.html#ad0377adf2f3d88da1a1f77256a140d60).)
+
+Unfortunately, the binary still seems to be influenced by the environment it is generated in,
+so at present there is no md5sum to compare to that will work across all devices.
+
 ## Examples
-
-
 
 There is also a directory `example-usecase` containing one example of how data can be used once generated in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
 This notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
-The processed data in this notebook is an example of what might be used for neutron caputre-based calibration.
+The processed data in this notebook is an example of what might be used for neutron capture-based calibration.
 
 # Levelfile (Input) Format
 
@@ -158,3 +178,16 @@ The *.root files store information in a tree-like structure. The top-most key in
 The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
 The length of each main array should be equal to the number of simulations; that is, 
 if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
+
+![A visual outline of the structure of a ROOT output file named `file.root`. Everything is contained within a top-level key called `cascade`. Beneath `cascade` are several other keys, as described above.](output_structure.svg)
+
+## Ionization
+
+Ionization assumes the [Lindhard](https://www.osti.gov/biblio/4701226) model:
+
+  Y = k*g(&epsilon;)/(1+kg(&epsilon;))  
+  g(&epsilon;) = a\*&epsilon;<sup>&gamma;</sup> + b\*&epsilon;<sup>&omega;</sup> + &epsilon;  
+  &epsilon;(E<sub>r</sub>) = 11.5E<sub>r</sub>\[keV\]Z<sup>-7/3</sup>
+
+Using the accepted value for Silicon (*k = 0.143*) or Germanium (*k = 0.159*), whichever is
+appropriate; *a = 3*; *b = 0.7*; *&gamma; = 0.15*; and *&omega; = 0.6*.
