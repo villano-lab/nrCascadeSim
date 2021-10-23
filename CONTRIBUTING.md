@@ -24,7 +24,7 @@ local or federal law, please report it to the appropriate authorities first. Tha
 
 All features of `nrCascadeSim` should be tested with Travis-CI wherever possible.  This is done
 through the top-level `.travis.yml` file.  You can find Travis-CI's docs
-[here](https://docs.travis-ci.com/).
+[here](https://docs.travis-ci.com/). Instructions for adding tests can be found in `nrCascadeSim/tests/README.md`.
 
 Addition of features should be accompanied by some form of documentation outlining the use of the
 new features. Similarly, if a feature is altered, documentation should be adjusted to match.
