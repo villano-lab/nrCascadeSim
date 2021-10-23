@@ -14,7 +14,10 @@ slowing down in a lattice of like material.
 
 # Installation Instructions
 
-This program is designed to run in a Unix-based system and has been tested on Ubuntu and MacOS.
+This program is designed to run in a Unix-based system and is tested via
+[Travis-CI](https://app.travis-ci.com/github/villano-lab/nrCascadeSim) using the
+[Xenial](https://docs.travis-ci.com/user/reference/xenial/) distribution, Ubuntu 16.04 on x86_64
+archetecture.
 
 ## Dependencies
 
@@ -35,21 +38,23 @@ Optional:
 3) Enter the new directory (`cd nrCascadeSim`)
 4) Either add ROOT to the current enviornment or switch to an environment in which it is active (see [ROOT instalation instructions](https://root.cern/install/))
 5) Run the command `make`
+6) Run the command `sudo make install` if you want the programs to be accessible from anywhere in your directory structure.
+7) To uninstall do `make clean`
 
 # Quick Start
 
 1) If ROOT is not part of the current environment, switch to an appropriate environment (ex: `conda activate name_of_root_env`)
 2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim/`)
-3) Run `./realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt`
+3) Run `realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt`
 
 # Instructions for Use
 
-The `./realizeCascades` command will run the simulation a specified number of times for a given input file. 
+The `realizeCascades` command will run the simulation a specified number of times for a given input file. 
 Currently, this is the only program in this package.
 It is possible for the user to create additional programs based on teh libraries included,
 and we may provide additional programs with the library in the future.
 
-Note that `./realizeCascades` must be run from the top-level `nrCascadeSim` directory unless the user has added it to the path.
+Note that `realizeCascades` must be run from the `nrCascadeSim/bin` directory unless the user has added it to the path like by doing `sudo make install`.
 Also note that `ROOT` must be present in the current environment for this command to work.
 
 ## Arguments

@@ -16,6 +16,7 @@ SRCDIR=src/
 INCFLAG= -IMersenne -Iinc
 LIBFLAG= -L. -L$(LIBDIROUT)
 
+
 #need to use an older version of gcc b/c of Mersenne Twister using the deprecated `register` keyword
 #https://github.com/danini/graph-cut-ransac/issues/23
 CXX=clang++
@@ -60,10 +61,15 @@ $(LIBDIROUT)/libncap.so: $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(
 $(BUILDDIR)/realizeCascades: $(LIBDIROUT)/libncap.so $(BUILDDIR)/realizeCascades.cpp
 	$(CXX) -fPIC -Wl,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/realizeCascades.cpp `root-config --cflags --glibs` -std=c++14 -lncap -o $(BUILDDIR)/realizeCascades 
 
+
+install: $(BUILDDIR)/realizeCascades
+	cp $(BUILDDIR)/realizeCascades /usr/local/bin/
+
 clean:
 	rm -f $(LIBDIROUT)/*.o
 	rm -f $(LIBDIROUT)/*.so
 	rm -f $(BUILDDIR)/realizeCascades
+	rm -f /usr/local/bin/realizeCascades
 	rm -f *.o
 	rm -f *.so
 	rm -rf $(LIBDIROUT)

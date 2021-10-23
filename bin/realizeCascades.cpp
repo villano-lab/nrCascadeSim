@@ -49,6 +49,7 @@ void print_usage (FILE* stream, int exit_code)
   fprintf (stream, "Usage:  %s options [ inputfile(s) ]\n", program_name);
   fprintf (stream,
 	   //"\n"
+           "  -d, --seed          <integer>      seed for random numbers \n"
            "  -n, --numgen        <number>       number of traces to generate \n"
            "  -o, --outfile       <filename>     name the output file \n"
            "  -q, --quiet         <level>        quiet printing \n"
