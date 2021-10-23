@@ -14,7 +14,10 @@ slowing down in a lattice of like material.
 
 # Installation Instructions
 
-This program is designed to run in a Unix-based system and has been tested on Ubuntu and MacOS.
+This program is designed to run in a Unix-based system and is tested via
+[Travis-CI](https://app.travis-ci.com/github/villano-lab/nrCascadeSim) using the
+[Xenial](https://docs.travis-ci.com/user/reference/xenial/) distribution, Ubuntu 16.04 on x86_64
+archetecture.
 
 ## Dependencies
 

@@ -15,3 +15,16 @@ happens inside the script `test_realizeCascades` in this directory.
 There are two types of tests that can be created: tests based off of a shell script, and tests
 composed of Python scripts. The Python tests use the environment in the top directory
 `nrCascadeSim_env.yml`. 
+
+## Script Tests
+
+Place script tests in the `nrCascadeSim/tests` (this) folder. Insert the execution of
+the script in the `script:` section of the file `nrCascadeSim/.travis.yml`
+after the command `cd tests`.
+
+## Python Tests
+
+Python tests are allowed in the `nrCascadeSim/example-usecase` directory. In
+that directory modify the script `test_local.py` to include testing of all of
+the Python functions/Jupyter notebooks that are necessary to test the
+functionality.  
