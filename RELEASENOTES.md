@@ -1,5 +1,8 @@
-## Next Release (v1.1.1)
+## Next Release (v1.1.2)
 
+## Release (v1.1.1) Date 21.10.23
+
+* PR #34 Hotfix to fix Zenodo DOI
 
 ## Release (v1.1.0) Date: 21.10.23
 
