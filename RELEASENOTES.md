@@ -1,5 +1,7 @@
 ## Next Release (v1.1.2)
 
+* PR #16 to lower default verbosity of realizeCascades (solves issue #12) 
+
 ## Release (v1.1.1) Date 21.10.23
 
 * PR #34 Hotfix to fix Zenodo DOI
