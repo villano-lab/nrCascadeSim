@@ -49,6 +49,7 @@ void print_usage (FILE* stream, int exit_code)
   fprintf (stream, "Usage:  %s options [ inputfile(s) ]\n", program_name);
   fprintf (stream,
 	   //"\n"
+           "  -d, --seed          <integer>      seed for random numbers \n"
            "  -n, --numgen        <number>       number of traces to generate \n"
            "  -o, --outfile       <filename>     name the output file \n"
            "  -s, --silent                       silent, no standard out \n"
@@ -169,9 +170,10 @@ int main(int argc, char** argv) {
   }
 
   MTRand *mtrand = new MTRand(cl);
+  cout << "MTRand: " << mtrand << endl;
 
   //get a root file and make 
-  TFile *f = new TFile(outputfile.c_str(),"recreate");
+  TFile *f = TFile::Open(outputfile.c_str(),"recreate");
   TTree *t = new TTree("cascade","cascade");
 
   ofstream logging;
