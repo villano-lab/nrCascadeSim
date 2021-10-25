@@ -59,15 +59,25 @@ Also note that `ROOT` must be present in the current environment for this comman
 
 ## Arguments
 
+### Required Arguments
 All three of these arguments are required:
-* `-n` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
-* `-o` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
+* `-n, --numgen` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
+* `-o, --outfile` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
 * The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
 
 This makes the full example `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
+### Optional Arguments
+
+* `-h, --help` display the help menu. This overrides other options. Help will be displayed and program will exit. 
+* `-s, --silent` silent. Nothing will be printed to stdout.
+* `-v, --verbose` verbosity level. Default to 1 where only the random seed is printed. Max level is currently 2 where a lot of level/simulation information is printed.
+* `-V, --version` version. Print the version tag of the code and exit.  
+* `-l, --log` log file. Specify a file to print the output to.  
+
+
 ### Reproducible Files
-The `-d` flag for the seed will result in files with consistent data. 
+The `-d, --seed` flag for the seed will result in files with consistent data. 
 
 However, additional binary data may result in checksums being different despite the data being the same. 
 If you want a reproducible file that can be compared to another by an md5 checksum, append to the output file's name:  
