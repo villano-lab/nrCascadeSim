@@ -1,6 +1,7 @@
 ## Next Release (v1.1.2)
 
-* PR #16 to lower default verbosity of realizeCascades (solves issue #12) 
+* PR #16 to lower default verbosity of realizeCascades (solves issue #12)
+* PR #20 adds more clarity to README documentation at top level (solves issue #8)
 
 ## Release (v1.1.1) Date 21.10.23
 
