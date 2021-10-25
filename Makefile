@@ -19,7 +19,7 @@ LIBFLAG= -L. -L$(LIBDIROUT)
 
 #need to use an older version of gcc b/c of Mersenne Twister using the deprecated `register` keyword
 #https://github.com/danini/graph-cut-ransac/issues/23
-CXX=clang++
+#CXX=clang++
 #CXXFLAGS=-g -std=c++11 -Wall -pedantic
 
 #trick for getting the git version in the code
