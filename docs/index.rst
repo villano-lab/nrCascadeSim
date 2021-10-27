@@ -35,7 +35,7 @@ Neon, Argon, Silicon, and Germanium cascades slowing down in a lattice of like m
    :maxdepth: 2
    :caption: Contents:
 
-..   01_Getting_Started
+   01_Getting_Started
 ..   02_Main_Modules
 ..   03_Targets
 ..   04_DM_Particle
