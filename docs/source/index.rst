@@ -22,7 +22,7 @@
 The purpose of this code is to simulate energy deposits due to cascading of energy levels
 following neutron capture.  This code was written for use in nuclear recoil calibration for dark
 matter detectors, but may be useful in other particle physics applications as well, including
-coherent elastic neutrino nucleus scattering (CE:math:`{\nu}` NS).  Currently, we use a constant
+coherent elastic neutrino nucleus scattering (CE :math:`{\nu}` NS).  Currently, we use a constant
 acceleration model for the atom slowing down and calculation of the ionization energy.  We also
 use the Lindhard model for calculating the ionization, but the output is complete enough to allow
 the user to choose their ionization yield model after simulation.  The code currently supports
