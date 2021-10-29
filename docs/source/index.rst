@@ -19,6 +19,7 @@
    :target: https://doi.org/10.5281/zenodo.5594519
    :alt: DOI
 
+.. math:: \nu
 The purpose of this code is to simulate energy deposits due to cascading of energy levels
 following neutron capture.  This code was written for use in nuclear recoil calibration for dark
 matter detectors, but may be useful in other particle physics applications as well, including
