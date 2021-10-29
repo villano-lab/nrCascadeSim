@@ -15,8 +15,8 @@
 *nrCascadeSim* - a tool for generating nuclear recoil spectra resulting from neutron capture
 ============================================================================================
 
-.. image:: https://zenodo.org/badge/5579857.svg
-   :target: https://zenodo.org/badge/latestdoi/5579857
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.5594519.svg
+   :target: https://doi.org/10.5281/zenodo.5594519
    :alt: DOI
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels
