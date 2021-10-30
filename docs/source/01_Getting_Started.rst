@@ -6,7 +6,10 @@
 Installation
 ------------
 
-Before building *obscura*, there are a few libraries that need to be installed.
+*nrCascadeSim* is designed to run in a Unix-based system and is tested via
+[Travis-CI](https://app.travis-ci.com/github/villano-lab/nrCascadeSim) using the
+[Xenial](https://docs.travis-ci.com/user/reference/xenial/) distribution, Ubuntu 16.04 on x86_64
+archetecture.
 
 ^^^^^^^^^^^^
 Dependencies
