@@ -20,13 +20,13 @@ Dependencies
 1. `ROOT <https://root.cern/>`_
 """"""""""""""""""""""""""""""""""""
 
-To install `ROOT` please follow the instructions on the ` CERN  <https://root.cern/install/>`_
+To install `ROOT` please follow the instructions on the `CERN  <https://root.cern/install/>`_ ::
 website.
 
 It is intended that *nrCascadeSim* is compatible with all versions; known compatibility with
 version 6. 
 
-On Linux machines, you can also install `ROOT` via a ` pre-packaged binary <https://root.cern/install/#download-a-pre-compiled-binary-distribution>`_::
+On Linux machines, you can also install `ROOT` via a `pre-packaged binary <https://root.cern/install/#download-a-pre-compiled-binary-distribution>`_::
 
 	wget https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
 	tar -xzvf root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
@@ -34,7 +34,7 @@ On Linux machines, you can also install `ROOT` via a ` pre-packaged binary <http
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-2. `gcc <https://hyperrealm.github.io/libconfig/>`_
+2. `gcc <https://gcc.gnu.org/>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 .. To install *gcc* on a Mac, we can use `homebrew <https://brew.sh/>`_ ::
@@ -43,10 +43,9 @@ On Linux machines, you can also install `ROOT` via a ` pre-packaged binary <http
 You almost certainly have a version of `gcc` already and *nrCascadeSim* is compatible with version
 4.4.7 or newer.
 
-On Linux machines, you can build `gcc` via the `apt-get` manager::
+On Linux machines, you can build `gcc` via the `apt-get` manager.
 
 	sudo apt-get install gcc
-
 
 
 ^^^^^^^^^^^^^^^^
