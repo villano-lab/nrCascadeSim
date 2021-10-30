@@ -17,41 +17,37 @@ Dependencies
 ^^^^^^^^^^^^
 
 """"""""""""""""""""""""""""""""""""
-1. `boost <https://www.boost.org/>`_
+1. `ROOT <https://root.cern/>`_
 """"""""""""""""""""""""""""""""""""
 
-To install *boost* on a Mac, we can use `homebrew <https://brew.sh/>`_ ::
+To install `ROOT` please follow the instructions on the ` CERN  <https://root.cern/install/>`_
+website.
 
-	brew install boost
+It is intended that *nrCascadeSim* is compatible with all versions; known compatibility with
+version 6. 
 
-On Linux machines, run::
+On Linux machines, you can also install `ROOT` via a ` pre-packaged binary <https://root.cern/install/#download-a-pre-compiled-binary-distribution>`_::
 
-   sudo apt-get update && sudo apt-get install -yq libboost-all-dev
+	wget https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
+	tar -xzvf root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
+	source root/bin/thisroot.sh # also available: thisroot.{csh,fish,bat}
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-2. `libconfig <https://hyperrealm.github.io/libconfig/>`_
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-To install *boost* on a Mac, we can use `homebrew <https://brew.sh/>`_ ::
-
-	brew install libconfig
-
-On Linux machines, you can build `libconfig` via::
-
-	wget https://hyperrealm.github.io/libconfig/dist/libconfig-1.7.2.tar.gz
-	tar -xvzf libconfig-1.7.2.tar.gz
-	pushd libconfig-1.7.2
-	./configure
-	make
-	sudo make install
-	popd
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
-3. `libphysica <https://github.com/temken/libphysica>`_
+2. `gcc <https://hyperrealm.github.io/libconfig/>`_
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-*libphysica* does not need to be installed. It will be downloaded and compiled during the CMake build.
+.. To install *gcc* on a Mac, we can use `homebrew <https://brew.sh/>`_ ::
+
+..	brew install libconfig
+You almost certainly have a version of `gcc` already and *nrCascadeSim* is compatible with version
+4.4.7 or newer.
+
+On Linux machines, you can build `gcc` via the `apt-get` manager::
+
+	sudo apt-get install gcc
+
+
 
 ^^^^^^^^^^^^^^^^
 Download & Build
@@ -76,9 +72,9 @@ If everything worked well, the executable and library file are created as::
 	lib/libobscura.a
 
 
--------------------------
-Using *obscura* as a tool
--------------------------
+---------------------------------
+Using *realizeCascades* as a tool
+---------------------------------
 
 *Obscura* can be used as a tool and builds an executable which can be run from */bin/* via::
 
