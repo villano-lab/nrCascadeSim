@@ -6,10 +6,11 @@
 Installation
 ------------
 
-*nrCascadeSim* is designed to run in a Unix-based system and is tested via
-[Travis-CI](https://app.travis-ci.com/github/villano-lab/nrCascadeSim) using the
-[Xenial](https://docs.travis-ci.com/user/reference/xenial/) distribution, Ubuntu 16.04 on x86_64
-archetecture.
+*nrCascadeSim* is designed to run in a Unix-based system and is tested via Travis-CI_ using the
+Xenial_ distribution, Ubuntu 16.04 on x86_64 archetecture.
+
+.. _Travis-CI: https://app.travis-ci.com/github/villano-lab/nrCascadeSim
+.. _Xenial: https://docs.travis-ci.com/user/reference/xenial/ 
 
 ^^^^^^^^^^^^
 Dependencies
