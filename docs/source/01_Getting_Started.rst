@@ -62,7 +62,7 @@ The `nrCascadeSim` source code can be downloaded by cloning this `git repository
 The code is compiled and the executable and library is built by `Make <https://www.gnu.org/software/make/>`_. To build run the following commands from the repository's root folder.::
 
 	make	
-	sudo cmake install
+	sudo make install
 
 If everything worked well, the executable and library file are created as::
 

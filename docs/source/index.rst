@@ -32,7 +32,7 @@ use the Lindhard model for calculating the ionization, but the output is complet
 the user to choose their ionization yield model after simulation.  The code currently supports
 Neon, Argon, Silicon, and Germanium cascades slowing down in a lattice of like material.
 
-.. .. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/paper/SorVsLin_fig.pdf 
+.. .. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/paper/SorVsLin_fig.png 
    :width: 500
 
 .. toctree::
@@ -40,16 +40,13 @@ Neon, Argon, Silicon, and Germanium cascades slowing down in a lattice of like m
    :caption: Contents:
 
    01_Getting_Started
-..   02_Main_Modules
-..   03_Targets
-..   04_DM_Particle
-..   05_DM_Distribution
-..   06_DM_Detector
-..   07_Examples
-..   08_Experiments
-..   09_Citations
-..   10_Release_History
-..   11_License
-..   12_Contact
-..   References
+   02_Executables
+   03_Libraries
+   04_Examples
+   05_Documentation
+   06_Citations
+   07_Releasee_History
+   08_License
+   09_Contact
+   References
 
