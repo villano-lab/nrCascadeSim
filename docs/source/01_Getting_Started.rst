@@ -44,7 +44,7 @@ On Linux machines, you can also install `ROOT` via a `pre-packaged binary
 You almost certainly have a version of `gcc` already and *nrCascadeSim* is compatible with version
 4.4.7 or newer.
 
-On Linux machines, you can build `gcc` via the `apt-get` manager.::
+On Linux machines, you can build `gcc` via the `apt-get` manager::
 
 	sudo apt-get install gcc
 
@@ -53,23 +53,25 @@ On Linux machines, you can build `gcc` via the `apt-get` manager.::
 Download & Build
 ^^^^^^^^^^^^^^^^
 
-The `obscura` source code can be downloaded by cloning this `git repository <https://github.com/temken/obscura>`_: ::
+The `nrCascadeSim` source code can be downloaded by cloning this `git repository
+<https://github.com/villano-lab/nrCascadeSim>`_: ::
 
-   git clone https://github.com/temken/obscura.git
-   cd obscura
+   git clone https://github.com/villano-lab/nrCascadeSim.git
+   cd nrCascadeSim 
 
-The code is compiled and the executable and library is built by `CMake <https://cmake.org/>`_. To build run the following commands from the repository's root folder.::
+The code is compiled and the executable and library is built by `Make <https://www.gnu.org/software/make/>`_. To build run the following commands from the repository's root folder.::
 
-	cmake -E make_directory build
-	cd build
-	cmake -DCMAKE_BUILD_TYPE=Release -DCODE_COVERAGE=OFF ..
-	cmake --build . --config Release
-	cmake --install .
+	make	
+	sudo cmake install
 
 If everything worked well, the executable and library file are created as::
 
-	bin/obscura
-	lib/libobscura.a
+	bin/realizeCascades
+	bin/lib/libncap.so	
+
+To clean the installation use::
+
+	make clean
 
 
 ---------------------------------
