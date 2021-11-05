@@ -81,13 +81,6 @@ Using *nrCascadeSim* command-line tools
 *nrCascadeSim* contains pre-built executables built on the library functions that can be used as
 command-line tools. See Section 2 for list of the executables and inputs and outputs. 
 
-
-./obscura config.cfg
-
-As can be seen in the `/src/main.cpp <https://github.com/temken/obscura/blob/master/src/main.cpp>`_ file, this script computes direct detection limits and saves them in the */results/* folder.
-The specifications of the exclusion limits (DM physics and halo model, statistics, experiment, mass range,...) are defined in a configuration file, in this case *config.cfg*.
-For the handling of configuration files, *obscura* relies on `libconfig <https://hyperrealm.github.io/libconfig/>`_. 
-
 .. .. warning::
 
 ..	The import of these parameters via libconfig is very case-sensitive. A float parameter has to be set to e.g. *1.0*, and **not** just *1*.
