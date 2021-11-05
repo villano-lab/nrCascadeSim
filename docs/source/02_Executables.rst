@@ -1,5 +1,5 @@
 ========================================
-2. The modular structure of *obscura*
+2. Executables of *nrCascadeSim*
 ========================================
 
 The computation of e.g. the electron recoil spectrum probed in direct detection experiments combines inputs from various fields of physics.

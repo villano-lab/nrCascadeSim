@@ -86,12 +86,6 @@ As can be seen in the `/src/main.cpp <https://github.com/temken/obscura/blob/mas
 The specifications of the exclusion limits (DM physics and halo model, statistics, experiment, mass range,...) are defined in a configuration file, in this case *config.cfg*.
 For the handling of configuration files, *obscura* relies on `libconfig <https://hyperrealm.github.io/libconfig/>`_. 
 
-^^^^^^^^^^^^^^^^^^^^^^
-The configuration file
-^^^^^^^^^^^^^^^^^^^^^^
-
-The configuration file contains all input parameters necessary to define the various *obscura* models.
-
 .. warning::
 
 	The import of these parameters via libconfig is very case-sensitive. A float parameter has to be set to e.g. *1.0*, and **not** just *1*.
