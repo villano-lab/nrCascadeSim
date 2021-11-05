@@ -170,7 +170,7 @@ For the handling of configuration files, *obscura* relies on `libconfig <https:/
 	</details>
 
 ----------------------------
-Using *obscura* as a library
+Using *nrCascadeSim* as a library
 ----------------------------
 
 If we want to use *obscura* functions in an external code, we can do so and import it as a library.
