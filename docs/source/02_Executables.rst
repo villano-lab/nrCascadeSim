@@ -33,9 +33,14 @@ Note that `realizeCascades` must be run from the `nrCascadeSim/bin` directory un
 added it to the path like by doing `sudo make install`.  Also note that `ROOT` must be present in
 the current environment for this command to work.
 
-## Arguments
+^^^^^^^^^
+Arguments
+^^^^^^^^^
 
-### Required Arguments
+""""""""""""""""""
+Required Arguments
+""""""""""""""""""
+
 All three of these arguments are required:
 * `-n, --numgen` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
 * `-o, --outfile` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
@@ -43,7 +48,9 @@ All three of these arguments are required:
 
 This makes the full example `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
 
-### Optional Arguments
+""""""""""""""""""
+Optional Arguments
+""""""""""""""""""
 
 * `-h, --help` display the help menu. This overrides other options. Help will be displayed and program will exit. 
 * `-s, --silent` silent. Nothing will be printed to stdout.
@@ -52,7 +59,10 @@ This makes the full example `./realizeCascades -n 100000 -o ~/output.root levelf
 * `-l, --log` log file. Specify a file to print the output to.  
 
 
-### Reproducible Files
+^^^^^^^^^^^^^^^^^^
+Reproducible Files
+^^^^^^^^^^^^^^^^^^
+
 The `-d, --seed` flag for the seed will result in files with consistent data. 
 
 However, additional binary data may result in checksums being different despite the data being the same. 
