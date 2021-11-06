@@ -2,30 +2,33 @@
 2. Executables of *nrCascadeSim*
 ========================================
 
-The computation of e.g. the electron recoil spectrum probed in direct detection experiments combines inputs from various fields of physics.
-We need to specify the assumed *particle physics* of the DM particle.
-The properties of the DM halo of the Milky way is an important *astrophysics* input.
-For the description of the target particles, and how they react to a kick from an incoming DM particle, we need to include knowledge of *atomic*, *nuclear*, and *condensed matter physics*.
-In order to make predictions, we furthermore need to define the *detection* experiments specifications.
-Finally, the result of such an experiment needs to be interpreted using *statistics*.
+Using the library functions defined in *nrCascadeSim* through the shared-object library
+`libncap.so` users can define their own executables for a task or use the pre-defined executables.
 
-.. image:: https://raw.githubusercontent.com/temken/obscura/master/paper/FlowChart.png
-   :width: 500
 
-This high level of modularity in this type of calculation needs to be reflected in the code's polymorphic structure.
-The goal of *obscura* is to provide for each of the different inputs one generic interface or abstract base class, that comprises the general required functionalities, without specifying the detailed implementations further.
-These depend on a multitude of assumptions which can change in different projects, for different users, etc.
+----------------------------------------------
+Using *realizeCascades* command-line executable 
+----------------------------------------------
 
-If the base classes are defined properly, it is also possible and straight-forward to 
+To get a quick list of the expected inputs and flags one can always run `realizeCascades --help`.
+The result will be:
 
-#. extend *obscura* by implementing further derived classes overriding the virtual functions of the base class.
-#. design research software that is agnostic to the detailed implementation and thereby very generally applicable to a variety of scenarios. As long as our scientific functions are formulated in terms of these base functions, they will be able to handle any new implementation that comes in the form of derived classes.
+.. code-block:: c++
 
-The three most important abstract base classes of *obscura* are
+  Usage:  (null) options [ inputfile(s) ]
+    -d, --seed          <integer>      seed for random numbers 
+    -n, --numgen        <number>       number of traces to generate 
+    -o, --outfile       <filename>     name the output file 
+    -s, --silent                       silent, no standard out 
+    -v, --verbose       <level>        Print verbose messages at level <level>
+    -V, --version                      print version and exit
+    -l, --log           <filename>     Log additional output to the specified file. If this option is not used, no logging will occur.
 
-#. ``DM_Particle``
-#. ``DM_Distribution``
-#. ``DM_Detector``
+.. The three most important abstract base classes of *obscura* are
 
-We will discuss the interface each of these classes provide in more detail.
-But first we take a look at the detection targets in direct DM search experiments, namely nuclei, bound electrons in atoms, and bound electrons in crystals.
+.. #. ``DM_Particle``
+.. #. ``DM_Distribution``
+.. #. ``DM_Detector``
+
+.. We will discuss the interface each of these classes provide in more detail.
+.. But first we take a look at the detection targets in direct DM search experiments, namely nuclei, bound electrons in atoms, and bound electrons in crystals.
