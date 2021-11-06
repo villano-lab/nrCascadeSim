@@ -13,7 +13,7 @@ Using *realizeCascades* command-line executable
 To get a quick list of the expected inputs and flags one can always run `realizeCascades --help`.
 The result will be:
 
-.. code-block:: c++
+.. code-block:: bash 
 
   Usage:  (null) options [ inputfile(s) ]
     -d, --seed          <integer>      seed for random numbers 
@@ -42,11 +42,18 @@ Required Arguments
 """"""""""""""""""
 
 All three of these arguments are required:
-* `-n, --numgen` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
-* `-o, --outfile` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
+* ``-n, --numgen`` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
+* ``-o, --outfile`` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
 * The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
 
-This makes the full example `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
+This makes the full example:
+
+.. code-block:: bash 
+
+  realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt
+
+
+to simulate 100000 events for 28Si and output them to a file in the home directory.
 
 """"""""""""""""""
 Optional Arguments
