@@ -115,19 +115,23 @@ Each portion of this row is described in the table below.
   * - `weight`
     - `#.##` or `#e+/-##`
     - The probability of this cascade occuring, normalized to unity with all other cascades. This variable includes a weight for the isotope's abundance compared to other isotopes listed within the same levelfile. (If only one isotope is present within the levelfile, the abundance weight is not needed.) Weights can be given in decimal form or scientific notation (e.g. 0.000671 or 6.71e-04). 
+  * - `isotope`
+    - `##Xx`
+    - The isotope of the nucleus *after* capture. (For example, if 28Si is present, it will become 29Si, so 29Si should be listed.) This should be formatted as two numbers, one capital letter, and one lower-case letter (e.g. 29Si, 74Ge).
+  * - `A`
+    - `##`
+    - The number of particles in the nucleus after capture. This should match the first two digits of `isotope`. For example, if `isotope` is 72Ge, `A` should be 72.
+  * - `energies` 
+    - `[... E2 E1 0]`
+    - An ordered list of the energy levels traversed (keV), including the ground state (0 keV), separated by spaces. These should be in the decreasing order, the order in which the nucleus will go through the states. Do not include the separation energy to account for the initial unbound state before capture; this is already assumed.
+  * - `lifetimes`
+    - `[... tau2 tau1 inf]`
+    - An ordered list of the lifetimes of the energy levels traversed (as), separated by spaces. It must be the same length as the list of energies, and the lifetimes should be in the same order as the energies. The last entry is `100000000000000.0` (1e+14 as, or 1 ms), which is effectively infinite on the timescale of the simulation, to indicate that the state is stable at the ground state.
 
 
-.. | `Name`    | `Format`              | Description   |
-.. | ---       | ---                   | ---           |
-.. |`weight`   | `#.##` or `#e+/-##`   | 
-.. The probability of this cascade occuring, normalized to unity with all other cascades. This variable includes a weight for the isotope's abundance compared to other isotopes listed within the same levelfile. (If only one isotope is present within the levelfile, the abundance weight is not needed.) Weights can be given in decimal form or scientific notation (e.g. 0.000671 or 6.71e-04). |
-
-.. | `isotope` | `##Xx`                | The isotope of the nucleus *after* capture. (For example, if 28Si is present, it will become 29Si, so 29Si should be listed.) This should be formatted as two numbers, one capital letter, and one lower-case letter (e.g. 29Si, 74Ge).|
-.. | `A`       | `##`                  | The number of particles in the nucleus after capture. This should match the first two digits of `isotope`. For example, if `isotope` is 72Ge, `A` should be 72. |
-.. | `energies`| `[... E2 E1 0]`       | An ordered list of the energy levels traversed (keV), including the ground state (0 keV), separated by spaces. These should be in the decreasing order, the order in which the nucleus will go through the states. Do not include the separation energy to account for the initial unbound state before capture; this is already assumed.|
-.. | `lifetimes`| `[... tau2 tau1 inf]`| An ordered list of the lifetimes of the energy levels traversed (as), separated by spaces. It must be the same length as the list of energies, and the lifetimes should be in the same order as the energies. The last entry is `100000000000000.0` (1e+14 as, or 1 ms), which is effectively infinite on the timescale of the simulation, to indicate that the state is stable at the ground state.|
-.. 
-## On Weights
+^^^^^^^^^^
+On Weights
+^^^^^^^^^^
 
 The sum of the probabilities must be less than or equal to one in order for the simulation to 
 work properly. If the sum is less than one, the simulation may skip generating some points in 
@@ -143,17 +147,16 @@ A detector has three isotopes, which become 29Si, 30Si, and 31Si after capture.
 The abundances within the detector are 60%, 30%, and 10%, respectively. 
 Each has three possible cascades we want to model, which we list below in our (incomplete) draft of the levelfile:
 
-```
-weight? 29Si 29 [0]         [100000000000000.0]
-weight? 29Si 29 [5000 0]    [0.84   100000000000000.0]
-weight? 29Si 29 [3000 0]    [0.5    100000000000000.0]
-weight? 30Si 30 [0]         [100000000000000.0]
-weight? 30Si 30 [4000 0]    [1      100000000000000.0]
-weight? 30Si 30 [2000 0]    [0.15   100000000000000.0]
-weight? 31Si 31 [0]         [100000000000000.0]
-weight? 31Si 31 [4999 0]    [0.15   100000000000000.0]
-weight? 31Si 31 [540  0]    [.954   100000000000000.0]
-```
+.. code-block:: bash
+  weight? 29Si 29 [0]         [100000000000000.0]
+  weight? 29Si 29 [5000 0]    [0.84   100000000000000.0]
+  weight? 29Si 29 [3000 0]    [0.5    100000000000000.0]
+  weight? 30Si 30 [0]         [100000000000000.0]
+  weight? 30Si 30 [4000 0]    [1      100000000000000.0]
+  weight? 30Si 30 [2000 0]    [0.15   100000000000000.0]
+  weight? 31Si 31 [0]         [100000000000000.0]
+  weight? 31Si 31 [4999 0]    [0.15   100000000000000.0]
+  weight? 31Si 31 [540  0]    [.954   100000000000000.0]
 
 Let's say the probabilities of the cascade occurring *within the respective isotopes* are as below:
 
@@ -189,17 +192,16 @@ Then the relative probabilities *within the simulation* are:
 
 Making our completed levelfile:
 
-```
-0.21    29Si 29 [0]         [100000000000000.0]
-0.30    29Si 29 [5000 0]    [0.84   100000000000000.0]
-0.09    29Si 29 [3000 0]    [0.5    100000000000000.0]
-0.24    30Si 30 [0]         [100000000000000.0]
-0.03    30Si 30 [4000 0]    [1      100000000000000.0]
-0.03    30Si 30 [2000 0]    [0.15   100000000000000.0]
-0.02    31Si 31 [0]         [100000000000000.0]
-0.03    31Si 31 [4999 0]    [0.15   100000000000000.0]
-0.05    31Si 31 [540  0]    [.954   100000000000000.0]
-```
+.. code-block:: bash
+  0.21    29Si 29 [0]         [100000000000000.0]
+  0.30    29Si 29 [5000 0]    [0.84   100000000000000.0]
+  0.09    29Si 29 [3000 0]    [0.5    100000000000000.0]
+  0.24    30Si 30 [0]         [100000000000000.0]
+  0.03    30Si 30 [4000 0]    [1      100000000000000.0]
+  0.03    30Si 30 [2000 0]    [0.15   100000000000000.0]
+  0.02    31Si 31 [0]         [100000000000000.0]
+  0.03    31Si 31 [4999 0]    [0.15   100000000000000.0]
+  0.05    31Si 31 [540  0]    [.954   100000000000000.0]
 
 ## On Energies and Lifetimes
 
@@ -219,7 +221,7 @@ Therefore, the program reads this as:
 *realizeCascades* cascade output file 
 -------------------------------------
 
-**Note: ROOT_ is needed to open these files.**
+Note: ROOT_ is needed to open these files.
 
 .. _ROOT: https://root.cern/install/
 
