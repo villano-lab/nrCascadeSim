@@ -84,6 +84,18 @@ surpresses various forms of metadata that result in changes to the binary even f
 Unfortunately, the binary still seems to be influenced by the environment it is generated in,
 so at present there is no md5sum to compare to that will work across all devices.
 
+-------------------------------------
+*realizeCascades* cascade input file 
+-------------------------------------
+
+
+-------------------------------------
+*realizeCascades* cascade output file 
+-------------------------------------
+
+
+.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/output_structure.svg 
+   :width: 500
 .. The three most important abstract base classes of *obscura* are
 
 .. #. ``DM_Particle``
