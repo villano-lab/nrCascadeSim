@@ -59,26 +59,27 @@ to simulate 100000 events for 28Si and output them to a file in the home directo
 Optional Arguments
 """"""""""""""""""
 
-* `-h, --help` display the help menu. This overrides other options. Help will be displayed and program will exit. 
-* `-s, --silent` silent. Nothing will be printed to stdout.
-* `-v, --verbose` verbosity level. Default to 1 where only the random seed is printed. Max level is currently 2 where a lot of level/simulation information is printed.
-* `-V, --version` version. Print the version tag of the code and exit.  
-* `-l, --log` log file. Specify a file to print the output to.  
+* ``-h, --help`` display the help menu. This overrides other options. Help will be displayed and program will exit. 
+* ``-s, --silent`` silent. Nothing will be printed to stdout.
+* ``-v, --verbose`` verbosity level. Default to 1 where only the random seed is printed. Max level is currently 2 where a lot of level/simulation information is printed.
+* ``-V, --version`` version. Print the version tag of the code and exit.  
+* ``-l, --log`` log file. Specify a file to print the output to.  
 
 
 ^^^^^^^^^^^^^^^^^^
 Reproducible Files
 ^^^^^^^^^^^^^^^^^^
 
-The `-d, --seed` flag for the seed will result in files with consistent data. 
+The ``-d, --seed`` flag for the seed will result in files with consistent data. 
 
-However, additional binary data may result in checksums being different despite the data being the same. 
-If you want a reproducible file that can be compared to another by an md5 checksum, append to the output file's name:  
-`?reproducible=fixedname`  
-(you will either need to put the filename in quotes or escape the `?` character).  
-Example: `-o "output.root?reproducible=fixedname"`  
-This surpresses various forms of metadata that result in changes to the binary even for the same data.
-(See [ROOT's page on the TFile class](https://root.cern.ch/doc/master/classTFile.html#ad0377adf2f3d88da1a1f77256a140d60).)
+However, additional binary data may result in checksums being different despite the data being the
+same.  If you want a reproducible file that can be compared to another by an md5 checksum, append
+to the output file's name:  `?reproducible=fixedname`  (you will either need to put the filename
+in quotes or escape the `?` character).  Example: `-o "output.root?reproducible=fixedname"`  This
+surpresses various forms of metadata that result in changes to the binary even for the same data
+(see `ROOT` page on reproducible-files_ ).
+
+.. _reproducible-files_: https://root.cern.ch/doc/master/classTFile.html#ad0377adf2f3d88da1a1f77256a140d60 
 
 Unfortunately, the binary still seems to be influenced by the environment it is generated in,
 so at present there is no md5sum to compare to that will work across all devices.
