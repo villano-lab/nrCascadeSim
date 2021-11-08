@@ -101,7 +101,7 @@ The general format of one row of an input file is:
 
 .. code-block:: bash
    
-   `weight isotope A [..,E2,E1,E0] [..,tau2,tau1,inf]`
+   weight isotope A [..,E2,E1,E0] [..,tau2,tau1,inf]
 
 Each portion of this row is described in the table below.
 
@@ -221,7 +221,7 @@ Therefore, the program reads this as:
 
 *Note: ROOT_ is needed to open these files.*
 
-.. _ROOT : https://root.cern/install/
+.. _ROOT: https://root.cern/install/
 
 A file that contains the separate NR deposits, along with their Ionization deposits (INTERNAL: see
 lab notebook N-MISC-16-001 pg 35).  In addition all of the exiting gamma energies and times should be listed.
