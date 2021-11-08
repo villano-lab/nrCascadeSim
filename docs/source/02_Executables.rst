@@ -79,7 +79,7 @@ in quotes or escape the `?` character).  Example: `-o "output.root?reproducible=
 surpresses various forms of metadata that result in changes to the binary even for the same data
 (see `ROOT` page on reproducible-files_ ).
 
-.. _reproducible-files_: https://root.cern.ch/doc/master/classTFile.html#ad0377adf2f3d88da1a1f77256a140d60 
+.. _reproducible-files: https://root.cern.ch/doc/master/classTFile.html#ad0377adf2f3d88da1a1f77256a140d60 
 
 Unfortunately, the binary still seems to be influenced by the environment it is generated in,
 so at present there is no md5sum to compare to that will work across all devices.
