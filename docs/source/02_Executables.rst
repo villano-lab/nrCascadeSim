@@ -219,7 +219,7 @@ Therefore, the program reads this as:
 *realizeCascades* cascade output file 
 -------------------------------------
 
-*Note: ROOT_ is needed to open these files.*
+**Note: ROOT_ is needed to open these files.**
 
 .. _ROOT: https://root.cern/install/
 
