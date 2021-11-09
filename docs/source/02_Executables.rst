@@ -231,9 +231,11 @@ In the following levelfile row, the nth lifetime entry corresponds to the nth en
 
 Therefore, the program reads this as:
 
++---------------+-----------+-----------+-----------+-----------+-----------+
 | Energy level: | 5000 keV  | 4000 keV  | 3000 keV  | 2000 keV  | 1000 keV  |
-| ---           | ---       | ---       | ---       | ---       | ---       |
++---------------+-----------+-----------+-----------+-----------+-----------+
 | **Lifetime:** | 0.84 as   | 0.95 as   | 1.35 as   | 0.03 as   | 0.11 as   |
++---------------+-----------+-----------+-----------+-----------+-----------+
 
 
 -------------------------------------
@@ -244,14 +246,17 @@ Note: ROOT_ is needed to open these files.
 
 .. _ROOT: https://root.cern/install/
 
-A file that contains the separate NR deposits, along with their Ionization deposits (INTERNAL: see
-lab notebook N-MISC-16-001 pg 35).  In addition all of the exiting gamma energies and times should be listed.
+A file that contains the separate NR deposits, along with their Ionization deposits.  In addition
+all of the exiting gamma energies and times should be listed.
 
-The output files are *.root files and therefore cannot be read as text.
+The output files are `*.root` files and therefore cannot be read as text.
 Instead, they need to be imported to a program to be read out.
-One straightforward way of reading these files is with python and the [uproot](https://pypi.org/project/uproot/) package.
+One straightforward way of reading these files is with python and the
+`uproot <https://pypi.org/project/uproot/>`_ package.
 
-The *.root files store information in a tree-like structure. The top-most key in the output files will be `cascade` (there are no other top-level keys). Beneath this, the following keys exist:  
+The `*.root` files store information in a tree-like structure. The top-most key in the output
+files will be `cascade` (there are no other top-level keys). Beneath this, the following keys
+exist:  
 
 | `Name`    | *Shape*       | **Units** | Description   |
 | ---       | ---           | ---       | ---           |
