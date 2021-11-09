@@ -2,15 +2,7 @@
 3. The libraries of *nrCascadeSim*
 ========================================
 
-The computation of e.g. the electron recoil spectrum probed in direct detection experiments combines inputs from various fields of physics.
-We need to specify the assumed *particle physics* of the DM particle.
-The properties of the DM halo of the Milky way is an important *astrophysics* input.
-For the description of the target particles, and how they react to a kick from an incoming DM particle, we need to include knowledge of *atomic*, *nuclear*, and *condensed matter physics*.
-In order to make predictions, we furthermore need to define the *detection* experiments specifications.
-Finally, the result of such an experiment needs to be interpreted using *statistics*.
 
-.. image:: https://raw.githubusercontent.com/temken/obscura/master/paper/FlowChart.png
-   :width: 500
 
 This high level of modularity in this type of calculation needs to be reflected in the code's polymorphic structure.
 The goal of *obscura* is to provide for each of the different inputs one generic interface or abstract base class, that comprises the general required functionalities, without specifying the detailed implementations further.
