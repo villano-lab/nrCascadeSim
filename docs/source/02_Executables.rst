@@ -258,21 +258,55 @@ The `*.root` files store information in a tree-like structure. The top-most key 
 files will be `cascade` (there are no other top-level keys). Beneath this, the following keys
 exist:  
 
-| `Name`    | *Shape*       | **Units** | Description   |
-| ---       | ---           | ---       | ---           |
-| `n`       | *1D Array*    | N/A       | Array denoting the number of energy levels in a given cascade. This includes intermediate levels and the ground state. |
-| `cid`     | *1D Array*    | N/A       | Array of cascade IDs. The cascade ID is the number of the row in the levelfile which contains the cascade used. These count starting from zero. |
-| `Elev`    | *Jagged Array*| **keV**   | Array of energy level inputs. Each entry is an array of size `n`. |
-| `taus`    | *Jagged Array*| **as**    | Array of lifetime inputs. Each entry is an array of size `n`. |
-| `delE`    | *Jagged Array*| **eV**    | Array of energy deposits between energy levels. Each entry is an array of size `n - 1`. It contains the individual energy deposits, not the total energy deposit. If using a custom nonlinear ionization model, these are the best to operate on. |
-| `I`       | *Jagged Array*| None      | Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges. |
-| `Ei`      | *Jagged Array*| **eV**    | Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here. |
-| `time`    | *Jagged Array*| **as**    | Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times. |
-| `Eg`      | *Jagged Array*| **MeV**    | Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit. |
+.. list-table:: Output Structure 
+   :widths: 25 25 25 50
+   :header-rows: 1
+   
+   * -  `Name`  
+     -  `Shape`       
+     -  **Units** 
+     -  Description 
+   * -  `n`  
+     -  `1D Array`    
+     -   N/A       
+     -  Array denoting the number of energy levels in a given cascade. This includes intermediate levels and the ground state.
+   * -  `cid`    
+     -  `1D Array`    
+     -   N/A       
+     -   Array of cascade IDs. The cascade ID is the number of the row in the levelfile which contains the cascade used. These count starting from zero.
+   * -  `Elev` 
+     -  `Jagged Array` 
+     -   **keV**   
+     - Array of energy level inputs. Each entry is an array of size `n`.
+   * - `taus`
+     - `Jagged Array`
+     -  **atto-sec (as)**  
+     -  Array of lifetime inputs. Each entry is an array of size `n`.
+   * -  `delE`   
+     -  `Jagged Array`
+     -   **eV**    
+     -   Array of energy deposits between energy levels. Each entry is an array of size `n - 1`. It contains the individual energy deposits, not the total energy deposit. If using a custom nonlinear ionization model, these are the best to operate on.
+   * -  `I` 
+     - `Jagged Array`
+     -  None   
+     -  Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges.
+   * -  `Ei` 
+     -  `Jagged Array`
+     -   **eV** 
+     -  Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here.
+   * -  `time`  
+     -  `Jagged Array`
+     -   **as**  
+     -   Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times.
+   * -   `Eg`  
+     -   `Jagged Array`
+     -    **MeV**   
+     -    Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit.
 
-The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
-The length of each main array should be equal to the number of simulations; that is, 
-if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
+The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to
+the nth entry of `cid`, the nth entry of `Elev`, and so on.  The length of each main array should
+be equal to the number of simulations; that is, if running 10000 events, `n` and `cid` will have
+lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
 
 .. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/output_structure.svg 
    :width: 750 
