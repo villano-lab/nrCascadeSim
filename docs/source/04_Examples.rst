@@ -1,5 +1,5 @@
 ====================================
-7. Examples: Putting it all together
+4. Examples: Putting it all together
 ====================================
 
 
