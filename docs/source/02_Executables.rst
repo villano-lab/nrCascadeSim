@@ -163,6 +163,13 @@ cascades we want to model, which we list below in our (incomplete) draft of the 
 
 Let's say the probabilities of the cascade occurring **within the respective isotopes** are as below:
 
+=====  ============  =======
+29Si   Cascade       `[0]` 
+=====  ============  =======
+       Probability    0.35 
+=====  ============  =======
+
+
 | 29Si: | `[0]` | `[5000    0]` | `[3000    0]` | 
 | ---   | ---   | ---           |           --- |
 |       | 0.35  | 0.5           | 0.15          | 
