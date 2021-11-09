@@ -166,7 +166,7 @@ Let's say the probabilities of the cascade occurring **within the respective iso
 =====  ============  =======
 29Si   Cascade       `[0]` 
 =====  ============  =======
-       Probability    0.35 
+ -     Probability    0.35 
 =====  ============  =======
 
 
