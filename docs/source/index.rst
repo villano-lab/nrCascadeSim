@@ -4,6 +4,9 @@
 .. .. image:: https://codecov.io/gh/temken/obscura/branch/master/graph/badge.svg?token=1Pe1QMcngr
 ..   :target: https://codecov.io/gh/temken/obscura
 ..   :alt: Code Coverage 
+.. image:: https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master 
+   :target: https://app.travis-ci.com/villano-lab/nrCascadeSim
+   :alt: Build Status 
 .. image:: https://readthedocs.org/projects/nrcascadesim/badge/?version=latest
    :target: https://nrcascadesim.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
