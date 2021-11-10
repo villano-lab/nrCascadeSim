@@ -39,13 +39,13 @@ Research and research software using *nrCascadeSim*
 
 The library *nrCascadeSim* has been applied to obtain the scientific results of the following papers
 
-#. **Solar reflection of light dark matter with heavy mediators**
+#. **First observation of isolated nuclear recoils following neutron capture**
   
-  Timon Emken
+  A.N. Villano, M. Fritts, N. Mast, S. Brown, P. Cushman, K. Harris, V. Mandic 
 
-  .. image:: https://img.shields.io/badge/arXiv-2102.12483-B31B1B.svg
-      :target: https://arxiv.org/abs/2102.12483
-      :alt: [arXiv:2102.12483]
+  .. image:: https://img.shields.io/badge/arXiv-2110.02751-B31B1B.svg
+      :target: https://arxiv.org/abs/2110.02751
+      :alt: [arXiv:2110.02751]
 
 
 .. Here is a list of research software using *nrCascadeSim*:
