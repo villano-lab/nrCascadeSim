@@ -31,6 +31,11 @@ use the Lindhard model for calculating the ionization, but the output is complet
 the user to choose their ionization yield model after simulation.  The code currently supports
 Neon, Argon, Silicon, and Germanium cascades slowing down in a lattice of like material.
 
+The documentation does not contain a review of the physics implemented in the library.
+
+If you want to contribute to `nrCascadeSim`, please check out the `contribution guidelines
+<https://github.com/villano-lab/nrCascadeSim/blob/master/CONTRIBUTING.md>`_.
+
 .. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/paper/SorVsLin_fig.png 
    :width: 500
 
