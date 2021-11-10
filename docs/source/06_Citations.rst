@@ -1,6 +1,6 @@
-================
-Citing *obscura*
-================
+=====================
+Citing *nrCascadeSim*
+=====================
 
 -----------
 How to cite
@@ -8,7 +8,7 @@ How to cite
 
 If you decide to use this code, or if you want to add a reference to it, please cite the latest archived version,
 
-    Emken, T., 2021, obscura - A C++ library for dark matter detection computations [Code, v0.2.0] [DOI:10.5281/zenodo.5607961]
+    Villano, A.N., Harris, K., 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.1] [DOI:10.5281/zenodo.5594519]
 
 .. raw:: html
 
@@ -17,15 +17,15 @@ If you decide to use this code, or if you want to add a reference to it, please 
  
 .. code-block::
 
-    @software{obscura,
-    author = {Emken, Timon},
-    title = {{obscura - A C++ library for dark matter detection computations [Code, v0.2.0]}},
+    @software{nrcascadesim,
+    author = {Villano, A.N. and Harris, K.},
+    title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.1]}},
     year         = {2021},
     publisher    = {Zenodo},
-    version      = {v0.2.0},
-    doi          = {DOI:10.5281/zenodo.5607961},
-    url          = {https://doi.org/10.5281/zenodo.5607961},
-    howpublished={The code can be found under \url{https://github.com/temken/obscura}.}
+    version      = {v1.1.1},
+    doi          = {DOI:10.5281/zenodo.5594519},
+    url          = {https://doi.org/10.5281/zenodo.5594519},
+    howpublished={The code can be found under \url{https://github.com/villano-lab}.}
     }
 
 .. raw:: html
@@ -33,28 +33,11 @@ If you decide to use this code, or if you want to add a reference to it, please 
 	</details>
 
 
-.. as well as the corresponding publication.::
+---------------------------------------------------
+Research and research software using *nrCascadeSim*
+---------------------------------------------------
 
-..     Emken, T., 2021, obscura - A C++ library for dark matter detection computations [Code, v0.1.0] [DOI:10.5281/zenodo.4557188]
-
-
-.. .. raw:: html
-
-.. 	<details>
-.. 	<summary><a>Bibtex entry.</a></summary>
- 
-.. .. code-block::
-
-
-.. .. raw:: html
-
-.. 	</details>
-
-----------------------------------------------
-Research and research software using *obscura*
-----------------------------------------------
-
-The library *obscura* has been applied to obtain the scientific results of the following papers
+The library *nrCascadeSim* has been applied to obtain the scientific results of the following papers
 
 #. **Solar reflection of light dark matter with heavy mediators**
   
@@ -65,7 +48,7 @@ The library *obscura* has been applied to obtain the scientific results of the f
       :alt: [arXiv:2102.12483]
 
 
-Here is a list of research software using *obscura*:
+.. Here is a list of research software using *nrCascadeSim*:
 
-#. Emken, T., 2021, `Dark Matter Simulation Code for Underground Scatterings - Sun Edition (DaMaSCUS-SUN) <https://github.com/temken/DaMaSCUS-SUN>`_ Astrophysics Source Code Library, record `[ascl:2102.018] <https://ascl.net/2102.018>`_, `[DOI:10.5281/zenodo.4559874] <https://zenodo.org/record/4559874>`_
+.. #. Emken, T., 2021, `Dark Matter Simulation Code for Underground Scatterings - Sun Edition (DaMaSCUS-SUN) <https://github.com/temken/DaMaSCUS-SUN>`_ Astrophysics Source Code Library, record `[ascl:2102.018] <https://ascl.net/2102.018>`_, `[DOI:10.5281/zenodo.4559874] <https://zenodo.org/record/4559874>`_
 
