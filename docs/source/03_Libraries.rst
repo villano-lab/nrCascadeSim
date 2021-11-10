@@ -2,22 +2,50 @@
 3. The libraries of *nrCascadeSim*
 ========================================
 
+The functionality of the executables of *nrCascadeSim* such as `realizeCascades` is constructed
+from a set of library functions whose code is stored in the `libncap.so` file and whose prototypes
+are stored in several header files. Below we list the different header files with the internal
+functions, data structures, and their uses. 
+
+---------------
+`cascadeProd.h`
+---------------
+
+---------------
+`lindhard.h`
+---------------
 
 
-This high level of modularity in this type of calculation needs to be reflected in the code's polymorphic structure.
-The goal of *obscura* is to provide for each of the different inputs one generic interface or abstract base class, that comprises the general required functionalities, without specifying the detailed implementations further.
-These depend on a multitude of assumptions which can change in different projects, for different users, etc.
+---------------
+`weisskopf.h`
+---------------
 
-If the base classes are defined properly, it is also possible and straight-forward to 
 
-#. extend *obscura* by implementing further derived classes overriding the virtual functions of the base class.
-#. design research software that is agnostic to the detailed implementation and thereby very generally applicable to a variety of scenarios. As long as our scientific functions are formulated in terms of these base functions, they will be able to handle any new implementation that comes in the form of derived classes.
+---------------
+`isotope_info.h`
+---------------
 
-The three most important abstract base classes of *obscura* are
 
-#. ``DM_Particle``
-#. ``DM_Distribution``
-#. ``DM_Detector``
+-------------------
+`MersenneTwister.h`
+-------------------
 
-We will discuss the interface each of these classes provide in more detail.
-But first we take a look at the detection targets in direct DM search experiments, namely nuclei, bound electrons in atoms, and bound electrons in crystals.
+
+------------------------
+Mersenne Twister License
+------------------------
+
+Copyright (c) 2002, Rick Wagner, All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+    Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+    Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+    All advertising materials mentioning features or use of this software must display the following acknowledgement: This product includes software developed by the <copyright holder>.
+    Neither the name of the <copyright holder> nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY <COPYRIGHT HOLDER> AS IS AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL <COPYRIGHT HOLDER> BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
+
+-------------------
+`rootUtil.h`
+-------------------
