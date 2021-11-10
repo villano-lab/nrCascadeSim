@@ -22,6 +22,12 @@ are in the table below:
 | :cppcode:`struct cli`                    |                                                   |
 +------------------------------------------+---------------------------------------------------+
 
+:cppcode:`struct cli` 
+
+.. cppcode:: c++(code)
+   :language: c++ 
+
+
 ---------------
 `lindhard.h`
 ---------------
@@ -62,5 +68,3 @@ THIS SOFTWARE IS PROVIDED BY <COPYRIGHT HOLDER> AS IS AND ANY EXPRESS OR IMPLIED
 -------------------
 
 
-.. cppcode:: c++(code)
-   :language: c++ 
