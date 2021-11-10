@@ -1,7 +1,7 @@
 .. somewhere in here put notes on how to build and render a static page with and install sphinx
 
 =================================
-8. Included experimental analyses
+5. Documentation and Sphinx 
 =================================
 
 .. image:: https://raw.githubusercontent.com/temken/obscura/master/paper/obscura_DD_Constraints.png

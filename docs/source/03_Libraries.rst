@@ -11,6 +11,17 @@ functions, data structures, and their uses.
 `cascadeProd.h`
 ---------------
 
+This header has the prototypes for the functions that generate the statistical realizations of
+each cascade by Monte-Carlo simulation. The structures and functions prototyped inside this header
+are in the table below:
+
+
++------------------------------------------+---------------------------------------------------+
+| prototype                                |   purpose                                         |
++------------------------------------------+---------------------------------------------------+
+| :cppcode:`struct cli`                    |                                                   |
++------------------------------------------+---------------------------------------------------+
+
 ---------------
 `lindhard.h`
 ---------------
@@ -49,3 +60,7 @@ THIS SOFTWARE IS PROVIDED BY <COPYRIGHT HOLDER> AS IS AND ANY EXPRESS OR IMPLIED
 -------------------
 `rootUtil.h`
 -------------------
+
+
+.. cppcode:: c++(code)
+   :language: c++ 
