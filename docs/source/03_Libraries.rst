@@ -16,7 +16,8 @@ each cascade by Monte-Carlo simulation. The structures and functions prototyped 
 are in the table below:
 
 .. role:: C(code)
-   :language: C 
+   :language: C
+   :class: highlight
 
 +------------------------------------------+---------------------------------------------------+
 | prototype                                |   purpose                                         |
