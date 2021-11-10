@@ -15,16 +15,16 @@ This header has the prototypes for the functions that generate the statistical r
 each cascade by Monte-Carlo simulation. The structures and functions prototyped inside this header
 are in the table below:
 
-.. role:: bash(code)
-   :language: bash 
+.. role:: C(code)
+   :language: C 
 
 +------------------------------------------+---------------------------------------------------+
 | prototype                                |   purpose                                         |
 +------------------------------------------+---------------------------------------------------+
-| try :bash:`struct cli`                   |  the purpose                                      |
+| try :C:`struct cli`                   |  the purpose                                      |
 +------------------------------------------+---------------------------------------------------+
 
-:bash:`struct cli` 
+:C:`struct cli` 
 
 
 
