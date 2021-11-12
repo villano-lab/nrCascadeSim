@@ -12,8 +12,8 @@ functions, data structures, and their uses.
 ---------------
 
 This header has the prototypes for the functions that generate the statistical realizations of
-each cascade by Monte-Carlo simulation. The structures and functions prototyped inside this header
-are in the table below:
+each cascade by Monte-Carlo simulation. The structures and functions related to our data
+structures are prototyped in the table below:
 
 .. role:: C(code)
    :language: C
@@ -67,7 +67,18 @@ are in the table below:
 |  :C:`void freecriarray(int n,cli *cascade_levels)`          |  function to free memory in array of cri structs  |
 +-------------------------------------------------------------+---------------------------------------------------+
 
+There are also some utility functions that are used for reading the cascade input files, and they
+are prototyped in the following table. 
 
+.. role:: C(code)
+   :language: C
+   :class: highlight
+
++------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                               |   purpose                                         |
++------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cli *readCascadeDistributionFile(int &n,string file,bool &success)`           |  function to read in the cascade file with n lines|
++------------------------------------------------------------------------------------+---------------------------------------------------+
 
 ---------------
 `lindhard.h`
