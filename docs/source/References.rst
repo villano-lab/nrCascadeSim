@@ -2,5 +2,7 @@
 References
 ==================
 
-.. .. [ref] author, *title*, `journal <>`_, `[arXiv:xxxx] <https://arxiv.org/abs/xxxx>`_.
-.. [Yellin2002] S. Yellin, *Finding an upper limit in the presence of unknown background*, `Phys.Rev.D 66 (2002) 032005 <https://journals.aps.org/prd/abstract/10.1103/PhysRevD.66.032005>`_, `[arXiv:0203002] <https://arxiv.org/abs/0203002>`_.
+.. .. [ref] author, *title*, `journal <>`_, `[arXiv:xxxx] <https://arxiv.org/abs/xxxx>`_
+.. https://journals.aps.org/pr/abstract/10.1103/PhysRev.83.1073 Weisskopf estimates
+.. .. [Weisskopf1951] V.F. Weisskopf, *Radiative transition probabilities in nuclei*, `Phys.Rev. 83 (1951) 1073 <https://journals.aps.org/pr/abstract/10.1103/PhysRev.83.1073>`_, `[arXiv:0203002] <https://arxiv.org/abs/0203002>`_.
+.. [Weisskopf1951] V.F. Weisskopf, *Radiative transition probabilities in nuclei*, `Phys.Rev. 83 (1951) 1073 <https://journals.aps.org/pr/abstract/10.1103/PhysRev.83.1073>`_
