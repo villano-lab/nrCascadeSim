@@ -260,4 +260,15 @@ THIS SOFTWARE IS PROVIDED BY <COPYRIGHT HOLDER> AS IS AND ANY EXPRESS OR IMPLIED
 `rootUtil.h`
 -------------------
 
+In this header is contained prototypes for interfacing with the `ROOT` [ROOT1997]_ system. This is only
+for the  writing of the output file.  
 
+.. role:: C(code)
+   :language: C
+   :class: highlight
+
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                                   |   purpose                                         |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`bool addToNRTTree(TTree *t,int nr,cri *recoil_lists,cli cascade_spec)`            |  Add data to the output TTree (`ROOT` data class) |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
