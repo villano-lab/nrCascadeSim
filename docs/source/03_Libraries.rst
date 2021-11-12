@@ -96,7 +96,7 @@ The functions in the next table provide the functionality to calculate various d
 atom/ion trajectories for the supported elements: germanium, silicon, argon, neon. At this time
 there are separate functions for each of the supported elements; this is meant to be unified in
 the future in order to support a wider range of elements. For now we always use
-constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindhard paper [REF]. 
+constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindhard paper [Lindhard1963]_. 
 
 .. role:: C(code)
    :language: C
@@ -162,7 +162,7 @@ constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindh
 ---------------
 
 In this header is contained prototypes for functions to furnish simple representations of the
-Lindhard ionization model [REF]. They generally help return the ionization yield fraction given at
+Lindhard ionization model [Lindhard1963]_. They generally help return the ionization yield fraction given at
 a particular starting energy (in **eV**). There are also specified functions to return the
 ionization for an atom slowing down from one starting energy to another (as would happen in one
 step of the cascade). Again, as in `cascadeProd.h` there are separate functions for each isotope
@@ -198,7 +198,7 @@ currently and this is intended to be unified in the future.
 `weisskopf.h`
 ---------------
 
-In this header is contained a prototype for obtaining the Weisskopf decay-time estimate [REF] for
+In this header is contained a prototype for obtaining the Weisskopf decay-time estimate [Weisskopf1951]_ for
 a gamma decay of a certain energy (in **MeV**) and certain multipolarity (like `M1`, `E1`, etc.).
 
 .. role:: C(code)
