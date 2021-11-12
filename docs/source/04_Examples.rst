@@ -8,18 +8,42 @@ Reading a Level Input File
 ---------------------------
 
 
-1. First we define the DM particle objects that describe SI and SD interactions
 
-.. code-block:: c++
+.. code-block:: C 
 
-   // 1. DM particle (SI and Sd)
-   obscura::DM_Particle_SI dm_SI(10.0 * GeV);
-   dm_SI.Set_Sigma_Proton(1.0e-40 * cm * cm);
-   dm_SI.Print_Summary();
+  //library commands
+  #include "cascadeProd.h"
+  #include "lindhard.h"
+  #include "weisskopf.h"
+  #include "isotope_info.h"
+  #include "MersenneTwister.h"
+  
+  //ROOT stuff
+  #include "rootUtil.h"
 
-   obscura::DM_Particle_SD dm_SD(10.0 * GeV);
-   dm_SD.Set_Sigma_Proton(1.0e-40 * cm * cm);
-   dm_SD.Print_Summary();    
+  //get the file name
+  string filename="inputfile.txt";
+
+  //read the contents of a file into a cli object
+  int numc;
+  bool success=false;
+  cli *cascadeFile = readCascadeDistributionFile(numc,filenames[i],success);
+
+  for(int i=0;i<numc;i++){
+      cout << "Cascade ID: " << i+1 << "/" << numc << endl;
+      cout << "Fraction of this cascade: " << cascadeFile[i].frac << endl;
+      cout << "Neutron separation: " << cascadeFile[i].Sn << endl;
+      cout << "Mass number: " << cascadeFile[i].A << endl;
+      cout << "Number of steps: " << cascadeFile[i].n << endl;
+      cout << endl;
+      cout << "Energy Levels (keV)\t|\ttau (fs)" << endl;
+      cout << "------------------------------------------------" << endl;
+      cout << setfill('0') << setw(5) << setprecision(5);
+      cout << "      *****       " << "\t \t" << " ***** " << endl;
+      for(int j=0;j<cascadeFile[i].n;j++){
+        cout << "      "<< cascadeFile[i].Elev[j] << "       " << "\t \t" << " "<< cascadeFile[i].taus[j] << " " << endl;
+   }
+          
 
 ----------------------------
 Printing Isotope Information
