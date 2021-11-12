@@ -74,11 +74,38 @@ are prototyped in the following table.
    :language: C
    :class: highlight
 
-+------------------------------------------------------------------------------------+---------------------------------------------------+
-| prototypes for structs and functions                                               |   purpose                                         |
-+------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`cli *readCascadeDistributionFile(int &n,string file,bool &success)`           |  function to read in the cascade file with n lines|
-+------------------------------------------------------------------------------------+---------------------------------------------------+
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                                   |   purpose                                         |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cli *readCascadeDistributionFile(int &n,string file,bool &success)`               |  function to read in the cascade file with n lines|
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double interpretDbl(string in,bool &success)`                                     |   function to read doubles from input correctly   |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double interpretSn(string in,bool &success)`                                      |   function to read doubles from input correctly   |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double interpretWeisskopf(string in,double Egam,double A,bool &success)`          |   function to read doubles from input correctly   |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *interpretElevVector(int &n,string in,bool &success)`                      |   function to read doubles from input correctly   |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *interpretTauVector(int n,string in,double A,double *Elev,bool &success)`  |   function to read doubles from input correctly   |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`vector<string> vsplit(string in)`                                                 |   function to read doubles from input correctly   |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+
+The functions in the next table provide the functionality to calculate various details of the
+atom/ion trajectories for the supported elements: germanium, silicon, argon, neon. At this time
+there are separate functions for each of the supported elements; this is meant to be unified in
+the future in order to support a wider range of elements. 
+
+.. role:: C(code)
+   :language: C
+   :class: highlight
+
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                                   |   purpose                                         |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cli *readCascadeDistributionFile(int &n,string file,bool &success)`               |  function to read in the cascade file with n lines|
++----------------------------------------------------------------------------------------+---------------------------------------------------+
 
 ---------------
 `lindhard.h`
