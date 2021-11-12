@@ -161,21 +161,85 @@ constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindh
 `lindhard.h`
 ---------------
 
+In this header is contained prototypes for functions to furnish simple representations of the
+Lindhard ionization model [REF]. They generally help return the ionization yield fraction given at
+a particular starting energy (in **eV**). There are also specified functions to return the
+ionization for an atom slowing down from one starting energy to another (as would happen in one
+step of the cascade). Again, as in `cascadeProd.h` there are separate functions for each isotope
+currently and this is intended to be unified in the future.   
+
+.. role:: C(code)
+   :language: C
+   :class: highlight
+
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                                   |   purpose                                         |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double lindhard(double *x, double *par)`                                          |  generic lindhard function (**do not use**)       |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double lindhard_ge_k(double *x, double *par)`                                     |  germanium Lindhard yield for energy x[0]         |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *geIonizationInRange_k(double E0,double E1,double k,MTRand *rand)`         |  germanium Lindhard ionization in an energy range |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double lindhard_si_k(double *x, double *par)`                                     |  silicon Lindhard yield for energy x[0]           |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *siIonizationInRange_k(double E0,double E1,double k,MTRand *rand)`         |  silicon Lindhard ionization in an energy range   |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double lindhard_ar_k(double *x, double *par)`                                     |  argon Lindhard yield for energy x[0]             |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *arIonizationInRange_k(double E0,double E1,double k,MTRand *rand)`         |  argon Lindhard ionization in an energy range     |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double lindhard_ne_k(double *x, double *par)`                                     |  neon Lindhard yield for energy x[0]              |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *neIonizationInRange_k(double E0,double E1,double k,MTRand *rand)`         |  neon Lindhard ionization in an energy range      |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
 
 ---------------
 `weisskopf.h`
 ---------------
 
+In this header is contained a prototype for obtaining the Weisskopf decay-time estimate [REF] for
+a gamma decay of a certain energy (in **MeV**) and certain multipolarity (like `M1`, `E1`, etc.).
+
+.. role:: C(code)
+   :language: C
+   :class: highlight
+
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                                   |   purpose                                         |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double we(double Egam,double A,std::string transition="E1")`                      |  return the Weisskopf estimated lifetime          |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
 
 ---------------
 `isotope_info.h`
 ---------------
 
+In this header is contained prototypes for getting various isotope information. In the future this
+should be replaced with a more robust API to a database to get all of this information. For now,
+the information needed is hard-coded in the library. 
 
--------------------
-`MersenneTwister.h`
--------------------
+.. role:: C(code)
+   :language: C
+   :class: highlight
 
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                                   |   purpose                                         |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double getRecoilEnergy(std::string isotope="70Ge")`                               |  get the recoil energy for isotope (default 70Ge) |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double getMass(std::string isotope="70Ge")`                                       |  get the mass for isotope (default 70Ge)          |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double getDelta(std::string isotope="70Ge")`                                      |  get the mass deficit for isotope (default 70Ge)  |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double getN(std::string isotope="70Ge")`                                          |  get the neutron number for isotope (default 70Ge)|
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double getZ(std::string isotope="70Ge")`                                          |  get the protron number for isotope (default 70Ge)|
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double getSn(std::string isotope="70Ge")`                                         |  get neutron separation for isotope (default 70Ge)|
++----------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`void listStuff()`                                                                 |  print all available information                  |
++----------------------------------------------------------------------------------------+---------------------------------------------------+
 
 ------------------------
 Mersenne Twister License
