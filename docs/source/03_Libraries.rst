@@ -81,31 +81,81 @@ are prototyped in the following table.
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 |  :C:`double interpretDbl(string in,bool &success)`                                     |   function to read doubles from input correctly   |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double interpretSn(string in,bool &success)`                                      |   function to read doubles from input correctly   |
+|  :C:`double interpretSn(string in,bool &success)`                                      |   function to read Sn from input correctly        |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double interpretWeisskopf(string in,double Egam,double A,bool &success)`          |   function to read doubles from input correctly   |
+|  :C:`double interpretWeisskopf(string in,double Egam,double A,bool &success)`          |   function to convert Weisskopf abbreviations     |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *interpretElevVector(int &n,string in,bool &success)`                      |   function to read doubles from input correctly   |
+|  :C:`double *interpretElevVector(int &n,string in,bool &success)`                      |   function to read E levels from input correctly  |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *interpretTauVector(int n,string in,double A,double *Elev,bool &success)`  |   function to read doubles from input correctly   |
+|  :C:`double *interpretTauVector(int n,string in,double A,double *Elev,bool &success)`  |   function to read lifetimes from input correctly |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`vector<string> vsplit(string in)`                                                 |   function to read doubles from input correctly   |
+|  :C:`vector<string> vsplit(string in)`                                                 |   function for splitting strings (C++)            |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 
 The functions in the next table provide the functionality to calculate various details of the
 atom/ion trajectories for the supported elements: germanium, silicon, argon, neon. At this time
 there are separate functions for each of the supported elements; this is meant to be unified in
-the future in order to support a wider range of elements. 
+the future in order to support a wider range of elements. For now we always use
+constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindhard paper [REF]. 
 
 .. role:: C(code)
    :language: C
    :class: highlight
 
-+----------------------------------------------------------------------------------------+---------------------------------------------------+
-| prototypes for structs and functions                                                   |   purpose                                         |
-+----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`cli *readCascadeDistributionFile(int &n,string file,bool &success)`               |  function to read in the cascade file with n lines|
-+----------------------------------------------------------------------------------------+---------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                                                             |   purpose                                         |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`     |  func. for realizing cascades (Si,Ge only for now)|
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *geCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`   |  germanium func. for realizing cascades           |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double geDecay(double v, double M, double Egam, MTRand *rand)`                                              |  germanium func. energy after mid-stop decay      |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *geStop(double E, double M, double tau, MTRand *rand)`                                               |  germanium func. velocity at random stopping time |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double rgeS2(double E, double M, double t)`                                                                 |  germanium func. returning distance after time t  |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vgeS2(double E, double M, double t)`                                                                 |  germanium func. returning velocity after time t  |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vgeS2func(double *x,double *par)`                                                                    |  germanium func. velocity as function of time (x) |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *siCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`   |  silicon func. for realizing cascades             |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double siDecay(double v, double M, double Egam, MTRand *rand)`                                              |  silicon func. energy after mid-stop decay        |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *siStop(double E, double M, double tau, MTRand *rand)`                                               |  silicon func. velocity at random stopping time   |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double rsiS2(double E, double M, double t)`                                                                 |  silicon func. returning distance after time t    |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vsiS2(double E, double M, double t)`                                                                 |  silicon func. returning velocity after time t    |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vsiS2func(double *x,double *par)`                                                                    |  silicon func. velocity as function of time (x)   |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`   |  argon func. for realizing cascades               |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double arDecay(double v, double M, double Egam, MTRand *rand)`                                              |  argon func. energy after mid-stop decay          |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *arStop(double E, double M, double tau, MTRand *rand)`                                               |  argon func. velocity at random stopping time     |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double rarS2(double E, double M, double t)`                                                                 |  argon func. returning distance after time t      |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double varS2(double E, double M, double t)`                                                                 |  argon func. returning velocity after time t      |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double varS2func(double *x,double *par)`                                                                    |  argon func. velocity as function of time (x)     |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`   |  neon func. for realizing cascades                |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double neDecay(double v, double M, double Egam, MTRand *rand)`                                              |  neon func. energy after mid-stop decay           |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *neStop(double E, double M, double tau, MTRand *rand)`                                               |  neon func. velocity at random stopping time      |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double rneS2(double E, double M, double t)`                                                                 |  neon func. returning distance after time t       |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vneS2(double E, double M, double t)`                                                                 |  neon func. returning velocity after time t       |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vneS2func(double *x,double *par)`                                                                    |  neon func. velocity as function of time (x)      |
++------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+
 
 ---------------
 `lindhard.h`
