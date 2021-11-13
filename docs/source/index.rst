@@ -21,9 +21,9 @@
 .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.5594519.svg
    :target: https://doi.org/10.5281/zenodo.5594519
    :alt: DOI
-.. image:: https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9/status.svg
-   :target: https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9
-   :alt: JOSS paper
+.. .. image:: https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9/status.svg
+..    :target: https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9
+..    :alt: JOSS paper
 
 The purpose of this code is to simulate energy deposits due to cascading of energy levels
 following neutron capture.  This code was written for use in nuclear recoil calibration for dark

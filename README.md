@@ -5,7 +5,7 @@
 
 # nrCascadeSim - a tool for generating nuclear recoil spectra resulting from neutron capture
 
-[![status](https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9/status.svg)](https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9)
+<!---[![status](https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9/status.svg)](https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9)-->
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5579857.svg)](https://doi.org/10.5281/zenodo.5579857) <br/>
 
 A C/C++ set of executables and library for computing the nuclear recoil spectra left behind by capturing neutrons when all the capture gammas escape the medium. 
