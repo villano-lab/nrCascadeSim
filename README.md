@@ -1,284 +1,54 @@
-master: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)  [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5579857.svg)](https://doi.org/10.5281/zenodo.5579857) <br/>
-develop: [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=develop)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
-
-# Summary
-
-The purpose of this code is to simulate energy deposits due to cascading of energy levels following neutron capture. 
-This code was written for use in nuclear recoil calibration for dark matter detectors, 
-but may be useful in other particle physics applications as well, including coherent elastic neutrino nucleus scattering (CE&nu;NS).
-Currently, we use a constant acceleration model for the atom slowing down and calculation of the ionization energy.
-We also use the Lindhard model for calculating the ionization,
-but the output is complete enough to allow the user to choose their ionization yield model after simulation.
-The code currently supports Neon, Argon, Silicon, and Germanium cascades
-slowing down in a lattice of like material.
-
-# Installation Instructions
-
-This program is designed to run in a Unix-based system and is tested via
-[Travis-CI](https://app.travis-ci.com/github/villano-lab/nrCascadeSim) using the
-[Xenial](https://docs.travis-ci.com/user/reference/xenial/) distribution, Ubuntu 16.04 on x86_64
-archetecture.
-
-## Dependencies
-
-Required:
-* CERN's ROOT, which has its own installation instructions here: [https://root.cern/install/](https://root.cern/install/). Intended compatible with all versions; known compatible with version 6.
-* gcc, which can be installed via the command line (ex: `sudo apt-get install gcc`). Currently compatible with version 4.4.7 or newer.
-
-Optional:
-* Anaconda or Conda, as optionally used in the ROOT installation process: [https://www.anaconda.com/products/individual](https://www.anaconda.com/products/individual)
-* A package for reading *.root files (for Python, one example of this is [uproot](https://pypi.org/project/uproot/) `pip install uproot` - if you choose to use uproot, ensure that you are using version 3.)
-
-## Steps
-
-1) [Download](https://github.com/villano-lab/nrCascadeSim/archive/master.zip) or clone (`git clone https://github.com/villano-lab/nrCascadeSim.git`) the master branch of this repository.
-    * If downloaded as a zip, unzip the file (`unzip "nrCascadeSim-master.zip"`).
-    * Download/clone to the location you want the final installation to be.
-2) Install dependencies
-3) Enter the new directory (`cd nrCascadeSim`)
-4) Either add ROOT to the current environment or switch to an environment in which it is active (see [ROOT installation instructions](https://root.cern/install/))
-5) Run the command `make`
-6) Run the command `sudo make install` if you want the programs to be accessible from anywhere in your directory structure.
-7) To uninstall do `make clean`
-
-# Quick Start
-
-1) If ROOT is not part of the current environment, switch to an appropriate environment (ex: `conda activate name_of_root_env`)
-2) Switch to the appropriate directory (`cd /path/to/directory/nrCascadeSim/`)
-3) Run `realizeCascades -n desired-number-of-events -o /path/to/output/file levelfiles/name_of_levelfile.txt`
-
-# Instructions for Use
-
-The `realizeCascades` command will run the simulation a specified number of times for a given input file. 
-Currently, this is the only program in this package.
-It is possible for the user to create additional programs based on teh libraries included,
-and we may provide additional programs with the library in the future.
+[![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
+[![Documentation Status](https://readthedocs.org/projects/nrcascadesim/badge/?version=latest)](https://nrcascadesim.readthedocs.io/en/latest/?badge=latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 
-Note that `realizeCascades` must be run from the `nrCascadeSim/bin` directory unless the user has added it to the path like by doing `sudo make install`.
-Also note that `ROOT` must be present in the current environment for this command to work.
+# nrCascadeSim - a tool for generating nuclear recoil spectra resulting from neutron capture
 
-After running the command, you should see text confirming the seed used for the current run:
+<!---[![status](https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9/status.svg)](https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9)-->
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5579857.svg)](https://doi.org/10.5281/zenodo.5579857) <br/>
 
-```bash
-(root_env) gerudo7@Teldrassil:/mnt/d/git/nrCascadeSim$  bin/realizeCascades -n 100000 -o "output.root" levelfiles
-Seed used: 130618697
-```
+A C/C++ set of executables and library for computing the nuclear recoil spectra left behind by capturing neutrons when all the capture gammas escape the medium. 
 
-And there should be a new or overwritten file in the location specified (in this case, it should generate a file in the working directory named `output.root`).
+<img src="paper/SorVsLin_fig.png" width="500">
 
-## Arguments
+You can find more detailed documentation of *obscura* [here](https://obscura.readthedocs.io/en/latest/index.html). The documentation contains e.g. a [guide to get started](https://obscura.readthedocs.io/en/latest/01_Getting_Started.html) and a [list of all included experiments](https://obscura.readthedocs.io/en/latest/08_Experiments.html).
 
-### Required Arguments
-All three of these arguments are required:
-* `-n, --numgen` specifies the total number of cascade events to be simulated. (example: `-n 100000` to simulate one hundred thousand events.)
-* `-o, --outfile` specifies the location of the output file. (example: `-o ~/output.root` to output to a file `output.root` in the home directory.)
-* The main argument (no prefix) specifies the input file. (example: `levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to call a levelfile with all cascades for 28Si available.)
+## CITATION
 
-This makes the full example `./realizeCascades -n 100000 -o ~/output.root levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt` to simulate 100000 events for 28Si and output them to a file in the home directory.
+If you decide to use this code, or if you want to add a reference to it, please cite the latest archived version,
 
-### Optional Arguments
-
-* `-h, --help` display the help menu. This overrides other options. Help will be displayed and program will exit. 
-* `-s, --silent` silent. Nothing will be printed to stdout.
-* `-v, --verbose` verbosity level. Default to 1 where only the random seed is printed. Max level is currently 2 where a lot of level/simulation information is printed.
-* `-V, --version` version. Print the version tag of the code and exit.  
-* `-l, --log` log file. Specify a file to print the output to.  
-
-
-### Reproducible Files
-The `-d, --seed` flag for the seed will result in files with consistent data. 
-
-However, additional binary data may result in checksums being different despite the data being the same. 
-If you want a reproducible file that can be compared to another by an md5 checksum, append to the output file's name:  
-`?reproducible=fixedname`  
-(you will either need to put the filename in quotes or escape the `?` character).  
-Example: `-o "output.root?reproducible=fixedname"`  
-This surpresses various forms of metadata that result in changes to the binary even for the same data.
-(See [ROOT's page on the TFile class](https://root.cern.ch/doc/master/classTFile.html#ad0377adf2f3d88da1a1f77256a140d60).)
-
-Unfortunately, the binary still seems to be influenced by the environment it is generated in,
-so at present there is no md5sum to compare to that will work across all devices.
-
-## Examples
-
-Below are some examples of using `realizeCascades` along with explanations of what exactly each call is doing.
-
-```bash
-(root_env) gerudo7@Teldrassil:/mnt/d/git/nrCascadeSim$ bin/realizeCascades -n 5000 -o "output.root?reproducible=fixedname" -d 400 levelfiles/custom_levelfile.txt
-Seed provided: 400
-Seed used: 400
-```
-Run realizeCascades from the top level `nrCascadeSim` directory (the 
-command would fail if run from anywhere else.) 5000 points are generated, and 
-the data is saved to `output.root` in the working directory with partially 
-suppressed metadata. The seed is set to 400. Because the seed is set and 
-`?reproducible=fixedname` is used, running the command again with a different 
-filename on the same computer will result in a file with the same md5 checksum
-as `output.root`. The levelfile used was made by the user.
-
-```bash
-(root_env) gerudo7@Teldrassil:/mnt/d/git/nrCascadeSim$ mnt/d/git/bin/realizeCascades -n 3 -o "~/output.root?reproducible=fixedname" -l "~/log.txt" mnt/d/git/levelfiles/20ne_ngam.txt
-Seed used: 1603622329
-```
-
-Run realizeCascades from the top level `nrCascadeSim` directory in a way that would work, on this computer, from any directory. Only 3 points are generated. The data is saved to `output.root` in the home directory with partially suppressed metadata. Because no seed is provided, a random seed is used; to replicate this data, the seed will need to be specified for the next set of data as `1603622329`. Additional information about the cascade generation is sent to `log.txt` in the home directory. The levelfile used is `20ne_ngam.txt`, one of the provided levelfiles.
-
-```bash
-(root_env) gerudo7@Teldrassil:/mnt/d/git/nrCascadeSim/bin$ ./realizeCascades -n 5000 -o "~/output.root" -d 100 -s ../levelfiles/custom_levelfile.txt
-```
-
-Run realizeCascades from inside the bin directory. 5000 points are generated, adn the data is saved to `output.root` in the home directory. The seed is set to 100. Because metadata is not suppressed, running the same command again will result in a file with a different md5 checksum than this one. However, the simulation data will be consistent because a seed is provided. There is no stdout output because of the `-s` flag. The levelfile used was made by the user.
-
-## Example Use Case
-
-There is also a directory `example-usecase` containing one example of how data can be used once generated. 
-This example is in a jupyter notebook `Yields_and_Resolutions.ipynb`. 
-The notebook serves to help visualize what the final data can look like as well as provide a few examples of how the data in the output root file can be accessed.
-The processed data in this notebook is an example of what might be used for neutron capture-based calibration.
-
-# Levelfile (Input) Format
-
-The levelfile is a singular text file read by the program using regular expressions.
-Each row in a levelfile corresponds to one possible cascade, 
-which should include a relative weight for the probability of the cascade's occurrence.
-While it is helpful to create columns that are easy for the user to read,
-columns can be delineated by any number of spaces.
-
-The general format of one row of an input file is:
-
-`weight isotope A [..,E2,E1,E0] [..,tau2,tau1,inf]`
-
-Each portion of this row is described below.
-
-
-| `Name`    | `Format`              | Description   |
-| ---       | ---                   | ---           |
-|`weight`   | `#.##` or `#e+/-##`   | The probability of this cascade occuring, normalized to unity with all other cascades. This variable includes a weight for the isotope's abundance compared to other isotopes listed within the same levelfile. (If only one isotope is present within the levelfile, the abundance weight is not needed.) Weights can be given in decimal form or scientific notation (e.g. 0.000671 or 6.71e-04). |
-| `isotope` | `##Xx`                | The isotope of the nucleus *after* capture. (For example, if 28Si is present, it will become 29Si, so 29Si should be listed.) This should be formatted as two numbers, one capital letter, and one lower-case letter (e.g. 29Si, 74Ge).|
-| `A`       | `##`                  | The number of particles in the nucleus after capture. This should match the first two digits of `isotope`. For example, if `isotope` is 72Ge, `A` should be 72. |
-| `energies`| `[... E2 E1 0]`       | An ordered list of the energy levels traversed (keV), including the ground state (0 keV), separated by spaces. These should be in the decreasing order, the order in which the nucleus will go through the states. Do not include the separation energy to account for the initial unbound state before capture; this is already assumed.|
-| `lifetimes`| `[... tau2 tau1 inf]`| An ordered list of the lifetimes of the energy levels traversed (as), separated by spaces. It must be the same length as the list of energies, and the lifetimes should be in the same order as the energies. The last entry is `100000000000000.0` (1e+14 as, or 1 ms), which is effectively infinite on the timescale of the simulation, to indicate that the state is stable at the ground state.|
-
-## On Weights
-
-The sum of the probabilities must be less than or equal to one in order for the simulation to 
-work properly. If the sum is less than one, the simulation may skip generating some points in 
-the output &mdash; for example, when requesting 100 entries, if the total probability is 0.95, 
-one would expect 95 entries on average &mdash; but the input cascades will still be at the 
-correct proportions with respect to one another. If the sum is greater than one, the simulation 
-may not reach certain cascades at all &mdash; for instance, if a file has 12 cascades, and the 
-probabilities of the first 10 add up to 1, then the last two will never be generated.
-
-### **An example for calculating weights:**
-
-A detector has three isotopes, which become 29Si, 30Si, and 31Si after capture. 
-The abundances within the detector are 60%, 30%, and 10%, respectively. 
-Each has three possible cascades we want to model, which we list below in our (incomplete) draft of the levelfile:
+> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.3] [[DOI:10.5281/zenodo.5594519]](https://zenodo.org/record/5594519).
 
 ```
-weight? 29Si 29 [0]         [100000000000000.0]
-weight? 29Si 29 [5000 0]    [0.84   100000000000000.0]
-weight? 29Si 29 [3000 0]    [0.5    100000000000000.0]
-weight? 30Si 30 [0]         [100000000000000.0]
-weight? 30Si 30 [4000 0]    [1      100000000000000.0]
-weight? 30Si 30 [2000 0]    [0.15   100000000000000.0]
-weight? 31Si 31 [0]         [100000000000000.0]
-weight? 31Si 31 [4999 0]    [0.15   100000000000000.0]
-weight? 31Si 31 [540  0]    [.954   100000000000000.0]
+@software{nrcascadesim,
+  author = {Villano, A.N. and Harris, K. and Brown S.},
+  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.1]}},
+  year         = {2021},
+  publisher    = {Zenodo},
+  version      = {v1.1.1},
+  doi          = {DOI:10.5281/zenodo.5594519},
+  url          = {https://doi.org/10.5281/zenodo.5594519},
+  howpublished={The code can be found under \url{https://github.com/villano-lab}.}
+}
 ```
 
-Let's say the probabilities of the cascade occurring *within the respective isotopes* are as below:
+## VERSION HISTORY
 
-| 29Si: | `[0]` | `[5000    0]` | `[3000    0]` | 
-| ---   | ---   | ---           |           --- |
-|       | 0.35  | 0.5           | 0.15          | 
+- 06.11.2021: Release of [version 1.1.3](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.1.3)
 
+## AUTHORS & CONTACT
 
-| 30Si: | `[0]` | `[4000    0]` | `[2000    0]` | 
-| ---   | ---   | ---           | ---           |
-|       | 0.8   | 0.1           | 0.1           | 
+The authors of *nrCascadeSim* are [A.N. Villano](https://github.com/villaa), [K. Harris](https://github.com/gerudo7), and S. Brown.
 
-
-| 39Si: | `[0]` | `[4999    0]` | `[540     0]` |
-| ---   | ---   | ---           | ---           |
-|       | 0.2   | 0.3           | 0.5           |
-
-Then the relative probabilities *within the simulation* are:
-
-| 29Si: | `[0]` | `[5000    0]` | `[3000    0]` | 
-| ---   | ---   | ---           |           --- |
-|       | 0.21  | 0.3           | 0.09          | 
+For questions, support, bug reports, or other suggestions, please open an [issue](https://github.com/villano-lab/nrCascadeSim/issues).
 
 
-| 30Si: | `[0]` | `[4000    0]` | `[2000    0]` | 
-| ---   | ---   | ---           | ---           |
-|       | 0.24  | 0.03          | 0.03          | 
+## LICENSE
 
+This project is licensed under the MIT License - see the LICENSE file.
 
-| 39Si: | `[0]` | `[4999    0]` | `[540     0]` |
-| ---   | ---   | ---           | ---           |
-|       | 0.02  | 0.03          | 0.05          |
-
-Making our completed levelfile:
-
-```
-0.21    29Si 29 [0]         [100000000000000.0]
-0.30    29Si 29 [5000 0]    [0.84   100000000000000.0]
-0.09    29Si 29 [3000 0]    [0.5    100000000000000.0]
-0.24    30Si 30 [0]         [100000000000000.0]
-0.03    30Si 30 [4000 0]    [1      100000000000000.0]
-0.03    30Si 30 [2000 0]    [0.15   100000000000000.0]
-0.02    31Si 31 [0]         [100000000000000.0]
-0.03    31Si 31 [4999 0]    [0.15   100000000000000.0]
-0.05    31Si 31 [540  0]    [.954   100000000000000.0]
-```
-
-## On Energies and Lifetimes
-
-In the following levelfile row, the nth lifetime entry corresponds to the nth energy level entry.
-
-```
-0.30    29Si 29 [5000 4000 3000 2000 1000 0]    [0.84 0.95 1.35 0.03 0.11 100000000000000.0]
-```
-Therefore, the program reads this as:
-
-| Energy level: | 5000 keV  | 4000 keV  | 3000 keV  | 2000 keV  | 1000 keV  |
-| ---           | ---       | ---       | ---       | ---       | ---       |
-| **Lifetime:** | 0.84 as   | 0.95 as   | 1.35 as   | 0.03 as   | 0.11 as   |
-
-# Root file (output) format
-
-*Note: [ROOT](https://root.cern/install/) is needed to open these files.*
-
-A file that contains the separate NR deposits, along with their Ionization deposits (INTERNAL: see
-lab notebook N-MISC-16-001 pg 35).  In addition all of the exiting gamma energies and times should be listed.
-
-The output files are *.root files and therefore cannot be read as text.
-Instead, they need to be imported to a program to be read out.
-One straightforward way of reading these files is with python and the [uproot](https://pypi.org/project/uproot/) package.
-
-The *.root files store information in a tree-like structure. The top-most key in the output files will be `cascade` (there are no other top-level keys). Beneath this, the following keys exist:  
-
-| `Name`    | *Shape*       | **Units** | Description   |
-| ---       | ---           | ---       | ---           |
-| `n`       | *1D Array*    | N/A       | Array denoting the number of energy levels in a given cascade. This includes intermediate levels and the ground state. |
-| `cid`     | *1D Array*    | N/A       | Array of cascade IDs. The cascade ID is the number of the row in the levelfile which contains the cascade used. These count starting from zero. |
-| `Elev`    | *Jagged Array*| **keV**   | Array of energy level inputs. Each entry is an array of size `n`. |
-| `taus`    | *Jagged Array*| **as**    | Array of lifetime inputs. Each entry is an array of size `n`. |
-| `delE`    | *Jagged Array*| **eV**    | Array of energy deposits between energy levels. Each entry is an array of size `n - 1`. It contains the individual energy deposits, not the total energy deposit. If using a custom nonlinear ionization model, these are the best to operate on. |
-| `I`       | *Jagged Array*| None      | Array containing the ionization calculations for each energy deposit. Each entry is an array of size `n - 1`. This ionization is given in terms of a number of charges. |
-| `Ei`      | *Jagged Array*| **eV**    | Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here. |
-| `time`    | *Jagged Array*| **as**    | Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times. |
-| `Eg`      | *Jagged Array*| **MeV**    | Array of gamma energies. Each entry is an array of gamma energies, corresponding to an energy deposit. |
-
-The ordering of values in the arrays are consistent; that is, the nth entry of `n` corresponds to the nth entry of `cid`, the nth entry of `Elev`, and so on.
-The length of each main array should be equal to the number of simulations; that is, 
-if running 10000 events, `n` and `cid` will have lengths of 10000 and the jagged arrays will have first dimensions of length 10000.
-
-![A visual outline of the structure of a ROOT output file named `file.root`. Everything is contained within a top-level key called `cascade`. Beneath `cascade` are several other keys, as described above.](output_structure.svg)
-
-## Ionization
+<!---## Ionization
 
 Ionization assumes the [Lindhard](https://www.osti.gov/biblio/4701226) model:
 
@@ -288,5 +58,8 @@ Ionization assumes the [Lindhard](https://www.osti.gov/biblio/4701226) model:
 
 Using the accepted value for Silicon (*k = 0.143*) or Germanium (*k = 0.159*), whichever is
 appropriate; *a = 3*; *b = 0.7*; *&gamma; = 0.15*; and *&omega; = 0.6*.
+<<<<<<< HEAD
 
 *Last updated 29 Oct, 2021, v1.0.6*
+=======
+-->
