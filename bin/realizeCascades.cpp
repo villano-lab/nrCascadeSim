@@ -50,6 +50,7 @@ void print_usage (FILE* stream, int exit_code)
   fprintf (stream,
 	   //"\n"
            "  -d, --seed          <integer>      seed for random numbers \n"
+           "  -h, --help                         print usage \n"
            "  -n, --numgen        <number>       number of traces to generate \n"
            "  -o, --outfile       <filename>     name the output file \n"
            "  -s, --silent                       silent, no standard out \n"
@@ -81,6 +82,7 @@ int main(int argc, char** argv) {
     {"numgen",    required_argument,  0, 'n'},
     {"outfile",   required_argument,  0, 'o'},
     {"silent",    no_argument,        0, 's'},
+    {"help",    no_argument,        0, 'h'},
     {"seed",      required_argument,  0, 'd'},
     {"verbose",   optional_argument,  0, 'v'},
     {"version",   no_argument,        0, 'V'},
@@ -97,7 +99,7 @@ int main(int argc, char** argv) {
 
   while(iarg != -1)
   {
-    iarg = getopt_long(argc, argv, "+l:n:o:sd:v::V", longopts, &index);
+    iarg = getopt_long(argc, argv, "+l:n:o:shd:v::V", longopts, &index);
 
     switch (iarg)
     {
@@ -133,6 +135,11 @@ int main(int argc, char** argv) {
 
       case 'V':
         printf("Version: %s\n", __GIT_VERSION);
+        return 0;
+        break;
+
+      case 'h':
+        print_usage(stderr,0);
         return 0;
         break;
 
