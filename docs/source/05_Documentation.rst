@@ -1,5 +1,3 @@
-.. somewhere in here put notes on how to build and render a static page with and install sphinx
-
 =================================
 5. Documentation and Sphinx 
 =================================
