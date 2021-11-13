@@ -52,7 +52,7 @@ If you want to contribute to `nrCascadeSim`, please check out the `contribution 
    04_Examples
    05_Documentation
    06_Citations
-   07_Releasee_History
+   07_Release_History
    08_License
    09_Contact
    References
