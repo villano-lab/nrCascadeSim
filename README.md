@@ -20,9 +20,6 @@ If you decide to use this code, or if you want to add a reference to it, please 
 
 > Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.3] [[DOI:10.5281/zenodo.5594519]](https://zenodo.org/record/5594519).
 
-<details><summary>Bibtex entry</summary>
-<p>
-
 ```
 @software{nrcascadesim,
   author = {Villano, A.N. and Harris, K. and Brown S.},
@@ -35,9 +32,6 @@ If you decide to use this code, or if you want to add a reference to it, please 
   howpublished={The code can be found under \url{https://github.com/villano-lab}.}
 }
 ```
-
-</p>
-</details>
 
 ## VERSION HISTORY
 
@@ -64,4 +58,8 @@ Ionization assumes the [Lindhard](https://www.osti.gov/biblio/4701226) model:
 
 Using the accepted value for Silicon (*k = 0.143*) or Germanium (*k = 0.159*), whichever is
 appropriate; *a = 3*; *b = 0.7*; *&gamma; = 0.15*; and *&omega; = 0.6*.
+<<<<<<< HEAD
+
+*Last updated 29 Oct, 2021, v1.0.6*
+=======
 -->
