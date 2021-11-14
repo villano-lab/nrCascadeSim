@@ -18,23 +18,24 @@ You can find more detailed documentation of *obscura* [here](https://obscura.rea
 
 If you decide to use this code, or if you want to add a reference to it, please cite the latest archived version,
 
-> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.3] [[DOI:10.5281/zenodo.5594519]](https://zenodo.org/record/5594519).
+> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.3] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
 
 ```
 @software{nrcascadesim,
   author = {Villano, A.N. and Harris, K. and Brown S.},
-  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.1]}},
+  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.0]}},
   year         = {2021},
   publisher    = {Zenodo},
-  version      = {v1.1.1},
-  doi          = {DOI:10.5281/zenodo.5594519},
-  url          = {https://doi.org/10.5281/zenodo.5594519},
+  version      = {v1.2.0},
+  doi          = {DOI:10.5281/zenodo.5579857},
+  url          = {https://doi.org/10.5281/zenodo.5579857},
   howpublished={The code can be found under \url{https://github.com/villano-lab}.}
 }
 ```
 
 ## VERSION HISTORY
 
+- 13.11.2021: Release of [version 1.2.0](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.2.0)
 - 06.11.2021: Release of [version 1.1.3](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.1.3)
 
 ## AUTHORS & CONTACT

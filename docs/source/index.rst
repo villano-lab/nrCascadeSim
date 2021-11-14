@@ -18,8 +18,8 @@
 *nrCascadeSim* - a tool for generating nuclear recoil spectra resulting from neutron capture
 ============================================================================================
 
-.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.5594519.svg
-   :target: https://doi.org/10.5281/zenodo.5594519
+.. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.5579857.svg
+   :target: https://doi.org/10.5281/zenodo.5579857
    :alt: DOI
 .. .. image:: https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9/status.svg
 ..    :target: https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9
