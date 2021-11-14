@@ -12,13 +12,13 @@ A C/C++ set of executables and library for computing the nuclear recoil spectra 
 
 <img src="paper/SorVsLin_fig.png" width="500">
 
-You can find more detailed documentation of *obscura* [here](https://obscura.readthedocs.io/en/latest/index.html). The documentation contains e.g. a [guide to get started](https://obscura.readthedocs.io/en/latest/01_Getting_Started.html) and a [list of all included experiments](https://obscura.readthedocs.io/en/latest/08_Experiments.html).
+You can find more detailed documentation of *nrCascadeSim* [here](https://nrcascadesim.readthedocs.io/en/latest/index.html). The documentation contains e.g. a [guide to get started](https://nrcascadesim.readthedocs.io/en/latest/01_Getting_Started.html).
 
 ## CITATION
 
 If you decide to use this code, or if you want to add a reference to it, please cite the latest archived version,
 
-> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.3] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
+> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.2] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
 
 ```
 @software{nrcascadesim,

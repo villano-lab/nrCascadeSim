@@ -1,4 +1,9 @@
-## Next Release (v1.2.2)
+## Next Release (v1.2.3)
+
+
+## Release (v1.2.2) Date 21.11.14
+
+* Hotfix to fix various typos
 
 ## Release (v1.2.1) Date 21.11.14
 
