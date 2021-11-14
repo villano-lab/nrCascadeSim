@@ -8,7 +8,7 @@ How to cite
 
 If you decide to use this code, or if you want to add a reference to it, please cite the latest archived version,
 
-    Villano, A.N., Harris, K., Brown, S., 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.1] [DOI:10.5281/zenodo.5594519]
+    Villano, A.N., Harris, K., Brown, S., 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.0] [DOI:10.5281/zenodo.5579857]
 
 .. raw:: html
 
@@ -19,12 +19,12 @@ If you decide to use this code, or if you want to add a reference to it, please 
 
     @software{nrcascadesim,
     author = {Villano, A.N. and Harris, K. and Brown S.},
-    title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.1.1]}},
+    title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.3]}},
     year         = {2021},
     publisher    = {Zenodo},
-    version      = {v1.1.1},
-    doi          = {DOI:10.5281/zenodo.5594519},
-    url          = {https://doi.org/10.5281/zenodo.5594519},
+    version      = {v1.2.0},
+    doi          = {DOI:10.5281/zenodo.5579857},
+    url          = {https://doi.org/10.5281/zenodo.5579857},
     howpublished={The code can be found under \url{https://github.com/villano-lab}.}
     }
 
