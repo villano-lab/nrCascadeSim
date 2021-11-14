@@ -1,4 +1,8 @@
-MIT License
+=======
+License
+=======
+
+`MIT License <https://opensource.org/licenses/MIT>`_
 
 Copyright (c) 2020 Anthony Villano, Kitty Harris, Staci Brown
 
