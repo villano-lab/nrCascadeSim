@@ -1,4 +1,16 @@
-## Next Release (v1.1.2)
+## Next Release (v1.2.2)
+
+## Release (v1.2.1) Date 21.11.14
+
+* Hotfix to update release notes. 
+
+## Release (v1.2.0) Date 21.11.13
+
+* PR #38 adds documentation on readthedocs (solves issue #23)
+* PR #40 fixes up example (solves issue #7)
+
+
+## Release (v1.1.3) Date 21.11.06
 
 * PR #16 to lower default verbosity of realizeCascades (solves issue #12)
 * PR #20 adds more clarity to README documentation at top level (solves issue #8)

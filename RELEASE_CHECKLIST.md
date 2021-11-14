@@ -7,3 +7,4 @@ Please be sure to do the following when making a release.
 3. update citation page of readthedocs `docs/source/06_Citations.rst`
 4. be sure the `stable` build of readthedocs points to the new release
 5. update the front-facing README in the Version history and citations sections
+6. update release notes RELEASENOTES.md
