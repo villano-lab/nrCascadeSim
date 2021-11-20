@@ -6,6 +6,7 @@
 # nrCascadeSim - a tool for generating nuclear recoil spectra resulting from neutron capture
 
 <!---[![status](https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9/status.svg)](https://joss.theoj.org/papers/fd8076268036956d3bf08193c4fc2db9)-->
+[![status](https://joss.theoj.org/papers/d69ced49c5c17fdbf637e0747d815deb/status.svg)](https://joss.theoj.org/papers/d69ced49c5c17fdbf637e0747d815deb)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5579857.svg)](https://doi.org/10.5281/zenodo.5579857) <br/>
 
 A C/C++ set of executables and library for computing the nuclear recoil spectra left behind by capturing neutrons when all the capture gammas escape the medium. 
@@ -18,15 +19,15 @@ You can find more detailed documentation of *nrCascadeSim* [here](https://nrcasc
 
 If you decide to use this code, or if you want to add a reference to it, please cite the latest archived version,
 
-> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.2] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
+> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.3] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
 
 ```
 @software{nrcascadesim,
   author = {Villano, A.N. and Harris, K. and Brown S.},
-  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.0]}},
+  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.2.3]}},
   year         = {2021},
   publisher    = {Zenodo},
-  version      = {v1.2.0},
+  version      = {v1.2.3},
   doi          = {DOI:10.5281/zenodo.5579857},
   url          = {https://doi.org/10.5281/zenodo.5579857},
   howpublished={The code can be found under \url{https://github.com/villano-lab}.}
@@ -35,6 +36,7 @@ If you decide to use this code, or if you want to add a reference to it, please 
 
 ## VERSION HISTORY
 
+- 19.11.2021: Release of [version 1.2.3](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.2.3)
 - 13.11.2021: Release of [version 1.2.0](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.2.0)
 - 06.11.2021: Release of [version 1.1.3](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.1.3)
 

@@ -1,5 +1,8 @@
 ## Next Release (v1.2.3)
 
+## Release (v1.2.3) Date 21.11.19
+
+* Hotfix to add submitted tag for JOSS
 
 ## Release (v1.2.2) Date 21.11.14
 
