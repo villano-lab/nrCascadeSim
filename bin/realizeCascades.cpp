@@ -176,8 +176,9 @@ int main(int argc, char** argv) {
     cout << "Seed used: " << cl << endl;
   }
 
-  MTRand *mtrand = new MTRand(cl);
-  cout << "MTRand: " << mtrand << endl;
+  std::mt19937 mtrand(cl);
+  cout << "MT Result: " << mtrand(cl); << endl;
+  std::uniform_real_distribution<float> dist(0.,1.);
 
   //get a root file and make 
   TFile *f = TFile::Open(outputfile.c_str(),"recreate");
