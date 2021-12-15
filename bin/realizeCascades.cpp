@@ -237,25 +237,24 @@ int main(int argc, char** argv) {
       //calculate the first cascade
       for(int k=0;k<numc;k++){
 	      int nrealize = num*cascadeFile[k].frac;
+              cri *cascade_data;
+              cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
+              bool didsave = addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]); 
+
         if(!logfile.empty()){  
           logging << "Realizing " << nrealize << " events of cascade ID " << cascadeFile[k].cid << endl;
-                cri *cascade_data;
-                cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
-                logging << "Cascade realization " << k << " success: " << addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]) << endl; 
+                logging << "Cascade realization " << k << " success: " << didsave << endl; 
           
-                freecriarray(nrealize,cascade_data);
               //************************************************************************************
         }
 
         if(verbosity >= 2){  
           cout << "Realizing " << nrealize << " events of cascade ID " << cascadeFile[k].cid << endl;
-                cri *cascade_data;
-                cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
-                cout << "Cascade realization " << k << " success: " << addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]) << endl; 
+                cout << "Cascade realization " << k << " success: " << didsave << endl; 
           
-                freecriarray(nrealize,cascade_data);
               //************************************************************************************
         }
+        freecriarray(nrealize,cascade_data);
       }
       freecliarray(numc,cascadeFile);
     }
