@@ -3,7 +3,9 @@
 * Move MersenneTwister to built-in C++ function.
 	* The software now requires C++ 11 or newer.
 
-## Next Release (v1.2.3)
+## Release (v1.2.4) Date 21.12.15
+
+* PR #51 Hotfix to remove the bug introduced by verbosity (solves issue #12)
 
 ## Release (v1.2.3) Date 21.11.19
 
@@ -25,7 +27,7 @@
 
 ## Release (v1.1.3) Date 21.11.06
 
-* PR #16 to lower default verbosity of realizeCascades (solves issue #12)
+* PR #16 to lower default verbosity of realizeCascades (solves issue #12; bug introduced see v1.2.4)
 * PR #20 adds more clarity to README documentation at top level (solves issue #8)
 
 ## Release (v1.1.1) Date 21.10.23
