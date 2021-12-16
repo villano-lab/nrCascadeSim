@@ -12,6 +12,7 @@
 #include <string>
 #include <time.h>
 #include <stdint.h>
+#include <unistd.h>
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -167,11 +168,16 @@ int main(int argc, char** argv) {
   }
   std::vector<std::string> filenames;
   for(int i = optind; i < argc; i++){
-    if(verbosity>=1){
-      //print the filenames on a line
-      printf("%s\n",argv[i]);
+    if( access( argv[i], F_OK ) == 0 ) {
+      // file exists
+      if(verbosity>=1){
+        //print the filenames on a line
+        printf("%s\n",argv[i]);
+      }
+      filenames.push_back(argv[i]);
+    } else {
+      // file doesn't exist
     }
-    filenames.push_back(argv[i]);
   }
 
   //***********End get input*********************//
