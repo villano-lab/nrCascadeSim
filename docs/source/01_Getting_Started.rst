@@ -73,6 +73,12 @@ To clean the installation use::
 
 	make clean
 
+or::
+
+	sudo make clean
+
+if after a `sudo make install`.
+
 
 ---------------------------------------
 Using *nrCascadeSim* command-line tools
