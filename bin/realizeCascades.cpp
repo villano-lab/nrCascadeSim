@@ -58,6 +58,9 @@ void print_usage (FILE* stream, int exit_code)
            "  -V, --version                      print version and exit\n"
            "  -l, --log           <filename>     Log additional output to the specified file. If this option is not used, no logging will occur.\n");
 
+        printf("Report bugs to: villaa-at-gmail-dot-com \n");
+        printf("realizeCascades (nrCascadeSim) home page: <https://github.com/villano-lab/nrCascadeSim> \n");
+        printf("General help nrCascadeSim Software: <https://nrcascadesim.readthedocs.io/en/latest/> \n");
   exit (exit_code);
 }
 
@@ -143,7 +146,7 @@ int main(int argc, char** argv) {
         break;
 
       case 'h':
-        print_usage(stderr,0);
+        print_usage(stdout,0);
         return 0;
         break;
 
