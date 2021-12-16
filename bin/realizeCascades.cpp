@@ -12,6 +12,7 @@
 #include <string>
 #include <time.h>
 #include <stdint.h>
+#include <unistd.h>
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -58,6 +59,9 @@ void print_usage (FILE* stream, int exit_code)
            "  -V, --version                      print version and exit\n"
            "  -l, --log           <filename>     Log additional output to the specified file. If this option is not used, no logging will occur.\n");
 
+        printf("Report bugs to: villaa-at-gmail-dot-com \n");
+        printf("realizeCascades (nrCascadeSim) home page: <https://github.com/villano-lab/nrCascadeSim> \n");
+        printf("General help nrCascadeSim Software: <https://nrcascadesim.readthedocs.io/en/latest/> \n");
   exit (exit_code);
 }
 
@@ -134,12 +138,16 @@ int main(int argc, char** argv) {
           break;
 
       case 'V':
-        printf("Version: %s\n", __GIT_VERSION);
+        printf("realizeCascades (nrCascadeSim) %s\n", __GIT_VERSION);
+        printf("Copyright (c) 2020 Anthony Villano, Kitty Harris, Staci Brown \n");
+        printf("License The Expat license  <https://spdx.org/licenses/MIT.html> \n");
+        printf("This is free software: you are free to change and redistribute it. \n");
+        printf("There is NO WARRANTY, to the extent permitted by law. \n");
         return 0;
         break;
 
       case 'h':
-        print_usage(stderr,0);
+        print_usage(stdout,0);
         return 0;
         break;
 
@@ -160,11 +168,16 @@ int main(int argc, char** argv) {
   }
   std::vector<std::string> filenames;
   for(int i = optind; i < argc; i++){
-    if(verbosity>=1){
-      //print the filenames on a line
-      printf("%s\n",argv[i]);
+    if( access( argv[i], F_OK ) == 0 ) {
+      // file exists
+      if(verbosity>=1){
+        //print the filenames on a line
+        printf("%s\n",argv[i]);
+      }
+      filenames.push_back(argv[i]);
+    } else {
+      // file doesn't exist
     }
-    filenames.push_back(argv[i]);
   }
 
   //***********End get input*********************//
@@ -238,25 +251,24 @@ int main(int argc, char** argv) {
       //calculate the first cascade
       for(int k=0;k<numc;k++){
 	      int nrealize = num*cascadeFile[k].frac;
+              cri *cascade_data;
+              cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
+              bool didsave = addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]); 
+
         if(!logfile.empty()){  
           logging << "Realizing " << nrealize << " events of cascade ID " << cascadeFile[k].cid << endl;
-                cri *cascade_data;
-                cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
-                logging << "Cascade realization " << k << " success: " << addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]) << endl; 
+                logging << "Cascade realization " << k << " success: " << didsave << endl; 
           
-                freecriarray(nrealize,cascade_data);
               //************************************************************************************
         }
 
         if(verbosity >= 2){  
           cout << "Realizing " << nrealize << " events of cascade ID " << cascadeFile[k].cid << endl;
-                cri *cascade_data;
-                cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
-                cout << "Cascade realization " << k << " success: " << addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]) << endl; 
+                cout << "Cascade realization " << k << " success: " << didsave << endl; 
           
-                freecriarray(nrealize,cascade_data);
               //************************************************************************************
         }
+        freecriarray(nrealize,cascade_data);
       }
       freecliarray(numc,cascadeFile);
     }
