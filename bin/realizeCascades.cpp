@@ -134,7 +134,11 @@ int main(int argc, char** argv) {
           break;
 
       case 'V':
-        printf("Version: %s\n", __GIT_VERSION);
+        printf("realizeCascades (nrCascadeSim) %s\n", __GIT_VERSION);
+        printf("Copyright (c) 2020 Anthony Villano, Kitty Harris, Staci Brown \n");
+        printf("License MIT:  <https://opensource.org/licenses/MIT> \n");
+        printf("This is free software: you are free to change and redistribute it. \n");
+        printf("There is NO WARRANTY, to the extent permitted by law. \n");
         return 0;
         break;
 
