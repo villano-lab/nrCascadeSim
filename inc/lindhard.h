@@ -1,7 +1,11 @@
 // #include "MersenneTwister.h"
+#include <random>
 
 #ifndef LINDHARD_FUNCTIONS
 #define LINDHARD_FUNCTIONS
+
+using namespace std;
+
 double lindhard(double *x, double *par);
 double lindhard_ge_k(double *x, double *par);
 double *geIonizationInRange_k(double E0,double E1,double k,mt19937 *rand);

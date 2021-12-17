@@ -46,7 +46,7 @@ double lindhard_ge_k(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double *geIonizationInRange_k(double E0,double E1,double k,MTRand *rand)
+double *geIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 {
   //calculate the ionization energy expected of ge atom stopping between E0 and E1 (E1<E0)
   //E1 and E0 are to be supplied in eV
@@ -90,7 +90,7 @@ double lindhard_si_k(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double *siIonizationInRange_k(double E0,double E1,double k,MTRand *rand)
+double *siIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 {
   //calculate the ionization energy expected of ge atom stopping between E0 and E1 (E1<E0)
   //E1 and E0 are to be supplied in eV
@@ -134,7 +134,7 @@ double lindhard_ar_k(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double *arIonizationInRange_k(double E0,double E1,double k,MTRand *rand)
+double *arIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 {
   //calculate the ionization energy expected of ge atom stopping between E0 and E1 (E1<E0)
   //E1 and E0 are to be supplied in eV
@@ -180,7 +180,7 @@ double lindhard_ne_k(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double *neIonizationInRange_k(double E0,double E1,double k,MTRand *rand)
+double *neIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 {
   //calculate the ionization energy expected of ge atom stopping between E0 and E1 (E1<E0)
   //E1 and E0 are to be supplied in eV
