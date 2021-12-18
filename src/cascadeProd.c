@@ -733,7 +733,7 @@ double rarS2(double E, double M, double t)
   //number density in natural units
   //this is a gas, need a pressure
   double rho1atm = 1.784; //in g/L
-7  rho1atm *= 1/1000.0; //in g/cm^3
+  rho1atm *= 1/1000.0; //in g/cm^3
   double P=1; //atm
   double rho = rho1atm*P; //P1V1 = P2V2 at the same pressure
                           //V1 (P1/P2)= V2
@@ -975,6 +975,9 @@ double neDecay(double v, double M, double Egam, mt19937 *mtrand)
 //return the velocity at a random stopping time
 double *neStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<float> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
