@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>3. The libraries of nrCascadeSim &mdash; nrCascadeSim 1.1.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="4. Examples: Putting it all together" href="04_Examples.html" />
+    <link rel="prev" title="2. Executables of nrCascadeSim" href="02_Executables.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> nrCascadeSim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_Getting_Started.html">1. Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_Executables.html">2. Executables of <em>nrCascadeSim</em></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">3. The libraries of <em>nrCascadeSim</em></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#cascadeprod-h"><cite>cascadeProd.h</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#lindhard-h"><cite>lindhard.h</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#weisskopf-h"><cite>weisskopf.h</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isotope-info-h"><cite>isotope_info.h</cite></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mersenne-twister-license">Mersenne Twister License</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rootutil-h"><cite>rootUtil.h</cite></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="04_Examples.html">4. Examples: Putting it all together</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_Documentation.html">5. Documentation and Sphinx</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_Citations.html">Citing <em>nrCascadeSim</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="07_Release_History.html">Release history</a></li>
+<li class="toctree-l1"><a class="reference internal" href="08_License.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="09_Contact.html">Contact &amp; Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="References.html">References</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">nrCascadeSim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>3. The libraries of <em>nrCascadeSim</em></li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/03_Libraries.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="the-libraries-of-nrcascadesim">
+<h1>3. The libraries of <em>nrCascadeSim</em><a class="headerlink" href="#the-libraries-of-nrcascadesim" title="Permalink to this headline"></a></h1>
+<p>The functionality of the executables of <em>nrCascadeSim</em> such as <cite>realizeCascades</cite> is constructed
+from a set of library functions whose code is stored in the <cite>libncap.so</cite> file and whose prototypes
+are stored in several header files. Below we list the different header files with the internal
+functions, data structures, and their uses.</p>
+<section id="cascadeprod-h">
+<h2><cite>cascadeProd.h</cite><a class="headerlink" href="#cascadeprod-h" title="Permalink to this headline"></a></h2>
+<p>This header has the prototypes for the functions that generate the statistical realizations of
+each cascade by Monte-Carlo simulation. The structures and functions related to our data
+structures are prototyped in the table below:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 54%" />
+<col style="width: 46%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>prototypes for structs and functions</p></td>
+<td><p>purpose</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="k"><span class="pre">struct</span></span> <span class="nc"><span class="pre">cli</span></span></code></p></td>
+<td><p>the “Cascade Level Info” struct</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">bool</span></span> <span class="n"><span class="pre">cli</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">sucess</span></span></code></p></td>
+<td><p>has the structure been written correctly</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cli</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">n</span></span></code></p></td>
+<td><p>number of levels in this cascade</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cli</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">cid</span></span></code></p></td>
+<td><p>cascade id</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">cli</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">frac</span></span></code></p></td>
+<td><p>probability of observing this particular cascade</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">cli</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">Sn</span></span></code></p></td>
+<td><p>neutron separation energy</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cli</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">A</span></span></code></p></td>
+<td><p>mass number of capturing isotope</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span><span class="o"><span class="pre">*</span></span> <span class="n"><span class="pre">cli</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">Elev</span></span></code></p></td>
+<td><p>array of energy levels in <strong>keV</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span><span class="o"><span class="pre">*</span></span> <span class="n"><span class="pre">cli</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">taus</span></span></code></p></td>
+<td><p>half-lives of energy level in <strong>as</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="k"><span class="pre">struct</span></span> <span class="nc"><span class="pre">cri</span></span></code></p></td>
+<td><p>the “Cascade Recoil Info” struct</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cri</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">n</span></span></code></p></td>
+<td><p>n levels in the cascade that gave this recoil</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cri</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">cid</span></span></code></p></td>
+<td><p>cascade id for cascade that gave this recoil</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span><span class="o"><span class="pre">*</span></span> <span class="n"><span class="pre">cri</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">E</span></span></code></p></td>
+<td><p>recoil energy at beginning of recoil step <strong>eV</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span><span class="o"><span class="pre">*</span></span> <span class="n"><span class="pre">cri</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">delE</span></span></code></p></td>
+<td><p>energy deposited in step <strong>eV</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">int</span></span><span class="o"><span class="pre">*</span></span> <span class="n"><span class="pre">cri</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">I</span></span></code></p></td>
+<td><p>ionization created in each step in n e/h pairs</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span><span class="o"><span class="pre">*</span></span> <span class="n"><span class="pre">cri</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">Ei</span></span></code></p></td>
+<td><p>electron-equivalent ionization energy <strong>eV</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span><span class="o"><span class="pre">*</span></span> <span class="n"><span class="pre">cri</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">time</span></span></code></p></td>
+<td><p>time since capture <strong>fs</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span><span class="o"><span class="pre">*</span></span> <span class="n"><span class="pre">cri</span></span><span class="p"><span class="pre">.</span></span><span class="n"><span class="pre">Eg</span></span></code></p></td>
+<td><p>gamma energy emitted in each step <strong>MeV</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">void</span></span> <span class="n"><span class="pre">freecli</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">cli</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cascade_levels</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to free memory in cli struct</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">void</span></span> <span class="n"><span class="pre">freecliarray</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">cli</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cascade_levels</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to free memory in array of cli structs</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">void</span></span> <span class="n"><span class="pre">freecri</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">cri</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cascade_data</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function  to free memory in cri struct</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">void</span></span> <span class="n"><span class="pre">freecriarray</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">cli</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">cascade_levels</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to free memory in array of cri structs</p></td>
+</tr>
+</tbody>
+</table>
+<p>There are also some utility functions that are used for reading the cascade input files, and they
+are prototyped in the following table.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 63%" />
+<col style="width: 37%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>prototypes for structs and functions</p></td>
+<td><p>purpose</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="n"><span class="pre">cli</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">readCascadeDistributionFile</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="o"><span class="pre">&amp;</span></span><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">file</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">bool</span></span> <span class="o"><span class="pre">&amp;</span></span><span class="n"><span class="pre">success</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to read in the cascade file with n lines</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">interpretDbl</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">in</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">bool</span></span> <span class="o"><span class="pre">&amp;</span></span><span class="n"><span class="pre">success</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to read doubles from input correctly</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">interpretSn</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">in</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">bool</span></span> <span class="o"><span class="pre">&amp;</span></span><span class="n"><span class="pre">success</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to read Sn from input correctly</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">interpretWeisskopf</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">in</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Egam</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">bool</span></span> <span class="o"><span class="pre">&amp;</span></span><span class="n"><span class="pre">success</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to convert Weisskopf abbreviations</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">interpretElevVector</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="o"><span class="pre">&amp;</span></span><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">in</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">bool</span></span> <span class="o"><span class="pre">&amp;</span></span><span class="n"><span class="pre">success</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to read E levels from input correctly</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">interpretTauVector</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">in</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">Elev</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">bool</span></span> <span class="o"><span class="pre">&amp;</span></span><span class="n"><span class="pre">success</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function to read lifetimes from input correctly</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="n"><span class="pre">vector</span></span><span class="o"><span class="pre">&lt;</span></span><span class="n"><span class="pre">string</span></span><span class="o"><span class="pre">&gt;</span></span> <span class="n"><span class="pre">vsplit</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">in</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>function for splitting strings (C++)</p></td>
+</tr>
+</tbody>
+</table>
+<p>The functions in the next table provide the functionality to calculate various details of the
+atom/ion trajectories for the supported elements: germanium, silicon, argon, neon. At this time
+there are separate functions for each of the supported elements; this is meant to be unified in
+the future in order to support a wider range of elements. For now we always use
+constant-acceleration <cite>S2</cite> stopping. <cite>S2</cite> refers to the parameter from the Lindhard paper <a class="reference internal" href="References.html#lindhard1963" id="id1"><span>[Lindhard1963]</span></a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 69%" />
+<col style="width: 31%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>prototypes for structs and functions</p></td>
+<td><p>purpose</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="n"><span class="pre">cri</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">Cascade</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cid</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Sn</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">nlev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">Elev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">taus</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">mtrand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>func. for realizing cascades (Si,Ge only for now)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="n"><span class="pre">cri</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">geCascade</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cid</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Sn</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">nlev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">Elev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">taus</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">mtrand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>germanium func. for realizing cascades</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">geDecay</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Egam</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>germanium func. energy after mid-stop decay</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">geStop</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">tau</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>germanium func. velocity at random stopping time</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">rgeS2</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>germanium func. returning distance after time t</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">vgeS2</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>germanium func. returning velocity after time t</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">vgeS2func</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>germanium func. velocity as function of time (x)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="n"><span class="pre">cri</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">siCascade</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cid</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Sn</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">nlev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">Elev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">taus</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">mtrand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>silicon func. for realizing cascades</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">siDecay</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Egam</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>silicon func. energy after mid-stop decay</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">siStop</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">tau</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>silicon func. velocity at random stopping time</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">rsiS2</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>silicon func. returning distance after time t</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">vsiS2</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>silicon func. returning velocity after time t</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">vsiS2func</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>silicon func. velocity as function of time (x)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="n"><span class="pre">cri</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">arCascade</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cid</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Sn</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">nlev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">Elev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">taus</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">mtrand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>argon func. for realizing cascades</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">arDecay</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Egam</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>argon func. energy after mid-stop decay</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">arStop</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">tau</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>argon func. velocity at random stopping time</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">rarS2</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>argon func. returning distance after time t</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">varS2</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>argon func. returning velocity after time t</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">varS2func</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>argon func. velocity as function of time (x)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="n"><span class="pre">cri</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">neCascade</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">cid</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Sn</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">nlev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">Elev</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">taus</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">mtrand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>neon func. for realizing cascades</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">neDecay</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Egam</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>neon func. energy after mid-stop decay</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">neStop</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">tau</span></span><span class="p"><span class="pre">,</span></span> <span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>neon func. velocity at random stopping time</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">rneS2</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>neon func. returning distance after time t</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">vneS2</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">M</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>neon func. returning velocity after time t</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">vneS2func</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>neon func. velocity as function of time (x)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lindhard-h">
+<h2><cite>lindhard.h</cite><a class="headerlink" href="#lindhard-h" title="Permalink to this headline"></a></h2>
+<p>In this header is contained prototypes for functions to furnish simple representations of the
+Lindhard ionization model <a class="reference internal" href="References.html#lindhard1963" id="id2"><span>[Lindhard1963]</span></a>. They generally help return the ionization yield fraction given at
+a particular starting energy (in <strong>eV</strong>). There are also specified functions to return the
+ionization for an atom slowing down from one starting energy to another (as would happen in one
+step of the cascade). Again, as in <cite>cascadeProd.h</cite> there are separate functions for each isotope
+currently and this is intended to be unified in the future.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 63%" />
+<col style="width: 37%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>prototypes for structs and functions</p></td>
+<td><p>purpose</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">lindhard</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>generic lindhard function (<strong>do not use</strong>)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">lindhard_ge_k</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>germanium Lindhard yield for energy x[0]</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">geIonizationInRange_k</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E0</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E1</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>germanium Lindhard ionization in an energy range</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">lindhard_si_k</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>silicon Lindhard yield for energy x[0]</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">siIonizationInRange_k</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E0</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E1</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>silicon Lindhard ionization in an energy range</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">lindhard_ar_k</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>argon Lindhard yield for energy x[0]</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">arIonizationInRange_k</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E0</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E1</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>argon Lindhard ionization in an energy range</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">lindhard_ne_k</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">,</span></span> <span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">par</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>neon Lindhard yield for energy x[0]</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">neIonizationInRange_k</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E0</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">E1</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">k</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">MTRand</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">rand</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>neon Lindhard ionization in an energy range</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="weisskopf-h">
+<h2><cite>weisskopf.h</cite><a class="headerlink" href="#weisskopf-h" title="Permalink to this headline"></a></h2>
+<p>In this header is contained a prototype for obtaining the Weisskopf decay-time estimate <a class="reference internal" href="References.html#weisskopf1951" id="id3"><span>[Weisskopf1951]</span></a> for
+a gamma decay of a certain energy (in <strong>MeV</strong>) and certain multipolarity (like <cite>M1</cite>, <cite>E1</cite>, etc.).</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 63%" />
+<col style="width: 37%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>prototypes for structs and functions</p></td>
+<td><p>purpose</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">we</span></span><span class="p"><span class="pre">(</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">Egam</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">A</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">transition</span></span><span class="o"><span class="pre">=</span></span><s><span class="pre">”E1”</span></s><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>return the Weisskopf estimated lifetime</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="isotope-info-h">
+<h2><cite>isotope_info.h</cite><a class="headerlink" href="#isotope-info-h" title="Permalink to this headline"></a></h2>
+<p>In this header is contained prototypes for getting various isotope information. In the future this
+should be replaced with a more robust API to a database to get all of this information. For now,
+the information needed is hard-coded in the library.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 63%" />
+<col style="width: 37%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>prototypes for structs and functions</p></td>
+<td><p>purpose</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">getRecoilEnergy</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">isotope</span></span><span class="o"><span class="pre">=</span></span><s><span class="pre">”70Ge”</span></s><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>get the recoil energy for isotope (default 70Ge)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">getMass</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">isotope</span></span><span class="o"><span class="pre">=</span></span><s><span class="pre">”70Ge”</span></s><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>get the mass for isotope (default 70Ge)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">getDelta</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">isotope</span></span><span class="o"><span class="pre">=</span></span><s><span class="pre">”70Ge”</span></s><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>get the mass deficit for isotope (default 70Ge)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">getN</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">isotope</span></span><span class="o"><span class="pre">=</span></span><s><span class="pre">”70Ge”</span></s><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>get the neutron number for isotope (default 70Ge)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">getZ</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">isotope</span></span><span class="o"><span class="pre">=</span></span><s><span class="pre">”70Ge”</span></s><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>get the protron number for isotope (default 70Ge)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">double</span></span> <span class="n"><span class="pre">getSn</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">std</span></span><span class="o"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span> <span class="n"><span class="pre">isotope</span></span><span class="o"><span class="pre">=</span></span><s><span class="pre">”70Ge”</span></s><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>get neutron separation for isotope (default 70Ge)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">void</span></span> <span class="n"><span class="pre">listStuff</span></span><span class="p"><span class="pre">()</span></span></code></p></td>
+<td><p>print all available information</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="mersenne-twister-license">
+<h2>Mersenne Twister License<a class="headerlink" href="#mersenne-twister-license" title="Permalink to this headline"></a></h2>
+<p>Copyright (c) 2002, Rick Wagner, All rights reserved.</p>
+<p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+<blockquote>
+<div><p>Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+All advertising materials mentioning features or use of this software must display the following acknowledgement: This product includes software developed by the &lt;copyright holder&gt;.
+Neither the name of the &lt;copyright holder&gt; nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.</p>
+</div></blockquote>
+<p>THIS SOFTWARE IS PROVIDED BY &lt;COPYRIGHT HOLDER&gt; AS IS AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL &lt;COPYRIGHT HOLDER&gt; BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+</section>
+<section id="rootutil-h">
+<h2><cite>rootUtil.h</cite><a class="headerlink" href="#rootutil-h" title="Permalink to this headline"></a></h2>
+<p>In this header is contained prototypes for interfacing with the <cite>ROOT</cite> <a class="reference internal" href="References.html#root1997" id="id4"><span>[ROOT1997]</span></a> system. This is only
+for the  writing of the output file.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 63%" />
+<col style="width: 37%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>prototypes for structs and functions</p></td>
+<td><p>purpose</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="code highlight C docutils literal notranslate"><span class="kt"><span class="pre">bool</span></span> <span class="n"><span class="pre">addToNRTTree</span></span><span class="p"><span class="pre">(</span></span><span class="n"><span class="pre">TTree</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">t</span></span><span class="p"><span class="pre">,</span></span><span class="kt"><span class="pre">int</span></span> <span class="n"><span class="pre">nr</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">cri</span></span> <span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">recoil_lists</span></span><span class="p"><span class="pre">,</span></span><span class="n"><span class="pre">cli</span></span> <span class="n"><span class="pre">cascade_spec</span></span><span class="p"><span class="pre">)</span></span></code></p></td>
+<td><p>Add data to the output TTree (<cite>ROOT</cite> data class)</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_Executables.html" class="btn btn-neutral float-left" title="2. Executables of nrCascadeSim" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_Examples.html" class="btn btn-neutral float-right" title="4. Examples: Putting it all together" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, A.N. Villano, K. Harris, S. Brown.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
