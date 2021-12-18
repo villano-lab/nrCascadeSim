@@ -32,7 +32,6 @@
 #include "lindhard.h"
 #include "weisskopf.h"
 #include "isotope_info.h"
-#include "MersenneTwister.h"
 
 //ROOT stuff
 #include "rootUtil.h"
@@ -190,9 +189,9 @@ int main(int argc, char** argv) {
     cout << "Seed used: " << cl << endl;
   }
 
-  std::mt19937 mtrand(cl);
-  cout << "MT Result: " << mtrand(cl); << endl;
-  std::uniform_real_distribution<float> dist(0.,1.);
+  std::mt19937 *mtrand(cl);
+  std::uniform_real_distribution<double> dist(0.0,1.0);
+  cout << "MT Result: " << dist(*mtrand) << endl;
 
   //get a root file and make 
   TFile *f = TFile::Open(outputfile.c_str(),"recreate");

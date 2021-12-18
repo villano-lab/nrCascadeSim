@@ -21,7 +21,7 @@ int poissonKnuth(double lambda,mt19937 *rand){
 
   while(p>L){
     k+=1;
-    p*=dist(rand);
+    p*=dist(*rand);
   }
 
   return k-1;
@@ -40,12 +40,12 @@ int poissonAtkinson(double lambda,mt19937 *rand){
   double k=log(c)-lambda-log(beta);
 
   while(1){
-    double u=dist(rand);
+    double u=dist(*rand);
     double x=(alpha - log((1.0 - u)/u))/beta;
     int n = floor(x + 0.5);
     if (n < 0)
 	continue;
-    double v = dist(rand);
+    double v = dist(*rand);
     double y = alpha - beta*x;
     double lhs = y + log(v/pow((1.0 + exp(y)),2.0));
     double rhs = k + n*log(lambda) - lgamma(n);
