@@ -41,6 +41,7 @@ On Linux machines, you can also install `ROOT` via a `pre-packaged binary
 .. To install *gcc* on a Mac, we can use `homebrew <https://brew.sh/>`_ ::
 
 ..	brew install libconfig
+
 You almost certainly have a version of `gcc` already and *nrCascadeSim* is compatible with version
 4.4.7 or newer.
 
