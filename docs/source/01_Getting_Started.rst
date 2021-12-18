@@ -101,9 +101,9 @@ command-line tools. See Section 2 for list of the executables and inputs and out
 
 ..	</details>
 
-----------------------------
+----------------------------------
 Using *nrCascadeSim* as a library
-----------------------------
+----------------------------------
 
 If we want to use *nrCascadeSim* functions in an external code, we can do so and import it as a library.
 We recommend to do this inside your Make build, where the *nrCascadeSim* libraries can be linked

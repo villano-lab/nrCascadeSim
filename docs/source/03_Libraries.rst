@@ -211,9 +211,9 @@ a gamma decay of a certain energy (in **MeV**) and certain multipolarity (like `
 |  :C:`double we(double Egam,double A,std::string transition="E1")`                      |  return the Weisskopf estimated lifetime          |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 
----------------
+----------------
 `isotope_info.h`
----------------
+----------------
 
 In this header is contained prototypes for getting various isotope information. In the future this
 should be replaced with a more robust API to a database to get all of this information. For now,
