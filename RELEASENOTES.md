@@ -1,6 +1,6 @@
 ## Future Releases (v2.0.0) Date 21.12.14
 
-* Move MersenneTwister to built-in C++ function.
+* PR #54 Move MersenneTwister to built-in C++ function.
 	* The software now requires C++ 11 or newer.
 
 ## Release (v1.2.4) Date 21.12.15
