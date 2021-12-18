@@ -1,4 +1,3 @@
-// #include "MersenneTwister.h"
 #include <random>
 
 #ifndef LINDHARD_FUNCTIONS

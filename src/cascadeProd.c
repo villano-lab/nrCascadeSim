@@ -136,12 +136,14 @@ cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
 //return the Energy after the mid-stop kick. 
 double geDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<float> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -177,6 +179,9 @@ double geDecay(double v, double M, double Egam, mt19937 *mtrand)
 //return the velocity at a random stopping time
 double *geStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<float> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -185,7 +190,7 @@ double *geStop(double E, double M, double tau, mt19937 *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vgeS2(E,M,t);
@@ -388,12 +393,14 @@ cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
 //return the Energy after the mid-stop kick. 
 double siDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<float> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -429,6 +436,9 @@ double siDecay(double v, double M, double Egam, mt19937 *mtrand)
 //return the velocity at a random stopping time
 double *siStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<float> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -437,7 +447,7 @@ double *siStop(double E, double M, double tau, mt19937 *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vsiS2(E,M,t);
@@ -641,12 +651,14 @@ cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, d
 //return the Energy after the mid-stop kick. 
 double arDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<float> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -682,6 +694,9 @@ double arDecay(double v, double M, double Egam, mt19937 *mtrand)
 //return the velocity at a random stopping time
 double *arStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<float> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -690,7 +705,7 @@ double *arStop(double E, double M, double tau, mt19937 *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = varS2(E,M,t);
@@ -917,12 +932,14 @@ cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, d
 //return the Energy after the mid-stop kick. 
 double neDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<float> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -966,7 +983,7 @@ double *neStop(double E, double M, double tau, mt19937 *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vneS2(E,M,t);

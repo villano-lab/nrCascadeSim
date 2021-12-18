@@ -1,6 +1,6 @@
-// #include "MersenneTwister.h" // should no longer be needed
 #include <string>
 #include <vector>
+#include <random>
 
 using namespace std;
 
