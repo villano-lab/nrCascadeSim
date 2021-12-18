@@ -119,7 +119,7 @@ cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
 double geDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
@@ -162,7 +162,7 @@ double geDecay(double v, double M, double Egam, mt19937 *mtrand)
 double *geStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume energy in eV, mass in GeV, tau in fs.
  
@@ -376,7 +376,7 @@ cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
 double siDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
@@ -419,7 +419,7 @@ double siDecay(double v, double M, double Egam, mt19937 *mtrand)
 double *siStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume energy in eV, mass in GeV, tau in fs.
  
@@ -634,7 +634,7 @@ cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, d
 double arDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
@@ -677,7 +677,7 @@ double arDecay(double v, double M, double Egam, mt19937 *mtrand)
 double *arStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume energy in eV, mass in GeV, tau in fs.
  
@@ -915,7 +915,7 @@ cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, d
 double neDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
@@ -958,7 +958,7 @@ double neDecay(double v, double M, double Egam, mt19937 *mtrand)
 double *neStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume energy in eV, mass in GeV, tau in fs.
  

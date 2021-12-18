@@ -10,7 +10,7 @@ using namespace std;
 int poissonKnuth(double lambda,mt19937 *rand){
 
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //start with Knuth's algorithm quoted here
   //https://johndcook.com/blog/2010/06/14/generating-poisson-random-values
@@ -29,7 +29,7 @@ int poissonKnuth(double lambda,mt19937 *rand){
 //DANGEROUS NEVER use for lambda<30
 int poissonAtkinson(double lambda,mt19937 *rand){
   //random distribution
-  uniform_real_distribution<float> dist(0.,1.);
+  uniform_real_distribution<double> dist(0.,1.);
 
   //Atkinson's algorithm quoted here
   //https://johndcook.com/blog/2010/06/14/generating-poisson-random-values
