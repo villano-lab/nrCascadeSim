@@ -1,4 +1,4 @@
-#include "MersenneTwister.h"
+#include <random>
 #include <string>
 #include <vector>
 
@@ -27,21 +27,21 @@ void freesriarray(int n,sri *recoil_data);
 
 //******germanium*****************
 //throw a spectrum of electron or nuclear recoils in Ge, how specify the sampling?
-sri *geRecoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+sri *geRecoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 
 //******silicon*****************
 //throw a spectrum of electron or nuclear recoils in Si, how specify the sampling?
-sri *siRecoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+sri *siRecoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 
 //******argon*****************
 //throw a spectrum of electron or nuclear recoils in Ar, how specify the sampling?
-sri *arRecoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+sri *arRecoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 
 //******neon*****************
 //throw a spectrum of electron or nuclear recoils in Ne, how specify the sampling?
-sri *neRecoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+sri *neRecoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 
 //*********generic************** WARNING right now this only chooses either Ge or Si, not fully general
-sri *recoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+sri *recoil(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 
 #endif

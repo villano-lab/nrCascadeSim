@@ -1,6 +1,6 @@
-#include "MersenneTwister.h"
 #include <string>
 #include <vector>
+#include <random>
 
 using namespace std;
 
@@ -45,11 +45,11 @@ void freecriarray(int n,cri *cascade_data);
 //******germanium*****************
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *geCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+cri *geCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 //return the Energy after the mid-stop kick. 
-double geDecay(double v, double M, double Egam, MTRand *rand);
+double geDecay(double v, double M, double Egam, mt19937 *rand);
 //return the velocity at a random stopping time
-double *geStop(double E, double M, double tau, MTRand *rand);
+double *geStop(double E, double M, double tau, mt19937 *rand);
 //constant stopping power stopping. return distance after time t for initial energy E and mass M
 double rgeS2(double E, double M, double t);
 //constant stopping power stopping. return velocity after time t for initial energy E and mass M
@@ -59,11 +59,11 @@ double vgeS2func(double *x,double *par);
 //******silicon*****************
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *siCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+cri *siCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 //return the Energy after the mid-stop kick. 
-double siDecay(double v, double M, double Egam, MTRand *rand);
+double siDecay(double v, double M, double Egam, mt19937 *rand);
 //return the velocity at a random stopping time
-double *siStop(double E, double M, double tau, MTRand *rand);
+double *siStop(double E, double M, double tau, mt19937 *rand);
 //constant stopping power stopping. return distance after time t for initial energy E and mass M
 double rsiS2(double E, double M, double t);
 //constant stopping power stopping. return velocity after time t for initial energy E and mass M
@@ -73,11 +73,11 @@ double vsiS2func(double *x,double *par);
 //******argon*****************
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 //return the Energy after the mid-stop kick. 
-double arDecay(double v, double M, double Egam, MTRand *rand);
+double arDecay(double v, double M, double Egam, mt19937 *rand);
 //return the velocity at a random stopping time
-double *arStop(double E, double M, double tau, MTRand *rand);
+double *arStop(double E, double M, double tau, mt19937 *rand);
 //constant stopping power stopping. return distance after time t for initial energy E and mass M
 double rarS2(double E, double M, double t);
 //constant stopping power stopping. return velocity after time t for initial energy E and mass M
@@ -87,11 +87,11 @@ double varS2func(double *x,double *par);
 //******neon*****************
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 //return the Energy after the mid-stop kick. 
-double neDecay(double v, double M, double Egam, MTRand *rand);
+double neDecay(double v, double M, double Egam, mt19937 *rand);
 //return the velocity at a random stopping time
-double *neStop(double E, double M, double tau, MTRand *rand);
+double *neStop(double E, double M, double tau, mt19937 *rand);
 //constant stopping power stopping. return distance after time t for initial energy E and mass M
 double rneS2(double E, double M, double t);
 //constant stopping power stopping. return velocity after time t for initial energy E and mass M
@@ -99,7 +99,7 @@ double vneS2(double E, double M, double t);
 double vneS2func(double *x,double *par);
 
 //*********generic************** WARNING right now this only chooses either Ge or Si, not fully general
-cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand);
+cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 
 //input reading functions
 

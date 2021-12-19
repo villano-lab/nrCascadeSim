@@ -27,7 +27,7 @@ void freesri(sri *recoil_data)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -116,14 +116,16 @@ cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
   return outinfo;
 }
 //return the Energy after the mid-stop kick. 
-double geDecay(double v, double M, double Egam, MTRand *mtrand)
+double geDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(*mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -157,8 +159,11 @@ double geDecay(double v, double M, double Egam, MTRand *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *geStop(double E, double M, double tau, MTRand *mtrand)
+double *geStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -167,7 +172,7 @@ double *geStop(double E, double M, double tau, MTRand *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(*mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vgeS2(E,M,t);
@@ -279,7 +284,7 @@ double vgeS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -368,14 +373,16 @@ cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
   return outinfo;
 }
 //return the Energy after the mid-stop kick. 
-double siDecay(double v, double M, double Egam, MTRand *mtrand)
+double siDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(*mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -409,8 +416,11 @@ double siDecay(double v, double M, double Egam, MTRand *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *siStop(double E, double M, double tau, MTRand *mtrand)
+double *siStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -419,7 +429,7 @@ double *siStop(double E, double M, double tau, MTRand *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(*mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vsiS2(E,M,t);
@@ -531,7 +541,7 @@ double vsiS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -621,14 +631,16 @@ cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, d
   return outinfo;
 }
 //return the Energy after the mid-stop kick. 
-double arDecay(double v, double M, double Egam, MTRand *mtrand)
+double arDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(*mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -662,8 +674,11 @@ double arDecay(double v, double M, double Egam, MTRand *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *arStop(double E, double M, double tau, MTRand *mtrand)
+double *arStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -672,7 +687,7 @@ double *arStop(double E, double M, double tau, MTRand *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(*mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = varS2(E,M,t);
@@ -807,7 +822,7 @@ double varS2func(double *x,double *par)
 
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -897,14 +912,16 @@ cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, d
   return outinfo;
 }
 //return the Energy after the mid-stop kick. 
-double neDecay(double v, double M, double Egam, MTRand *mtrand)
+double neDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(*mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -938,8 +955,11 @@ double neDecay(double v, double M, double Egam, MTRand *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *neStop(double E, double M, double tau, MTRand *mtrand)
+double *neStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -948,7 +968,7 @@ double *neStop(double E, double M, double tau, MTRand *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(*mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vneS2(E,M,t);
@@ -1081,7 +1101,7 @@ double vneS2func(double *x,double *par)
 
 }
 
-cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //FIXME warning not general, only chooses Ge or Si
   if(A>44)

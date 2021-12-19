@@ -49,6 +49,8 @@ On Linux machines, you can build `gcc` via the `apt-get` manager::
 
 	sudo apt-get install gcc
 
+If, for some reason, you need to use a C++ standard older than 11, please use nrCascadeSim v1.2.2 or older.
+
 
 ^^^^^^^^^^^^^^^^
 Download & Build
