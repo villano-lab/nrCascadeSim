@@ -17,6 +17,7 @@
 #include <iomanip>
 #include <fstream>
 #include <cstdlib>
+#include <random>
 #include <map>
 #include <vector>
 #include <algorithm>
@@ -31,7 +32,6 @@
 #include "lindhard.h"
 #include "weisskopf.h"
 #include "isotope_info.h"
-#include "MersenneTwister.h"
 
 //ROOT stuff
 #include "rootUtil.h"
@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
     {0,0,0,0},
   };
 
-  int cl = rand();
+  unsigned cl = std::chrono::system_clock::now().time_since_epoch().count();
   int index;
   int iarg=0;
   string logfile;
@@ -189,8 +189,9 @@ int main(int argc, char** argv) {
     cout << "Seed used: " << cl << endl;
   }
 
-  MTRand *mtrand = new MTRand(cl);
-  cout << "MTRand: " << mtrand << endl;
+  std::mt19937 mtrand(cl);
+  std::uniform_real_distribution<double> dist(0.0,1.0);
+  cout << "MT Result: " << dist(mtrand) << endl;
 
   //get a root file and make 
   TFile *f = TFile::Open(outputfile.c_str(),"recreate");
@@ -251,7 +252,7 @@ int main(int argc, char** argv) {
       for(int k=0;k<numc;k++){
 	      int nrealize = num*cascadeFile[k].frac;
               cri *cascade_data;
-              cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
+              cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,&mtrand);
               bool didsave = addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]); 
 
         if(!logfile.empty()){  

@@ -7,7 +7,11 @@ using namespace std;
 
 #include "edepmath.h"
 
-int poissonKnuth(double lambda,MTRand *rand){
+int poissonKnuth(double lambda,mt19937 *rand){
+
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //start with Knuth's algorithm quoted here
   //https://johndcook.com/blog/2010/06/14/generating-poisson-random-values
 
@@ -17,13 +21,16 @@ int poissonKnuth(double lambda,MTRand *rand){
 
   while(p>L){
     k+=1;
-    p*=rand->rand();
+    p*=dist(*rand);
   }
 
   return k-1;
 }
 //DANGEROUS NEVER use for lambda<30
-int poissonAtkinson(double lambda,MTRand *rand){
+int poissonAtkinson(double lambda,mt19937 *rand){
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //Atkinson's algorithm quoted here
   //https://johndcook.com/blog/2010/06/14/generating-poisson-random-values
 
@@ -33,12 +40,12 @@ int poissonAtkinson(double lambda,MTRand *rand){
   double k=log(c)-lambda-log(beta);
 
   while(1){
-    double u=rand->rand();
+    double u=dist(*rand);
     double x=(alpha - log((1.0 - u)/u))/beta;
     int n = floor(x + 0.5);
     if (n < 0)
 	continue;
-    double v = rand->rand();
+    double v = dist(*rand);
     double y = alpha - beta*x;
     double lhs = y + log(v/pow((1.0 + exp(y)),2.0));
     double rhs = k + n*log(lambda) - lgamma(n);
@@ -51,7 +58,7 @@ int poissonAtkinson(double lambda,MTRand *rand){
 
 }
 //if lambda<30 use Knuth otherwise use Atkinson
-int poisson(double lambda,MTRand *rand)
+int poisson(double lambda,mt19937 *rand)
 {
   if(lambda<30)
     return poissonKnuth(lambda,rand);
@@ -59,7 +66,7 @@ int poisson(double lambda,MTRand *rand)
     return poissonAtkinson(lambda,rand);
 }
 //throw a poisson with a fano factor
-int poissonFano(double lambda,double F,MTRand *rand)
+int poissonFano(double lambda,double F,mt19937 *rand)
 {
 
   //get delta shift N-MISC-16-001

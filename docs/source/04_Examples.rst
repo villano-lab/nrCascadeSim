@@ -95,7 +95,7 @@ result is printed to standard output.
   #include "rootUtil.h"
 
   //seed an MT random number with 1
-  MTRand *mtrand = new MTRand(1);
+  std::19937 *mtrand = new std::19937(1);
 
   //get the ionization deposited between 100 and 50 eV
   double *ionization;
