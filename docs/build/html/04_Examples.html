@@ -160,7 +160,7 @@ result is printed to standard output.</p>
 <span class="cp">#include</span> <span class="cpf">&quot;rootUtil.h&quot;</span><span class="cp"></span>
 
 <span class="c1">//seed an MT random number with 1</span>
-<span class="n">MTRand</span> <span class="o">*</span><span class="n">mtrand</span> <span class="o">=</span> <span class="n">new</span> <span class="n">MTRand</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="mi">19937</span> <span class="o">*</span><span class="n">mtrand</span> <span class="o">=</span> <span class="n">new</span> <span class="n">std</span><span class="o">::</span><span class="mi">19937</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
 
 <span class="c1">//get the ionization deposited between 100 and 50 eV</span>
 <span class="kt">double</span> <span class="o">*</span><span class="n">ionization</span><span class="p">;</span>

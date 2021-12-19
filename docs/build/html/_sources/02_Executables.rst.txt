@@ -6,9 +6,9 @@ Using the library functions defined in *nrCascadeSim* through the shared-object 
 `libncap.so` users can define their own executables for a task or use the pre-defined executables.
 
 
-----------------------------------------------
+------------------------------------------------
 Using *realizeCascades* command-line executable 
-----------------------------------------------
+------------------------------------------------
 
 To get a quick list of the expected inputs and flags one can always run `realizeCascades --help`.
 The result will be:
