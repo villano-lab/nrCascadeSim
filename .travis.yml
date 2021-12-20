@@ -23,10 +23,6 @@ install:
   - pip install -r example-usecase/requirements.txt
   - source activate test-environment
 
-  # install ROOT via binary
-  - wget https://root.cern/download/root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
-  - tar -xzvf root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
-  - source root/bin/thisroot.sh
   - sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
 
   #make repository code (my code)
@@ -34,9 +30,13 @@ install:
   - sudo make install
 
 script:
-- cd tests
-- ./test_realizeCascades
-- cd ../example-usecase
-- travis_wait 50 py.test
-- source activate piptest
-- travis_wait 50 py.test
+  # install ROOT via binary
+  - wget https://root.cern/download/root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
+  - tar -xzvf root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
+  - source root/bin/thisroot.sh
+  - cd tests
+  - ./test_realizeCascades
+  - cd ../example-usecase
+  - travis_wait 50 py.test
+  - source activate piptest
+  - travis_wait 50 py.test
