@@ -45,7 +45,7 @@ install:
   - sudo make install
 
   # give self permission to run script
-  - sudo chmod 777 test/test_realizeCascades.sh
+  - sudo chmod 777 tests/test_realizeCascades.sh
 
 script:
 - cd tests
