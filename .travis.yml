@@ -45,4 +45,5 @@ script:
   - travis_wait 50 py.test
 
   #clean up
+  - cd ../
   - sudo make clean
