@@ -1,6 +1,9 @@
 language: python
 python: 3.7.9
 dist: xenial
+env:
+  - ROOTDIST="https://root.cern/download/root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"
+  - ROOTDIST="https://root.cern/download/root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"
 install:
 
   #get apt-get and conda
@@ -28,6 +31,8 @@ install:
 
 script:
   # install ROOT via binary
+  - echo "installing..."
+  - echo $ROOTDIST
   - wget https://root.cern/download/root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
   - tar -xzvf root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
   - source root/bin/thisroot.sh
