@@ -2,6 +2,8 @@ language: python
 python: 3.7.9
 dist: xenial
 install:
+
+  #get apt-get and conda
   - sudo apt-get update || true
   - sleep 10
   - wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
@@ -10,37 +12,24 @@ install:
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda || true
+
   # Useful for debugging any issues with conda
   - conda info -a
 
-  #- conda config --set channel_priority strict
-
+  #set up  conda environment
   - conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
   - conda create -n piptest pip
   - source activate piptest
   - pip install -r example-usecase/requirements.txt
   - source activate test-environment
 
-  # Snap installation of root
-  #- sudo apt-get install snap
-  #- sudo snap install root-framework
-  #- sudo run root-framework
-
-  # Useful for debugging version of emcee 
-  #- echo 'Conda searching emcee:'
-    #- conda search emcee
-  #- echo 'Python Version:'
-  #- echo $TRAVIS_PYTHON_VERSION
-  #- conda list |grep emcee 
-
-#  - conda install root
-
-  # Get ROOT via binary
+  # install ROOT via binary
   - wget https://root.cern/download/root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
   - tar -xzvf root_v6.22.08.Linux-ubuntu16-x86_64-gcc5.4.tar.gz
   - source root/bin/thisroot.sh
   - sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
 
+  #make repository code (my code)
   - make
   - sudo make install
 
