@@ -46,7 +46,7 @@ install:
 
 script:
 - cd tests
-- ./test_realizeCascades
+- ./test_realizeCascades.sh
 - cd ../example-usecase
 - travis_wait 50 py.test
 - source activate piptest
