@@ -16,14 +16,16 @@ The result will be:
 .. code-block:: bash 
 
   Usage:  (null) options [ inputfile(s) ]
-    -d, --seed          <integer>      seed for random numbers 
-    -h, --help                         print usage 
-    -n, --numgen        <number>       number of traces to generate 
-    -o, --outfile       <filename>     name the output file 
-    -s, --silent                       silent, no standard out 
-    -v, --verbose       <level>        Print verbose messages at level <level>
-    -V, --version                      print version and exit
-    -l, --log           <filename>     Log additional output to the specified file. If this option is not used, no logging will occur.
+    -d, --seed          <integer>      Seed for random numbers
+    -h, --help                         Print usage 
+    -n, --numgen        <number>       Number of traces to generate \n"
+    -o, --outfile       <filename>     Name the output file \n"
+    -s, --silent                       Silent, no standard out \n"
+    -v, --verbose       <level>        Print verbose messages at level <level>. \n"
+                                       Currently must use `--verbose=<level>` or `-v<level>` - no spaces.\n"
+    -V, --version                      Print version and exit\n"
+    -l, --log           <filename>     Log additional output to the specified file.\n"
+                                       If this option is not used, no logging will occur.
 
 
 The `realizeCascades` command will run the simulation a specified number of times for a given
