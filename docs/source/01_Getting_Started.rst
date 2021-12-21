@@ -7,10 +7,12 @@ Installation
 ------------
 
 *nrCascadeSim* is designed to run in a Unix-based system and is tested via Travis-CI_ using the
-Xenial_ distribution, Ubuntu 16.04 on x86_64 archetecture.
+Xenial_ (Ubuntu 16.04), Bionic_ (Ubuntu 18.04), and Focal_ (Ubuntu 20.04) distributions, all on x86_64 archetecture.
 
 .. _Travis-CI: https://app.travis-ci.com/github/villano-lab/nrCascadeSim
 .. _Xenial: https://docs.travis-ci.com/user/reference/xenial/ 
+.. _Bionic: https://docs.travis-ci.com/user/reference/bionic/ 
+.. _Focal:  https://docs.travis-ci.com/user/reference/focal/
 
 ^^^^^^^^^^^^
 Dependencies
@@ -32,6 +34,10 @@ On Linux machines, you can also install `ROOT` via a `pre-packaged binary
 	wget https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
 	tar -xzvf root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
 	source root/bin/thisroot.sh # also available: thisroot.{csh,fish,bat}
+
+*Note: You will need to find the appropriate ROOT link for your Linux distribution. 
+The one provided above is used for Focal. Bionic uses https://root.cern/download/root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz
+and Xenial uses https://root.cern/download/root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz.*
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
