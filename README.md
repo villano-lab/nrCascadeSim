@@ -1,7 +1,7 @@
 [![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
 [![Documentation Status](https://readthedocs.org/projects/nrcascadesim/badge/?version=latest)](https://nrcascadesim.readthedocs.io/en/latest/?badge=latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
-
+[![arXiv: 2104.02742](https://img.shields.io/badge/arXiv-2104.02742-orange.svg?style=flat)](https://arxiv.org/abs/2104.02742)
 
 # nrCascadeSim - a tool for generating nuclear recoil spectra resulting from neutron capture
 
