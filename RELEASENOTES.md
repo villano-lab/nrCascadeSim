@@ -1,9 +1,10 @@
-## Future Releases (v2.0.0) Date 21.12.14
+## Future Releases (v1.3.0) Date 21.12.20
 
 * PR #54 Move MersenneTwister to built-in C++ function.
 	* The software now requires C++ 11 or newer.
 * PR #55 fixed sphinx documentation warnings. 
 * PR #56 tested for root empty files..
+* PR #57 adds testing for c++1--c++17 under ROOT 6.24.08
 
 ## Release (v1.2.4) Date 21.12.15
 
