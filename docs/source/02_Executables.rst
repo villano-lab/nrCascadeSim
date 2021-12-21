@@ -126,7 +126,7 @@ Each portion of this row is described in the table below.
      - An ordered list of the energy levels traversed (keV), including the ground state (0 keV), separated by spaces. These should be in the decreasing order, the order in which the nucleus will go through the states. Do not include the separation energy to account for the initial unbound state before capture; this is already assumed.
    * - `lifetimes`
      - `[... tau2 tau1 inf]`
-     - An ordered list of the lifetimes of the energy levels traversed (as), separated by spaces. It must be the same length as the list of energies, and the lifetimes should be in the same order as the energies. The last entry is `100000000000000.0` (1e+14 as, or 1 ms), which is effectively infinite on the timescale of the simulation, to indicate that the state is stable at the ground state.
+     - An ordered list of the lifetimes of the energy levels traversed (fs), separated by spaces. It must be the same length as the list of energies, and the lifetimes should be in the same order as the energies. The last entry is `100000000000000.0` (1e+14 fs, or 100 ms), which is effectively infinite on the timescale of the simulation, to indicate that the state is stable at the ground state.
 
 Note: for the lifetimes one can also use strings representing multipolarity (like `M1`, `E1`,
 etc.) to instruct the program to use the corresponding Weisskopf estimate [Weisskopf1951]_. These estimates
@@ -237,7 +237,7 @@ Therefore, the program reads this as:
 +---------------+-----------+-----------+-----------+-----------+-----------+
 | Energy level: | 5000 keV  | 4000 keV  | 3000 keV  | 2000 keV  | 1000 keV  |
 +---------------+-----------+-----------+-----------+-----------+-----------+
-| **Lifetime:** | 0.84 as   | 0.95 as   | 1.35 as   | 0.03 as   | 0.11 as   |
+| **Lifetime:** | 0.84 fs   | 0.95 fs   | 1.35 fs   | 0.03 fs   | 0.11 fs   |
 +---------------+-----------+-----------+-----------+-----------+-----------+
 
 
@@ -283,7 +283,7 @@ exist:
      - Array of energy level inputs. Each entry is an array of size `n`.
    * - `taus`
      - `Jagged Array`
-     -  **atto-sec (as)**  
+     -  **femto-sec (fs)**  
      -  Array of lifetime inputs. Each entry is an array of size `n`.
    * -  `delE`   
      -  `Jagged Array`
@@ -299,7 +299,7 @@ exist:
      -  Array of calculated ionization energy per step. These energies are conversions of `delE` to ionization energies. Each entry is an array of size `n - 1` containing the individual ionization energies. The Lindhard model is used here.
    * -  `time`  
      -  `Jagged Array`
-     -   **as**  
+     -   **fs**  
      -   Array of the time spent at each energy level. Each entry is an array of size `n` containing individual times.
    * -   `Eg`  
      -   `Jagged Array`
