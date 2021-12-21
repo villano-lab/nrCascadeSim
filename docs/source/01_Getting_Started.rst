@@ -36,9 +36,11 @@ On Linux machines, you can also install `ROOT` via a `pre-packaged binary
 	source root/bin/thisroot.sh # also available: thisroot.{csh,fish,bat}
 
 *Note: You will need to find the appropriate ROOT link for your Linux distribution. 
-The one provided above is used for Focal. Bionic uses https://root.cern/download/root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz
-and Xenial uses https://root.cern/download/root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz.*
+The one provided above is used for Focal. Bionic uses root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz_
+and Xenial uses root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz_ .*
 
+.. _root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz: https://root.cern/download/root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz
+.. _root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz: https://root.cern/download/root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 2. `gcc <https://gcc.gnu.org/>`_
