@@ -41,6 +41,8 @@ script:
   - wget https://root.cern/download/$ROOTDIST 
   - tar -xzvf $ROOTDIST 
   - source root/bin/thisroot.sh
+  - echo "root libraries.."
+  - echo `root-config --cflags -glibs`
 
   #make repository code (my code)
   - make
