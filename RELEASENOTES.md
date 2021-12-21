@@ -10,6 +10,9 @@
 	* An error in the lifetime units in the documentation was fixed. (All code was already consistent in this regard. Issue #53)
 	* CONTRIBUTING now outlines a workflow for changes to be made. (Issue #34)
 	* Added arXiv badge. (See issue #37)
+	* Include python packages necessary for building docs in the provided yml file.
+	* Ignore doc build output and remove build output from repository.
+	* Other formatting improvements.
 
 ## Release (v1.2.4) Date 21.12.15
 
