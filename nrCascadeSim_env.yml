@@ -8,6 +8,8 @@ dependencies:
 #  - ipykernel
 #  - nb_conda_kernels
   - anaconda::pytest
+  - sphinx_rtd_theme
+  - conda-forge::myst-parser
   - pip
   - pip:
     - uproot==3.12.0
