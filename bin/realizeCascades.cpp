@@ -50,14 +50,16 @@ void print_usage (FILE* stream, int exit_code)
   fprintf (stream, "Usage:  %s options [ inputfile(s) ]\n", program_name);
   fprintf (stream,
 	   //"\n"
-           "  -d, --seed          <integer>      seed for random numbers \n"
-           "  -h, --help                         print usage \n"
-           "  -n, --numgen        <number>       number of traces to generate \n"
-           "  -o, --outfile       <filename>     name the output file \n"
-           "  -s, --silent                       silent, no standard out \n"
-           "  -v, --verbose       <level>        Print verbose messages at level <level>. Currently must use `--verbose=<level>` or `-v<level>` - no spaces.\n"
-           "  -V, --version                      print version and exit\n"
-           "  -l, --log           <filename>     Log additional output to the specified file. If this option is not used, no logging will occur.\n");
+           "  -d, --seed          <integer>      Seed for random numbers \n"
+           "  -h, --help                         Print usage \n"
+           "  -n, --numgen        <number>       Number of traces to generate \n"
+           "  -o, --outfile       <filename>     Name the output file \n"
+           "  -s, --silent                       Silent, no standard out \n"
+           "  -v, --verbose       <level>        Print verbose messages at level <level>. \n"
+           "                                     Currently must use `--verbose=<level>` or `-v<level>` - no spaces.\n"
+           "  -V, --version                      Print version and exit\n"
+           "  -l, --log           <filename>     Log additional output to the specified file.\n"
+           "                                     If this option is not used, no logging will occur.\n");
 
         printf("Report bugs to: villaa-at-gmail-dot-com \n");
         printf("realizeCascades (nrCascadeSim) home page: <https://github.com/villano-lab/nrCascadeSim> \n");
