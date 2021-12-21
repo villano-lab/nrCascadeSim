@@ -8,4 +8,4 @@ realizeCascades -n 100000 -o "output.root?reproducible=fixedname" -d 1 ../levelf
 python3 ./isempty.py
 # Check md5sum
 md5sum output.root
-md5sum output.root | awk '{if ($1=="2029e8b402b89d3a05d745e48f546370"){system("rm output.root"); print"Checksum passed!"} else {system("rm output.root"); exit 1}}'
+md5sum output.root | awk '{if ($1=="d7e9f904dbc4069667a9d05cad58754c"){system("rm output.root"); print"Checksum passed!"} else {system("rm output.root"); exit 1}}'
