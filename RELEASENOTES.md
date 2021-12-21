@@ -3,6 +3,12 @@
 * PR #54 Move MersenneTwister to built-in C++ function.
 	* The software now requires C++ 11 or newer.
 * PR #55 fixed sphinx documentation warnings. 
+* PR #56 Travis now checks if files are empty.
+* PR #? Improvements to documentation:
+	* CONTRIBUTING is no longer cluttered with contents of other documents such as templates and the code of conduct.
+	* Syntax for verbosity flags was clarified.
+	* An error in the lifetime units in the documentation was fixed. (All code was already consistent in this regard.)
+	* CONTRIBUTING now outlines a workflow for changes to be made.
 
 ## Release (v1.2.4) Date 21.12.15
 
