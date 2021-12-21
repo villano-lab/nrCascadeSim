@@ -42,7 +42,7 @@ script:
   - tar -xzf $ROOTDIST 
   - source root/bin/thisroot.sh
   - echo "root libraries.."
-  - echo `root-config --cflags -glibs`
+  - echo `root-config --cflags --glibs`
 
   #make repository code (my code)
   - make
