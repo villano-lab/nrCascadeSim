@@ -18,13 +18,13 @@ The result will be:
   Usage:  (null) options [ inputfile(s) ]
     -d, --seed          <integer>      Seed for random numbers
     -h, --help                         Print usage 
-    -n, --numgen        <number>       Number of traces to generate \n"
-    -o, --outfile       <filename>     Name the output file \n"
-    -s, --silent                       Silent, no standard out \n"
-    -v, --verbose       <level>        Print verbose messages at level <level>. \n"
-                                       Currently must use `--verbose=<level>` or `-v<level>` - no spaces.\n"
-    -V, --version                      Print version and exit\n"
-    -l, --log           <filename>     Log additional output to the specified file.\n"
+    -n, --numgen        <number>       Number of traces to generate
+    -o, --outfile       <filename>     Name the output file
+    -s, --silent                       Silent, no standard out
+    -v, --verbose       <level>        Print verbose messages at level <level>.
+                                       Currently must use `--verbose=<level>` or `-v<level>` - no spaces.
+    -V, --version                      Print version and exit
+    -l, --log           <filename>     Log additional output to the specified file.
                                        If this option is not used, no logging will occur.
 
 
