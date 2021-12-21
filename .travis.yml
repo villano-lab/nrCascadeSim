@@ -1,9 +1,10 @@
 language: python
 python: 3.7.9
-dist: 
-  - xenial
-  - bionic
-  - focal 
+jobs:
+   include:
+    - dist: xenial
+    - dist: bionic
+    - dist: focal 
 install:
 
   #get apt-get and conda
