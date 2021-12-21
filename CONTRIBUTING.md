@@ -1,3 +1,19 @@
+# Workflow
+
+Below is an outline of our general workflow. It is primarily intended for our software team, 
+but outside contributors may wish to draw from it as well.
+
+1. Using gitflow locally, start a branch and make any desired changes.
+2. Update the RELEASENOTES.md document and push the branch to GitHub.
+3. Create a PR that has a base branch of develop (for features and bugfixes) or master (for releases and hotfixes).
+4. If the checks pass and we're happy with the release, merge the PR. **Do not delete the branch on GitHub yet!**
+5. On the local copy, run `git flow finish` for the branch you started. (At this point, it is safe to delete the branch on GitHub.)
+    * If you merged back to develop, this is the last step. If you merged back to master:
+6. Push the local copy of develop.
+7. Push tags.
+8. Create a release on GitHub from the version tag you just added.
+8. Download a tar.gz and update the [Zenodo entry](https://zenodo.org/record/5579858#.YXQsrHlMHOQ) with the new version.
+
 # Standards
 
 All features of `nrCascadeSim` should be tested with Travis-CI wherever possible.  This is done
