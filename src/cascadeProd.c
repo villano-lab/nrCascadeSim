@@ -1130,6 +1130,8 @@ cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, dou
     return siCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
   else if(A<=23)
     return neCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
+  else
+    return geCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
 }
 
 cli *readCascadeDistributionFile(int &n, string file,bool &success)
