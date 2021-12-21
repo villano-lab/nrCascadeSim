@@ -55,7 +55,7 @@ void print_usage (FILE* stream, int exit_code)
            "  -n, --numgen        <number>       number of traces to generate \n"
            "  -o, --outfile       <filename>     name the output file \n"
            "  -s, --silent                       silent, no standard out \n"
-           "  -v, --verbose       <level>        Print verbose messages at level <level>\n"
+           "  -v, --verbose       <level>        Print verbose messages at level <level>. Currently must use `--verbose=<level>` or `-v<level>` - no spaces.\n"
            "  -V, --version                      print version and exit\n"
            "  -l, --log           <filename>     Log additional output to the specified file. If this option is not used, no logging will occur.\n");
 

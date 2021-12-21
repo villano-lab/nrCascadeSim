@@ -61,7 +61,7 @@ Optional Arguments
 
 * ``-h, --help`` display the help menu. This overrides other options. Help will be displayed and program will exit. 
 * ``-s, --silent`` silent. Nothing will be printed to stdout.
-* ``-v, --verbose`` verbosity level. Default to 1 where only the random seed is printed. Max level is currently 2 where a lot of level/simulation information is printed.
+* ``-v, --verbose`` verbosity level. Default to 1 where only the random seed is printed. Max level is currently 2 where a lot of level/simulation information is printed. Currently must use `--verbose=<level>` or `-v<level>` - no spaces.
 * ``-V, --version`` version. Print the version tag of the code and exit.  
 * ``-l, --log`` log file. Specify a file to print the output to.  
 
