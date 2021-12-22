@@ -38,6 +38,7 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install pyenv-virtualenv; fi
 
 install:
+   - sudo chmod 777 .travis/install.sh
    - ./.travis/install.sh
 #  #get apt-get and conda
 #  - sudo apt-get update || true
