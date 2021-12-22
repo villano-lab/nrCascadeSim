@@ -7,12 +7,12 @@ jobs:
       python: 3.7
     - os: linux
       dist: xenial
-      env:  ROOTDIST="root_v6.16.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="c74348cb7eb153db3281e62e88ce7590"
+      env:  ROOTDIST="root_v6.16.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="96019f9fbebd59f91540bd6fa7b8465e"
       language: python
       python: 3.7
     - os: linux
       dist: bionic
-      env:  ROOTDIST="root_v6.16.00.Linux-ubuntu18-x86_64-gcc7.3.tar.gz"; CHECKSUM="8e17e745098c30c4a370795f7e8a7e14"
+      env:  ROOTDIST="root_v6.16.00.Linux-ubuntu18-x86_64-gcc7.3.tar.gz"; CHECKSUM="bf42aac8429267f54ca3425448c9782a"
       language: python
       python: 3.7
     - os: linux
