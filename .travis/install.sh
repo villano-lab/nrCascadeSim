@@ -23,6 +23,8 @@ else
     #get apt-get and conda
     sudo apt-get update || true
     sleep 10
+    sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
+    sleep 10
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
     bash miniconda.sh -b -p $HOME/miniconda
     export PATH="$HOME/miniconda/bin:$PATH"
@@ -36,13 +38,12 @@ else
     
     #set up  conda environment
     conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
-    conda create -n piptest pip
-    source activate piptest
+    source activate test-environment
+    #conda create -n piptest pip
+    #source activate piptest
     pip install -r example-usecase/requirements.txt
     #activate python env and continue testing
-    source activate test-environment
 
-    sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
 
 fi
 echo "MOTHER"
