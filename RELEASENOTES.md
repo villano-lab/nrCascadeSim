@@ -4,6 +4,7 @@
 	* The software now requires C++ 11 or newer.
 * PR #55 fixed sphinx documentation warnings. (Issue #46)
 * PR #56 Travis now checks if files are empty. (Issue #50)
+* PR #57 adds testing for c++1--c++17 under ROOT 6.24.08
 * PR #58 Improvements to documentation:
 	* CONTRIBUTING is no longer cluttered with contents of other documents such as templates and the code of conduct.
 	* Syntax for verbosity flags was clarified. (See comments in issue #48)
