@@ -3,18 +3,16 @@ channels:
 #  - conda-forge
   - default
 dependencies:
-  - python>=3.6
+  - python==3.8.5
   - anaconda
 #  - ipykernel
 #  - nb_conda_kernels
-  - anaconda::pytest
-  - sphinx_rtd_theme
-  - conda-forge::myst-parser
-  - pip
+  - anaconda::pytest==6.1.1
+  - pip==21.1.1
   - pip:
     - uproot==3.12.0
-    - papermill
-    - numpy
-    - scipy
-    - matplotlib
+    - papermill==2.3.3
+    - numpy==1.19.2
+    - scipy==1.5.2
+    - matplotlib==3.3.2
 #  - root
