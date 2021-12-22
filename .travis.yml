@@ -39,6 +39,7 @@ before_install:
 
 install:
    - sudo chmod 777 .travis/install.sh
+   - ls -lh .travis/install.sh
    - ./.travis/install.sh
 #  #get apt-get and conda
 #  - sudo apt-get update || true
