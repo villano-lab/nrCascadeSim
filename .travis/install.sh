@@ -28,17 +28,21 @@ else
     export PATH="$HOME/miniconda/bin:$PATH"
     hash -r
 
+    conda config --set always_yes yes --set changeps1 no
+    conda update -q conda || true
+    
+    # Useful for debugging any issues with conda
+    conda info -a
+    
+    #set up  conda environment
+    conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
+    conda create -n piptest pip
+    source activate piptest
+    pip install -r example-usecase/requirements.txt
+    #activate python env and continue testing
+    source activate test-environment
+
     sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
 
 fi
-conda config --set always_yes yes --set changeps1 no
-conda update -q conda || true
-
-# Useful for debugging any issues with conda
-conda info -a
-
-#set up  conda environment
-conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
-conda create -n piptest pip
-source activate piptest
-pip install -r example-usecase/requirements.txt
+echo "MOTHER"
