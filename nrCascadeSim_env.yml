@@ -9,12 +9,12 @@ dependencies:
 #  - nb_conda_kernels
   - anaconda::pytest==6.1.1
   - sphinx_rtd_theme==0.4.3
-  - conda-forge::myst-parser
+  - conda-forge::myst-parser==0.16.1
   - pip==21.1.1
   - pip:
     - uproot==3.12.0
     - papermill==2.3.3
     - numpy==1.19.2
-    - scipy==1.5.2
+    - scipy==1.6.2
     - matplotlib==3.3.2
 #  - root
