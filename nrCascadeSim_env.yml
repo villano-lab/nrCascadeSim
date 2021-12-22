@@ -8,7 +8,8 @@ dependencies:
 #  - ipykernel
 #  - nb_conda_kernels
   - anaconda::pytest==6.1.1
-  - sphinx_rtd_theme
+  - sphinx_rtd_theme==0.4.3
+  - conda-forge::myst-parser
   - pip==21.1.1
   - pip:
     - uproot==3.12.0
