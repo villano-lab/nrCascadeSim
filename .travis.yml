@@ -86,6 +86,8 @@ script:
   - echo $CHECKSUM
   - ./test_realizeCascades.sh
 
+  #need conda environment
+  - source activate test-environment
   - cd ../example-usecase
   - travis_wait 50 py.test
   - source activate piptest

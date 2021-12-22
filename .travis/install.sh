@@ -42,6 +42,7 @@ else
     #conda create -n piptest pip
     #source activate piptest
     pip install -r example-usecase/requirements.txt
+    conda list papermill
     #activate python env and continue testing
 
 
