@@ -88,6 +88,7 @@ script:
 
   #need conda environment
   - source activate test-environment
+  - conda list papermill
   - cd ../example-usecase
   - travis_wait 50 py.test
   - source activate piptest
