@@ -38,9 +38,9 @@ before_install:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install pyenv-virtualenv; fi
 
 install:
-   - sudo chmod 777 .travis/baby_install.sh
-   - ls -lh .travis/baby_install.sh
-   - source .travis/baby_install.sh
+   #- sudo chmod 777 .travis/baby_install.sh
+   #- ls -lh .travis/baby_install.sh
+   #- source .travis/baby_install.sh
 
     # Install some custom requirements on Linux
     #get apt-get and conda
