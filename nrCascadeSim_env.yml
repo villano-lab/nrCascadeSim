@@ -8,6 +8,7 @@ dependencies:
 #  - ipykernel
 #  - nb_conda_kernels
   - anaconda::pytest==6.1.1
+  - sphinx_rtd_theme
   - pip==21.1.1
   - pip:
     - uproot==3.12.0
