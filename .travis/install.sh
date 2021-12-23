@@ -30,21 +30,28 @@ else
     export PATH="$HOME/miniconda/bin:$PATH"
     hash -r
 
-    conda config --set always_yes yes --set changeps1 no
-    conda update -q conda || true
-    
-    # Useful for debugging any issues with conda
-    conda info -a
-    
-    #set up  conda environment
-    #conda env create -n test-environment python=$TRAVIS_PYTHON_VERSION -f nrCascadeSim_env.yml 
-    #source activate test-environment
-    conda create -n piptest pip
-    source activate piptest
-    pip install -r example-usecase/requirements.txt
-    conda list papermill
-    #activate python env and continue testing
+    #conda config --set always_yes yes --set changeps1 no
+    #conda update -q conda || true
+    #
+    ## Useful for debugging any issues with conda
+    #conda info -a
+    #
+    ##set up  conda environment
+    #conda create -n piptest pip
+    #source activate piptest
+    #pip install -r example-usecase/requirements.txt
+    #conda list papermill
 
 
 fi
-echo "MOTHER"
+conda config --set always_yes yes --set changeps1 no
+conda update -q conda || true
+   
+# Useful for debugging any issues with conda
+conda info -a
+    
+#set up  conda environment
+conda create -n piptest pip
+source activate piptest
+pip install -r example-usecase/requirements.txt
+conda list papermill
