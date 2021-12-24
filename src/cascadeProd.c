@@ -1161,6 +1161,9 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
   string matchfile="^([0-9]+\\.?[0-9]+e?[+-]?[0-9]+?)\\s+([0-9]+\\.?[0-9]+?|[0-9]+[A-Z][a-z])\\s+([0-9]+)\\s+(\\[.*?\\])\\s+(\\[.*?\\])$";
   cout << matchfile << endl;
   int reti = regcomp(&regex,matchfile.c_str(),REG_EXTENDED);
+    char       buffer[100];                                                     
+    regerror(reti, &regex, buffer, 100);                                        
+    printf("regexec() failed with '%s'\n", buffer); 
 
   int count=0;
   while(!getline(in,line).eof()){
