@@ -1158,7 +1158,8 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
 
   //do some regex matching to parse the cascade info 
   regex_t regex;
-  string matchfile="^([0-9]+\\.?[0-9]+e?[+-]?[0-9]+?)\\s+([0-9]+\\.?[0-9]+?|[0-9]+[A-Z][a-z])\\s+([0-9]+)\\s+(\\[.*?\\])\\s+(\\[.*?\\])$";
+  string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)\\s+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)\\s+([0-9][0-9]?[0-9]?)\\s+(\\[.*\\])\\s+(\\[.*\\])$";
+  //string matchfile="^([0-9]+\\.?[0-9]+e?[+-]?[0-9]+?)\\s+([0-9]+\\.?[0-9]+?|[0-9]+[A-Z][a-z])\\s+([0-9]+)\\s+(\\[.*?\\])\\s+(\\[.*?\\])$";
   cout << matchfile << endl;
   int reti = regcomp(&regex,matchfile.c_str(),REG_EXTENDED);
     char       buffer[100];                                                     
