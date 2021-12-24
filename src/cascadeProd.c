@@ -11,6 +11,8 @@
 
 #include "cascadeProd.h"
 
+#include <iostream>
+
 void freecliarray(int n,cli *cascade_levels)
 {
   for(int i=0;i<n;i++){
@@ -1161,9 +1163,10 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
 
   int count=0;
   while(!getline(in,line).eof()){
-    //cout << line << endl;
+    cout << line << endl;
     regmatch_t matchptr[6];
     reti = regexec(&regex,line.c_str(),6,matchptr,0);
+    cout << "DOES IT MATCH ANYTHIN " << reti << endl;
     if(!reti){
       
       //print out the match	    
@@ -1176,7 +1179,7 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
       //cout << "For this match: " << endl;
       int num;
       for(int i=1;i<6;i++){
-        //cout << line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so) << endl;
+        cout << line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so) << endl;
         string component = line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so);
 	bool isok=false;
         if(i==1)
