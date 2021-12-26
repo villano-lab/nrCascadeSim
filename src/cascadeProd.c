@@ -1159,10 +1159,10 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
   //do some regex matching to parse the cascade info 
   regex_t regex;
   //string matchfile="^(0+)$";
-  string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[ \\t\\r\\n\\v\\f]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[ \\t\\r\\n\\v\\f]+([0-9][0-9]?[0-9]?)[ \\t\\r\\n\\v\\f]+(\\[.*\\])[ \\t\\r\\n\\v\\f]+(\\[.*\\])$";
+  string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[ \\t]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[ \\t]+([0-9][0-9]?[0-9]?)[ \\t]+(\\[.*\\])[ \\t]+(\\[.*\\])$";
   //string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[ \\t\\r\\n\\v\\f]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[ \\t\\r\\n\\v\\f]+([0-9][0-9]?[0-9]?)[ \\t\\r\\n\\v\\f]+(\\[.*\\])[ \\t\\r\\n\\v\\f]+(\\[.*\\])$";
   //string matchfile="^([0-9]+\\.?[0-9]+e?[+-]?[0-9]+?)\\s+([0-9]+\\.?[0-9]+?|[0-9]+[A-Z][a-z])\\s+([0-9]+)\\s+(\\[.*?\\])\\s+(\\[.*?\\])$";
-  //Ecout << matchfile << endl;
+  cout << matchfile << endl;
   int reti = regcomp(&regex,matchfile.c_str(),REG_EXTENDED);
     char       buffer[100];                                                     
     regerror(reti, &regex, buffer, 100);                                        
