@@ -75,10 +75,8 @@ int main(int argc, char** argv) {
     {0,0,0,0},
   };
 
-  unsigned cl = std::chrono::system_clock::now().time_since_epoch().count();
   int index;
   int iarg=0;
-  string logfile;
 
   //turn off getopt error message
   opterr=1; 
