@@ -29,7 +29,7 @@ CFLAGS += -D__GIT_VERSION=\"$(GIT_VERSION)\"
 
 RUN_SCRIPT := $(shell mkdir -p 'bin/lib')
 
-all: $(BUILDDIR)/realizeCascades $(LIBDIROUT)/rootUtil.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/libncap.so
+all: $(BUILDDIR)/realizeCascades $(BUILDDIR)/regexPlayground $(LIBDIROUT)/rootUtil.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/libncap.so
 
 $(LIBDIROUT)/isotope_info.o: $(SRCDIR)/isotope_info.c $(INCDIR)/isotope_info.h 
 	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(SRCDIR)/isotope_info.c  `root-config --cflags` $(LIBFLAG) 
@@ -61,15 +61,20 @@ $(LIBDIROUT)/libncap.so: $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(
 $(BUILDDIR)/realizeCascades: $(LIBDIROUT)/libncap.so $(BUILDDIR)/realizeCascades.cpp
 	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/realizeCascades.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(BUILDDIR)/realizeCascades 
 
+$(BUILDDIR)/regexPlayground: $(BUILDDIR)/regexPlayground.cpp
+	$(CXX) -fPIC -Wl,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/regexPlayground.cpp -o $(BUILDDIR)/regexPlayground 
 
 install: $(BUILDDIR)/realizeCascades
 	cp $(BUILDDIR)/realizeCascades /usr/local/bin/
+	cp $(BUILDDIR)/regexPlayground /usr/local/bin/
 
 clean:
 	rm -f $(LIBDIROUT)/*.o
 	rm -f $(LIBDIROUT)/*.so
 	rm -f $(BUILDDIR)/realizeCascades
+	rm -f $(BUILDDIR)/regexPlayground
 	rm -f /usr/local/bin/realizeCascades
+	rm -f /usr/local/bin/regexPlayground
 	rm -f *.o
 	rm -f *.so
 	rm -rf $(LIBDIROUT)
