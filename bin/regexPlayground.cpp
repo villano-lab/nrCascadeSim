@@ -21,8 +21,9 @@
 #include <vector>
 #include <algorithm>
 
-#include <iterator>
-#include <regex>
+//needed only  for C++ version (commented below)
+//#include <iterator>
+//#include <regex>
 
 //command line options
 #include <getopt.h>
@@ -172,31 +173,31 @@ int main(int argc, char** argv) {
 
  
  
-    std::regex word_regex("^(0+\\.[0-9]?e?[+-]?[0-9]+)\\s+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)\\s+([0-9][0-9]?[0-9]?)\\s+(\\[.*\\])\\s+(\\[.*\\])$");
-    auto iline_begin = 
-        std::sregex_iterator(iline.begin(), iline.end(), word_regex);
-    auto iline_end = std::sregex_iterator();
+  //  std::regex word_regex("^(0+\\.[0-9]?e?[+-]?[0-9]+)\\s+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)\\s+([0-9][0-9]?[0-9]?)\\s+(\\[.*\\])\\s+(\\[.*\\])$");
+  //  auto iline_begin = 
+  //      std::sregex_iterator(iline.begin(), iline.end(), word_regex);
+  //  auto iline_end = std::sregex_iterator();
  
-    std::cout << "Found "
-              << std::distance(iline_begin, iline_end)
-              << " matches\n";
+  //  std::cout << "Found "
+  //            << std::distance(iline_begin, iline_end)
+  //            << " matches\n";
  
-    for (std::sregex_iterator i = iline_begin; i != iline_end; ++i) {
-        std::smatch match = *i;
-        std::string match_str = match.str();
-        std::cout << "  " << match_str << '\n';
-    }
+  //  for (std::sregex_iterator i = iline_begin; i != iline_end; ++i) {
+  //      std::smatch match = *i;
+  //      std::string match_str = match.str();
+  //      std::cout << "  " << match_str << '\n';
+  //  }
 
-    std::smatch matches;
-    if(std::regex_search(iline, matches, word_regex)) {
-    std::cout << "Match found\n";
+  //  std::smatch matches;
+  //  if(std::regex_search(iline, matches, word_regex)) {
+  //  std::cout << "Match found\n";
 
-      for (size_t i = 0; i < matches.size(); ++i) {
-          std::cout << i << ": '" << matches[i].str() << "'\n";
-       }
-    } else {
-        std::cout << "Match not found\n";
-    }
+  //    for (size_t i = 0; i < matches.size(); ++i) {
+  //        std::cout << i << ": '" << matches[i].str() << "'\n";
+  //     }
+  //  } else {
+  //      std::cout << "Match not found\n";
+  //  }
  
   //**************************************************
   return 0;
