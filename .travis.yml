@@ -1,6 +1,11 @@
 jobs:
    include:
     - os: osx
+      osx_image: xcode11 
+      env:  ROOTDIST="root_v6.20.00.macosx64-10.15-clang110.tar.gz"; CHECKSUM="8cc0046b8fbbc9c3cdde2f5ee493ff40"
+      language: generic 
+      python: 3.7
+    - os: osx
       osx_image: xcode12 
       env:  ROOTDIST="root_v6.24.06.macos-10.15-x86_64-clang120.tar.gz"; CHECKSUM="8cc0046b8fbbc9c3cdde2f5ee493ff40"
       language: generic 
