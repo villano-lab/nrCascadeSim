@@ -7,7 +7,13 @@ Installation
 ------------
 
 *nrCascadeSim* is designed to run in a Unix-based system and is tested via Travis-CI_ using the
-Xenial_ (Ubuntu 16.04), Bionic_ (Ubuntu 18.04), and Focal_ (Ubuntu 20.04) distributions, all on x86_64 archetecture.
+Xenial_ (Ubuntu 16.04), Bionic_ (Ubuntu 18.04), and Focal_ (Ubuntu 20.04) distributions, all on
+x86_64 archetecture. It is also tested on Mac OSX Mojave (10.14) and Catalina (10.15) via
+Travis-CI_. 
+
+Because of a combination of the operating systems tested and the versions of `ROOT` (see below)
+the Travis-CI_ tests three C++ compiler standards: `c++11` (Xenial_); `c++14` (Bionic_); and
+`c++17` (Focal_, Mojave, Catalina). 
 
 .. _Travis-CI: https://app.travis-ci.com/github/villano-lab/nrCascadeSim
 .. _Xenial: https://docs.travis-ci.com/user/reference/xenial/ 
@@ -21,6 +27,9 @@ Dependencies
 """"""""""""""""""""""""""""""""""""
 1. `ROOT <https://root.cern/>`_
 """"""""""""""""""""""""""""""""""""
+
+Travis-CI_ tests two versions of `ROOT`: 6.24.06 and 6.20.00. It is assumed (though not explicitly
+tested) that the versions in between those two versions will also work. 
 
 To install `ROOT` please follow the instructions on the `CERN  <https://root.cern/install/>`_
 website.
