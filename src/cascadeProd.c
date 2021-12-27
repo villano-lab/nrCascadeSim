@@ -1158,7 +1158,8 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
 
   //do some regex matching to parse the cascade info 
   regex_t regex;
-  string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[[:space:]]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[[:space:]]+([0-9][0-9]?[0-9]?)[[:space:]]+(\\[.*\\])[[:space:]]+(\\[.*\\])$";
+  string matchfile="^(-?[0-9]+([.][0-9]+)?(e[+-]?[0-9]+)?)[[:space:]]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[[:space:]]+([0-9][0-9]?[0-9]?)[[:space:]]+(\\[.*\\])[[:space:]]+(\\[.*\\])$";
+  //string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[[:space:]]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[[:space:]]+([0-9][0-9]?[0-9]?)[[:space:]]+(\\[.*\\])[[:space:]]+(\\[.*\\])$";
   //string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[ \\t]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[ \\t]+([0-9][0-9]?[0-9]?)[ \\t]+(\\[.*\\])[ \\t]+(\\[.*\\])$";
   //string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[ \\t\\r\\n\\v\\f]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[ \\t\\r\\n\\v\\f]+([0-9][0-9]?[0-9]?)[ \\t\\r\\n\\v\\f]+(\\[.*\\])[ \\t\\r\\n\\v\\f]+(\\[.*\\])$";
   //string matchfile="^([0-9]+\\.?[0-9]+e?[+-]?[0-9]+?)\\s+([0-9]+\\.?[0-9]+?|[0-9]+[A-Z][a-z])\\s+([0-9]+)\\s+(\\[.*?\\])\\s+(\\[.*?\\])$";
@@ -1175,8 +1176,8 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
 
   int count=0;
   while(!getline(in,line).eof()){
-    regmatch_t matchptr[6];
-    reti = regexec(&regex,line.c_str(),6,matchptr,0);
+    regmatch_t matchptr[8];
+    reti = regexec(&regex,line.c_str(),8,matchptr,0);
     
     //for diagnostics
     //regerror(reti, &regex, buffer, 100);  
@@ -1196,19 +1197,27 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
 
       //cout << "For this match: " << endl;
       int num;
-      for(int i=1;i<6;i++){
-        //Ecout << line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so) << endl;
-        string component = line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so);
+      for(int i=1;i<8;i++){
+        //cout << matchptr[i].rm_so << endl;
+        string component;
+        if(i!=2&&i!=3){ //matches for 2 & 3 are optional, they  are only  valid pointers if scientific notation
+          //cout << line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so) << endl;
+          component = line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so);
+        }
 	bool isok=false;
         if(i==1)
           output[count].frac = interpretDbl(component,isok); 
 	else if(i==2)
-          output[count].Sn = interpretSn(component,isok); 
+          isok=true; //don't care about this group 
 	else if(i==3)
-          output[count].A = interpretDbl(component,isok); 
+          isok=true; //don't care about this group 
 	else if(i==4)
-          output[count].Elev = interpretElevVector(num,component,isok); 
+          output[count].Sn = interpretSn(component,isok); 
 	else if(i==5)
+          output[count].A = interpretDbl(component,isok); 
+	else if(i==6)
+          output[count].Elev = interpretElevVector(num,component,isok); 
+	else if(i==7)
           output[count].taus = interpretTauVector(num,component,output[count].A,output[count].Elev,isok); 
 
 	//cout << " iteration: " << i << " goodentry: " << goodentry << endl;
@@ -1235,7 +1244,8 @@ double interpretDbl(string in,bool &success)
 {
   //use a regex to see if the thing is numeric
   regex_t regex;
-  string numeric="^-?[0-9]+([.][0-9]+)?|(-?[[:digit:]]+)\\.?[[:digit:]]+(e-|e\\+|e|[[:digit:]]+)[[:digit:]]+|inf$";
+  string numeric="^-?[0-9]+([.][0-9]+)?(e[+-]?[0-9]+)?|inf$";
+  //string numeric="^-?[0-9]+([.][0-9]+)?|(-?[[:digit:]]+)\\.?[[:digit:]]+(e-|e\\+|e|[[:digit:]]+)[[:digit:]]+|inf$";
   //string numeric="^-?[0-9]+([.][0-9]+)?|inf$";
   int reti = regcomp(&regex,numeric.c_str(),REG_EXTENDED);
   regmatch_t matchptr[2];
