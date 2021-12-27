@@ -5,6 +5,7 @@
 * PR #55 fixed sphinx documentation warnings. 
 * PR #56 tested for root empty files..
 * PR #57 adds testing for c++1--c++17 under ROOT 6.24.06
+* PR #61 fixes regex to extend to OSX 
 
 ## Release (v1.2.4) Date 21.12.15
 

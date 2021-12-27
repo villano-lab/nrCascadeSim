@@ -1235,7 +1235,8 @@ double interpretDbl(string in,bool &success)
 {
   //use a regex to see if the thing is numeric
   regex_t regex;
-  string numeric="^-?[0-9]+([.][0-9]+)?|inf$";
+  string numeric="^-?[0-9]+([.][0-9]+)?|(-?[[:digit:]]+)\\.?[[:digit:]]+(e-|e\\+|e|[[:digit:]]+)[[:digit:]]+|inf$";
+  //string numeric="^-?[0-9]+([.][0-9]+)?|inf$";
   int reti = regcomp(&regex,numeric.c_str(),REG_EXTENDED);
   regmatch_t matchptr[2];
   reti = regexec(&regex,in.c_str(),2,matchptr,0);

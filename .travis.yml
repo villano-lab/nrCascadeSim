@@ -1,7 +1,8 @@
 jobs:
    include:
+    # see mac images: https://docs.travis-ci.com/user/reference/osx/
     - os: osx
-      osx_image: xcode11 
+      osx_image: xcode11.4 
       env:  ROOTDIST="root_v6.20.00.macosx64-10.15-clang110.tar.gz"; CHECKSUM="8cc0046b8fbbc9c3cdde2f5ee493ff40"
       language: generic 
       python: 3.7
@@ -12,17 +13,17 @@ jobs:
       python: 3.7
     - os: linux
       dist: xenial
-      env:  ROOTDIST="root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="3a5e00bcb6ebc0e8c76f6877249dfc85"
+      env:  ROOTDIST="root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="68857ef79d40213f71afdc33b3012d05"
       language: python
       python: 3.7
     - os: linux
       dist: bionic
-      env:  ROOTDIST="root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"; CHECKSUM="3a5e00bcb6ebc0e8c76f6877249dfc85"
+      env:  ROOTDIST="root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"; CHECKSUM="68857ef79d40213f71afdc33b3012d05"
       language: python
       python: 3.7
     - os: linux
       dist: xenial
-      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="e38c561bfed333a60b093ce655cdea73"
+      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="ca4acd2e09d37c8f9583c1ebd4260dd5"
       language: python
       python: 3.7
     - os: linux
@@ -37,10 +38,10 @@ jobs:
       python: 3.7
 
 # osx deps
-before_install:
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew list python3 &>/dev/null || brew install python3; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install pyenv-virtualenv; fi
+#before_install:
+  #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update; fi
+  #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew list python3 &>/dev/null || brew install python3; fi
+  #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install pyenv-virtualenv; fi
 
 install:
    - sudo chmod 777 .travis/install.sh
