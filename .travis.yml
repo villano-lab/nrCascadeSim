@@ -81,7 +81,7 @@ script:
   - echo `root-config --cflags --glibs`
 
   #make repository code (my code)
-  - make
+  - make CFLAGS="--coverage"
   - sudo make install
 
   # give self permission to run script
@@ -104,3 +104,8 @@ script:
   #clean up
   - cd ../
   - sudo make clean
+
+# Save coverage info
+post-script:
+  - lcov --directory ./ --capture --output-file nrCascadeSim_coverage.info
+  - genhtml nrCascadeSim_coverage.info

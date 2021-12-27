@@ -25,7 +25,7 @@ LIBFLAG= -L. -L$(LIBDIROUT)
 #trick for getting the git version in the code
 GIT_VERSION = $(shell sh -c 'git describe --abbrev=4 --always')
 
-override CFLAGS += -shared -D__GIT_VERSION=\"$(GIT_VERSION)\"
+override CFLAGS += -D__GIT_VERSION=\"$(GIT_VERSION)\"
 
 RUN_SCRIPT := $(shell mkdir -p 'bin/lib')
 
