@@ -14,6 +14,7 @@
 	* Include python packages necessary for building docs in the provided yml file.
 	* Ignore doc build output and remove build output from repository.
 	* Other formatting improvements.
+* PR #61 fixes regex to extend to OSX (issue #29)
 
 ## Release (v1.2.4) Date 21.12.15
 
