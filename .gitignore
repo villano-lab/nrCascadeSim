@@ -13,6 +13,7 @@ evalCascades
 .vscode
 */__pycache__
 test-example/__pycache__
+docs/build
 
 #checkpoints and caching
 *-checkpoint.*

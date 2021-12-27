@@ -12,7 +12,11 @@
    :alt: Documentation Status
 .. image:: https://img.shields.io/badge/License-MIT-blue.svg
    :target: https://opensource.org/licenses/MIT
-   :alt: License
+   :alt: License: MIT
+.. image:: https://img.shields.io/badge/arXiv-2104.02742-orange.svg?style=flat
+   :target: https://arxiv.org/abs/2104.02742
+   :alt: arXiv: 2104.02742
+
 
 ============================================================================================
 *nrCascadeSim* - a tool for generating nuclear recoil spectra resulting from neutron capture

@@ -1,24 +1,18 @@
-# Code of Conduct
+# Workflow
 
-The following code of conduct must be followed in all places associated with this repository
-itself. This includes issues, pull requests, and all files contained within the repository. The
-code of conduct applies to all contributors and community members.
+Below is an outline of our general workflow. It is primarily intended for our software team, 
+but outside contributors may wish to draw from it as well.
 
-In addition to following GitHub's terms of service and any laws applicable to you, please:
-* Do your best to properly attribute any copied, vendored, or otherwise "borrowed" code. In particular, make sure to provide LICENSE files when necessary.
-* Be courteous to other contributors/community members.
-* Do not make major changes to LICENSE or CONTRIBUTING.md
-    * Clarifications and spelling/grammar fixes are fine; modifying the rules is not.
-* Avoid vulgar or offensive language.
-* Stay on-topic; all discussion, including issues and pull requests, must relate to this repository in some way, and should not focus on something other than the code and its modification.
-* No malicious code/malware of any kind, including but not limited to ransomware, adware, bloatware, and spyware.
-
-Failure to comply with this code of conduct could result in having your access to the community
-restricted, such as having offending posts removed or being barred from further submissions.
-
-You can report code of conduct violations to a maintainer (@gerudo7 or @villaa) or the
-@villano-lab group via direct message or email. If you see a violation of GitHub's ToS or of a
-local or federal law, please report it to the appropriate authorities first. Thanks!
+1. Using gitflow locally, start a branch and make any desired changes.
+2. Update the RELEASENOTES.md document and push the branch to GitHub.
+3. Create a PR that has a base branch of develop (for features and bugfixes) or master (for releases and hotfixes).
+4. If the checks pass and we're happy with the release, merge the PR. **Do not delete the branch on GitHub yet!**
+5. On the local copy, run `git flow finish` for the branch you started. (At this point, it is safe to delete the branch on GitHub.)
+    * If you merged back to develop, this is the last step. If you merged back to master:
+6. Push the local copy of develop.
+7. Push tags.
+8. Create a release on GitHub from the version tag you just added.
+8. Download a tar.gz and update the [Zenodo entry](https://zenodo.org/record/5579858#.YXQsrHlMHOQ) with the new version.
 
 # Standards
 
@@ -116,31 +110,7 @@ are unable to implement the necessary CI, explain why and how it can be manually
 When a PR is accepted it will be staged for a release. We will make note of all the currently
 staged changes in the RELEASENOTES.md file. It is helpful, but not necessary to put a short
 description under the `Next Release` section briefly describing the work done in a PR.  
-
-## Template
-The following template is not required, but if you do not use it, please be sure to include all answers to all of the questions in some other way.
-
-**Does your pull request resolve or partially resolve an issue?** 
-Yes / No.
-
-**If Yes, which issue?** 
-
-**Does your pull request implement code improvements?**
-Yes / No.
-
-**Does your pull request implement any breaking changes?**
-Yes / No.
-
-**If breaking changes are implemented, please describe:**
-
-**Testing:**  
-This pull request:
-[ ] Alters the existing CI in some way.
-[ ] Adds a new step to the CI.
-[ ] Does not introduce any features that the CI could not already test.
-[ ] Is not accompanied by necessary CI changes due to some limitation described below. (Please also describe how new features can be manually tested.)
-
-See the `README.md` file in the `nrCascadeSim/tests` directory for more instructions on how to make tests. 
+A template is provided in `pull_request_template.md`.
 
 **Other information:**
 Anything else you want to say.
@@ -156,10 +126,11 @@ When submitting issues, please be specific. We can only resolve a bug if we know
 program isn't working, implement a feature if we know what aspect is being improved, and clarify
 documentation if we know what part is unclear.
 
-Below are outlines for determining what your issue qualifies as and how to report them. When
+Below are outlines for determining what your issue qualifies as. When
 submitting an issue, please specify which of these three categories you think it belongs in. We
 understand that the three categories can overlap, so don't worry too much if you aren't sure if
-the category you chose is appropriate. Each section also provides a template; these are just to
+the category you chose is appropriate. When creating an issue, you will be given the option to 
+select a template; these are just to
 help people know what to write, and their use is not strictly required (although it may help us
 address the issue faster).
 
@@ -183,30 +154,6 @@ An issue is not a bug report if:
 * The code is missing the ability to do something you think it should be able to do, but the documentation does not specify it is capable of. (Feature request)
 * The documentation is unclear but the code does not give results that directly contradict it. (Documentation issue)
 
-### Template
-
-I am submitting a **bug report**.
-
-**This bug occurs in:**
-make / realizeCascades / CI / specific file / etc.
-
-**Expected behavior:**
-____ should ____.
-
-**Current behavior:**
-____ instead does ____.
-
-**Steps to reproduce:**
-1. Do thing
-2. Do thing
-3. Result
-
-**Other Information:**
-Anything else you want to say.
-
-**Relevant Output:**
-Provide a log file, text from terminal, "No output", etc.
-
 ## Feature request
 
 An issue is a feature request if:
@@ -220,21 +167,6 @@ An issue is not a feature request if:
 * It is to fix unexpected behavior. (Bug report)
 * You are providing the feature you are requesting. (Pull request)
 
-### Template
-
-I am submitting a **feature request**.
-
-**The feature I am requesting is for:**
-make / realizeCascades / CI / specific file / Something new / etc.
-
-**I am requesting:**
-A completely new feature / An improvement on an existing feature / etc.
-
-**Ideas for implementation:**
-(Optional)
-
-**Other Information:**
-Anything else you want to say.
 
 ## Documentation
 
@@ -249,19 +181,4 @@ An issue is not a documentation issue if:
 * The code attempts to run but fails. (Bug report)
 * You are looking for a way to do something that you do not know exists and is not mentioned in the documentation. (Feature request)
 
-### Template
-
-I am submitting a **documentation issue**.
-
-**The file(s) in question is/are:**
-README.md / CONTRIBUTING.md / LICENSE / etc.
-
-**The problem is in the following category/categories:**
-Clarity / Examples / Broken links and images / Typos, spelling, and grammar / Undocumented Information / Out-of-date / Other
-
-**Description of the problem:**
-Describe whatever is wrong with the documentation or could otherwise be improved.
-
----
-
-*Last updated 17 October, 2021, v1.0.6*
+*Last updated 20 December, 2021, v1.2.4*

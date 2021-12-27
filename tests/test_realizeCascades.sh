@@ -6,6 +6,11 @@
 realizeCascades -n 100000 -o "output.root?reproducible=fixedname" -d 1 ../levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt 
 # Check that file is uncorrupted and has data
 python3 ./isempty.py
+error_code=$?
+if [ $error_code != 0 ]; 
+then
+        exit $error_code
+fi
 # Check md5sum
 echo $CHECKSUM
 md5sum output.root
