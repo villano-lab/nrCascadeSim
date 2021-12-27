@@ -102,59 +102,59 @@ constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindh
    :language: C
    :class: highlight
 
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-| prototypes for structs and functions                                                                             |   purpose                                         |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`     |  func. for realizing cascades (Si,Ge only for now)|
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`cri *geCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`   |  germanium func. for realizing cascades           |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double geDecay(double v, double M, double Egam, MTRand *rand)`                                              |  germanium func. energy after mid-stop decay      |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *geStop(double E, double M, double tau, MTRand *rand)`                                               |  germanium func. velocity at random stopping time |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double rgeS2(double E, double M, double t)`                                                                 |  germanium func. returning distance after time t  |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double vgeS2(double E, double M, double t)`                                                                 |  germanium func. returning velocity after time t  |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double vgeS2func(double *x,double *par)`                                                                    |  germanium func. velocity as function of time (x) |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`cri *siCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`   |  silicon func. for realizing cascades             |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double siDecay(double v, double M, double Egam, MTRand *rand)`                                              |  silicon func. energy after mid-stop decay        |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *siStop(double E, double M, double tau, MTRand *rand)`                                               |  silicon func. velocity at random stopping time   |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double rsiS2(double E, double M, double t)`                                                                 |  silicon func. returning distance after time t    |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double vsiS2(double E, double M, double t)`                                                                 |  silicon func. returning velocity after time t    |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double vsiS2func(double *x,double *par)`                                                                    |  silicon func. velocity as function of time (x)   |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`   |  argon func. for realizing cascades               |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double arDecay(double v, double M, double Egam, MTRand *rand)`                                              |  argon func. energy after mid-stop decay          |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *arStop(double E, double M, double tau, MTRand *rand)`                                               |  argon func. velocity at random stopping time     |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double rarS2(double E, double M, double t)`                                                                 |  argon func. returning distance after time t      |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double varS2(double E, double M, double t)`                                                                 |  argon func. returning velocity after time t      |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double varS2func(double *x,double *par)`                                                                    |  argon func. velocity as function of time (x)     |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)`   |  neon func. for realizing cascades                |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double neDecay(double v, double M, double Egam, MTRand *rand)`                                              |  neon func. energy after mid-stop decay           |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *neStop(double E, double M, double tau, MTRand *rand)`                                               |  neon func. velocity at random stopping time      |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double rneS2(double E, double M, double t)`                                                                 |  neon func. returning distance after time t       |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double vneS2(double E, double M, double t)`                                                                 |  neon func. returning velocity after time t       |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double vneS2func(double *x,double *par)`                                                                    |  neon func. velocity as function of time (x)      |
-+------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+| prototypes for structs and functions                                                                              |   purpose                                         |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *Cascade(int n,int cid,double Sn,int nlev,double *Elev, double *taus, double A, mt19937 *mtrand)`        |  func. for realizing cascades (Si,Ge only for now)|
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *geCascade(int n,int cid,double Sn,int nlev,double *Elev, double *taus, double A, mt19937 *mtrand)`      |  germanium func. for realizing cascades           |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double geDecay(double v, double M, double Egam, mt19937 *rand)`                                              |  germanium func. energy after mid-stop decay      |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *geStop(double E, double M, double tau, mt19937 *rand)`                                               |  germanium func. velocity at random stopping time |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double rgeS2(double E, double M, double t)`                                                                  |  germanium func. returning distance after time t  |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vgeS2(double E, double M, double t)`                                                                  |  germanium func. returning velocity after time t  |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vgeS2func(double *x,double *par)`                                                                     |  germanium func. velocity as function of time (x) |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *siCascade(int n,int cid,double Sn,int nlev,double *Elev, double *taus, double A, mt19937 *mtrand)`      |  silicon func. for realizing cascades             |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double siDecay(double v, double M, double Egam, mt19937 *rand)`                                              |  silicon func. energy after mid-stop decay        |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *siStop(double E, double M, double tau, mt19937 *rand)`                                               |  silicon func. velocity at random stopping time   |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double rsiS2(double E, double M, double t)`                                                                  |  silicon func. returning distance after time t    |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vsiS2(double E, double M, double t)`                                                                  |  silicon func. returning velocity after time t    |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vsiS2func(double *x,double *par)`                                                                     |  silicon func. velocity as function of time (x)   |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *arCascade(int n,int cid,double Sn,int nlev,double *Elev, double *taus, double A, mt19937 *mtrand)`      |  argon func. for realizing cascades               |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double arDecay(double v, double M, double Egam, mt19937 *rand)`                                              |  argon func. energy after mid-stop decay          |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *arStop(double E, double M, double tau, mt19937 *rand)`                                               |  argon func. velocity at random stopping time     |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double rarS2(double E, double M, double t)`                                                                  |  argon func. returning distance after time t      |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double varS2(double E, double M, double t)`                                                                  |  argon func. returning velocity after time t      |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double varS2func(double *x,double *par)`                                                                     |  argon func. velocity as function of time (x)     |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`cri *neCascade(int n,int cid,double Sn, int nlev, double *Elev, double *taus, double A, std::19937 *mtrand)` |  neon func. for realizing cascades                |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double neDecay(double v, double M, double Egam, std::19937 *rand)`                                           |  neon func. energy after mid-stop decay           |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double *neStop(double E, double M, double tau, std:19937 *rand)`                                             |  neon func. velocity at random stopping time      |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double rneS2(double E, double M, double t)`                                                                  |  neon func. returning distance after time t       |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vneS2(double E, double M, double t)`                                                                  |  neon func. returning velocity after time t       |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
+|  :C:`double vneS2func(double *x,double *par)`                                                                     |  neon func. velocity as function of time (x)      |
++-------------------------------------------------------------------------------------------------------------------+---------------------------------------------------+
 
 
 ---------------
@@ -179,19 +179,19 @@ currently and this is intended to be unified in the future.
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 |  :C:`double lindhard_ge_k(double *x, double *par)`                                     |  germanium Lindhard yield for energy x[0]         |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *geIonizationInRange_k(double E0,double E1,double k,MTRand *rand)`         |  germanium Lindhard ionization in an energy range |
+|  :C:`double *geIonizationInRange_k(double E0,double E1,double k,std::19937 *rand)`     |  germanium Lindhard ionization in an energy range |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 |  :C:`double lindhard_si_k(double *x, double *par)`                                     |  silicon Lindhard yield for energy x[0]           |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *siIonizationInRange_k(double E0,double E1,double k,MTRand *rand)`         |  silicon Lindhard ionization in an energy range   |
+|  :C:`double *siIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)`        |  silicon Lindhard ionization in an energy range   |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 |  :C:`double lindhard_ar_k(double *x, double *par)`                                     |  argon Lindhard yield for energy x[0]             |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *arIonizationInRange_k(double E0,double E1,double k,MTRand *rand)`         |  argon Lindhard ionization in an energy range     |
+|  :C:`double *arIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)`        |  argon Lindhard ionization in an energy range     |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 |  :C:`double lindhard_ne_k(double *x, double *par)`                                     |  neon Lindhard yield for energy x[0]              |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
-|  :C:`double *neIonizationInRange_k(double E0,double E1,double k,MTRand *rand)`         |  neon Lindhard ionization in an energy range      |
+|  :C:`double *neIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)`        |  neon Lindhard ionization in an energy range      |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 
 ---------------
@@ -211,9 +211,9 @@ a gamma decay of a certain energy (in **MeV**) and certain multipolarity (like `
 |  :C:`double we(double Egam,double A,std::string transition="E1")`                      |  return the Weisskopf estimated lifetime          |
 +----------------------------------------------------------------------------------------+---------------------------------------------------+
 
----------------
+----------------
 `isotope_info.h`
----------------
+----------------
 
 In this header is contained prototypes for getting various isotope information. In the future this
 should be replaced with a more robust API to a database to get all of this information. For now,

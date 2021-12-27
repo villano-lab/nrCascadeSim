@@ -17,6 +17,7 @@
 #include <iomanip>
 #include <fstream>
 #include <cstdlib>
+#include <random>
 #include <map>
 #include <vector>
 #include <algorithm>
@@ -31,7 +32,6 @@
 #include "lindhard.h"
 #include "weisskopf.h"
 #include "isotope_info.h"
-#include "MersenneTwister.h"
 
 //ROOT stuff
 #include "rootUtil.h"
@@ -50,14 +50,16 @@ void print_usage (FILE* stream, int exit_code)
   fprintf (stream, "Usage:  %s options [ inputfile(s) ]\n", program_name);
   fprintf (stream,
 	   //"\n"
-           "  -d, --seed          <integer>      seed for random numbers \n"
-           "  -h, --help                         print usage \n"
-           "  -n, --numgen        <number>       number of traces to generate \n"
-           "  -o, --outfile       <filename>     name the output file \n"
-           "  -s, --silent                       silent, no standard out \n"
-           "  -v, --verbose       <level>        Print verbose messages at level <level>\n"
-           "  -V, --version                      print version and exit\n"
-           "  -l, --log           <filename>     Log additional output to the specified file. If this option is not used, no logging will occur.\n");
+           "  -d, --seed          <integer>      Seed for random numbers \n"
+           "  -h, --help                         Print usage \n"
+           "  -n, --numgen        <number>       Number of traces to generate \n"
+           "  -o, --outfile       <filename>     Name the output file \n"
+           "  -s, --silent                       Silent, no standard out \n"
+           "  -v, --verbose       <level>        Print verbose messages at level <level>. \n"
+           "                                     Currently must use `--verbose=<level>` or `-v<level>` - no spaces.\n"
+           "  -V, --version                      Print version and exit\n"
+           "  -l, --log           <filename>     Log additional output to the specified file.\n"
+           "                                     If this option is not used, no logging will occur.\n");
 
         printf("Report bugs to: villaa-at-gmail-dot-com \n");
         printf("realizeCascades (nrCascadeSim) home page: <https://github.com/villano-lab/nrCascadeSim> \n");
@@ -93,7 +95,7 @@ int main(int argc, char** argv) {
     {0,0,0,0},
   };
 
-  int cl = rand();
+  unsigned cl = std::chrono::system_clock::now().time_since_epoch().count();
   int index;
   int iarg=0;
   string logfile;
@@ -189,8 +191,9 @@ int main(int argc, char** argv) {
     cout << "Seed used: " << cl << endl;
   }
 
-  MTRand *mtrand = new MTRand(cl);
-  cout << "MTRand: " << mtrand << endl;
+  std::mt19937 mtrand(cl);
+  std::uniform_real_distribution<double> dist(0.0,1.0);
+  cout << "MT Result: " << dist(mtrand) << endl;
 
   //get a root file and make 
   TFile *f = TFile::Open(outputfile.c_str(),"recreate");
@@ -251,7 +254,7 @@ int main(int argc, char** argv) {
       for(int k=0;k<numc;k++){
 	      int nrealize = num*cascadeFile[k].frac;
               cri *cascade_data;
-              cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,mtrand);
+              cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,&mtrand);
               bool didsave = addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]); 
 
         if(!logfile.empty()){  

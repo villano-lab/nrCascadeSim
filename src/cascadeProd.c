@@ -11,6 +11,8 @@
 
 #include "cascadeProd.h"
 
+#include <iostream>
+
 void freecliarray(int n,cli *cascade_levels)
 {
   for(int i=0;i<n;i++){
@@ -45,7 +47,7 @@ void freecri(cri *cascade_data)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -134,14 +136,16 @@ cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
   return outinfo;
 }
 //return the Energy after the mid-stop kick. 
-double geDecay(double v, double M, double Egam, MTRand *mtrand)
+double geDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(*mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -175,8 +179,11 @@ double geDecay(double v, double M, double Egam, MTRand *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *geStop(double E, double M, double tau, MTRand *mtrand)
+double *geStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -185,7 +192,7 @@ double *geStop(double E, double M, double tau, MTRand *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(*mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vgeS2(E,M,t);
@@ -297,7 +304,7 @@ double vgeS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -386,14 +393,16 @@ cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
   return outinfo;
 }
 //return the Energy after the mid-stop kick. 
-double siDecay(double v, double M, double Egam, MTRand *mtrand)
+double siDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(*mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -427,8 +436,11 @@ double siDecay(double v, double M, double Egam, MTRand *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *siStop(double E, double M, double tau, MTRand *mtrand)
+double *siStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -437,7 +449,7 @@ double *siStop(double E, double M, double tau, MTRand *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(*mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vsiS2(E,M,t);
@@ -549,7 +561,7 @@ double vsiS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -639,14 +651,16 @@ cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, d
   return outinfo;
 }
 //return the Energy after the mid-stop kick. 
-double arDecay(double v, double M, double Egam, MTRand *mtrand)
+double arDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(*mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -680,8 +694,11 @@ double arDecay(double v, double M, double Egam, MTRand *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *arStop(double E, double M, double tau, MTRand *mtrand)
+double *arStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -690,7 +707,7 @@ double *arStop(double E, double M, double tau, MTRand *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(*mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = varS2(E,M,t);
@@ -825,7 +842,7 @@ double varS2func(double *x,double *par)
 
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -915,14 +932,16 @@ cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, d
   return outinfo;
 }
 //return the Energy after the mid-stop kick. 
-double neDecay(double v, double M, double Egam, MTRand *mtrand)
+double neDecay(double v, double M, double Egam, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
 
   //assume v in units of c, M in GeV, and Egam in MeV.
 
   //generate a random direction wrt the incoming direction in the CM
   //I think one angle will do, the azimuthal angle shouldn't matter
-  double costhet = (2*mtrand->rand())-1;
+  double costhet = (2*dist(*mtrand))-1;
   double sinthet = sqrt(1-pow(costhet,2.0));
 
   //calculate the recoiling energy in the CM frame
@@ -956,8 +975,11 @@ double neDecay(double v, double M, double Egam, MTRand *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *neStop(double E, double M, double tau, MTRand *mtrand)
+double *neStop(double E, double M, double tau, mt19937 *mtrand)
 {
+  //random distribution
+  uniform_real_distribution<double> dist(0.,1.);
+
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
@@ -966,7 +988,7 @@ double *neStop(double E, double M, double tau, MTRand *mtrand)
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
-  double t = -log(1-mtrand->rand())*tau;
+  double t = -log(1-dist(*mtrand))*tau;
 
   //return the instantaneous velocity
   ret[0] = vneS2(E,M,t);
@@ -1099,7 +1121,7 @@ double vneS2func(double *x,double *par)
 
 }
 
-cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, MTRand *mtrand)
+cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
 {
   //FIXME warning not general, only chooses Ge or Si
   if(A>44)
@@ -1110,6 +1132,8 @@ cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, dou
     return siCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
   else if(A<=23)
     return neCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
+  else
+    return geCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
 }
 
 cli *readCascadeDistributionFile(int &n, string file,bool &success)
@@ -1134,14 +1158,34 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
 
   //do some regex matching to parse the cascade info 
   regex_t regex;
-  string matchfile="^([0-9]+\\.?[0-9]+e?[+-]?[0-9]+?)\\s+([0-9]+\\.?[0-9]+?|[0-9]+[A-Z][a-z])\\s+([0-9]+)\\s+(\\[.*?\\])\\s+(\\[.*?\\])$";
+  string matchfile="^(-?[0-9]+([.][0-9]+)?(e[+-]?[0-9]+)?)[[:space:]]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[[:space:]]+([0-9][0-9]?[0-9]?)[[:space:]]+(\\[.*\\])[[:space:]]+(\\[.*\\])$";
+  //string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[[:space:]]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[[:space:]]+([0-9][0-9]?[0-9]?)[[:space:]]+(\\[.*\\])[[:space:]]+(\\[.*\\])$";
+  //string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[ \\t]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[ \\t]+([0-9][0-9]?[0-9]?)[ \\t]+(\\[.*\\])[ \\t]+(\\[.*\\])$";
+  //string matchfile="^(0+\\.[0-9]?e?[+-]?[0-9]+)[ \\t\\r\\n\\v\\f]+([0-9]+\\.?[0-9]*|[0-9][0-9]?[0-9]?[A-Z][a-z]?)[ \\t\\r\\n\\v\\f]+([0-9][0-9]?[0-9]?)[ \\t\\r\\n\\v\\f]+(\\[.*\\])[ \\t\\r\\n\\v\\f]+(\\[.*\\])$";
+  //string matchfile="^([0-9]+\\.?[0-9]+e?[+-]?[0-9]+?)\\s+([0-9]+\\.?[0-9]+?|[0-9]+[A-Z][a-z])\\s+([0-9]+)\\s+(\\[.*?\\])\\s+(\\[.*?\\])$";
   int reti = regcomp(&regex,matchfile.c_str(),REG_EXTENDED);
+
+  //for diagnostics
+  //char       buffer[100];                                                     
+  //regerror(reti, &regex, buffer, 100);  
+  //if(reti==0)
+  //  printf("regcomp() success!\n"); 
+  //else
+  //  printf("regcomp() failed with '%s'\n", buffer); 
+   
 
   int count=0;
   while(!getline(in,line).eof()){
-    //cout << line << endl;
-    regmatch_t matchptr[6];
-    reti = regexec(&regex,line.c_str(),6,matchptr,0);
+    regmatch_t matchptr[8];
+    reti = regexec(&regex,line.c_str(),8,matchptr,0);
+    
+    //for diagnostics
+    //regerror(reti, &regex, buffer, 100);  
+    //if(reti==0)
+    //  printf("regexec() success!\n"); 
+    //else
+    //  printf("regexec() failed with '%s'\n", buffer); 
+
     if(!reti){
       
       //print out the match	    
@@ -1153,19 +1197,27 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
 
       //cout << "For this match: " << endl;
       int num;
-      for(int i=1;i<6;i++){
-        //cout << line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so) << endl;
-        string component = line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so);
+      for(int i=1;i<8;i++){
+        //cout << matchptr[i].rm_so << endl;
+        string component;
+        if(i!=2&&i!=3){ //matches for 2 & 3 are optional, they  are only  valid pointers if scientific notation
+          //cout << line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so) << endl;
+          component = line.substr(matchptr[i].rm_so,matchptr[i].rm_eo-matchptr[i].rm_so);
+        }
 	bool isok=false;
         if(i==1)
           output[count].frac = interpretDbl(component,isok); 
 	else if(i==2)
-          output[count].Sn = interpretSn(component,isok); 
+          isok=true; //don't care about this group 
 	else if(i==3)
-          output[count].A = interpretDbl(component,isok); 
+          isok=true; //don't care about this group 
 	else if(i==4)
-          output[count].Elev = interpretElevVector(num,component,isok); 
+          output[count].Sn = interpretSn(component,isok); 
 	else if(i==5)
+          output[count].A = interpretDbl(component,isok); 
+	else if(i==6)
+          output[count].Elev = interpretElevVector(num,component,isok); 
+	else if(i==7)
           output[count].taus = interpretTauVector(num,component,output[count].A,output[count].Elev,isok); 
 
 	//cout << " iteration: " << i << " goodentry: " << goodentry << endl;
@@ -1192,7 +1244,9 @@ double interpretDbl(string in,bool &success)
 {
   //use a regex to see if the thing is numeric
   regex_t regex;
-  string numeric="^-?[0-9]+([.][0-9]+)?|inf$";
+  string numeric="^-?[0-9]+([.][0-9]+)?(e[+-]?[0-9]+)?|inf$";
+  //string numeric="^-?[0-9]+([.][0-9]+)?|(-?[[:digit:]]+)\\.?[[:digit:]]+(e-|e\\+|e|[[:digit:]]+)[[:digit:]]+|inf$";
+  //string numeric="^-?[0-9]+([.][0-9]+)?|inf$";
   int reti = regcomp(&regex,numeric.c_str(),REG_EXTENDED);
   regmatch_t matchptr[2];
   reti = regexec(&regex,in.c_str(),2,matchptr,0);

@@ -7,10 +7,18 @@ Installation
 ------------
 
 *nrCascadeSim* is designed to run in a Unix-based system and is tested via Travis-CI_ using the
-Xenial_ distribution, Ubuntu 16.04 on x86_64 archetecture.
+Xenial_ (Ubuntu 16.04), Bionic_ (Ubuntu 18.04), and Focal_ (Ubuntu 20.04) distributions, all on
+x86_64 archetecture. It is also tested on Mac OSX Mojave (10.14) and Catalina (10.15) via
+Travis-CI_. 
+
+Because of a combination of the operating systems tested and the versions of `ROOT` (see below)
+the Travis-CI_ tests three C++ compiler standards: `c++11` (Xenial_); `c++14` (Bionic_); and
+`c++17` (Focal_, Mojave, Catalina). 
 
 .. _Travis-CI: https://app.travis-ci.com/github/villano-lab/nrCascadeSim
 .. _Xenial: https://docs.travis-ci.com/user/reference/xenial/ 
+.. _Bionic: https://docs.travis-ci.com/user/reference/bionic/ 
+.. _Focal:  https://docs.travis-ci.com/user/reference/focal/
 
 ^^^^^^^^^^^^
 Dependencies
@@ -19,6 +27,9 @@ Dependencies
 """"""""""""""""""""""""""""""""""""
 1. `ROOT <https://root.cern/>`_
 """"""""""""""""""""""""""""""""""""
+
+Travis-CI_ tests two versions of `ROOT`: 6.24.06 and 6.20.00. It is assumed (though not explicitly
+tested) that the versions in between those two versions will also work. 
 
 To install `ROOT` please follow the instructions on the `CERN  <https://root.cern/install/>`_
 website.
@@ -33,6 +44,9 @@ On Linux machines, you can also install `ROOT` via a `pre-packaged binary
 	tar -xzvf root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
 	source root/bin/thisroot.sh # also available: thisroot.{csh,fish,bat}
 
+**Note:** You will need to find the appropriate ROOT link for your Linux distribution. 
+The one provided above is used for Focal. Bionic uses ``root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz``
+and Xenial uses ``root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz``.
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 2. `gcc <https://gcc.gnu.org/>`_
@@ -41,12 +55,15 @@ On Linux machines, you can also install `ROOT` via a `pre-packaged binary
 .. To install *gcc* on a Mac, we can use `homebrew <https://brew.sh/>`_ ::
 
 ..	brew install libconfig
+
 You almost certainly have a version of `gcc` already and *nrCascadeSim* is compatible with version
 4.4.7 or newer.
 
 On Linux machines, you can build `gcc` via the `apt-get` manager::
 
 	sudo apt-get install gcc
+
+If, for some reason, you need to use a C++ standard older than 11, please use nrCascadeSim v1.2.2 or older.
 
 
 ^^^^^^^^^^^^^^^^
@@ -101,9 +118,9 @@ command-line tools. See Section 2 for list of the executables and inputs and out
 
 ..	</details>
 
-----------------------------
+----------------------------------
 Using *nrCascadeSim* as a library
-----------------------------
+----------------------------------
 
 If we want to use *nrCascadeSim* functions in an external code, we can do so and import it as a library.
 We recommend to do this inside your Make build, where the *nrCascadeSim* libraries can be linked
