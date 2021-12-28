@@ -8,6 +8,9 @@ using namespace std;
 #define CASCADE_PROD 
 //define a structure for the input cascade information
 //use the acronym Cascade Level Info
+/**
+  A structure to hold input information on each cascade 
+*/
 struct cli { 
     bool success;
     int n; //number of levels 
@@ -45,6 +48,9 @@ void freecriarray(int n,cri *cascade_data);
 //******germanium*****************
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
+/**
+  A function to simulate n cascade realizations for a germanium isotope 
+*/
 cri *geCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand);
 //return the Energy after the mid-stop kick. 
 double geDecay(double v, double M, double Egam, mt19937 *rand);
