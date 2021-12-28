@@ -62,9 +62,12 @@ $(LIBDIROUT)/libncap.so: $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(
 $(BUILDDIR)/realizeCascades: $(LIBDIROUT)/libncap.so $(BUILDDIR)/realizeCascades.cpp
 	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/realizeCascades.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(BUILDDIR)/realizeCascades 
 
+$(BUILDDIR)/regexPlayground: $(BUILDDIR)/regexPlayground.cpp
+	$(CXX) -fPIC -Wl,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/regexPlayground.cpp -o $(BUILDDIR)/regexPlayground 
 
 install: $(BUILDDIR)/realizeCascades
 	cp $(BUILDDIR)/realizeCascades /usr/local/bin/
+	cp $(BUILDDIR)/regexPlayground /usr/local/bin/
 
 clean:
 	rm -f $(LIBDIROUT)/*.o
