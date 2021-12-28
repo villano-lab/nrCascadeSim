@@ -84,7 +84,7 @@ script:
   - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
   - tar -zxvf lcov-1.14.tar.gz
   - cd lcov-1.14
-  - make
+  - make install
   - cd ../
 
   #make repository code (my code)
