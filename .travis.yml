@@ -67,24 +67,23 @@ install:
 #  - pip install -r example-usecase/requirements.txt
 #
 #  - sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
+   # install ROOT via binary
+   - echo "installing..."
+   - echo $ROOTDIST
+   - echo "wget command..." 
+   - echo "wget https://root.cern/download/"$ROOTDIST 
+   - wget https://root.cern/download/$ROOTDIST 
+   - tar -xzf $ROOTDIST 
+   - source root/bin/thisroot.sh
+   - echo "root libraries.."
+   - echo `root-config --cflags --glibs`
 
-  # install ROOT via binary
-  - echo "installing..."
-  - echo $ROOTDIST
-  - echo "wget command..." 
-  - echo "wget https://root.cern/download/"$ROOTDIST 
-  - wget https://root.cern/download/$ROOTDIST 
-  - tar -xzf $ROOTDIST 
-  - source root/bin/thisroot.sh
-  - echo "root libraries.."
-  - echo `root-config --cflags --glibs`
-
-  # install lcov
-  - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
-  - tar -zxvf lcov-1.14.tar.gz
-  - cd lcov-1.14
-  - sudo make install
-  - cd ../
+   # install lcov
+   - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
+   - tar -zxvf lcov-1.14.tar.gz
+   - cd lcov-1.14
+   - sudo make install
+   - cd ../
 
 script:
   #make repository code (my code)
