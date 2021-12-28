@@ -90,6 +90,7 @@ script:
   #make repository code (my code)
   - make -f Makefile.debug
   - sudo make install
+  - lcov --directory ./ --zerocounters
 
   # give self permission to run script
   - sudo chmod 777 tests/test_realizeCascades.sh
@@ -108,12 +109,11 @@ script:
   - cd ../example-usecase
   - travis_wait 50 py.test
 
-  #clean up
+  #Save coverage info
   - cd ../
-  - sudo make clean
-
-# Save coverage info
-after_success:
   - lcov --directory ./ --capture --output-file nrCascadeSim_coverage.info
   - genhtml nrCascadeSim_coverage.info
   - bash <(curl -s https://codecov.io/bash)
+
+  #clean up
+  - sudo make clean
