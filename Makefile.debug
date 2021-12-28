@@ -30,7 +30,7 @@ CFLAGS += -D__GIT_VERSION=\"$(GIT_VERSION)\"
 
 RUN_SCRIPT := $(shell mkdir -p 'bin/lib')
 
-all: $(BUILDDIR)/realizeCascades $(LIBDIROUT)/rootUtil.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/libncap.so
+all: $(BUILDDIR)/realizeCascades $(BUILDDIR)/regexPlayground $(LIBDIROUT)/rootUtil.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/libncap.so
 
 $(LIBDIROUT)/isotope_info.o: $(SRCDIR)/isotope_info.c $(INCDIR)/isotope_info.h 
 	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(SRCDIR)/isotope_info.c  `root-config --cflags` $(LIBFLAG) 
