@@ -80,6 +80,12 @@ script:
   - echo "root libraries.."
   - echo `root-config --cflags --glibs`
 
+  # install lcov
+  - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
+  - tar -zxvf lcov-1.14.tar.gz
+  - cd lcov-1.14
+  - make
+
   #make repository code (my code)
   - make -f Makefile.debug
   - sudo make install
