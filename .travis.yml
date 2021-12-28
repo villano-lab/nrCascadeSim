@@ -85,6 +85,7 @@ script:
   - tar -zxvf lcov-1.14.tar.gz
   - cd lcov-1.14
   - make
+  - cd ../
 
   #make repository code (my code)
   - make -f Makefile.debug
