@@ -112,8 +112,11 @@ script:
   #Save coverage info
   - cd ../
   - lcov --directory ./ --capture --output-file nrCascadeSim_coverage.info
-  - genhtml nrCascadeSim_coverage.info
-  - bash <(curl -s https://codecov.io/bash)
 
   #clean up
   - sudo make clean
+
+# Send coverage info to codecov
+after_success:
+  - genhtml nrCascadeSim_coverage.info
+  - bash <(curl -s https://codecov.io/bash)
