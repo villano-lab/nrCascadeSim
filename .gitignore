@@ -5,6 +5,7 @@ cascadeTest
 cascadePrint
 realizeCascades
 evalCascades
+regexPlayground
 
 #root files
 *.root
@@ -23,3 +24,24 @@ test-example/__pycache__
 test-example/.ipynb_checkpoints
 **.ipynb_checkpoints
 test-example/__pycache__/*.pyc
+
+#coverage info
+*.gcda
+*.gcno
+app.info
+nrCascadeSim_coverage.info
+7/
+amber.png
+ruby.png
+emerald.png
+glass.png
+snow.png
+updown.png
+gcov.css
+index.html
+index-sort-f.html
+index-sort-l.html
+home/
+mnt/
+out/
+coverage/

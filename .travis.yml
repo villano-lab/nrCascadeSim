@@ -68,7 +68,6 @@ install:
 #
 #  - sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
 
-script:
   # install ROOT via binary
   - echo "installing..."
   - echo $ROOTDIST
@@ -87,8 +86,9 @@ script:
   - sudo make install
   - cd ../
 
+script:
   #make repository code (my code)
-  - make -f Makefile.debug
+  - make
   - sudo make install
   - lcov --directory ./ --zerocounters
 
