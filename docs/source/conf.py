@@ -32,8 +32,8 @@ read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
 breathe_projects = {}
 
 if read_the_docs_build:
-    input_dir = '../../doxygen'
-    output_dir = 'build'
+    input_dir = '../../inc'
+    output_dir = 'dox_build'
     configureDoxyfile(input_dir, output_dir)
     subprocess.call('doxygen', shell=True)
     breathe_projects['nrCascadeSim'] = output_dir + '/xml'
