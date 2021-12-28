@@ -53,6 +53,7 @@ If you want to contribute to `nrCascadeSim`, please check out the `contribution 
    01_Getting_Started
    02_Executables
    03_Libraries
+   03a_Doxy_Libraries
    04_Examples
    05_Documentation
    06_Citations
