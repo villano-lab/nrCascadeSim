@@ -81,7 +81,7 @@ script:
   - echo `root-config --cflags --glibs`
 
   #make repository code (my code)
-  - make
+  - make -f Makefile.debug
   - sudo make install
 
   # give self permission to run script
