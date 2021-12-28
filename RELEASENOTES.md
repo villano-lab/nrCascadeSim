@@ -1,4 +1,8 @@
-## Future Releases (v1.3.0) Date 21.12.21
+## Future Releases (v1.3.1) Date XX.XX.XX 
+
+* PR #62 added fail-on-warning flag for readthedocs (Issue #41)
+
+## Release (v1.3.0) Date 21.12.27
 
 * PR #54 Move MersenneTwister to built-in C++ function. (Issue #27)
 	* The software now requires C++ 11 or newer.
