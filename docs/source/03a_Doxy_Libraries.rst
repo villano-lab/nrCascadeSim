@@ -11,5 +11,5 @@ functions, data structures, and their uses.
 .. doxygenstruct:: cli
    :members:
 
-.. doxygenfile:: cascadeProd.h
+.. doxygenfile:: weisskopf.h
    :project: nrCascadeSim
