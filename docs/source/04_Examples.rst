@@ -19,7 +19,6 @@ standard output.
   #include "lindhard.h"
   #include "weisskopf.h"
   #include "isotope_info.h"
-  #include "MersenneTwister.h"
   
   //ROOT stuff
   #include "rootUtil.h"
@@ -64,15 +63,18 @@ This example prints all of the information inside of the isotope database to sta
   #include "lindhard.h"
   #include "weisskopf.h"
   #include "isotope_info.h"
-  #include "MersenneTwister.h"
-  
+
   //ROOT stuff
   #include "rootUtil.h"
 
   //print out all isotope information in database
-  listStuff();
+  int main(){
 
-  return 0;
+      listStuff();
+
+      return 0;
+
+  }
 
 ----------------------------------
 Fetching an Ionization Yield Model
@@ -89,25 +91,25 @@ result is printed to standard output.
   #include "lindhard.h"
   #include "weisskopf.h"
   #include "isotope_info.h"
-  #include "MersenneTwister.h"
-  
+  #include <iostream>
   //ROOT stuff
   #include "rootUtil.h"
 
   //seed an MT random number with 1
-  std::19937 *mtrand = new std::19937(1);
+  std::mt19937 *mtrand = new std::mt19937(1);
 
   //get the ionization deposited between 100 and 50 eV
-  double *ionization;
+  // double *ionization;
   double E0 = 100; //eV
   double E1 = 50; //eV
-  ionization = geIonizationInRange_k(E0,E1,0.159,mtrand); //k-value for Germanium (accepted)
+  double *ionization = geIonizationInRange_k(E0,E1,0.159,mtrand); //k-value for Germanium (accepted)
 
   //print the ionization
-  cout << "Ionization Energy: " << ionization[0] << " eV " << endl;
-  cout << "Ionization Pairs: " << ionization[1] << " eV " << endl;
-
+  int main(){
+      std::cout << "Ionization Energy: " << ionization[0] << " eV " << endl;
+      std::cout << "Ionization Pairs: " << ionization[1] << " eV " << endl;
   return 0;
+  }
 
 --------------------------------------------------
 Generating a Single Cascade Realization and Saving

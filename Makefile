@@ -11,6 +11,7 @@ TOPDIR=$(shell pwd)
 BUILDDIR=$(TOPDIR)/bin
 INCDIROUT=$(BUILDDIR)/include
 LIBDIROUT=$(BUILDDIR)/lib
+TESTBIN=$(TOPDIR)/tests/bin
 INCDIR=inc/
 SRCDIR=src/
 INCFLAG= -IMersenne -Iinc
@@ -64,15 +65,33 @@ $(BUILDDIR)/realizeCascades: $(LIBDIROUT)/libncap.so $(BUILDDIR)/realizeCascades
 $(BUILDDIR)/regexPlayground: $(BUILDDIR)/regexPlayground.cpp
 	$(CXX) -fPIC -Wl,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/regexPlayground.cpp -o $(BUILDDIR)/regexPlayground -coverage
 
+$(TESTBIN)/fetchYieldModel: $(TESTBIN)/fetchYieldModel.cpp $(LIBDIROUT)/libncap.so
+	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(TESTBIN)/fetchYieldModel.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(TESTBIN)/fetchYieldModel -coverage
+
+$(TESTBIN)/printIsotopeInfo: $(TESTBIN)/printIsotopeInfo.cpp $(LIBDIROUT)/libncap.so
+	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(TESTBIN)/printIsotopeInfo.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(TESTBIN)/printIsotopeInfo -coverage
+
+$(TESTBIN)/readLevelfile: $(TESTBIN)/readLevelfile.cpp $(LIBDIROUT)/libncap.so
+	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(TESTBIN)/readLevelfile.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(TESTBIN)/readLevelfile -coverage
+
+$(TESTBIN)/realizeAndSave: $(TESTBIN)/realizeAndSave.cpp $(LIBDIROUT)/libncap.so
+	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(TESTBIN)/readLevelfile.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(TESTBIN)/readLevelfile -coverage
+
 install: $(BUILDDIR)/realizeCascades
 	cp $(BUILDDIR)/realizeCascades /usr/local/bin/
 	cp $(BUILDDIR)/regexPlayground /usr/local/bin/
+
+tests: $(TESTBIN)/fetchYieldModel $(TESTBIN)/printIsotopeInfo $(TESTBIN)/readLevelfile $(TESTBIN)/realizeAndSave
 
 clean:
 	rm -f $(LIBDIROUT)/*.o
 	rm -f $(LIBDIROUT)/*.so
 	rm -f $(BUILDDIR)/realizeCascades
 	rm -f $(BUILDDIR)/regexPlayground
+	rm -f $(TESTBIN)/fetchYieldModel
+	rm -f $(TESTBIN)/printIsotopeInfo
+	rm -f $(TESTBIN)/readLevelfile
+	rm -f $(TESTBIN)/realizeAndSave
 	rm -f /usr/local/bin/realizeCascades
 	rm -f /usr/local/bin/regexPlayground
 	rm -f *.o
