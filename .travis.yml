@@ -97,12 +97,17 @@ script:
   # activate conda environment
   - source activate piptest
 
+  # test help functions
+  realizeCascades --help
+  regexPlayground --help
+
   #do the tests
   - cd tests
   - echo $CHECKSUM
   - ./test_realizeCascades.sh
   - bash test_examples.sh
-  - regexPlayground 
+  - regexPlayground
+  - realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
 
   #need conda environment
   #- source activate test-environment

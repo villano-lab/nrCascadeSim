@@ -1,7 +1,19 @@
 #!/bin/bash
 #Setup
+#Test realizeAndSave and if the result is nonempty - Ge
+cp ../levelfiles/allge_ngam_WSlow.txt ./inputfile.txt
+bin/realizeAndSave >/dev/null
+python3 isempty.py
+# Ne
+cp ../levelfiles/20ne_ngam.txt ./inputfile.txt
+bin/realizeAndSave >/dev/null
+python3 isempty.py
+# Ar
+cp ../levelfiles/40ar_ngam.txt ./inputfile.txt
+bin/realizeAndSave >/dev/null
+python3 isempty.py
+# Si
 cp ../levelfiles/Si28_ngam_all_cascades_rfmt_sorted.txt ./inputfile.txt
-#Test realizeAndSave and if the result is nonempty
 bin/realizeAndSave >/dev/null
 python3 isempty.py
 echo "realizeAndSave ran successfully."
@@ -32,4 +44,4 @@ then
 	exit 1
 fi
 echo "fetchYieldModel ran successfully."
-echo "All `test_examples.sh` tests successful."
+echo "All sub-tests successful."
