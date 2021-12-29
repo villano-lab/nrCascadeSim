@@ -36,6 +36,9 @@ structures (several of them are pointer-based):
 .. doxygenfunction:: freecriarray 
    :project: nrCascadeSim
 
+---------------
+`weisskopf.h`
+---------------
 
 In this header is contained a prototype for obtaining the Weisskopf decay-time estimate
 [Weisskopf1951]_ for a gamma decay of a certain energy (in **MeV**) and certain multipolarity
