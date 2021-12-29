@@ -36,6 +36,30 @@ structures (several of them are pointer-based):
 .. doxygenfunction:: freecriarray 
    :project: nrCascadeSim
 
+There are also some utility functions that are used for reading the cascade input files, and they
+are prototyped below. 
+
+.. doxygenfunction:: readCascadeDistributionFile 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: interpretDbl 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: interpretSn 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: interpretWeisskopf 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: interpretElevVector 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: interpretTauVector 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: vsplit 
+   :project: nrCascadeSim
+
 ---------------
 `weisskopf.h`
 ---------------
