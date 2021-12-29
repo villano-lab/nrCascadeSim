@@ -101,7 +101,7 @@ script:
   - cd tests
   - echo $CHECKSUM
   - ./test_realizeCascades.sh
-  - ./bin/fetchYieldModel.cpp
+  - bash test_examples.sh
 
   #need conda environment
   #- source activate test-environment
