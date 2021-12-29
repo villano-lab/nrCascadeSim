@@ -9,33 +9,81 @@ using namespace std;
 //define a structure for the input cascade information
 //use the acronym Cascade Level Info
 /**
-  A structure to hold input information on each cascade 
+  A structure to hold input information on each cascade. the "Cascade Level Info" struct 
 */
 struct cli { 
     /**
       Has the structure been set successfully and written correctly?  
     */
     bool success;
-    int n; //number of levels 
-    int cid; //cascade id-- start w/ just integer related to input list, then go to true identifier
-    double frac; //fraction of cascades
-    double Sn; //neutron separation energy
-    int A; //capturing isotope mass number
-    double *Elev; //keV (level energies)
-    double *taus; //fs (time since capture)
+    /**
+      number of levels in this cascade  
+    */
+    int n;
+    /**
+      cascade id   
+    */
+    int cid;
+    /**
+      probability of observing this particular cascade  
+    */
+    double frac;
+    /**
+      neutron separation energy  
+    */
+    double Sn;
+    /**
+      mass number of capturing isotope  
+    */
+    int A;
+    /**
+      array of energy levels in **keV**   
+    */
+    double *Elev;
+    /**
+      half-lives of energy level in **fs**  
+    */
+    double *taus;
 };
 
 //define a structure for the returned cascade information
 //use the acronym Cascade Recoil Info
+/**
+  A structure to hold output information on each cascade. the "Cascade Recoil Info" struct 
+*/
 struct cri { 
-    int n; //number of levels 
-    int cid; //cascade id-- start w/ just integer related to input list, then go to true identifier
-    double *E; //eV (recoil energy at step)
-    double *delE; //eV (energy deposit)
-    int *I; //particle number (ionization)
-    double *Ei; //eV (ionization energy)
-    double *time; //fs (time since capture)
-    double *Eg; //MeV (gamma energy)
+    /**
+      number of levels in the cascade that gave this recoil 
+    */
+    int n;
+    /**
+      cascade id for the cascade that gave this recoil 
+    */
+    int cid;
+    /**
+      recoil energy at beginning of recoil step **eV** 
+    */
+    double *E;
+    /**
+      energy deposited in step **eV** 
+    */
+    double *delE;
+    /**
+      ionization created in each step in n e/h pairs 
+    */
+    int *I;
+    /**
+      electron-equivalent ionization energy **eV** 
+    */
+    double *Ei;
+    /**
+      time since capture **fs**  
+    */
+    double *time;
+    /**
+      gamma energy emitted in each step **MeV** 
+    */
+    double *Eg;
 };
 
 typedef struct cli cli;
@@ -43,9 +91,21 @@ typedef struct cri cri;
 
 //data functions
 
+/**
+  function to free memory in cli struct 
+*/
 void freecli(cli *cascade_levels);
+/**
+  function to free memory in array of cli structs 
+*/
 void freecliarray(int n,cli *cascade_levels);
+/**
+  function to free memory in cri struct 
+*/
 void freecri(cri *cascade_data);
+/**
+  function to free memory in array of cri structs 
+*/
 void freecriarray(int n,cri *cascade_data);
 
 //******germanium*****************
