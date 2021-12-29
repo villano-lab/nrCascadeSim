@@ -172,11 +172,32 @@ cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, dou
 
 //input reading functions
 
+/**
+  function to read in the cascade file with n lines 
+*/
 cli *readCascadeDistributionFile(int &n,string file,bool &success);
+/**
+  function to interpret doubles from input using regex 
+*/
 double interpretDbl(string in,bool &success);
+/**
+  function to read Sn from input correctly using regex 
+*/
 double interpretSn(string in,bool &success);
+/**
+  function to convert Weisskopf abbreviations using regex 
+*/
 double interpretWeisskopf(string in,double Egam,double A,bool &success);
+/**
+  function to read E levels from input correctly 
+*/
 double *interpretElevVector(int &n,string in,bool &success);
-double *interpretTauVector(int n,string in,double A,double *Elev,bool &success); //need the Elev vector and Sn for Weisskopf
+/**
+  function to read lifetimes from input correctly 
+*/
+double *interpretTauVector(int n,string in,double A,double *Elev,bool &success);
+/**
+  function for splitting strings 
+*/
 vector<string> vsplit(string in);
 #endif
