@@ -98,8 +98,8 @@ script:
   - source activate piptest
 
   # test help functions
-  realizeCascades --help
-  regexPlayground --help
+  - realizeCascades --help
+  - regexPlayground --help
 
   #do the tests
   - cd tests
