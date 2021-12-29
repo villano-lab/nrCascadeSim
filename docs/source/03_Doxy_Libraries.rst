@@ -66,6 +66,81 @@ there are separate functions for each of the supported elements; this is meant t
 the future in order to support a wider range of elements. For now we always use
 constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindhard paper [Lindhard1963]_. 
 
+.. doxygenfunction:: Cascade 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: geCascade 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: geDecay 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: geStop 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: rgeS2 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: vgeS2 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: vgeS2func 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: siCascade 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: siDecay 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: siStop 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: rsiS2 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: vsiS2 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: vsiS2func 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: arCascade 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: arDecay 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: arStop 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: rarS2 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: varS2 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: varS2func 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: neCascade 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: neDecay 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: neStop 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: rneS2 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: vneS2 
+   :project: nrCascadeSim
+
+.. doxygenfunction:: vneS2func 
+   :project: nrCascadeSim
+
 ---------------
 `lindhard.h`
 ---------------
