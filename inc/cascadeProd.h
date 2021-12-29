@@ -12,6 +12,9 @@ using namespace std;
   A structure to hold input information on each cascade 
 */
 struct cli { 
+    /**
+      Has the structure been set successfully and written correctly?  
+    */
     bool success;
     int n; //number of levels 
     int cid; //cascade id-- start w/ just integer related to input list, then go to true identifier
