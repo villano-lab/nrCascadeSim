@@ -15,6 +15,9 @@ regexPlayground
 */__pycache__
 test-example/__pycache__
 docs/build
+tests/bin/*
+!tests/bin/*.*
+tests/*_output.txt
 
 #checkpoints and caching
 *-checkpoint.*
@@ -45,3 +48,6 @@ home/
 mnt/
 out/
 coverage/
+
+#other stuff
+tests/inputfile.txt

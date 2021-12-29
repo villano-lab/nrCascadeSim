@@ -84,11 +84,11 @@ install:
    - cd lcov-1.14
    - sudo make install
    - cd ../
-
 script:
   #make repository code (my code)
   - make
   - sudo make install
+  - make tests
   - lcov --directory ./ --zerocounters
 
   # give self permission to run script
@@ -101,6 +101,7 @@ script:
   - cd tests
   - echo $CHECKSUM
   - ./test_realizeCascades.sh
+  - ./bin/fetchYieldModel.cpp
 
   #need conda environment
   #- source activate test-environment

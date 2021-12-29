@@ -75,7 +75,7 @@ $(TESTBIN)/readLevelfile: $(TESTBIN)/readLevelfile.cpp $(LIBDIROUT)/libncap.so
 	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(TESTBIN)/readLevelfile.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(TESTBIN)/readLevelfile -coverage
 
 $(TESTBIN)/realizeAndSave: $(TESTBIN)/realizeAndSave.cpp $(LIBDIROUT)/libncap.so
-	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(TESTBIN)/readLevelfile.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(TESTBIN)/readLevelfile -coverage
+	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(TESTBIN)/realizeAndSave.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(TESTBIN)/realizeAndSave -coverage
 
 install: $(BUILDDIR)/realizeCascades
 	cp $(BUILDDIR)/realizeCascades /usr/local/bin/

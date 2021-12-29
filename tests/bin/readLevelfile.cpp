@@ -14,11 +14,11 @@ string filenames="inputfile.txt";
 //read the contents of a file into a cli object
 int numc;
 bool success=false;
+cli *cascadeFile = readCascadeDistributionFile(numc,filenames,success);
 
 int main(){
   //print the info that was read in
   for(int i=0;i<numc;i++){
-      cli *cascadeFile = readCascadeDistributionFile(numc,filenames[i],success);
       std::cout << "Cascade ID: " << i+1 << "/" << numc << endl;
       std::cout << "Fraction of this cascade: " << cascadeFile[i].frac << endl;
       std::cout << "Neutron separation: " << cascadeFile[i].Sn << endl;

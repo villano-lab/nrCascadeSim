@@ -1,0 +1,2 @@
+Ionization Energy: 6.92827 eV 
+Ionization Pairs: 4 eV 
