@@ -10,5 +10,5 @@ functions, data structures, and their uses.
 Docs
 ====
 
-.. doxygenstruct:: cat
+.. doxygenstruct:: cli
    :members:
