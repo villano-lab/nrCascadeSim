@@ -7,8 +7,9 @@ from a set of library functions whose code is stored in the `libncap.so` file an
 are stored in several header files. Below we list the different header files with the internal
 functions, data structures, and their uses. 
 
-Docs
-====
 
 .. doxygenstruct:: cli
    :members:
+
+.. doxygenfile:: cascadeProd.h
+   :project: nrCascadeSim
