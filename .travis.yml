@@ -102,6 +102,7 @@ script:
   - echo $CHECKSUM
   - ./test_realizeCascades.sh
   - bash test_examples.sh
+  - regexPlayground 
 
   #need conda environment
   #- source activate test-environment
