@@ -124,18 +124,10 @@ script:
   - realizeCascades -n 10000 -o data/Arfile.root ../levelfiles/40ar_ngam.txt
   - travis_wait 50 py.test
 
-  #Save coverage info
-  - cd ../
-  - lcov --directory ./ --capture --output-file nrCascadeSim_coverage.info
-
   #clean up
+  - cd ../
   - sudo make clean
 
 # Send coverage info to codecov
-after_success:
-  - if [[${UPLOAD_COVERAGE} == "true"]]; then
-      genhtml nrCascadeSim_coverage.info
-      curl -Os https://uploader.codecov.io/latest/linux/codecov
-      chmod +x codecov
-      ./codecov -t ${CODECOV_TOKEN}
-    fi
+after_success: 
+  - if [[${UPLOAD_COVERAGE} == "true"]]; then source uploadtocodecov.sh; fi
