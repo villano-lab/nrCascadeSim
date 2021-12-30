@@ -73,22 +73,29 @@ install:
 #  - pip install -r example-usecase/requirements.txt
 #
 #  - sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
+   # install ROOT via binary
+   - echo "installing..."
+   - echo $ROOTDIST
+   - echo "wget command..." 
+   - echo "wget https://root.cern/download/"$ROOTDIST 
+   - wget https://root.cern/download/$ROOTDIST 
+   - tar -xzf $ROOTDIST 
+   - source root/bin/thisroot.sh
+   - echo "root libraries.."
+   - echo `root-config --cflags --glibs`
 
+   # install lcov
+   - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
+   - tar -zxvf lcov-1.14.tar.gz
+   - cd lcov-1.14
+   - sudo make install
+   - cd ../
 script:
-  # install ROOT via binary
-  - echo "installing..."
-  - echo $ROOTDIST
-  - echo "wget command..." 
-  - echo "wget https://root.cern/download/"$ROOTDIST 
-  - wget https://root.cern/download/$ROOTDIST 
-  - tar -xzf $ROOTDIST 
-  - source root/bin/thisroot.sh
-  - echo "root libraries.."
-  - echo `root-config --cflags --glibs`
-
   #make repository code (my code)
   - make
   - sudo make install
+  - make tests
+  - lcov --directory ./ --zerocounters
 
   # give self permission to run script
   - sudo chmod 777 tests/test_realizeCascades.sh
@@ -96,17 +103,35 @@ script:
   # activate conda environment
   - source activate piptest
 
+  # test help functions
+  - realizeCascades --help
+  - regexPlayground --help
+
   #do the tests
   - cd tests
   - echo $CHECKSUM
   - ./test_realizeCascades.sh
+  - bash test_examples.sh
+  - regexPlayground
+  - realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
 
   #need conda environment
   #- source activate test-environment
   #- conda list papermill
   - cd ../example-usecase
+  - realizeCascades -n 10000 -o data/Gefile.root ../levelfiles/allge_ngam_WSlow.txt
+  - realizeCascades -n 10000 -o data/Nefile.root ../levelfiles/20ne_ngam.txt
+  - realizeCascades -n 10000 -o data/Arfile.root ../levelfiles/40ar_ngam.txt
   - travis_wait 50 py.test
 
-  #clean up
+  #Save coverage info
   - cd ../
+  - lcov --directory ./ --capture --output-file nrCascadeSim_coverage.info
+
+  #clean up
   - sudo make clean
+
+# Send coverage info to codecov
+after_success:
+  - genhtml nrCascadeSim_coverage.info
+  - bash <(curl -s https://codecov.io/bash)

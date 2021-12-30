@@ -1,0 +1,979 @@
+Cascade ID: 1/77
+Fraction of this cascade: 0.648233
+Neutron separation: 8.47356
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      0       	 	 1e+14 
+Cascade ID: 2/77
+Fraction of this cascade: 0.11105
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4840.3       	 	 3.5 
+      0       	 	 1e+14 
+Cascade ID: 3/77
+Fraction of this cascade: 0.070202
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 4/77
+Fraction of this cascade: 0.041126
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      0       	 	 1e+14 
+Cascade ID: 5/77
+Fraction of this cascade: 0.040368
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 6/77
+Fraction of this cascade: 0.021592
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 1
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      0       	 	 1e+14 
+Cascade ID: 7/77
+Fraction of this cascade: 0.016658
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4840.3       	 	 3.5 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 8/77
+Fraction of this cascade: 0.01342
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 9/77
+Fraction of this cascade: 0.0080588
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      2425.9       	 	 18.1 
+      0       	 	 1e+14 
+Cascade ID: 10/77
+Fraction of this cascade: 0.0058747
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 11/77
+Fraction of this cascade: 0.0027455
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      2425.9       	 	 18.1 
+      0       	 	 1e+14 
+Cascade ID: 12/77
+Fraction of this cascade: 0.0026895
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      0       	 	 1e+14 
+Cascade ID: 13/77
+Fraction of this cascade: 0.0020792
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      0       	 	 1e+14 
+Cascade ID: 14/77
+Fraction of this cascade: 0.0016771
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 15/77
+Fraction of this cascade: 0.0016214
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 16/77
+Fraction of this cascade: 0.001509
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      0       	 	 1e+14 
+Cascade ID: 17/77
+Fraction of this cascade: 0.0014174
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      2425.9       	 	 18.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 18/77
+Fraction of this cascade: 0.0012533
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 19/77
+Fraction of this cascade: 0.0011052
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 20/77
+Fraction of this cascade: 0.00090897
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      2425.9       	 	 18.1 
+      0       	 	 1e+14 
+Cascade ID: 21/77
+Fraction of this cascade: 0.00061559
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4840.3       	 	 3.5 
+      0       	 	 1e+14 
+Cascade ID: 22/77
+Fraction of this cascade: 0.0005968
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      0       	 	 1e+14 
+Cascade ID: 23/77
+Fraction of this cascade: 0.00058994
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7996.9       	 	 0.1 
+      0       	 	 1e+14 
+Cascade ID: 24/77
+Fraction of this cascade: 0.0004829
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      2425.9       	 	 18.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 25/77
+Fraction of this cascade: 0.0004659
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7523.2       	 	 14 
+      2425.9       	 	 18.1 
+      0       	 	 1e+14 
+Cascade ID: 26/77
+Fraction of this cascade: 0.00041295
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6712.9       	 	 0.1 
+      0       	 	 1e+14 
+Cascade ID: 27/77
+Fraction of this cascade: 0.00038361
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 28/77
+Fraction of this cascade: 0.0003657
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 29/77
+Fraction of this cascade: 0.00032268
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      3067       	 	 33 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 30/77
+Fraction of this cascade: 0.0002734
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      3067       	 	 33 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 31/77
+Fraction of this cascade: 0.0002073
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      0       	 	 1e+14 
+Cascade ID: 32/77
+Fraction of this cascade: 0.00018916
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      2425.9       	 	 18.1 
+      0       	 	 1e+14 
+Cascade ID: 33/77
+Fraction of this cascade: 0.00016767
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 34/77
+Fraction of this cascade: 0.00016749
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 35/77
+Fraction of this cascade: 0.00015988
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      2425.9       	 	 18.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 36/77
+Fraction of this cascade: 0.00015732
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 2
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7523.2       	 	 14 
+      0       	 	 1e+14 
+Cascade ID: 37/77
+Fraction of this cascade: 0.00011332
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 38/77
+Fraction of this cascade: 0.00010955
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 39/77
+Fraction of this cascade: 9.2338e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4840.3       	 	 3.5 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 40/77
+Fraction of this cascade: 8.9058e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      3067       	 	 33 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 41/77
+Fraction of this cascade: 8.1946e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7523.2       	 	 14 
+      2425.9       	 	 18.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 42/77
+Fraction of this cascade: 7.5458e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      3067       	 	 33 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 43/77
+Fraction of this cascade: 7.4675e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 44/77
+Fraction of this cascade: 4.4755e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 45/77
+Fraction of this cascade: 3.3272e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      2425.9       	 	 18.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 46/77
+Fraction of this cascade: 2.592e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 47/77
+Fraction of this cascade: 2.4374e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 48/77
+Fraction of this cascade: 1.5247e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 3
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 49/77
+Fraction of this cascade: 1.2909e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 50/77
+Fraction of this cascade: 1.1547e-05
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 51/77
+Fraction of this cascade: 8.6266e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      0       	 	 1e+14 
+Cascade ID: 52/77
+Fraction of this cascade: 6.7272e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 53/77
+Fraction of this cascade: 6.0174e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      3067       	 	 33 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 54/77
+Fraction of this cascade: 5.0985e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      3067       	 	 33 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 55/77
+Fraction of this cascade: 5.048e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 56/77
+Fraction of this cascade: 3.024e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 57/77
+Fraction of this cascade: 2.5874e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7523.2       	 	 14 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 58/77
+Fraction of this cascade: 1.8786e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 59/77
+Fraction of this cascade: 1.5916e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 60/77
+Fraction of this cascade: 1.5173e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 61/77
+Fraction of this cascade: 1.0505e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 62/77
+Fraction of this cascade: 1.0302e-06
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 63/77
+Fraction of this cascade: 7.802e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 64/77
+Fraction of this cascade: 6.6489e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      0       	 	 1e+14 
+Cascade ID: 65/77
+Fraction of this cascade: 5.185e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 66/77
+Fraction of this cascade: 4.5454e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 6
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      2028       	 	 306 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 67/77
+Fraction of this cascade: 3.4108e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6908.5       	 	 0.1 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 68/77
+Fraction of this cascade: 1.7483e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7523.2       	 	 14 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 69/77
+Fraction of this cascade: 1.2267e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 4
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 70/77
+Fraction of this cascade: 1.1695e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 71/77
+Fraction of this cascade: 1.0754e-07
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 72/77
+Fraction of this cascade: 7.0982e-08
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 73/77
+Fraction of this cascade: 4.7909e-08
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 74/77
+Fraction of this cascade: 3.5034e-08
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 6
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      3067       	 	 33 
+      2028       	 	 306 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 75/77
+Fraction of this cascade: 8.2888e-09
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      2028       	 	 396 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
+Cascade ID: 76/77
+Fraction of this cascade: 3.6925e-09
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 5
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      7058       	 	 15 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      2028       	 	 396 
+      0       	 	 1e+14 
+Cascade ID: 77/77
+Fraction of this cascade: 3.2371e-09
+Neutron separation: 8.4736
+Mass number: 29
+Number of steps: 6
+
+Energy Levels (keV)	|	tau (fs)
+------------------------------------------------
+      *****       	 	 ***** 
+      6380.6       	 	 0.36 
+      4934.4       	 	 0.84 
+      2425.9       	 	 18.1 
+      2028       	 	 306 
+      1273.4       	 	 291 
+      0       	 	 1e+14 
