@@ -11,3 +11,4 @@ Please be sure to do the following when making a release.
 7. update `docs/source/index.rst` if badges changed
 8. make a release on github
 9. restore fail-on-warning on .readthedocs.yaml
+10. be sure codecov website is switched to default to master branch
