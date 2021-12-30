@@ -1,6 +1,7 @@
 jobs:
    include:
     # see mac images: https://docs.travis-ci.com/user/reference/osx/
+    # more recent build envs:  https://changelog.travis-ci.com/
     - os: osx
       osx_image: xcode11.4 
       env:  ROOTDIST="root_v6.20.00.macosx64-10.15-clang110.tar.gz"; CHECKSUM="5ec00b6c19662ecb44a430afc2326838"
@@ -9,6 +10,11 @@ jobs:
     - os: osx
       osx_image: xcode12 
       env:  ROOTDIST="root_v6.24.06.macos-10.15-x86_64-clang120.tar.gz"; CHECKSUM="a668732758574cbc90e143b66f22b860"
+      language: generic 
+      python: 3.7
+    - os: osx
+      osx_image: xcode13.1 
+      env:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; CHECKSUM="a668732758574cbc90e143b66f22b860"
       language: generic 
       python: 3.7
     - os: linux
@@ -23,7 +29,7 @@ jobs:
       python: 3.7
     - os: linux
       dist: xenial
-      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="e38c561bfed333a60b093ce655cdea73"
+      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="e38c561bfed333a60b093ce655cdea73"; UPLOAD_COVERAGE="true"
       language: python
       python: 3.7
     - os: linux
@@ -67,22 +73,29 @@ install:
 #  - pip install -r example-usecase/requirements.txt
 #
 #  - sudo apt-get install make cmake g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev
+   # install ROOT via binary
+   - echo "installing..."
+   - echo $ROOTDIST
+   - echo "wget command..." 
+   - echo "wget https://root.cern/download/"$ROOTDIST 
+   - wget https://root.cern/download/$ROOTDIST 
+   - tar -xzf $ROOTDIST 
+   - source root/bin/thisroot.sh
+   - echo "root libraries.."
+   - echo `root-config --cflags --glibs`
 
+   # install lcov
+   - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
+   - tar -zxvf lcov-1.14.tar.gz
+   - cd lcov-1.14
+   - sudo make install
+   - cd ../
 script:
-  # install ROOT via binary
-  - echo "installing..."
-  - echo $ROOTDIST
-  - echo "wget command..." 
-  - echo "wget https://root.cern/download/"$ROOTDIST 
-  - wget https://root.cern/download/$ROOTDIST 
-  - tar -xzf $ROOTDIST 
-  - source root/bin/thisroot.sh
-  - echo "root libraries.."
-  - echo `root-config --cflags --glibs`
-
   #make repository code (my code)
   - make
   - sudo make install
+  - make tests
+  - lcov --directory ./ --zerocounters
 
   # give self permission to run script
   - sudo chmod 777 tests/test_realizeCascades.sh
@@ -90,17 +103,31 @@ script:
   # activate conda environment
   - source activate piptest
 
+  # test help functions
+  - realizeCascades --help
+  - regexPlayground --help
+
   #do the tests
   - cd tests
   - echo $CHECKSUM
   - ./test_realizeCascades.sh
+  - bash test_examples.sh
+  - regexPlayground
+  - realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
 
   #need conda environment
   #- source activate test-environment
   #- conda list papermill
   - cd ../example-usecase
+  - realizeCascades -n 10000 -o data/Gefile.root ../levelfiles/allge_ngam_WSlow.txt
+  - realizeCascades -n 10000 -o data/Nefile.root ../levelfiles/20ne_ngam.txt
+  - realizeCascades -n 10000 -o data/Arfile.root ../levelfiles/40ar_ngam.txt
   - travis_wait 50 py.test
 
   #clean up
   - cd ../
   - sudo make clean
+
+# Send coverage info to codecov
+after_success: 
+  - if [ "$UPLOAD_COVERAGE" == "true" ]; then source .travis/uploadtocodecov.sh; fi

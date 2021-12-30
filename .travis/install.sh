@@ -9,6 +9,11 @@ if [ $TRAVIS_OS_NAME = 'osx' ]; then
     export PATH="$HOME/miniconda/bin:$PATH"
     hash -r
 
+    #get codecov program
+    curl -Os https://uploader.codecov.io/latest/macos/codecov
+
+    chmod +x codecov
+
 
     case "${TOXENV}" in
         py32)
@@ -29,6 +34,11 @@ else
     bash miniconda.sh -b -p $HOME/miniconda
     export PATH="$HOME/miniconda/bin:$PATH"
     hash -r
+
+    #get codecov program
+    curl -Os https://uploader.codecov.io/latest/linux/codecov
+
+    chmod +x codecov
 
     #conda config --set always_yes yes --set changeps1 no
     #conda update -q conda || true

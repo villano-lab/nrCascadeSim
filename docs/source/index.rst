@@ -16,7 +16,9 @@
 .. image:: https://img.shields.io/badge/arXiv-2104.02742-orange.svg?style=flat
    :target: https://arxiv.org/abs/2104.02742
    :alt: arXiv: 2104.02742
-
+.. image:: https://codecov.io/gh/villano-lab/nrCascadeSim/branch/master/graph/badge.svg?token=Q6XPU6LPPL
+   :target: https://codecov.io/gh/villano-lab/nrCascadeSim
+    
 
 ============================================================================================
 *nrCascadeSim* - a tool for generating nuclear recoil spectra resulting from neutron capture
@@ -52,7 +54,7 @@ If you want to contribute to `nrCascadeSim`, please check out the `contribution 
 
    01_Getting_Started
    02_Executables
-   03_Libraries
+   03_Doxy_Libraries
    04_Examples
    05_Documentation
    06_Citations

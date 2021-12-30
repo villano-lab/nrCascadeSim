@@ -1,4 +1,12 @@
-## Future Releases (v1.3.0) Date 21.12.21
+## Future Releases (v1.3.2) Date XX.XX.XX 
+
+## Release (v1.3.1) Date 21.12.30 
+
+* PR #62 added fail-on-warning flag for readthedocs (Issue #41)
+* PR #68 used breathe to bridge doxygen documentation to readthedocs (Issue #47)
+* PR #69 added code coverage and more testing (Issue #49, #44)
+
+## Release (v1.3.0) Date 21.12.27
 
 * PR #54 Move MersenneTwister to built-in C++ function. (Issue #27)
 	* The software now requires C++ 11 or newer.

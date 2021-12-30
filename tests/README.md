@@ -28,3 +28,12 @@ Python tests are allowed in the `nrCascadeSim/example-usecase` directory. In
 that directory modify the script `test_local.py` to include testing of all of
 the Python functions/Jupyter notebooks that are necessary to test the
 functionality.  
+
+## C++ Tests
+
+C++ tests are supplied in the `bin` subdirectory 
+to test the coverage offered by examples provided on readthedocs.
+They can be built from the top-level directory using the command `make tests`;
+they are not normal usecases, so they are not made by default.
+They should be runnable from this (the `tests`) directory 
+(you will need to supply the path to the binaries).
