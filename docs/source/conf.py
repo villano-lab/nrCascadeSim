@@ -14,6 +14,29 @@
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import sphinx_rtd_theme
+import subprocess, os
+
+def configureDoxyfile(input_dir, output_dir):
+    with open('Doxyfile.in', 'r') as file :
+        filedata = file.read()
+
+    filedata = filedata.replace('@DOXYGEN_INPUT_DIR@', input_dir)
+    filedata = filedata.replace('@DOXYGEN_OUTPUT_DIR@', output_dir)
+
+    with open('Doxyfile', 'w') as file:
+        file.write(filedata)
+
+# Check if we're running on Read the Docs' servers
+read_the_docs_build = os.environ.get('READTHEDOCS', None) == 'True'
+
+breathe_projects = {}
+
+if read_the_docs_build:
+    input_dir = '../../inc'
+    output_dir = 'dox_build'
+    configureDoxyfile(input_dir, output_dir)
+    subprocess.call('doxygen', shell=True)
+    breathe_projects['nrCascadeSim'] = output_dir + '/xml'
 
 
 # -- Project information -----------------------------------------------------
@@ -23,7 +46,7 @@ copyright = '2021, A.N. Villano, K. Harris, S. Brown'
 author = 'A.N. Villano, K. Harris, S. Brown'
 
 # The full version, including alpha/beta/rc tags
-release = '1.1.1'
+release = '1.3.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,7 +54,10 @@ release = '1.1.1'
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
-extensions = ['sphinx_rtd_theme','myst_parser']
+extensions = ['sphinx_rtd_theme','myst_parser','breathe']
+
+# Breathe Configuration
+breathe_default_project = "nrCascadeSim"
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

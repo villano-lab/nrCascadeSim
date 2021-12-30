@@ -10,3 +10,4 @@ Please be sure to do the following when making a release.
 6. update release notes RELEASENOTES.md
 7. update `docs/source/index.rst` if badges changed
 8. make a release on github
+9. restore fail-on-warning on .readthedocs.yaml
