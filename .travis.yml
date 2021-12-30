@@ -130,4 +130,4 @@ script:
 
 # Send coverage info to codecov
 after_success: 
-  - if [[${UPLOAD_COVERAGE} == "true"]]; then source uploadtocodecov.sh; fi
+  - if [ "$UPLOAD_COVERAGE" == "true" ]; then source .travis/uploadtocodecov.sh; fi
