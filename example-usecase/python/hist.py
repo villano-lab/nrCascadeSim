@@ -14,16 +14,19 @@ import R68_yield as R68y
 #############
 
 #Define the main function we'll be re-using
-def f(model,k=0.178,q=0.00075):
+def f(model,material='Si',k=0.178,q=0.00075):
     if model=='Lindhard':
-        return lin.getLindhardSi_k(k)
+        if material in ['Si', 'si', 'silicon', 'Silicon']:
+            return lin.getLindhardSi_k(k)
+        elif material in ['Ge', 'ge', 'germanium', 'Germanium']:
+            return lin.getLindhardGe_k(k)
     elif model=='Sorenson':
         return lambda Er: R68y.ySor(Er,k,0.00075)
     else:
         print("Unrecognized. Available models: Lindhard, Sorenson")
 
 #Get total deposit for the given cascade:
-def Eitot(i,l,en,en_dep,c_id,model): #Get yield total from a given cid and k, and choose an instance of that cascade
+def Eitot(i,l,en,en_dep,c_id,model,material='Si'): #Get yield total from a given cid and k, and choose an instance of that cascade
     #Determine values
     energy = en[c_id==i][l]
     delEnergy = en_dep[c_id==i][l]
@@ -31,15 +34,15 @@ def Eitot(i,l,en,en_dep,c_id,model): #Get yield total from a given cid and k, an
     returnval = 0
     j = 0
     while j < len(energy):
-        returnval += f(model)(energy[j])*energy[j]
-        returnval -= f(model)(energy[j] - delEnergy[j])*(energy[j] - delEnergy[j])
+        returnval += f(model,material)(energy[j])*energy[j]
+        returnval -= f(model,material)(energy[j] - delEnergy[j])*(energy[j] - delEnergy[j])
         j += 1
     return returnval
 
 #Determine what lands inside
 threshold = 50
 
-onestep = lambda method: f(method)(nck.D1s)*nck.D1s
+onestep = lambda method,material: f(method,material='Si')(nck.D1s)*nck.D1s
 
 #Fitted resolution function
 def res(E,scalefactor=1):
@@ -48,7 +51,7 @@ def res(E,scalefactor=1):
     eps  = 3.8
     return np.sqrt(res0**2 + Fano*eps*E)*scalefactor
 
-def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',method='root',resolution='normal',val=None,scalefactor=1): #Build a histogram from the file
+def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',material='Si',method='root',resolution='normal',val=None,scalefactor=1): #Build a histogram from the file
     if method=='root':
         x = uproot.open(file)
         cas = x['cascade']
@@ -75,10 +78,14 @@ def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',
             resolution = lambda E: val
     else:
         print("Unrecognized. Available resolutions: normal, none, offset, constant")
-    plottable = np.zeros([max(c_id)+1,len(c_id[c_id==0])]) 
+    maxcidlength = 0
+    for i in range(max(c_id)):
+        if len(c_id[c_id==i]) > maxcidlength:
+            maxcidlength = len(c_id[c_id==i])
+    plottable = np.zeros([max(c_id)+1,maxcidlength]) 
     for i in range(max(c_id)+1):
         for j in range(len(c_id[c_id==i])):                   #Up to the number of events,
-            plottable[i,j] = Eitot(i,j,en,en_dep,c_id,model)  #Calculate the energy deposit.
+            plottable[i,j] = Eitot(i,j,en,en_dep,c_id,model,material)  #Calculate the energy deposit.
         for j in range(len(c_id[c_id==i]),len(c_id[c_id==0])):#For any leftover points,
             plottable[i,j] = np.nan                           #The value is not a number
     a_list = []
