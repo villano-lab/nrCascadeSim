@@ -48,6 +48,8 @@ home/
 mnt/
 out/
 coverage/
+codecov
+codecov.*
 
 #other stuff
 tests/inputfile.txt

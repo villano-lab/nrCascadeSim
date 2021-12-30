@@ -60,10 +60,10 @@ $(LIBDIROUT)/libncap.so: $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/weisskopf.o $(
 	$(CXX) -fPIC -shared $(LIBDIROUT)/lindhard.o $(LIBDIROUT)/weisskopf.o $(LIBDIROUT)/isotope_info.o $(LIBDIROUT)/cascadeProd.o $(LIBDIROUT)/edepmath.o $(LIBDIROUT)/rootUtil.o `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree  -o $(LIBDIROUT)/libncap.so -fprofile-arcs -ftest-coverage
 
 $(BUILDDIR)/realizeCascades: $(LIBDIROUT)/libncap.so $(BUILDDIR)/realizeCascades.cpp
-	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/realizeCascades.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(BUILDDIR)/realizeCascades -coverage 
+	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/realizeCascades.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(BUILDDIR)/realizeCascades -coverage -fprofile-arcs -ftest-coverage
 
 $(BUILDDIR)/regexPlayground: $(BUILDDIR)/regexPlayground.cpp
-	$(CXX) -fPIC -Wl,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/regexPlayground.cpp -o $(BUILDDIR)/regexPlayground -coverage
+	$(CXX) -fPIC -Wl,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(BUILDDIR)/regexPlayground.cpp -o $(BUILDDIR)/regexPlayground -coverage -fprofile-arcs -ftest-coverage
 
 $(TESTBIN)/fetchYieldModel: $(TESTBIN)/fetchYieldModel.cpp $(LIBDIROUT)/libncap.so
 	$(CXX) -fPIC -Wl,-rpath,`root-config --libdir`,-rpath $(LIBDIROUT) $(CFLAGS) $(INCFLAG) $(LIBFLAG) $(TESTBIN)/fetchYieldModel.cpp `root-config --cflags` -L`root-config --libdir` -lCore -lRIO -lTree -lncap -o $(TESTBIN)/fetchYieldModel -coverage
