@@ -1,7 +1,10 @@
-## Future Releases (v1.3.1) Date XX.XX.XX 
+## Future Releases (v1.3.2) Date XX.XX.XX 
+
+## Release (v1.3.1) Date 21.12.30 
 
 * PR #62 added fail-on-warning flag for readthedocs (Issue #41)
 * PR #68 used breathe to bridge doxygen documentation to readthedocs (Issue #47)
+* PR #69 added code coverage and more testing (Issue #49, #44)
 
 ## Release (v1.3.0) Date 21.12.27
 
