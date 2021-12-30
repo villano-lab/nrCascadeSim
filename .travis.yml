@@ -29,7 +29,7 @@ jobs:
       python: 3.7
     - os: linux
       dist: xenial
-      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="e38c561bfed333a60b093ce655cdea73"
+      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; CHECKSUM="e38c561bfed333a60b093ce655cdea73"; UPLOAD_COVERAGE="true"
       language: python
       python: 3.7
     - os: linux
@@ -133,5 +133,9 @@ script:
 
 # Send coverage info to codecov
 after_success:
-  - genhtml nrCascadeSim_coverage.info
-  - bash <(curl -s https://codecov.io/bash)
+  - if [[${UPLOAD_COVERAGE} == "true"]]; then
+      genhtml nrCascadeSim_coverage.info
+      curl -Os https://uploader.codecov.io/latest/linux/codecov
+      chmod +x codecov
+      ./codecov -t ${CODECOV_TOKEN}
+    fi
