@@ -1,6 +1,7 @@
 jobs:
    include:
     # see mac images: https://docs.travis-ci.com/user/reference/osx/
+    # more recent build envs:  https://changelog.travis-ci.com/
     - os: osx
       osx_image: xcode11.4 
       env:  ROOTDIST="root_v6.20.00.macosx64-10.15-clang110.tar.gz"; CHECKSUM="5ec00b6c19662ecb44a430afc2326838"
@@ -9,6 +10,11 @@ jobs:
     - os: osx
       osx_image: xcode12 
       env:  ROOTDIST="root_v6.24.06.macos-10.15-x86_64-clang120.tar.gz"; CHECKSUM="a668732758574cbc90e143b66f22b860"
+      language: generic 
+      python: 3.7
+    - os: osx
+      osx_image: xcode13.1 
+      env:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; CHECKSUM="a668732758574cbc90e143b66f22b860"
       language: generic 
       python: 3.7
     - os: linux
