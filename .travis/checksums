@@ -1,70 +1,72 @@
 # ROOT v6.20/00 --------------------------
  ##### OSX 11.4
   # 20ne_ngam.txt
-
+   fa35b06d0f28b4ad88d37233a13cb549
   # 40ar_ngam.txt
-
+   9cd5f8dfb904949266ba128eb514a03d
   # 70ge_ngam.txt
-
+   bdbfae65b70adbedf2ff15900869a9a3
   # 72ge_ngam.txt
-
+   381e5b9c631b10e919f73210b7afcfe7
+  # 73ge_ngam.txt
+   c11c5d28d3bc208820116badd8bf7515
   # 74ge_ngam.txt
-
+   19c759571283bc0e68d57fc33440c9d5
   # Geant4/G4_28si.txt
-
+   fd4e0aebd0faf1b35d2f7ea0aedc8144
   # Geant4/G4_29si.txt
-
+   91fc778ee0158091eb1c469795a6865b
   # Geant4/G4_30si.txt
-
+   92d8dc10f82a3652a9227a8f2bef3d9e
   # Geant4/G4_31si.txt
-
+   7ecc945174484a0572fda9ec98437b57
   # Geant4/G4_70ge.txt
-
+   9a1c61f0bbe7e8669db979af2d21d155
   # Geant4/G4_72ge.txt
-
+   154922405aca76162737283fcf14f6d9
   # Geant4/G4_73ge.txt
-
+   6871d1e43b9a53e4202e81401a1264c4
   # Geant4/G4_74ge.txt
-
+   39f333dfb11137fddaa851bb8af9e8de
   # Geant4/G4_76ge.txt
-
+   7ecc945174484a0572fda9ec98437b57
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    5ec00b6c19662ecb44a430afc2326838
 
   # allge_ngam_WFast.txt
-  
+   61ce29ea8dc3a7c7bd35b52db043548b
   # allge_ngam_WSlow.txt
-
+   afb2d50fe71be1965450bb5711b8b9cd
   # allge_ngam_inf.txt
-
+   a94d663aab420017a9c7c653939967bc
   # cross_sections_and_abundance.txt
-
+   4db4c543f838b0a340c4ba4e9a258d04
   # cross_sections_and_abundance_and_scaling.txt
-
+   4db4c543f838b0a340c4ba4e9a258d04
   # natge.txt
-
+   162058b7da9c68508aab37c0e9c8c04f
   # v3_28Si_6biggest.txt
-
+   14069b268376ebc99059ca138330b0bd
   # v3_28Si_6biggest_scaled.txt
-
+   9bd9416b5457a89b4a7d0b381158ccc6
   # v3_28Si_all.txt
-
+   5ec00b6c19662ecb44a430afc2326838
   # v3_28Si_all_scaled.txt
-
+   3b61aced908ee133dddbc923372b4501
   # v3_29Si_4biggest.txt
-
+   29f96fdbc8f31b381c8c8568e10dbfc8
   # v3_29Si_4biggest_scaled.txt
-
+   5bf0a41266d191de829c894991080ae7
   # v3_30Si_4biggest.txt
-
+   448c7227c335cc282c6d66f61cefafc3
   # v3_30Si_4biggest_scaled.txt
-
+   7c7f45d1c3765990a1dab4b245ef8c06
   # v3_cross_sections_and_abundance.txt
-
+   4db4c543f838b0a340c4ba4e9a258d04
   # v3_cross_sections_and_abundance_scaling.txt
 
   # v3_natSi.txt
-  
+   d6b92c99aaf6dee6ec322323d1511e31
  ##### OSX 12
   # 20ne_ngam.txt
 
@@ -73,6 +75,8 @@
   # 70ge_ngam.txt
 
   # 72ge_ngam.txt
+
+  # 73ge_ngam.txt
 
   # 74ge_ngam.txt
 
@@ -139,6 +143,8 @@
 
   # 72ge_ngam.txt
 
+  # 73ge_ngam.txt
+
   # 74ge_ngam.txt
 
   # Geant4/G4_28si.txt
@@ -197,136 +203,139 @@
 
  ##### Linux Ubuntu Xenial
   # 20ne_ngam.txt
-
+   b8001a331316c5b6508e0b747c30e515
   # 40ar_ngam.txt
-
+   4c8d04e71d629377ebf26676908e48a3
   # 70ge_ngam.txt
-
+   ec2560dac09d2438376ea74fa24f0023
   # 72ge_ngam.txt
-
+   4b2827331cb0ef5a10ccc82235b7f1dd
+  # 73ge_ngam.txt
+   76d1120fe9b323d9acbfa557d8faec63
   # 74ge_ngam.txt
-
+   9cba96af47165e19b765349a62f651c1
   # Geant4/G4_28si.txt
-
+   766aee37f7da2250f5f65a1108f60ea1
   # Geant4/G4_29si.txt
-
+   1ba893d8cf4c18441ee9996d5f9d26c7
   # Geant4/G4_30si.txt
-
+   48cf9db7c57cbca4839106e116344687
   # Geant4/G4_31si.txt
-
+   9f9c134e039c9e84428df6c70f5f36cb
   # Geant4/G4_70ge.txt
-
+   fbd584db5afaa62b70ce9e0107b04660
   # Geant4/G4_72ge.txt
-
+   ec8b36bc7f68274b49b377c474764e4b
   # Geant4/G4_73ge.txt
-
+   12a0187e30347e038bf3760a0039444c
   # Geant4/G4_74ge.txt
-
+   486b2ee2e92219be17534b4bbbef6ab5
   # Geant4/G4_76ge.txt
-
+   9f9c134e039c9e84428df6c70f5f36cb
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    3a5e00bcb6ebc0e8c76f6877249dfc85
 
   # allge_ngam_WFast.txt
-
+   0b5a2e58e8896d253f098793e47877c4
   # allge_ngam_WSlow.txt
-
+   11d24d6981b1455ca319a716b29becfe
   # allge_ngam_inf.txt
-
+   8b65bbf73813f7d853928d1651dff882
   # cross_sections_and_abundance.txt
 
   # cross_sections_and_abundance_and_scaling.txt
 
   # natge.txt
-
+   c132449db6ace9ab5bda94e0abcabf2e
   # v3_28Si_6biggest.txt
-
+   87ed9f9e997f2078906401412fc70960
   # v3_28Si_6biggest_scaled.txt
-
+   4d1f4f49089c70bfda75abe683834bff
   # v3_28Si_all.txt
-
+   3a5e00bcb6ebc0e8c76f6877249dfc85
   # v3_28Si_all_scaled.txt
-
+   d9973975ddd1cc12f86f08b504088c11
   # v3_29Si_4biggest.txt
-
+   5ea4769bb9def622978223734199cf29
   # v3_29Si_4biggest_scaled.txt
-
+   e765be9696350790e0a8e84bce501a53
   # v3_30Si_4biggest.txt
-
+   f6b5f6aaa1f9c871c9c299ea78d0f4e1
   # v3_30Si_4biggest_scaled.txt
-
+   dd31c887dd0ae4ae5965755b0f447068
   # v3_cross_sections_and_abundance.txt
 
   # v3_cross_sections_and_abundance_scaling.txt
 
   # v3_natSi.txt
-
+   9125f90b822416ab91d962d393d46222
  ##### Linux Ubuntu Bionic
   # 20ne_ngam.txt
-
+   b8001a331316c5b6508e0b747c30e515
   # 40ar_ngam.txt
-
+   4c8d04e71d629377ebf26676908e48a3
   # 70ge_ngam.txt
-
+   ec2560dac09d2438376ea74fa24f0023
   # 72ge_ngam.txt
-
+   4b2827331cb0ef5a10ccc82235b7f1dd
+  # 73ge_ngam.txt
+   76d1120fe9b323d9acbfa557d8faec63
   # 74ge_ngam.txt
-
+   9cba96af47165e19b765349a62f651c1
   # Geant4/G4_28si.txt
-
+   766aee37f7da2250f5f65a1108f60ea1
   # Geant4/G4_29si.txt
-
+   1ba893d8cf4c18441ee9996d5f9d26c7
   # Geant4/G4_30si.txt
-
+   48cf9db7c57cbca4839106e116344687
   # Geant4/G4_31si.txt
-
+   9f9c134e039c9e84428df6c70f5f36cb
   # Geant4/G4_70ge.txt
-
+   fbd584db5afaa62b70ce9e0107b04660
   # Geant4/G4_72ge.txt
-
+   ec8b36bc7f68274b49b377c474764e4b
   # Geant4/G4_73ge.txt
-
+   12a0187e30347e038bf3760a0039444c
   # Geant4/G4_74ge.txt
-
+   486b2ee2e92219be17534b4bbbef6ab5
   # Geant4/G4_76ge.txt
-
+   9f9c134e039c9e84428df6c70f5f36cb
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    3a5e00bcb6ebc0e8c76f6877249dfc85
-
   # allge_ngam_WFast.txt
-
+   0b5a2e58e8896d253f098793e47877c4
   # allge_ngam_WSlow.txt
-
+   11d24d6981b1455ca319a716b29becfe
   # allge_ngam_inf.txt
-
+   8b65bbf73813f7d853928d1651dff882
   # cross_sections_and_abundance.txt
-
+   f00eb560e4e4f3c9e9184701bb66ffcd
   # cross_sections_and_abundance_and_scaling.txt
-
+   f00eb560e4e4f3c9e9184701bb66ffcd
   # natge.txt
-
+   c132449db6ace9ab5bda94e0abcabf2e
   # v3_28Si_6biggest.txt
-
+   87ed9f9e997f2078906401412fc70960
   # v3_28Si_6biggest_scaled.txt
-
+   4d1f4f49089c70bfda75abe683834bff
   # v3_28Si_all.txt
-
+   3a5e00bcb6ebc0e8c76f6877249dfc85
   # v3_28Si_all_scaled.txt
-
+   d9973975ddd1cc12f86f08b504088c11
   # v3_29Si_4biggest.txt
-
+   e765be9696350790e0a8e84bce501a53
   # v3_29Si_4biggest_scaled.txt
-
+   5ea4769bb9def622978223734199cf29
   # v3_30Si_4biggest.txt
-
+   dd31c887dd0ae4ae5965755b0f447068
   # v3_30Si_4biggest_scaled.txt
-
+   f6b5f6aaa1f9c871c9c299ea78d0f4e1
   # v3_cross_sections_and_abundance.txt
-
+   f00eb560e4e4f3c9e9184701bb66ffcd
   # v3_cross_sections_and_abundance_scaling.txt
-
+   f00eb560e4e4f3c9e9184701bb66ffcd
   # v3_natSi.txt
-
+   9125f90b822416ab91d962d393d46222
  ##### Linux Ubuntu Focal
   # 20ne_ngam.txt
 
@@ -335,6 +344,8 @@
   # 70ge_ngam.txt
 
   # 72ge_ngam.txt
+
+  # 73ge_ngam.txt
 
   # 74ge_ngam.txt
 
@@ -402,6 +413,8 @@
 
   # 72ge_ngam.txt
 
+  # 73ge_ngam.txt
+
   # 74ge_ngam.txt
 
   # Geant4/G4_28si.txt
@@ -460,330 +473,336 @@
    
  ##### OSX 12
   # 20ne_ngam.txt
-
+   24c618f64b27284f81ba01dc0e952a0b
   # 40ar_ngam.txt
-
+   7fbf7098fab66f9008d93626112c33e4
   # 70ge_ngam.txt
-
+   3bb012ecbe0ab24df0242e6fcd95f097
   # 72ge_ngam.txt
-
+   c5529fec05f28bcc543eff95939ef563
+  # 73ge_ngam.txt
+   b0f3f052ba551e61f3fda1e29791f758
   # 74ge_ngam.txt
-
+   103b7b68b18c409ac6ba162d316a2dd2
   # Geant4/G4_28si.txt
-
+   8efb94d2de98bca6e4eee0a9176b405a
   # Geant4/G4_29si.txt
-
+   974de211fb9d887ddbf96e5b2645840a
   # Geant4/G4_30si.txt
-
+   0120e078e9f4827c002088c2d58e6b13
   # Geant4/G4_31si.txt
-
+   3d7cf04521477a4fe35028d648d32dd2
   # Geant4/G4_70ge.txt
-
+   bb15c58115d09453cd4af0605e12527d
   # Geant4/G4_72ge.txt
-
+   c40a60a57f0508b2d11a7e560b80af21
   # Geant4/G4_73ge.txt
-
+   7b69debd48f9f8a2b61338d76d4889f6
   # Geant4/G4_74ge.txt
-
+   6fbe0d973b4708464d900acd12779b0f
   # Geant4/G4_76ge.txt
-
+   3d7cf04521477a4fe35028d648d32dd2
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    a668732758574cbc90e143b66f22b860
-
   # allge_ngam_WFast.txt
-
+   3a8fe045e6cef3b76798571e9fd3b0c6
   # allge_ngam_WSlow.txt
-
+   a9b271cbf08147395f4ae704bbe325fc
   # allge_ngam_inf.txt
-
+   ae74c9af0e017df242e9a660f58d97eb
   # cross_sections_and_abundance.txt
-
+   
   # cross_sections_and_abundance_and_scaling.txt
 
   # natge.txt
-
+   ef519b74e447fd22cc564205c4098cf7
   # v3_28Si_6biggest.txt
-
+   9ee19b4f3e958004fcc2581e34d01ca6
   # v3_28Si_6biggest_scaled.txt
-
+   ad1b513dde4fc52909210b76b4b655fb
   # v3_28Si_all.txt
-
+   a668732758574cbc90e143b66f22b860
   # v3_28Si_all_scaled.txt
-
+   088201d5e2efd0e0c6936ab5b7057f42
   # v3_29Si_4biggest.txt
-
+   02d08c5aed88144a87245659853f0b62
   # v3_29Si_4biggest_scaled.txt
-
+   a3d3a534c278789af7b2b991210637d0
   # v3_30Si_4biggest.txt
-
+   9f94cd1f47832e4e3c0f535ee3af1667
   # v3_30Si_4biggest_scaled.txt
-
+   85f95c4008b64a6875acba8ae4431e0c
   # v3_cross_sections_and_abundance.txt
 
   # v3_cross_sections_and_abundance_scaling.txt
-
+   8cc0046b8fbbc9c3cdde2f5ee493ff40
   # v3_natSi.txt
-   
+   9793db8f73aae8f6673510931688d6f9
  ##### OSX 13.1
   # 20ne_ngam.txt
-
+   24c618f64b27284f81ba01dc0e952a0b
   # 40ar_ngam.txt
-
+   7fbf7098fab66f9008d93626112c33e4
   # 70ge_ngam.txt
-
+   3bb012ecbe0ab24df0242e6fcd95f097
   # 72ge_ngam.txt
-
+   c5529fec05f28bcc543eff95939ef563
+  # 73ge_ngam.txt
+   b0f3f052ba551e61f3fda1e29791f758
   # 74ge_ngam.txt
-
+   103b7b68b18c409ac6ba162d316a2dd2
   # Geant4/G4_28si.txt
-
+   8efb94d2de98bca6e4eee0a9176b405a
   # Geant4/G4_29si.txt
-
+   974de211fb9d887ddbf96e5b2645840a
   # Geant4/G4_30si.txt
-
+   0120e078e9f4827c002088c2d58e6b13
   # Geant4/G4_31si.txt
-
+   3d7cf04521477a4fe35028d648d32dd2
   # Geant4/G4_70ge.txt
-
+   bb15c58115d09453cd4af0605e12527d
   # Geant4/G4_72ge.txt
-
+   c40a60a57f0508b2d11a7e560b80af21
   # Geant4/G4_73ge.txt
-
+   7b69debd48f9f8a2b61338d76d4889f6
   # Geant4/G4_74ge.txt
-
+   6fbe0d973b4708464d900acd12779b0f
   # Geant4/G4_76ge.txt
-
+   3d7cf04521477a4fe35028d648d32dd2
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    a668732758574cbc90e143b66f22b860
-
   # allge_ngam_WFast.txt
-
+   3a8fe045e6cef3b76798571e9fd3b0c6
   # allge_ngam_WSlow.txt
-
+   a9b271cbf08147395f4ae704bbe325fc
   # allge_ngam_inf.txt
-
+   ae74c9af0e017df242e9a660f58d97eb
   # cross_sections_and_abundance.txt
-
+   8cc0046b8fbbc9c3cdde2f5ee493ff40
   # cross_sections_and_abundance_and_scaling.txt
-
+   8cc0046b8fbbc9c3cdde2f5ee493ff40
   # natge.txt
-
+   ef519b74e447fd22cc564205c4098cf7
   # v3_28Si_6biggest.txt
-
+   9ee19b4f3e958004fcc2581e34d01ca6
   # v3_28Si_6biggest_scaled.txt
-
+   ad1b513dde4fc52909210b76b4b655fb
   # v3_28Si_all.txt
-
+   a668732758574cbc90e143b66f22b860
   # v3_28Si_all_scaled.txt
-
+   088201d5e2efd0e0c6936ab5b7057f42
   # v3_29Si_4biggest.txt
-
+   02d08c5aed88144a87245659853f0b62
   # v3_29Si_4biggest_scaled.txt
-
+   a3d3a534c278789af7b2b991210637d0
   # v3_30Si_4biggest.txt
-
+   9f94cd1f47832e4e3c0f535ee3af1667
   # v3_30Si_4biggest_scaled.txt
-
+   85f95c4008b64a6875acba8ae4431e0c
   # v3_cross_sections_and_abundance.txt
-
-  # v3_cross_sections_and_abundance_scaling.txt
-
-  # v3_natSi.txt
    
+  # v3_cross_sections_and_abundance_scaling.txt
+   8cc0046b8fbbc9c3cdde2f5ee493ff40
+  # v3_natSi.txt
+   9793db8f73aae8f6673510931688d6f9
  ##### Linux Ubuntu Xenial
   # 20ne_ngam.txt
-
+   dd541ec1c00939d6161128a8eaaa0443
   # 40ar_ngam.txt
-
+   1ba30953334026a30d89a2e0cd9ae8b9
   # 70ge_ngam.txt
-
+   651778f5f79a5475963f787304cec60e
   # 72ge_ngam.txt
-
+   7718dc1ac34a652e148e5494c833ef0c
+  # 73ge_ngam.txt
+   8c292c837f85d1c52c93d9f441b9cc04
   # 74ge_ngam.txt
-
+   a431d05a8d258a51ed6e096437c53a54
   # Geant4/G4_28si.txt
-
+   a2048e941b4c4bbddf7ac525f434268a
   # Geant4/G4_29si.txt
-
+   18e6ae37bff48fa0dc2025b4ef8a1faf
   # Geant4/G4_30si.txt
-
+   cb7c6e530eb1c5fc028a6ae717b5c1b6
   # Geant4/G4_31si.txt
-
+   f99eb0a1da02dcb6fc1280dc52f7525b
   # Geant4/G4_70ge.txt
-
+   464f8c789dd36bbc341418ab27aa411a
   # Geant4/G4_72ge.txt
-
+   f6714dacc3e74f36c01ce521ae46fe34
   # Geant4/G4_73ge.txt
-
+   00d7a42fb34fe63ed73d03af9b1e3f3f
   # Geant4/G4_74ge.txt
-
+   5b1a39c24f88fc35fc94a2b8cfa363bb
   # Geant4/G4_76ge.txt
-
+   f99eb0a1da02dcb6fc1280dc52f7525b
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    e38c561bfed333a60b093ce655cdea73
-
   # allge_ngam_WFast.txt
-
+   a6e7ffe1f2123387fb4cd726d3bdb564
   # allge_ngam_WSlow.txt
-
+   ea97ef453c379639f4c8be436d369998
   # allge_ngam_inf.txt
-
+   ce5f433935016ce552f5c53165653da2
   # cross_sections_and_abundance.txt
-
+   657fdab11e47fd305fe7e116bd8599fb
   # cross_sections_and_abundance_and_scaling.txt
-
+   
   # natge.txt
-
+   d3ff5e5149ea82458ec55bf53cf4f7e7
   # v3_28Si_6biggest.txt
-
+   5163fd8260dc592ca6f1701e77b79d4a
   # v3_28Si_6biggest_scaled.txt
-
+   1ba6de3b0673716487fd6817bbbcc9fd
   # v3_28Si_all.txt
-
+   e38c561bfed333a60b093ce655cdea73
   # v3_28Si_all_scaled.txt
-
+   b959a6fb49a027488987bf57e47566c1
   # v3_29Si_4biggest.txt
-
+   cb1b0c94e4ebe816957e45a6958be55f
   # v3_29Si_4biggest_scaled.txt
-
+   aebdc3805dd42e1b4be7c2f588cc56c6
   # v3_30Si_4biggest.txt
-
+   cad42255345a6f5e53ad068b667ff295
   # v3_30Si_4biggest_scaled.txt
-
+   d4f112d7cab6ea5af5e302022e4d8f06
   # v3_cross_sections_and_abundance.txt
-
+   
   # v3_cross_sections_and_abundance_scaling.txt
-
+   657fdab11e47fd305fe7e116bd8599fb
   # v3_natSi.txt
-
+   9e999a455da4b397a60b9a57cd511057
  ##### Linux Ubuntu Bionic
   # 20ne_ngam.txt
-
+   dd541ec1c00939d6161128a8eaaa0443
   # 40ar_ngam.txt
-
+   1ba30953334026a30d89a2e0cd9ae8b9
   # 70ge_ngam.txt
-
+   651778f5f79a5475963f787304cec60e
   # 72ge_ngam.txt
-
+   7718dc1ac34a652e148e5494c833ef0c
+  # 73ge_ngam.txt
+   8c292c837f85d1c52c93d9f441b9cc04
   # 74ge_ngam.txt
-
+   a431d05a8d258a51ed6e096437c53a54
   # Geant4/G4_28si.txt
-
+   a2048e941b4c4bbddf7ac525f434268a
   # Geant4/G4_29si.txt
-
+   18e6ae37bff48fa0dc2025b4ef8a1faf
   # Geant4/G4_30si.txt
-
+   cb7c6e530eb1c5fc028a6ae717b5c1b6
   # Geant4/G4_31si.txt
-
+   f99eb0a1da02dcb6fc1280dc52f7525b
   # Geant4/G4_70ge.txt
-
+   464f8c789dd36bbc341418ab27aa411a
   # Geant4/G4_72ge.txt
-
+   f6714dacc3e74f36c01ce521ae46fe34
   # Geant4/G4_73ge.txt
-
+   00d7a42fb34fe63ed73d03af9b1e3f3f
   # Geant4/G4_74ge.txt
-
+   5b1a39c24f88fc35fc94a2b8cfa363bb
   # Geant4/G4_76ge.txt
-
+   f99eb0a1da02dcb6fc1280dc52f7525b
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    e38c561bfed333a60b093ce655cdea73
-
   # allge_ngam_WFast.txt
-
+   a6e7ffe1f2123387fb4cd726d3bdb564
   # allge_ngam_WSlow.txt
-
+   ea97ef453c379639f4c8be436d369998
   # allge_ngam_inf.txt
-
+   ce5f433935016ce552f5c53165653da2
   # cross_sections_and_abundance.txt
 
   # cross_sections_and_abundance_and_scaling.txt
 
   # natge.txt
-
+   d3ff5e5149ea82458ec55bf53cf4f7e7
   # v3_28Si_6biggest.txt
-
+   5163fd8260dc592ca6f1701e77b79d4a
   # v3_28Si_6biggest_scaled.txt
-
+   1ba6de3b0673716487fd6817bbbcc9fd
   # v3_28Si_all.txt
-
+   
   # v3_28Si_all_scaled.txt
-
+   b959a6fb49a027488987bf57e47566c1
   # v3_29Si_4biggest.txt
-
+   e38c561bfed333a60b093ce655cdea73
   # v3_29Si_4biggest_scaled.txt
-
+   cb1b0c94e4ebe816957e45a6958be55f
   # v3_30Si_4biggest.txt
-
+   cad42255345a6f5e53ad068b667ff295
   # v3_30Si_4biggest_scaled.txt
-
+   d4f112d7cab6ea5af5e302022e4d8f06 
   # v3_cross_sections_and_abundance.txt
 
   # v3_cross_sections_and_abundance_scaling.txt
 
   # v3_natSi.txt
-
+   9e999a455da4b397a60b9a57cd511057
  ##### Linux Ubuntu Focal
   # 20ne_ngam.txt
-
+   6fdb3be668142ccef669e8eec002e4cf
   # 40ar_ngam.txt
-
+   cca2fe7dd4f49478b479a040ad0b7448
   # 70ge_ngam.txt
-
+   8907e0f6b6c2a8940b2e01a9bc4affb7
   # 72ge_ngam.txt
-
+   2492b272078aa57e664079959903a10a
+  # 73ge_ngam.txt
+   f7772244398fa0378b79f8b5035e3003
   # 74ge_ngam.txt
-
+   bf863591651a5ec596342930557c243b
   # Geant4/G4_28si.txt
-
+   912375454a8000aaa9bfbbf573bd02f4
   # Geant4/G4_29si.txt
-
+   3eded7063af2190ffd1598ccbe4f1783
   # Geant4/G4_30si.txt
-
+   0acfbdaaf164567f247e38865894fade
   # Geant4/G4_31si.txt
-
+   f99eb0a1da02dcb6fc1280dc52f7525b
   # Geant4/G4_70ge.txt
-
+   83045f6bbef1be3b759f6bc51c5f0514
   # Geant4/G4_72ge.txt
-
+   511e41a5e840411b2de6b89c7c423cf1
   # Geant4/G4_73ge.txt
-
+   a5085860bb15a031721c9bf04c652894
   # Geant4/G4_74ge.txt
-
+   f76a6973933e18ec71d8faf2f40ae71e
   # Geant4/G4_76ge.txt
-
+   f99eb0a1da02dcb6fc1280dc52f7525b
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    6119a78ef8c534b6bcdd497d796b89b9
-
   # allge_ngam_WFast.txt
-
+   bfbdf3367e9114da2cbc42948e93b963
   # allge_ngam_WSlow.txt
-
+   5884bcbfbdb2684911e126e14a53899e
   # allge_ngam_inf.txt
-
+   299e06a280188b010517c47d654231e3
   # cross_sections_and_abundance.txt
 
   # cross_sections_and_abundance_and_scaling.txt
 
   # natge.txt
-
+   6175ef69b6a13b94fcea77fbcf398f56
   # v3_28Si_6biggest.txt
-
+   88f684aacaf59bcb32ae4dabf665ea5e
   # v3_28Si_6biggest_scaled.txt
-   
+   ab2503f99a7a8eb440f2f06e65ef3ffe
   # v3_28Si_all.txt
-
+   6119a78ef8c534b6bcdd497d796b89b9
   # v3_28Si_all_scaled.txt
-
+   421c2fb5b1674dcd37b456d9a1a4f53a
   # v3_29Si_4biggest.txt
-
+   8b8e64029e3c35ba105e1b5caeaa623e
   # v3_29Si_4biggest_scaled.txt
-
+   60c0e68f4a1002ff904c446bfe58e5b1
   # v3_30Si_4biggest.txt
-
+   1fe31ffd84b07a0b8a9841a4d218d85a
   # v3_30Si_4biggest_scaled.txt
-
+   3ec60d900698f5284a4824c09e8e1f4e
   # v3_cross_sections_and_abundance.txt
 
   # v3_cross_sections_and_abundance_scaling.txt
 
   # v3_natSi.txt
+   ba2114f3f88d54882b4edc7036fbf338
