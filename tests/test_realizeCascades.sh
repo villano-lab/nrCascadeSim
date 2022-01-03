@@ -14,7 +14,7 @@ fi
 # Check md5sum
 export SUMLINE=$BUILDLINE
 declare -i SUMLINE
-SUMLINE+=30
+SUMLINE+=32
 CHECKSUM=$(sed -n "$SUMLINE"p ../.travis/checksums | sed 's/^ *//g') #There may be an elegant solution here, but I don't know it.
 echo Checksum from file: $CHECKSUM, found on line $SUMLINE
 md5sum output.root
