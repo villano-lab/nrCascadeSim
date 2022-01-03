@@ -58,22 +58,22 @@ install:
    - echo "root libraries.."
    - echo `root-config --cflags --glibs`
 
-   # install lcov
+   # install and set up lcov
    - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
    - tar -zxvf lcov-1.14.tar.gz
    - cd lcov-1.14
    - sudo make install
    - cd ../
+   - lcov --directory ./ --zerocounters
+
+   # give self permission to run scripts
+   - sudo chmod 777 tests/test_realizeCascades.sh
 
 script:
   #make repository code (my code)
   - make
   - sudo make install
   - make tests
-  - lcov --directory ./ --zerocounters
-
-  # give self permission to run script
-  - sudo chmod 777 tests/test_realizeCascades.sh
 
   # activate conda environment
   - source activate piptest
@@ -82,9 +82,11 @@ script:
   - realizeCascades --help
   - regexPlayground --help
 
+  #REMOVE THIS AFTER THIS RUN! #Get all the checksums now!
+  - ./get_checksums.sh
+
   #do the tests
   - cd tests
-  - echo $CHECKSUM
   - ./test_realizeCascades.sh
   - bash test_examples.sh
   - regexPlayground
