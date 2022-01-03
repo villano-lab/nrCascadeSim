@@ -68,6 +68,7 @@ install:
 
    # give self permission to run scripts
    - sudo chmod 777 tests/test_realizeCascades.sh
+   - sudo chmod 777 get_checksums.sh
 
 script:
   #make repository code (my code)
