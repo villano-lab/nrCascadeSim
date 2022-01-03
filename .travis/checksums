@@ -1,0 +1,789 @@
+# ROOT v6.20/00 --------------------------
+ ##### OSX 11.4
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+   5ec00b6c19662ecb44a430afc2326838
+
+  # allge_ngam_WFast.txt
+  
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+  
+ ##### OSX 12
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+
+ ##### OSX 13.1
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+
+ ##### Linux Ubuntu Xenial
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+   e38c561bfed333a60b093ce655cdea73
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+
+ ##### Linux Ubuntu Bionic
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+   e38c561bfed333a60b093ce655cdea73
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+
+ ##### Linux Ubuntu Focal
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+
+# ROOT v6.24/06 --------------------------
+ ##### OSX 11.4
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+   
+ ##### OSX 12
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+   a668732758574cbc90e143b66f22b860
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+   
+ ##### OSX 13.1
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+   a668732758574cbc90e143b66f22b860
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+   
+ ##### Linux Ubuntu Xenial
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+   3a5e00bcb6ebc0e8c76f6877249dfc85
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+
+ ##### Linux Ubuntu Bionic
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+   3a5e00bcb6ebc0e8c76f6877249dfc85
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
+
+ ##### Linux Ubuntu Focal
+  # 20ne_ngam.txt
+
+  # 40ar_ngam.txt
+
+  # 70ge_ngam.txt
+
+  # 72ge_ngam.txt
+
+  # 74ge_ngam.txt
+
+  # Geant4/G4_28si.txt
+
+  # Geant4/G4_29si.txt
+
+  # Geant4/G4_30si.txt
+
+  # Geant4/G4_31si.txt
+
+  # Geant4/G4_70ge.txt
+
+  # Geant4/G4_72ge.txt
+
+  # Geant4/G4_73ge.txt
+
+  # Geant4/G4_74ge.txt
+
+  # Geant4/G4_76ge.txt
+
+  # Si28_ngam_all_cascades_rfmt_sorted.txt
+   6119a78ef8c534b6bcdd497d796b89b9
+
+  # allge_ngam_WFast.txt
+
+  # allge_ngam_WSlow.txt
+
+  # allge_ngam_inf.txt
+
+  # cross_sections_and_abundance.txt
+
+  # cross_sections_and_abundance_and_scaling.txt
+
+  # natge.txt
+
+  # v3_28Si_6biggest.txt
+
+  # v3_28Si_6biggest_scaled.txt
+   
+  # v3_28Si_all.txt
+
+  # v3_28Si_all_scaled.txt
+
+  # v3_29Si_4biggest.txt
+
+  # v3_29Si_4biggest_scaled.txt
+
+  # v3_30Si_4biggest.txt
+
+  # v3_30Si_4biggest_scaled.txt
+
+  # v3_cross_sections_and_abundance.txt
+
+  # v3_cross_sections_and_abundance_scaling.txt
+
+  # v3_natSi.txt
