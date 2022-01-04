@@ -32,7 +32,6 @@
    7ecc945174484a0572fda9ec98437b57
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    5ec00b6c19662ecb44a430afc2326838
-
   # allge_ngam_WFast.txt
    61ce29ea8dc3a7c7bd35b52db043548b
   # allge_ngam_WSlow.txt
@@ -64,7 +63,7 @@
   # v3_cross_sections_and_abundance.txt
    4db4c543f838b0a340c4ba4e9a258d04
   # v3_cross_sections_and_abundance_scaling.txt
-
+   4db4c543f838b0a340c4ba4e9a258d04
   # v3_natSi.txt
    d6b92c99aaf6dee6ec322323d1511e31
  ##### OSX 12
@@ -234,7 +233,6 @@
    9f9c134e039c9e84428df6c70f5f36cb
   # Si28_ngam_all_cascades_rfmt_sorted.txt
    3a5e00bcb6ebc0e8c76f6877249dfc85
-
   # allge_ngam_WFast.txt
    0b5a2e58e8896d253f098793e47877c4
   # allge_ngam_WSlow.txt
@@ -244,7 +242,7 @@
   # cross_sections_and_abundance.txt
 
   # cross_sections_and_abundance_and_scaling.txt
-
+   f00eb560e4e4f3c9e9184701bb66ffcd
   # natge.txt
    c132449db6ace9ab5bda94e0abcabf2e
   # v3_28Si_6biggest.txt
@@ -264,9 +262,9 @@
   # v3_30Si_4biggest_scaled.txt
    dd31c887dd0ae4ae5965755b0f447068
   # v3_cross_sections_and_abundance.txt
-
+   db2f34331f1562aab29d2017dee1d046
   # v3_cross_sections_and_abundance_scaling.txt
-
+   f00eb560e4e4f3c9e9184701bb66ffcd
   # v3_natSi.txt
    9125f90b822416ab91d962d393d46222
  ##### Linux Ubuntu Bionic
@@ -513,7 +511,7 @@
   # cross_sections_and_abundance.txt
    
   # cross_sections_and_abundance_and_scaling.txt
-
+   8cc0046b8fbbc9c3cdde2f5ee493ff40
   # natge.txt
    ef519b74e447fd22cc564205c4098cf7
   # v3_28Si_6biggest.txt
@@ -533,7 +531,7 @@
   # v3_30Si_4biggest_scaled.txt
    85f95c4008b64a6875acba8ae4431e0c
   # v3_cross_sections_and_abundance.txt
-
+   8cc0046b8fbbc9c3cdde2f5ee493ff40
   # v3_cross_sections_and_abundance_scaling.txt
    8cc0046b8fbbc9c3cdde2f5ee493ff40
   # v3_natSi.txt
@@ -600,7 +598,7 @@
   # v3_30Si_4biggest_scaled.txt
    85f95c4008b64a6875acba8ae4431e0c
   # v3_cross_sections_and_abundance.txt
-   
+   8cc0046b8fbbc9c3cdde2f5ee493ff40
   # v3_cross_sections_and_abundance_scaling.txt
    8cc0046b8fbbc9c3cdde2f5ee493ff40
   # v3_natSi.txt
@@ -722,7 +720,7 @@
   # v3_28Si_6biggest_scaled.txt
    1ba6de3b0673716487fd6817bbbcc9fd
   # v3_28Si_all.txt
-   
+   e38c561bfed333a60b093ce655cdea73
   # v3_28Si_all_scaled.txt
    b959a6fb49a027488987bf57e47566c1
   # v3_29Si_4biggest.txt
