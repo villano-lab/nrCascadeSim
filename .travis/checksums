@@ -1,7 +1,7 @@
 # ROOT v6.20/00 --------------------------
 ##### OSX 11.4
-fa35b06d0f28b4ad88d37233a13cb549  20ne_ngam_6-20-00_xcode11-4.root
-9cd5f8dfb904949266ba128eb514a03d  40ar_ngam_6-20-00_xcode11-4.root
+c03f045e8949cdc5886c5c74c6f04b8b  20ne_ngam_6-20-00_xcode11-4.root
+d3d3269c7856cd8578a22c349db0a46d  40ar_ngam_6-20-00_xcode11-4.root
 bdbfae65b70adbedf2ff15900869a9a3  70ge_ngam_6-20-00_xcode11-4.root
 381e5b9c631b10e919f73210b7afcfe7  72ge_ngam_6-20-00_xcode11-4.root
 c11c5d28d3bc208820116badd8bf7515  73ge_ngam_6-20-00_xcode11-4.root
@@ -15,10 +15,10 @@ fd4e0aebd0faf1b35d2f7ea0aedc8144  G4_28si_6-20-00_xcode11-4.root
 6871d1e43b9a53e4202e81401a1264c4  G4_73ge_6-20-00_xcode11-4.root
 39f333dfb11137fddaa851bb8af9e8de  G4_74ge_6-20-00_xcode11-4.root
 7ecc945174484a0572fda9ec98437b57  G4_76ge_6-20-00_xcode11-4.root
-5ec00b6c19662ecb44a430afc2326838  Si28_ngam_all_cascades_rfmt_sorted_6-20-00_xcode11-4.root
-61ce29ea8dc3a7c7bd35b52db043548b  allge_ngam_WFast_6-20-00_xcode11-4.root
-afb2d50fe71be1965450bb5711b8b9cd  allge_ngam_WSlow_6-20-00_xcode11-4.root
-a94d663aab420017a9c7c653939967bc  allge_ngam_WSlow_6-20-00_xcode11-4.root
+ab6f409a47b6a8453266747a56b83f16  Si28_ngam_all_cascades_rfmt_sorted_6-20-00_xcode11-4.root
+9ae303b193d65b86cbdc544e69323104  allge_ngam_WFast_6-20-00_xcode11-4.root
+ceb4521a3ae680db7dfec5617651e012  allge_ngam_WSlow_6-20-00_xcode11-4.root
+a94d663aab420017a9c7c653939967bc  allge_ngam_inf_6-20-00_xcode11-4.root
 4db4c543f838b0a340c4ba4e9a258d04  cross_sections_and_abundance_6-20-00_xcode11-4.root
 4db4c543f838b0a340c4ba4e9a258d04  cross_sections_and_abundance_and_scaling_6-20-00_xcode11-4.root
 162058b7da9c68508aab37c0e9c8c04f  natge_6-20-00_xcode11-4.root
@@ -32,7 +32,7 @@ a94d663aab420017a9c7c653939967bc  allge_ngam_WSlow_6-20-00_xcode11-4.root
 7c7f45d1c3765990a1dab4b245ef8c06  v3_30Si_4biggest_scaled_6-20-00_xcode11-4.root
 4db4c543f838b0a340c4ba4e9a258d04  v3_cross_sections_and_abundance_6-20-00_xcode11-4.root
 4db4c543f838b0a340c4ba4e9a258d04  v3_cross_sections_and_abundance_scaling_6-20-00_xcode11-4.root
-d6b92c99aaf6dee6ec322323d1511e31  v3_natSi_6-20-00_xcode11-4.root
+fc7e8e4d9de7463810429921e99ba1b1  v3_natSi_6-20-00_xcode11-4.root
 ##### OSX 12
 #  20ne_ngam_6-20-00_xcode12.root
 #  40ar_ngam_6-20-00_xcode12.root
@@ -102,8 +102,8 @@ d6b92c99aaf6dee6ec322323d1511e31  v3_natSi_6-20-00_xcode11-4.root
 #  v3_cross_sections_and_abundance_scaling_6-20-00_xcode13-1.root
 #  v3_natSi_6-20-00_xcode13-1.root
 ##### Linux Ubuntu Xenial
-b8001a331316c5b6508e0b747c30e515  20ne_ngam_6-20-00_xenial.root
-4c8d04e71d629377ebf26676908e48a3  40ar_ngam_6-20-00_xenial.root
+ec1be040a068813e7ed41ed78fa9330d  20ne_ngam_6-20-00_xenial.root
+5c80d5c64b8a988ee57c68eb95df2b0c  40ar_ngam_6-20-00_xenial.root
 ec2560dac09d2438376ea74fa24f0023  70ge_ngam_6-20-00_xenial.root
 4b2827331cb0ef5a10ccc82235b7f1dd  72ge_ngam_6-20-00_xenial.root
 76d1120fe9b323d9acbfa557d8faec63  73ge_ngam_6-20-00_xenial.root
@@ -117,9 +117,9 @@ ec8b36bc7f68274b49b377c474764e4b  G4_72ge_6-20-00_xenial.root
 12a0187e30347e038bf3760a0039444c  G4_73ge_6-20-00_xenial.root
 486b2ee2e92219be17534b4bbbef6ab5  G4_74ge_6-20-00_xenial.root
 9f9c134e039c9e84428df6c70f5f36cb  G4_76ge_6-20-00_xenial.root
-3a5e00bcb6ebc0e8c76f6877249dfc85  Si28_ngam_all_cascades_rfmt_sorted_6-20-00_xenial.root
-0b5a2e58e8896d253f098793e47877c4  allge_ngam_WFast_6-20-00_xenial.root
-11d24d6981b1455ca319a716b29becfe  allge_ngam_WSlow_6-20-00_xenial.root
+3e9f2a218d3f6ba897904a2ca8cc618d  Si28_ngam_all_cascades_rfmt_sorted_6-20-00_xenial.root
+31b69913f9362f97af71963d25fe5330  allge_ngam_WFast_6-20-00_xenial.root
+8177639278158d5741a390393cd5b765  allge_ngam_WSlow_6-20-00_xenial.root
 8b65bbf73813f7d853928d1651dff882  allge_ngam_inf_6-20-00_xenial.root
 #  cross_sections_and_abundance_6-20-00_xenial.root
 f00eb560e4e4f3c9e9184701bb66ffcd  cross_sections_and_abundance_and_scaling_6-20-00_xenial.root
@@ -134,10 +134,10 @@ f6b5f6aaa1f9c871c9c299ea78d0f4e1  v3_30Si_4biggest_6-20-00_xenial.root
 dd31c887dd0ae4ae5965755b0f447068  v3_30Si_4biggest_scaled_6-20-00_xenial.root
 db2f34331f1562aab29d2017dee1d046  v3_cross_sections_and_abundance_6-20-00_xenial.root
 f00eb560e4e4f3c9e9184701bb66ffcd  v3_cross_sections_and_abundance_scaling_6-20-00_xenial.root
-9125f90b822416ab91d962d393d46222  v3_natSi_6-20-00_xenial.root
+460fc441b7c172928072a97caf743f95  v3_natSi_6-20-00_xenial.root
 ##### Linux Ubuntu Bionic
-b8001a331316c5b6508e0b747c30e515  20ne_ngam_6-20-00_bionic.root
-4c8d04e71d629377ebf26676908e48a3  40ar_ngam_6-20-00_bionic.root
+ab5fbbba1d45df41a3f65560a8e970f8  20ne_ngam_6-20-00_bionic.root
+f89e4d0d53ee097a46b752aaf80378ea  40ar_ngam_6-20-00_bionic.root
 ec2560dac09d2438376ea74fa24f0023  70ge_ngam_6-20-00_bionic.root
 4b2827331cb0ef5a10ccc82235b7f1dd  72ge_ngam_6-20-00_bionic.root
 76d1120fe9b323d9acbfa557d8faec63  73ge_ngam_6-20-00_bionic.root
@@ -151,9 +151,9 @@ ec8b36bc7f68274b49b377c474764e4b  G4_72ge_6-20-00_bionic.root
 12a0187e30347e038bf3760a0039444c  G4_73ge_6-20-00_bionic.root
 486b2ee2e92219be17534b4bbbef6ab5  G4_74ge_6-20-00_bionic.root
 9f9c134e039c9e84428df6c70f5f36cb  G4_76ge_6-20-00_bionic.root
-3a5e00bcb6ebc0e8c76f6877249dfc85  Si28_ngam_all_cascades_rfmt_sorted_6-20-00_bionic.root
-0b5a2e58e8896d253f098793e47877c4  allge_ngam_WFast_6-20-00_bionic.root
-11d24d6981b1455ca319a716b29becfe  allge_ngam_WSlow_6-20-00_bionic.root
+65d019c17a7631d74717d975039d1bf6  Si28_ngam_all_cascades_rfmt_sorted_6-20-00_bionic.root
+27c7344ace1ce8460094a67ead2a6f9a  allge_ngam_WFast_6-20-00_bionic.root
+fd16bbc862e63b93a49cce008d32ee4c  allge_ngam_WSlow_6-20-00_bionic.root
 8b65bbf73813f7d853928d1651dff882  allge_ngam_inf_6-20-00_bionic.root
 f00eb560e4e4f3c9e9184701bb66ffcd  cross_sections_and_abundance_6-20-00_bionic.root
 f00eb560e4e4f3c9e9184701bb66ffcd  cross_sections_and_abundance_and_scaling_6-20-00_bionic.root
@@ -168,7 +168,7 @@ dd31c887dd0ae4ae5965755b0f447068  v3_30Si_4biggest_6-20-00_bionic.root
 f6b5f6aaa1f9c871c9c299ea78d0f4e1  v3_30Si_4biggest_scaled_6-20-00_bionic.root
 f00eb560e4e4f3c9e9184701bb66ffcd  v3_cross_sections_and_abundance_6-20-00_bionic.root
 f00eb560e4e4f3c9e9184701bb66ffcd  v3_cross_sections_and_abundance_scaling_6-20-00_bionic.root
-9125f90b822416ab91d962d393d46222  v3_natSi_6-20-00_bionic.root
+08e16db13270e6e3c414d7f2135da6c8  v3_natSi_6-20-00_bionic.root
 ##### Linux Ubuntu Focal
 #  20ne_ngam_6-20-00_focal.root
 #  40ar_ngam_6-20-00_focal.root
