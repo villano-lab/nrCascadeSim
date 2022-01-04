@@ -51,5 +51,14 @@ coverage/
 codecov
 codecov.*
 
+#CMake files
+CMakeCache.txt
+CMakeFiles/
+CMakeLists.txt.save
+bin/*CMake**
+bin/Makefile
+bin/cmake_install.cmake
+
 #other stuff
 tests/inputfile.txt
+
