@@ -13,10 +13,10 @@ fi
 # Check md5sum for all tested inputfiles.
 
 #Set up to generate filenames. Need to remove `.` and `/` special characters by changing them to `-`.
-echo TRAVIS_OS: $TRAVIS_OS
-if [ $TRAVIS_OS == "osx" ]; then
+echo TRAVIS_OS_NAME: $TRAVIS_OS_NAME
+if [ "$TRAVIS_OS_NAME" == "osx" ]; then
         #echo went into if
-        export TRAVIS_DIST=$(echo $OSX_IMAGE | sed 's/\./-/g' | sed 's/\//-/g')
+        export TRAVIS_DIST=$(echo $TRAVIS_OSX_IMAGE | sed 's/\./-/g' | sed 's/\//-/g')
         #echo finished sed
 fi
 echo TRAVIS_DIST: $TRAVIS_DIST
