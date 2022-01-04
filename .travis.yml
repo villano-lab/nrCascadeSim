@@ -83,9 +83,6 @@ script:
   - realizeCascades --help
   - regexPlayground --help
 
-  #REMOVE THIS AFTER THIS RUN! #Get all the checksums now!
-  - ./get_checksums.sh
-
   #do the tests
   - cd tests
   - ./test_realizeCascades.sh
