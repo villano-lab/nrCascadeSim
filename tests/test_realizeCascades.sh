@@ -24,6 +24,7 @@ export ROOT_VERSION=$(echo $ROOTDIST | cut -c 7-13 | sed 's/\./-/g')
 echo ROOT_VERSION: $ROOT_VERSION
 for input in Si28_ngam_all_cascades_rfmt_sorted 20ne_ngam allge_ngam_WFast allge_ngam_WSlow 40ar_ngam v3_natSi; do
         realizeCascades -sn 100000 -o "${input}_${ROOT_VERSION}_${TRAVIS_DIST}.root?reproducible=fixedname" -d 1 ../levelfiles/$input.txt
+	md5sum "${input}_${ROOT_VERSION}_${TRAVIS_DIST}.root?reproducible=fixedname"
 done
 
 md5sum --check "../.travis/checksums" --ignore-missing
