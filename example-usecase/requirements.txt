@@ -7,3 +7,4 @@ uproot==3.12.0
 papermill
 #Only really needed for testing - user can comment out but doesn't hurt anything
 nbconvert
+hashlib
