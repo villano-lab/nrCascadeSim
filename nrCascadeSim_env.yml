@@ -15,5 +15,5 @@ dependencies:
     - numpy
     - scipy
     - matplotlib
-    - hashlib
+#    - hashlib
 #  - root
