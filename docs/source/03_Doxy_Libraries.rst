@@ -142,6 +142,18 @@ constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindh
    :project: nrCascadeSim
 
 ---------------
+`edepmath.h`
+---------------
+
+In this header is contained prototypes for supporting mathematical functions. Most of the content
+are functions to assist with drawing numbers from specific probability
+distributions.  
+
+
+.. doxygenfile:: edepmath.h
+   :project: nrCascadeSim
+
+---------------
 `lindhard.h`
 ---------------
 
