@@ -92,9 +92,6 @@ script:
 
   #need conda environment
   - cd ../example-usecase
-  - realizeCascades -n 10000 -o data/Gefile.root ../levelfiles/allge_ngam_WSlow.txt
-  - realizeCascades -n 10000 -o data/Nefile.root ../levelfiles/20ne_ngam.txt
-  - realizeCascades -n 10000 -o data/Arfile.root ../levelfiles/40ar_ngam.txt
   - travis_wait 50 py.test
 
   #clean up
