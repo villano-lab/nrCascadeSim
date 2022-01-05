@@ -299,31 +299,48 @@ cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, dou
 //input reading functions
 
 /**
-  function to read in the cascade file with n lines 
+  function to read in the cascade file with n lines. `n` is the number of cascade rows; `file` is
+the full path to the file; and `success` is a flag that indicates successful reading, `true` for a
+success. 
 */
 cli *readCascadeDistributionFile(int &n,string file,bool &success);
 /**
-  function to interpret doubles from input using regex 
+  function to interpret doubles from input using regex. `in` is the input string to interpret; and
+`success` is `true` if it can be interpreted as a double-precision number (either in decimal or
+scientific notation). A `cli` object is returned. 
 */
 double interpretDbl(string in,bool &success);
 /**
-  function to read Sn from input correctly using regex 
+  function to read Sn from input correctly using regex. `in` is the input string to interpret;
+`success` will be true if it can be read as a double-precision number (representing the neutron
+separation energy) OR it is a recognized isotopic symbol like `74Ge`. A double representing the
+string is returned. 
 */
 double interpretSn(string in,bool &success);
 /**
-  function to convert Weisskopf abbreviations using regex 
+  function to convert Weisskopf abbreviations using regex. `in` is the input string to interpret;
+`success` will be set to `true` if a Weisskopf multipolarity abbreviation is recognized, like
+`w(E1)` for an electric dipole. `Egam` is the energy of the emitted gamma; `A` is the mass number.
+A double giving the transition lifetime in **fs** is returned. 
 */
 double interpretWeisskopf(string in,double Egam,double A,bool &success);
 /**
-  function to read E levels from input correctly 
+  function to read E levels from input correctly. `n` is the number of elements in the vector to
+be interpreted from the input; `in` is the input string to interpret; `success` will be set to
+`true` if a vector of doubles in the correct format (surrounded by brackets [] and separated by
+whitespace) is detected.
 */
 double *interpretElevVector(int &n,string in,bool &success);
 /**
-  function to read lifetimes from input correctly 
+  function to read lifetimes from input correctly. `n` is the number of elements in the vector to
+be interpreted from the input; `in` is the input string to interpret; `success` will be set to
+`true` if a vector of doubles or symbolic Weisskopof indicators in the correct format (surrounded
+by brackets and separated by whitespace) is detected. 
 */
 double *interpretTauVector(int n,string in,double A,double *Elev,bool &success);
 /**
-  function for splitting strings 
+  function for splitting strings. `in` is the input string to interpret. A vector of strings is
+returned represented the whitespace-split version of the original.  
 */
 vector<string> vsplit(string in);
 #endif
