@@ -1,5 +1,6 @@
 ## Future Releases (v1.3.2) Date XX.XX.XX 
 
+* PR #77 extended testing to more input files (Issue #35)
 * PR #78 updated documentation to systematicall include units of all parameters (Issue #74)
 
 ## Release (v1.3.1) Date 21.12.30 
