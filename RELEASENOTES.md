@@ -1,6 +1,7 @@
 ## Future Releases (v1.3.2) Date XX.XX.XX 
 
 * PR #78 updated documentation to systematicall include units of all parameters (Issue #74)
+* PR #79 updated documentation to clarify a requirement when installing ROOT dependency on WSL (Issue #76)
 
 ## Release (v1.3.1) Date 21.12.30 
 
