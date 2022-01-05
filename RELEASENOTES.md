@@ -1,5 +1,7 @@
 ## Future Releases (v1.3.2) Date XX.XX.XX 
 
+* PR #78 updated documentation to systematicall include units of all parameters (Issue #74)
+
 ## Release (v1.3.1) Date 21.12.30 
 
 * PR #62 added fail-on-warning flag for readthedocs (Issue #41)
