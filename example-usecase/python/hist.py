@@ -51,7 +51,9 @@ def res(E,scalefactor=1):
     eps  = 3.8
     return np.sqrt(res0**2 + Fano*eps*E)*scalefactor
 
-def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',material='Si',method='root',resolution='normal',val=None,scalefactor=1): #Build a histogram from the file
+def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',material='Si',method='root',resolution='normal',val=None,scalefactor=1,seed=None): #Build a histogram from the file
+    if seed != None:
+        np.random.seed(seed)
     if method=='root':
         x = uproot.open(file)
         cas = x['cascade']
