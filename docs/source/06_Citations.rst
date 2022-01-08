@@ -20,9 +20,9 @@ If you decide to use this code, or if you want to add a reference to it, please 
     @software{nrcascadesim,
     author = {Villano, A.N. and Harris, K. and Brown S.},
     title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.3.1]}},
-    year         = {2021},
+    year         = {2022},
     publisher    = {Zenodo},
-    version      = {v1.3.1},
+    version      = {v1.3.2},
     doi          = {DOI:10.5281/zenodo.5579857},
     url          = {https://doi.org/10.5281/zenodo.5579857},
     howpublished={The code can be found under \url{https://github.com/villano-lab}.}
