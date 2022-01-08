@@ -20,15 +20,15 @@ You can find more detailed documentation of *nrCascadeSim* [here](https://nrcasc
 
 If you decide to use this code, or if you want to add a reference to it, please cite the latest archived version,
 
-> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.3.1] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
+> Villano, A.N., Harris, K., Brown, S. , 2021, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.3.2] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
 
 ```
 @software{nrcascadesim,
   author = {Villano, A.N. and Harris, K. and Brown S.},
-  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.3.1]}},
-  year         = {2021},
+  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.3.2]}},
+  year         = {2022},
   publisher    = {Zenodo},
-  version      = {v1.3.1},
+  version      = {v1.3.2},
   doi          = {DOI:10.5281/zenodo.5579857},
   url          = {https://doi.org/10.5281/zenodo.5579857},
   howpublished={The code can be found under \url{https://github.com/villano-lab}.}
@@ -37,6 +37,7 @@ If you decide to use this code, or if you want to add a reference to it, please 
 
 ## VERSION HISTORY
 
+- 08.01.2022: Release of [version 1.3.2](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.3.2)
 - 30.12.2021: Release of [version 1.3.1](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.3.1)
 - 27.12.2021: Release of [version 1.3.0](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.3.0)
 - 15.12.2021: Release of [version 1.2.4](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.2.4)
@@ -65,8 +66,5 @@ Ionization assumes the [Lindhard](https://www.osti.gov/biblio/4701226) model:
 
 Using the accepted value for Silicon (*k = 0.143*) or Germanium (*k = 0.159*), whichever is
 appropriate; *a = 3*; *b = 0.7*; *&gamma; = 0.15*; and *&omega; = 0.6*.
-<<<<<<< HEAD
 
-*Last updated 29 Oct, 2021, v1.0.6*
-=======
--->
+*Last updated 08 Jan, 2022, v1.2.3*
