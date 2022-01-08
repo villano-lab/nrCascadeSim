@@ -1,4 +1,6 @@
-## Future Releases (v1.3.2) Date XX.XX.XX 
+## Future Releases (v1.3.3) Date XX.XX.XX 
+
+## Releases (v1.3.2) Date 22.01.08 
 
 * PR #77 extended testing to more input files (Issue #35)
 * PR #78 updated documentation to systematicall include units of all parameters (Issue #74)
