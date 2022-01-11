@@ -15,39 +15,17 @@
 
 void freecliarray(int n,cli *cascade_levels)
 {
-  for(int i=0;i<n;i++){
-    freecli((cascade_levels+i));
-  }
   free(cascade_levels);
-  return;
-}
-void freecli(cli *cascade_levels)
-{
-  free(cascade_levels->Elev);
-  free(cascade_levels->taus);
   return;
 }
 void freecriarray(int n,cri *cascade_data)
 {
-  for(int i=0;i<n;i++){
-    freecri((cascade_data+i));
-  }
   free(cascade_data);
-  return;
-}
-void freecri(cri *cascade_data)
-{
-  free(cascade_data->E);
-  free(cascade_data->delE);
-  free(cascade_data->I);
-  free(cascade_data->Ei);
-  free(cascade_data->time);
-  free(cascade_data->Eg);
   return;
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
+vector<cri> &geCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand) // vector<double> &Elev ---> vector<double> &Elev
 {
   //input:
   //the neutron separation Sn in MeV
@@ -58,22 +36,22 @@ cri *geCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
   //a previously seeded random number
 
   //make an output struct
-  cri *outinfo;
-  outinfo = (cri*) malloc(n*sizeof(cri));
+  vector<cri> outinfo;
+  outinfo = vector<cri>(n);
 
   //string of isotope name
   char isoname[5]; 
   sprintf(isoname,"%dGe",(int)A);
 
   for(int ev=0;ev<n;ev++){
-    outinfo[ev].n = nlev;
+    outinfo[ev].n = nlev; 
     outinfo[ev].cid = cid;
-    outinfo[ev].E = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].delE = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].I = (int*) malloc(outinfo[ev].n*sizeof(int));
-    outinfo[ev].Ei = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].time = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].Eg = (double*) malloc(outinfo[ev].n*sizeof(double));
+    outinfo[ev].E = vector<double>(outinfo[ev].n); // will become outinfo[ev].E = vector<double>(outinfo[ev].n,0.0)
+    outinfo[ev].delE = vector<double>(outinfo[ev].n);
+    outinfo[ev].I = vector<int>(outinfo[ev].n);
+    outinfo[ev].Ei = vector<double>(outinfo[ev].n);
+    outinfo[ev].time = vector<double>(outinfo[ev].n);
+    outinfo[ev].Eg = vector<double>(outinfo[ev].n);
 
     //keep track of some running variables like energy (eV), deposited energy (eV), Ionization (npairs), time (fs)
     double E,delE,I,Ei,time,Eg;
@@ -179,7 +157,7 @@ double geDecay(double v, double M, double Egam, mt19937 *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *geStop(double E, double M, double tau, mt19937 *mtrand)
+vector<double> &geStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
   uniform_real_distribution<double> dist(0.,1.);
@@ -187,8 +165,8 @@ double *geStop(double E, double M, double tau, mt19937 *mtrand)
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
-  double *ret;
-  ret = (double*) malloc(2*sizeof(double));
+  vector<double> ret;
+  ret = vector<double>(2);
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
@@ -304,7 +282,7 @@ double vgeS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
+cri *siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -316,7 +294,7 @@ cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
 
   //make an output struct
   cri *outinfo;
-  outinfo = (cri*) malloc(n*sizeof(cri));
+  outinfo = cri (n);
 
   //string of isotope name
   char isoname[5]; 
@@ -325,12 +303,12 @@ cri *siCascade(int n, int cid, double Sn, int nlev, double *Elev, double *taus, 
   for(int ev=0;ev<n;ev++){
     outinfo[ev].n = nlev;
     outinfo[ev].cid = cid;
-    outinfo[ev].E = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].delE = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].I = (int*) malloc(outinfo[ev].n*sizeof(int));
-    outinfo[ev].Ei = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].time = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].Eg = (double*) malloc(outinfo[ev].n*sizeof(double));
+    outinfo[ev].E = vector<double>(outinfo[ev].n);
+    outinfo[ev].delE = vector<double>(outinfo[ev].n);
+    outinfo[ev].I = vector<int>(outinfo[ev].n);
+    outinfo[ev].Ei = vector<double>(outinfo[ev].n);
+    outinfo[ev].time = vector<double>(outinfo[ev].n);
+    outinfo[ev].Eg = vector<double>(outinfo[ev].n);
 
     //keep track of some running variables like energy (eV), deposited energy (eV), Ionization (npairs), time (fs)
     double E,delE,I,Ei,time,Eg;
@@ -561,7 +539,7 @@ double vsiS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *arCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
+cri *arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -842,7 +820,7 @@ double varS2func(double *x,double *par)
 
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *neCascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
+cri *neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -1121,7 +1099,7 @@ double vneS2func(double *x,double *par)
 
 }
 
-cri *Cascade(int n,int cid, double Sn, int nlev, double *Elev, double *taus, double A, mt19937 *mtrand)
+cri *Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //FIXME warning not general, only chooses Ge or Si
   if(A>44)
@@ -1343,7 +1321,7 @@ double *interpretElevVector(int &n,string in,bool &success)
 
   return out;
 }
-double *interpretTauVector(int n,string in,double A,double *Elev,bool &success) //need the Elev vector and Sn for Weisskopf
+double *interpretTauVector(int n,string in,double A,vector<double> &Elev,bool &success) //need the Elev vector and Sn for Weisskopf
 {
 
   //get vector elements
