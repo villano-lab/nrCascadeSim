@@ -205,8 +205,7 @@ int main(int argc, char** argv) {
   //go through the input files
   for(int i=0;i<filenames.size();i++){
     int numc;
-    cli *cascadeFile = readCascadeDistributionFile(numc,filenames[i],success);
-
+    vector<cli> cascadeFile = readCascadeDistributionFile(numc,filenames[i],success);
     if(success){
       if (!logfile.empty()){
         logging << "**************" << filenames[i] << "***************" << endl;
@@ -253,7 +252,7 @@ int main(int argc, char** argv) {
       //calculate the first cascade
       for(int k=0;k<numc;k++){
 	      int nrealize = num*cascadeFile[k].frac;
-              cri *cascade_data;
+              vector<cri> cascade_data;
               cascade_data = Cascade(nrealize,cascadeFile[k].cid,cascadeFile[k].Sn,cascadeFile[k].n,cascadeFile[k].Elev,cascadeFile[k].taus,cascadeFile[k].A,&mtrand);
               bool didsave = addToNRTTree(t,nrealize,cascade_data,cascadeFile[k]); 
 
@@ -270,9 +269,9 @@ int main(int argc, char** argv) {
           
               //************************************************************************************
         }
-        freecriarray(nrealize,cascade_data);
+  
       }
-      freecliarray(numc,cascadeFile);
+    
     }
     else{
       cout << "ERROR! (readCascadeDistributionFile): one or more of the elements not read correctly " << endl;

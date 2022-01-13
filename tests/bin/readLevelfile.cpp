@@ -14,7 +14,7 @@ string filenames="inputfile.txt";
 //read the contents of a file into a cli object
 int numc;
 bool success=false;
-cli *cascadeFile = readCascadeDistributionFile(numc,filenames,success);
+vector<cli> cascadeFile = readCascadeDistributionFile(numc,filenames,success);
 
 int main(){
   //print the info that was read in

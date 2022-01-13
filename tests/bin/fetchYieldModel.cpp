@@ -14,7 +14,7 @@ std::mt19937 *mtrand = new std::mt19937(1);
 // double *ionization;
 double E0 = 100; //eV
 double E1 = 50; //eV
-double *ionization = geIonizationInRange_k(E0,E1,0.159,mtrand); //k-value for Germanium (accepted)
+vector<double> ionization = geIonizationInRange_k(E0,E1,0.159,mtrand); //k-value for Germanium (accepted)
 
 //print the ionization
 int main(){
