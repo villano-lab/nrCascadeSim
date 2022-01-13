@@ -205,8 +205,7 @@ int main(int argc, char** argv) {
   //go through the input files
   for(int i=0;i<filenames.size();i++){
     int numc;
-    vector<cli> &cascadeFile = readCascadeDistributionFile(numc,filenames[i],success);
-
+    vector<cli> cascadeFile = readCascadeDistributionFile(numc,filenames[i],success);
     if(success){
       if (!logfile.empty()){
         logging << "**************" << filenames[i] << "***************" << endl;
@@ -270,10 +269,9 @@ int main(int argc, char** argv) {
           
               //************************************************************************************
         }
-        freecriarray(nrealize,cascade_data);
+  
       }
-      
-      freecliarray(numc,cascadeFile);
+    
     }
     else{
       cout << "ERROR! (readCascadeDistributionFile): one or more of the elements not read correctly " << endl;

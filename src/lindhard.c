@@ -8,7 +8,7 @@ using namespace std;
 
 #include "lindhard.h"
 
-double lindhard(double *x, double *par){
+double lindhard(vector<double> &x, vector<double> &par){
 
   //plausible values for parameters
   //root [5] f->SetParameter(0,3.0);
@@ -29,7 +29,7 @@ double lindhard(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double lindhard_ge_k(double *x, double *par){
+double lindhard_ge_k(vector<double> &x, vector<double> &par){
 
   //plausible values for parameters
   //root [5] f->SetParameter(0,0.159);
@@ -45,19 +45,19 @@ double lindhard_ge_k(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double *geIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
+vector<double> geIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 {
   //calculate the ionization energy expected of ge atom stopping between E0 and E1 (E1<E0)
   //E1 and E0 are to be supplied in eV
   //also calculate the number of e/h pairs (without poisson fluctuations)
-  double *out;
-  out = (double*) malloc(2*sizeof(double));
+  vector<double> out;
+  out = vector<double>(2);
 
   //set up vectors for interface with lindhard function
-  double x0[1];
-  double x1[1];
-  double par[1];
-
+  vector<double> x0(2);
+  vector<double> x1(2);
+  vector<double> par(2);
+  
   //set up the lindhard value
   //par[0]=0.159; //k-value for Germanium (accepted)
   par[0]=k; //k-value for Germanium (accepted)
@@ -73,7 +73,7 @@ double *geIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 
   return out;
 }
-double lindhard_si_k(double *x, double *par){
+double lindhard_si_k(vector<double> &x, vector<double> &par){
 
   //plausible values for parameters
   //root [5] f->SetParameter(0,0.159);
@@ -89,18 +89,18 @@ double lindhard_si_k(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double *siIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
+vector<double> siIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 {
   //calculate the ionization energy expected of ge atom stopping between E0 and E1 (E1<E0)
   //E1 and E0 are to be supplied in eV
   //also calculate the number of e/h pairs (without poisson fluctuations)
-  double *out;
-  out = (double*) malloc(2*sizeof(double));
+  vector<double> out;
+  out = vector<double>(2);
 
   //set up vectors for interface with lindhard function
-  double x0[1];
-  double x1[1];
-  double par[1];
+  vector<double> x0(2);
+  vector<double> x1(2);
+  vector<double> par(2);
 
   //set up the lindhard value
   //par[0]=0.159; //k-value for Germanium (accepted)
@@ -117,7 +117,7 @@ double *siIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 
   return out;
 }
-double lindhard_ar_k(double *x, double *par){
+double lindhard_ar_k(vector<double> &x, vector<double> &par){
 
   //plausible values for parameters
   //root [5] f->SetParameter(0,0.159);
@@ -133,18 +133,18 @@ double lindhard_ar_k(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double *arIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
+vector<double> arIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 {
   //calculate the ionization energy expected of ge atom stopping between E0 and E1 (E1<E0)
   //E1 and E0 are to be supplied in eV
   //also calculate the number of e/h pairs (without poisson fluctuations)
-  double *out;
-  out = (double*) malloc(2*sizeof(double));
+  vector<double> out;
+  out = vector<double>(2);
 
   //set up vectors for interface with lindhard function
-  double x0[1];
-  double x1[1];
-  double par[1];
+  vector<double> x0(2);
+  vector<double> x1(2);
+  vector<double> par(2);
 
   //set up the lindhard value
   //par[0]=0.159; //k-value for Germanium (accepted)
@@ -163,7 +163,7 @@ double *arIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 
   return out;
 }
-double lindhard_ne_k(double *x, double *par){
+double lindhard_ne_k(vector<double> &x, vector<double> &par){
 
   //plausible values for parameters
   //root [5] f->SetParameter(0,0.159);
@@ -179,18 +179,18 @@ double lindhard_ne_k(double *x, double *par){
   return kscale*g/(1+kscale*g);
 
 }
-double *neIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
+vector<double> neIonizationInRange_k(double E0,double E1,double k,mt19937 *rand)
 {
   //calculate the ionization energy expected of ge atom stopping between E0 and E1 (E1<E0)
   //E1 and E0 are to be supplied in eV
   //also calculate the number of e/h pairs (without poisson fluctuations)
-  double *out;
-  out = (double*) malloc(2*sizeof(double));
+  vector<double> out;
+  out = vector<double>(2);
 
   //set up vectors for interface with lindhard function
-  double x0[1];
-  double x1[1];
-  double par[1];
+  vector<double> x0(2);
+  vector<double> x1(2);
+  vector<double> par(2);
 
   //set up the lindhard value
   //par[0]=0.159; //k-value for Germanium (accepted)

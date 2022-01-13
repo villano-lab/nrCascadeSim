@@ -13,19 +13,9 @@
 
 #include <iostream>
 
-void freecliarray(int n,cli *cascade_levels)
-{
-  free(cascade_levels);
-  return;
-}
-void freecriarray(int n,cri *cascade_data)
-{
-  free(cascade_data);
-  return;
-}
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-vector<cri> &geCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand) // vector<double> &Elev ---> vector<double> &Elev
+vector<cri> geCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand) // vector<double> &Elev ---> vector<double> &Elev
 {
   //input:
   //the neutron separation Sn in MeV
@@ -86,11 +76,10 @@ vector<cri> &geCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev
       double Erest = geDecay(vdecay,mass,egam,mtrand);
 
       //update things
-      double *ionization;
+      vector<double> ionization;
       ionization = geIonizationInRange_k(E,Eleft,0.159,mtrand); //k-value for Germanium (accepted)
       I=ionization[1];
       Ei=ionization[0];
-      free(ionization);
       delE=E-Eleft;
       time+=t;
       E=Erest;
@@ -156,7 +145,7 @@ double geDecay(double v, double M, double Egam, mt19937 *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-vector<double> &geStop(double E, double M, double tau, mt19937 *mtrand)
+vector<double> geStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
   uniform_real_distribution<double> dist(0.,1.);
@@ -281,7 +270,7 @@ double vgeS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-vector<cri> &siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -342,11 +331,10 @@ vector<cri> &siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev
       double Erest = siDecay(vdecay,mass,egam,mtrand);
 
       //update things
-      double *ionization;
+      vector<double> ionization;
       ionization = siIonizationInRange_k(E,Eleft,0.143,mtrand); //k-value approximated for Silicon (see Fallows thesis pg 89)
       I=ionization[1];
       Ei=ionization[0];
-      free(ionization);
       delE=E-Eleft;
       time+=t;
       E=Erest;
@@ -412,7 +400,7 @@ double siDecay(double v, double M, double Egam, mt19937 *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-vector<double> &siStop(double E, double M, double tau, mt19937 *mtrand)
+vector<double> siStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
   uniform_real_distribution<double> dist(0.,1.);
@@ -537,7 +525,7 @@ double vsiS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-vector<cri> &arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -595,15 +583,16 @@ vector<cri> &arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev,
       double vdecay = stopinfo[0]; 
       double t = stopinfo[1];
       double Eleft = ((mass*1e9)/2.0)*(pow(vdecay,2.0));
+
       double Erest = arDecay(vdecay,mass,egam,mtrand);
 
       //update things
-      double *ionization;
+      vector<double> ionization;
       //see also https://arxiv.org/pdf/0712.2470.pdf for noble liquid k values
+      
       ionization = arIonizationInRange_k(E,Eleft,0.144,mtrand); //k-value approximated for Argon 0.133Z^(2/3)A^(-1/2) 
       I=ionization[1];
       Ei=ionization[0];
-      free(ionization);
       delE=E-Eleft;
       time+=t;
       E=Erest;
@@ -669,7 +658,7 @@ double arDecay(double v, double M, double Egam, mt19937 *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-vector<double> &arStop(double E, double M, double tau, mt19937 *mtrand)
+vector<double> arStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
   uniform_real_distribution<double> dist(0.,1.);
@@ -817,7 +806,7 @@ double varS2func(double *x,double *par)
 
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-vector<cri> &neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -878,12 +867,11 @@ vector<cri> &neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev,
       double Erest = arDecay(vdecay,mass,egam,mtrand);
 
       //update things
-      double *ionization;
+      vector<double> ionization;
       //use argon k values?
       ionization = neIonizationInRange_k(E,Eleft,0.144,mtrand); //k-value approximated for Argon 0.133Z^(2/3)A^(-1/2) 
       I=ionization[1];
       Ei=ionization[0];
-      free(ionization);
       delE=E-Eleft;
       time+=t;
       E=Erest;
@@ -949,7 +937,7 @@ double neDecay(double v, double M, double Egam, mt19937 *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-vector<double> &neStop(double E, double M, double tau, mt19937 *mtrand)
+vector<double> neStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
   uniform_real_distribution<double> dist(0.,1.);
@@ -1095,13 +1083,14 @@ double vneS2func(double *x,double *par)
 
 }
 
-vector<cri> &Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //FIXME warning not general, only chooses Ge or Si
   if(A>44)
     return geCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
-  else if(A>33 && A<=44)
+  else if(A>33 && A<=44){
     return arCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
+  }
   else if(A>23 && A<=33)
     return siCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
   else if(A<=23)
@@ -1110,7 +1099,7 @@ vector<cri> &Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, v
     return geCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
 }
 
-vector<cli> &readCascadeDistributionFile(int &n, string file,bool &success)
+vector<cli> readCascadeDistributionFile(int &n, string file,bool &success)
 {
   //first assume you will succeed
   success=true;
@@ -1297,7 +1286,7 @@ double interpretWeisskopf(string in,double Egam,double A,bool &success)
   success=true;
   return time;
 }
-vector<double> &interpretElevVector(int &n,string in,bool &success)
+vector<double> interpretElevVector(int &n,string in,bool &success)
 {
 
   //get vector elements
@@ -1317,7 +1306,7 @@ vector<double> &interpretElevVector(int &n,string in,bool &success)
 
   return out;
 }
-vector<double> &interpretTauVector(int n,string in,double A,vector<double> &Elev,bool &success) //need the Elev vector and Sn for Weisskopf
+vector<double> interpretTauVector(int n,string in,double A,vector<double> &Elev,bool &success) //need the Elev vector and Sn for Weisskopf
 {
 
   //get vector elements

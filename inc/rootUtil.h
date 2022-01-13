@@ -14,5 +14,5 @@ a `ROOT` internal object for storing data; `nr` is the number of recoils in a pa
 realization; `cri` is the full recoil object the `cri` struct. The function returns a bool that
 indicates success by a `true` value.
 **/
-bool addToNRTTree(TTree *t,int nr,vector<cri> &recoil_lists,vector<cli> &cascade_spec);
+bool addToNRTTree(TTree *t,int nr,vector<cri> &recoil_lists,cli cascade_spec);
 #endif
