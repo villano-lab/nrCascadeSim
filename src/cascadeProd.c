@@ -281,7 +281,7 @@ double vgeS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-vector<cri> siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> &siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -537,7 +537,7 @@ double vsiS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-vector<cri> arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> &arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -817,7 +817,7 @@ double varS2func(double *x,double *par)
 
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-vector<cri> neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> &neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -1095,7 +1095,7 @@ double vneS2func(double *x,double *par)
 
 }
 
-vector<cri> Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> &Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //FIXME warning not general, only chooses Ge or Si
   if(A>44)
