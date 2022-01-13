@@ -118,7 +118,7 @@ void freecriarray(int n,cri *cascade_data);
 lifetimes of size `nlev` in **fs**; `A` is the mass number; `mtrand` is the random number
 generator object--in this case `std::mt19937`. The function returns a `cri` struct. 
 */
-cri *geCascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
+vector<cri> &geCascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
 /**
   germanium func. to return the Energy after the mid-stop decay. `v` is the velocity in units of
 the speed of light (c); `M` is the mass of the slowing object in **GeV**, `Egam` is the energy of
@@ -132,7 +132,7 @@ in **eV**; `M` is the mass of the slowing object in **GeV**; `tau` is the (rando
 intermediate nuclear level; `mtrand` is the random generator object--in this case `std::mt19937`.
 The function returns the velocity at the random decay time in units of the speed of light (c).
 */
-double *geStop(double E, double M, double tau, mt19937 *rand);
+vector<double> &geStop(double E, double M, double tau, mt19937 *rand);
 /**
   germanium func. constant stopping-power stopping. `E` is the initial energy of the stopping
 atom in **eV**; `M` is the mass of the slowing object in **GeV**; `t` is the time (in **fs**) at
@@ -162,7 +162,7 @@ double vgeS2func(double *x,double *par);
 lifetimes of size `nlev` in **fs**; `A` is the mass number; `mtrand` is the random number
 generator object--in this case `std::mt19937`. The function returns a `cri` struct. 
 */
-cri *siCascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
+vector<cri> &siCascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
 /**
   silicon func. to return the Energy after the mid-stop decay. `v` is the velocity in units of
 the speed of light (c); `M` is the mass of the slowing object in **GeV**, `Egam` is the energy of
@@ -176,7 +176,7 @@ in **eV**; `M` is the mass of the slowing object in **GeV**; `tau` is the (rando
 intermediate nuclear level; `mtrand` is the random generator object--in this case `std::mt19937`.
 The function returns the velocity at the random decay time in units of the speed of light (c).
 */
-double *siStop(double E, double M, double tau, mt19937 *rand);
+vector<double> &siStop(double E, double M, double tau, mt19937 *rand);
 /**
   silicon func. constant stopping-power stopping. `E` is the initial energy of the stopping
 atom in **eV**; `M` is the mass of the slowing object in **GeV**; `t` is the time (in **fs**) at
@@ -206,7 +206,7 @@ double vsiS2func(double *x,double *par);
 lifetimes of size `nlev` in **fs**; `A` is the mass number; `mtrand` is the random number
 generator object--in this case `std::mt19937`. The function returns a `cri` struct. 
 */
-cri *arCascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
+vector<cri> &arCascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
 /**
   argon func. to return the Energy after the mid-stop decay. `v` is the velocity in units of
 the speed of light (c); `M` is the mass of the slowing object in **GeV**, `Egam` is the energy of
@@ -220,7 +220,7 @@ in **eV**; `M` is the mass of the slowing object in **GeV**; `tau` is the (rando
 intermediate nuclear level; `mtrand` is the random generator object--in this case `std::mt19937`.
 The function returns the velocity at the random decay time in units of the speed of light (c).
 */
-double *arStop(double E, double M, double tau, mt19937 *rand);
+vector<double> &arStop(double E, double M, double tau, mt19937 *rand);
 /**
   argon func. constant stopping-power stopping. `E` is the initial energy of the stopping
 atom in **eV**; `M` is the mass of the slowing object in **GeV**; `t` is the time (in **fs**) at
@@ -250,7 +250,7 @@ double varS2func(double *x,double *par);
 lifetimes of size `nlev` in **fs**; `A` is the mass number; `mtrand` is the random number
 generator object--in this case `std::mt19937`. The function returns a `cri` struct. 
 */
-cri *neCascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
+vector<cri> &neCascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
 /**
   neon func. to return the Energy after the mid-stop decay. `v` is the velocity in units of
 the speed of light (c); `M` is the mass of the slowing object in **GeV**, `Egam` is the energy of
@@ -264,7 +264,7 @@ in **eV**; `M` is the mass of the slowing object in **GeV**; `tau` is the (rando
 intermediate nuclear level; `mtrand` is the random generator object--in this case `std::mt19937`.
 The function returns the velocity at the random decay time in units of the speed of light (c).
 */
-double *neStop(double E, double M, double tau, mt19937 *rand);
+vector<double> &neStop(double E, double M, double tau, mt19937 *rand);
 /**
   neon func. constant stopping-power stopping. `E` is the initial energy of the stopping
 atom in **eV**; `M` is the mass of the slowing object in **GeV**; `t` is the time (in **fs**) at
@@ -294,7 +294,7 @@ of the cascade; `Elev` is an array of level energys of size `nlev` in **keV**; `
 of level lifetimes of size `nlev` in **fs**; `A` is the mass number; `mtrand` is the random number
 generator object--in this case `std::mt19937`. The function returns a `cri` struct. 
 */
-cri *Cascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
+vector<cri> &Cascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<double> &taus, double A, mt19937 *mtrand);
 
 //input reading functions
 
@@ -303,7 +303,7 @@ cri *Cascade(int n,int cid, double Sn, int nlev, vector<double> Elev, vector<dou
 the full path to the file; and `success` is a flag that indicates successful reading, `true` for a
 success. 
 */
-cli *readCascadeDistributionFile(int &n,string file,bool &success);
+vector<cli> &readCascadeDistributionFile(int &n,string file,bool &success);
 /**
   function to interpret doubles from input using regex. `in` is the input string to interpret; and
 `success` is `true` if it can be interpreted as a double-precision number (either in decimal or
@@ -330,14 +330,14 @@ be interpreted from the input; `in` is the input string to interpret; `success` 
 `true` if a vector of doubles in the correct format (surrounded by brackets [] and separated by
 whitespace) is detected.
 */
-double *interpretElevVector(int &n,string in,bool &success);
+vector<double> &interpretElevVector(int &n,string in,bool &success);
 /**
   function to read lifetimes from input correctly. `n` is the number of elements in the vector to
 be interpreted from the input; `in` is the input string to interpret; `success` will be set to
 `true` if a vector of doubles or symbolic Weisskopof indicators in the correct format (surrounded
 by brackets and separated by whitespace) is detected. 
 */
-double *interpretTauVector(int n,string in,double A,vector<double> Elev,bool &success);
+vector<double> &interpretTauVector(int n,string in,double A,vector<double> Elev,bool &success);
 /**
   function for splitting strings. `in` is the input string to interpret. A vector of strings is
 returned represented the whitespace-split version of the original.  

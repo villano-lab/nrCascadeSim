@@ -78,11 +78,10 @@ vector<cri> &geCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev
         egam = ((Elev[i]/1000.0)-(Elev[i+1]/1000.0)); // in MeV
 
       //compute deposited energy and decay time
-      double *stopinfo;
+      vector<double> stopinfo;
       stopinfo = geStop(E,mass,taus[i],mtrand);
       double vdecay = stopinfo[0]; 
       double t = stopinfo[1];
-      free(stopinfo);
       double Eleft = ((mass*1e9)/2.0)*(pow(vdecay,2.0));
       double Erest = geDecay(vdecay,mass,egam,mtrand);
 
@@ -282,7 +281,7 @@ double vgeS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -293,8 +292,8 @@ cri *siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector
   //a previously seeded random number
 
   //make an output struct
-  cri *outinfo;
-  outinfo = cri (n);
+  vector<cri> outinfo;
+  outinfo = vector<cri>(n);
 
   //string of isotope name
   char isoname[5]; 
@@ -335,11 +334,10 @@ cri *siCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector
         egam = ((Elev[i]/1000.0)-(Elev[i+1]/1000.0)); // in MeV
 
       //compute deposited energy and decay time
-      double *stopinfo;
+      vector<double> stopinfo;
       stopinfo = siStop(E,mass,taus[i],mtrand);
       double vdecay = stopinfo[0]; 
       double t = stopinfo[1];
-      free(stopinfo);
       double Eleft = ((mass*1e9)/2.0)*(pow(vdecay,2.0));
       double Erest = siDecay(vdecay,mass,egam,mtrand);
 
@@ -414,7 +412,7 @@ double siDecay(double v, double M, double Egam, mt19937 *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *siStop(double E, double M, double tau, mt19937 *mtrand)
+vector<double> &siStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
   uniform_real_distribution<double> dist(0.,1.);
@@ -422,8 +420,8 @@ double *siStop(double E, double M, double tau, mt19937 *mtrand)
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
-  double *ret;
-  ret = (double*) malloc(2*sizeof(double));
+  vector<double> ret;
+  ret = vector<double>(2);
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
@@ -539,7 +537,7 @@ double vsiS2func(double *x,double *par)
 }
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -550,8 +548,8 @@ cri *arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<
   //a previously seeded random number
 
   //make an output struct
-  cri *outinfo;
-  outinfo = (cri*) malloc(n*sizeof(cri));
+  vector<cri> outinfo;
+  outinfo = vector<cri>(n);
 
   //string of isotope name
   char isoname[5]; 
@@ -560,12 +558,12 @@ cri *arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<
   for(int ev=0;ev<n;ev++){
     outinfo[ev].n = nlev;
     outinfo[ev].cid = cid;
-    outinfo[ev].E = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].delE = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].I = (int*) malloc(outinfo[ev].n*sizeof(int));
-    outinfo[ev].Ei = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].time = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].Eg = (double*) malloc(outinfo[ev].n*sizeof(double));
+    outinfo[ev].E = vector<double>(outinfo[ev].n);
+    outinfo[ev].delE = vector<double>(outinfo[ev].n);
+    outinfo[ev].I = vector<int>(outinfo[ev].n);
+    outinfo[ev].Ei = vector<double>(outinfo[ev].n);
+    outinfo[ev].time = vector<double>(outinfo[ev].n);
+    outinfo[ev].Eg = vector<double>(outinfo[ev].n);
 
     //keep track of some running variables like energy (eV), deposited energy (eV), Ionization (npairs), time (fs)
     double E,delE,I,Ei,time,Eg;
@@ -592,11 +590,10 @@ cri *arCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<
         egam = ((Elev[i]/1000.0)-(Elev[i+1]/1000.0)); // in MeV
 
       //compute deposited energy and decay time
-      double *stopinfo;
+      vector<double> stopinfo;
       stopinfo = arStop(E,mass,taus[i],mtrand);
       double vdecay = stopinfo[0]; 
       double t = stopinfo[1];
-      free(stopinfo);
       double Eleft = ((mass*1e9)/2.0)*(pow(vdecay,2.0));
       double Erest = arDecay(vdecay,mass,egam,mtrand);
 
@@ -672,7 +669,7 @@ double arDecay(double v, double M, double Egam, mt19937 *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *arStop(double E, double M, double tau, mt19937 *mtrand)
+vector<double> &arStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
   uniform_real_distribution<double> dist(0.,1.);
@@ -680,8 +677,8 @@ double *arStop(double E, double M, double tau, mt19937 *mtrand)
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
-  double *ret;
-  ret = (double*) malloc(2*sizeof(double));
+  vector<double> ret;
+  ret = vector<double>(2);
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
@@ -820,7 +817,7 @@ double varS2func(double *x,double *par)
 
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
-cri *neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //input:
   //the neutron separation Sn in MeV
@@ -831,8 +828,8 @@ cri *neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<
   //a previously seeded random number
 
   //make an output struct
-  cri *outinfo;
-  outinfo = (cri*) malloc(n*sizeof(cri));
+  vector<cri> outinfo;
+  outinfo = vector<cri>(n);
 
   //string of isotope name
   char isoname[5]; 
@@ -841,12 +838,12 @@ cri *neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<
   for(int ev=0;ev<n;ev++){
     outinfo[ev].n = nlev;
     outinfo[ev].cid = cid;
-    outinfo[ev].E = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].delE = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].I = (int*) malloc(outinfo[ev].n*sizeof(int));
-    outinfo[ev].Ei = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].time = (double*) malloc(outinfo[ev].n*sizeof(double));
-    outinfo[ev].Eg = (double*) malloc(outinfo[ev].n*sizeof(double));
+    outinfo[ev].E = vector<double>(outinfo[ev].n);
+    outinfo[ev].delE = vector<double>(outinfo[ev].n);
+    outinfo[ev].I = vector<int>(outinfo[ev].n);
+    outinfo[ev].Ei = vector<double>(outinfo[ev].n);
+    outinfo[ev].time = vector<double>(outinfo[ev].n);
+    outinfo[ev].Eg = vector<double>(outinfo[ev].n);
 
     //keep track of some running variables like energy (eV), deposited energy (eV), Ionization (npairs), time (fs)
     double E,delE,I,Ei,time,Eg;
@@ -873,11 +870,10 @@ cri *neCascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<
         egam = ((Elev[i]/1000.0)-(Elev[i+1]/1000.0)); // in MeV
 
       //compute deposited energy and decay time
-      double *stopinfo;
+      vector<double> stopinfo;
       stopinfo = arStop(E,mass,taus[i],mtrand);
       double vdecay = stopinfo[0]; 
       double t = stopinfo[1];
-      free(stopinfo);
       double Eleft = ((mass*1e9)/2.0)*(pow(vdecay,2.0));
       double Erest = arDecay(vdecay,mass,egam,mtrand);
 
@@ -953,7 +949,7 @@ double neDecay(double v, double M, double Egam, mt19937 *mtrand)
   return El;
 }
 //return the velocity at a random stopping time
-double *neStop(double E, double M, double tau, mt19937 *mtrand)
+vector<double> &neStop(double E, double M, double tau, mt19937 *mtrand)
 {
   //random distribution
   uniform_real_distribution<double> dist(0.,1.);
@@ -961,8 +957,8 @@ double *neStop(double E, double M, double tau, mt19937 *mtrand)
   //assume energy in eV, mass in GeV, tau in fs.
  
   //return both the energy and stopping time
-  double *ret;
-  ret = (double*) malloc(2*sizeof(double));
+  vector<double> ret;
+  ret = vector<double>(2);
 
   //use the Mersenne Twister for a uniform rand number (tau in fs)
   //this is done by inversion method
@@ -1099,7 +1095,7 @@ double vneS2func(double *x,double *par)
 
 }
 
-cri *Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
+vector<cri> Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand)
 {
   //FIXME warning not general, only chooses Ge or Si
   if(A>44)
@@ -1114,7 +1110,7 @@ cri *Cascade(int n,int cid, double Sn, int nlev, vector<double> &Elev, vector<do
     return geCascade(n,cid,Sn,nlev,Elev,taus,A,mtrand);
 }
 
-cli *readCascadeDistributionFile(int &n, string file,bool &success)
+vector<cli> &readCascadeDistributionFile(int &n, string file,bool &success)
 {
   //first assume you will succeed
   success=true;
@@ -1132,7 +1128,7 @@ cli *readCascadeDistributionFile(int &n, string file,bool &success)
   in.seekg(0);
 
   //make an object
-  cli *output = (cli*) malloc(n*sizeof(cli));
+  vector<cli> output = vector<cli>(n);
 
   //do some regex matching to parse the cascade info 
   regex_t regex;
@@ -1301,7 +1297,7 @@ double interpretWeisskopf(string in,double Egam,double A,bool &success)
   success=true;
   return time;
 }
-double *interpretElevVector(int &n,string in,bool &success)
+vector<double> &interpretElevVector(int &n,string in,bool &success)
 {
 
   //get vector elements
@@ -1312,7 +1308,7 @@ double *interpretElevVector(int &n,string in,bool &success)
   success=true;
 
   //allocate the output vector
-  double *out = (double*) malloc(n*sizeof(double));
+  vector<double> out = vector<double>(n);
   for(int i=0;i<n;i++){ 
     bool isok=false;
     out[i] = interpretDbl(elements[i],isok); 
@@ -1321,7 +1317,7 @@ double *interpretElevVector(int &n,string in,bool &success)
 
   return out;
 }
-double *interpretTauVector(int n,string in,double A,vector<double> &Elev,bool &success) //need the Elev vector and Sn for Weisskopf
+vector<double> &interpretTauVector(int n,string in,double A,vector<double> &Elev,bool &success) //need the Elev vector and Sn for Weisskopf
 {
 
   //get vector elements
@@ -1334,7 +1330,7 @@ double *interpretTauVector(int n,string in,double A,vector<double> &Elev,bool &s
 
 
   //allocate the output vector
-  double *out = (double*) malloc(n*sizeof(double));
+  vector<double> out = vector<double>(n);
   for(int i=0;i<n;i++){ 
     bool isok=false;
     double Egam;
