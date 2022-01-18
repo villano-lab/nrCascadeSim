@@ -21,21 +21,6 @@ structures are prototyped below:
 .. doxygenstruct:: cri
    :members:
 
-There are then the functions related to allocating or freeing the memory associated with those
-structures (several of them are pointer-based):
-
-.. doxygenfunction:: freecli 
-   :project: nrCascadeSim
-
-.. doxygenfunction:: freecliarray
-   :project: nrCascadeSim
-
-.. doxygenfunction:: freecri 
-   :project: nrCascadeSim
-
-.. doxygenfunction:: freecriarray 
-   :project: nrCascadeSim
-
 There are also some utility functions that are used for reading the cascade input files, and they
 are prototyped below. 
 
@@ -139,6 +124,18 @@ constant-acceleration `S2` stopping. `S2` refers to the parameter from the Lindh
    :project: nrCascadeSim
 
 .. doxygenfunction:: vneS2func 
+   :project: nrCascadeSim
+
+---------------
+`edepmath.h`
+---------------
+
+In this header is contained prototypes for supporting mathematical functions. Most of the content
+are functions to assist with drawing numbers from specific probability
+distributions.  
+
+
+.. doxygenfile:: edepmath.h
    :project: nrCascadeSim
 
 ---------------

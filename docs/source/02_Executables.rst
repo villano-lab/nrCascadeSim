@@ -130,9 +130,10 @@ Each portion of this row is described in the table below.
      - `[... tau2 tau1 inf]`
      - An ordered list of the lifetimes of the energy levels traversed (fs), separated by spaces. It must be the same length as the list of energies, and the lifetimes should be in the same order as the energies. The last entry is `100000000000000.0` (1e+14 fs, or 100 ms), which is effectively infinite on the timescale of the simulation, to indicate that the state is stable at the ground state.
 
-Note: for the lifetimes one can also use strings representing multipolarity (like `M1`, `E1`,
-etc.) to instruct the program to use the corresponding Weisskopf estimate [Weisskopf1951]_. These estimates
-are not very accurate and are known to be systematically low. 
+Note: for the lifetimes one can also use strings representing multipolarity (like `w(M1)`,
+`w(E1)`, etc. for magnetic or electric dipole transitions respectively) to instruct the program to
+use the corresponding Weisskopf estimate [Weisskopf1951]_. These estimates are not very accurate
+and are known to be systematically low. 
 
 ^^^^^^^^^^
 On Weights

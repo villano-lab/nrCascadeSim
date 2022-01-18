@@ -1,4 +1,11 @@
-## Future Releases (v1.3.2) Date XX.XX.XX 
+## Future Releases (v1.3.3) Date XX.XX.XX 
+
+## Releases (v1.3.2) Date 22.01.08 
+
+* PR #77 extended testing to more input files (Issue #35)
+* PR #78 updated documentation to systematicall include units of all parameters (Issue #74)
+* PR #79 updated documentation to clarify a requirement when installing ROOT dependency on WSL (Issue #76)
+* PR #80 improved the testing on the included example notebook (Issue #65)
 
 ## Release (v1.3.1) Date 21.12.30 
 

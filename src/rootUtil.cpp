@@ -7,7 +7,7 @@ using namespace std;
 
 #include "rootUtil.h"
 
-bool addToNRTTree(TTree *t,int nr,cri *recoil_lists,cli cascade_spec)
+bool addToNRTTree(TTree *t,int nr,vector<cri> &recoil_lists,cli cascade_spec)
 {
   //set up some variables
   Long64_t n,cid; //number of steps and cascade ID
@@ -84,6 +84,8 @@ bool addToNRTTree(TTree *t,int nr,cri *recoil_lists,cli cascade_spec)
     }
     t->Fill();
   }
+
+
 
   return t;
 }
