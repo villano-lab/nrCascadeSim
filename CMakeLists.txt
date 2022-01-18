@@ -4,6 +4,7 @@
 # Makefile for nrCascadeSim
 ###############################################################
 cmake_minimum_required(VERSION 3.10.2) #Just setting this to my version since I know that works.
+project(nrCascadeSim)
 
 # everybody here needs root
 SET(rootFlags `root-config --cflags`)
@@ -14,9 +15,10 @@ SET(gitVersion "$(shell sh -c 'git describe --abrev=4 --always')")
 #SET(buildDir $(topDir)/bin) #obsolete - we will mark this using CMake
 SET(incDirOut include)
 SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/lib)
-SET(testBin tests/bin)
-SET(incDir inc/)
-SET(srcDir src/)
+SET(testBin ${PROJECT_SOURCE_DIR}/tests/bin)
+SET(incDir ${PROJECT_SOURCE_DIR}/inc/)
+SET(srcDir ${PROJECT_SOURCE_DIR}/src/)
+SET(binDir ${PROJECT_SOURCE_DIR}/bin/)
 SET(libFLAG "-L. -L$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)")
 SET(cFlags "-D__GIT_VERSION=\'$(GIT_VERSION)'")
 # Make necessary bin/lib directory
@@ -24,50 +26,51 @@ SET(cFlags "-D__GIT_VERSION=\'$(GIT_VERSION)'")
 # Send files to the right places
 
 
-add_library(isotope_info.o ${srcDir}/isotope_info.c ${incDir}/isotope_info.h)
-add_library(rootUtil.o ${srcDir}/rootUtil.c ${incDir}/rootUtil.h)
-add_library(edepmath.o ${srcDir}/edepmath.c ${incDir}/edepmath.h)
-add_library(weisskopf.o ${srcDir}/weisskopf.c ${incDir}/weisskopf.h)
-add_library(lindhard.o ${srcDir}/lindhard.c ${incDir}/lindhard.h)
-add_library(cascadeProd.o ${srcDir}/cascadeProd.c ${incDir}/cascadeProd.h)
+add_library(isotope_info.o ${srcDir}/isotope_info.cpp ${incDir}/isotope_info.h)
+add_library(rootUtil.o ${srcDir}/rootUtil.cpp ${incDir}/rootUtil.h)
+add_library(edepmath.o ${srcDir}/edepmath.cpp ${incDir}/edepmath.h)
+add_library(weisskopf.o ${srcDir}/weisskopf.cpp ${incDir}/weisskopf.h)
+add_library(lindhard.o ${srcDir}/lindhard.cpp ${incDir}/lindhard.h)
+add_library(cascadeProd.o ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h)
 
-add_executable(regexPlayground regexPlayground.cpp)
+add_executable(regexPlayground ${binDir}/regexPlayground.cpp)
 
-link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/weisskopf.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lindhard.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/cascadeProd.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/edepmath.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/rootUtil.o)
-add_library(libncap)
+link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/weisskopf.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lindhard.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cascadeProd.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/edepmath.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/rootUtil.o)
+add_library(libncap.so SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp)
 
-link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libncap.so) #link libncap to all later executables.
-add_executable(realizeCascades realizeCascades.cpp)
+link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libncap.so ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/weisskopf.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lindhard.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cascadeProd.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/edepmath.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/rootUtil.o)
+#link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libncap.so) #link libncap to all later executables.
+add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
 add_executable(fetchYieldModel ${testBin}/fetchYieldModel.cpp)
 add_executable(printIsotopeInfo ${testBin}/printIsotopeInfo.cpp)
 add_executable(readLevelfile ${testBin}/readLevelfile.cpp)
-add_executable(realizeAndSave ${testBin}/realizeAndSave.cpp)
+add_executable(realizeAndSave ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
 #[[ #comment out all this stuff
 all: realizeCascades regexPlayground $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/rootUtil.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/edepmath.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/cascadeProd.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/isotope_info.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/weisskopf.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/lindhard.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/libncap.so
 
-$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/isotope_info.o: $(srcDir)/isotope_info.c $(incDir)/isotope_info.h 
-	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/isotope_info.c  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
+$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/isotope_info.o: $(srcDir)/isotope_info.cpp $(incDir)/isotope_info.h 
+	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/isotope_info.cpp  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
 	mv isotope_info.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/
 
-$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/rootUtil.o: $(srcDir)/rootUtil.c $(incDir)/rootUtil.h 
-	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/rootUtil.c `root-config --cflags`  $(LIBFLAG) -fprofile-arcs -ftest-coverage
+$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/rootUtil.o: $(srcDir)/rootUtil.cpp $(incDir)/rootUtil.h 
+	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/rootUtil.cpp `root-config --cflags`  $(LIBFLAG) -fprofile-arcs -ftest-coverage
 	mv rootUtil.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/
 
-$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/edepmath.o: $(srcDir)/edepmath.c $(incDir)/edepmath.h 
-	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/edepmath.c `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
+$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/edepmath.o: $(srcDir)/edepmath.cpp $(incDir)/edepmath.h 
+	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/edepmath.cpp `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
 	mv edepmath.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/
 
-$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/weisskopf.o: $(srcDir)/weisskopf.c $(incDir)/weisskopf.h 
-	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/weisskopf.c  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
+$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/weisskopf.o: $(srcDir)/weisskopf.cpp $(incDir)/weisskopf.h 
+	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/weisskopf.cpp  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
 	mv weisskopf.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/
 
-$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/lindhard.o: $(srcDir)/lindhard.c $(incDir)/lindhard.h 
-	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/lindhard.c  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
+$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/lindhard.o: $(srcDir)/lindhard.cpp $(incDir)/lindhard.h 
+	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/lindhard.cpp  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
 	mv lindhard.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/
 
-$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/cascadeProd.o: $(srcDir)/cascadeProd.c $(incDir)/cascadeProd.h 
-	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/cascadeProd.c  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
+$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/cascadeProd.o: $(srcDir)/cascadeProd.cpp $(incDir)/cascadeProd.h 
+	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/cascadeProd.cpp  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
 	mv cascadeProd.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/
 
 $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/libncap.so: $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/isotope_info.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/weisskopf.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/lindhard.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/cascadeProd.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/edepmath.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/rootUtil.o
