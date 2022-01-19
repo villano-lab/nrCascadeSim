@@ -105,6 +105,10 @@ add_executable(readLevelfile ${testBin}/readLevelfile.cpp)
 add_executable(realizeAndSave ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
 install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${INSTALL_DIR})
+install(CODE "EXECUTE_PROCESS(COMMAND mv fetchYieldModel ${testBin})")
+install(CODE "EXECUTE_PROCESS(COMMAND mv printIsotopeInfo ${testBin})")
+install(CODE "EXECUTE_PROCESS(COMMAND mv readLevelfile ${testBin})")
+install(CODE "EXECUTE_PROCESS(COMMAND mv realizeAndSave ${testBin})")
 
 #[[ #comment out all this stuff
 
