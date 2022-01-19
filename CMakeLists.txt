@@ -22,6 +22,7 @@ SET(testBin ${PROJECT_SOURCE_DIR}/tests/bin)
 SET(incDir ${PROJECT_SOURCE_DIR}/inc/)
 SET(srcDir ${PROJECT_SOURCE_DIR}/src/)
 SET(binDir ${PROJECT_SOURCE_DIR}/bin/)
+SET(CMAKE_STATIC_LIBRARY_SUFFIX ".o")
 SET(libFLAG "-L. -L$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)")
 SET(INSTALL_DIR /usr/lib)
 # Make necessary bin/lib directory
@@ -31,6 +32,14 @@ include_directories(${incDir})
 
 file(GLOB sources ${srcDir}/*.cpp)
 file(GLOB headers ${incDir}/*.h)
+
+#Coverage
+if(USE_GCOV)
+	SET(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage")
+	SET(GCC_COVERAGE_LINK_FLAGS    "-coverage")
+	SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
+ 	SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
+endif(USE_GCOV)
 
 #----------------------------------------------------------------------------
 #Find ROOT
@@ -66,23 +75,28 @@ endif()
 #include(${ROOT_USE_FILE})
 include_directories(${ROOT_INCLUDE_DIR})
 
+#And set the c++ standard to match whatever was used for root
+
+execute_process(COMMAND bash "-c" "root-config --cflags | awk '{print $2}' | cut -c9-10" OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE CMAKE_CXX_STANDARD)
+message("C++ Standard: ${CMAKE_CXX_STANDARD}. (Detected from ROOT.)")
+
 #-----------------------------------------------------------------------------
 #Main part
 
 
-add_library(isotope_info.o ${srcDir}/isotope_info.cpp ${incDir}/isotope_info.h)
-add_library(rootUtil.o ${srcDir}/rootUtil.cpp ${incDir}/rootUtil.h)
-add_library(edepmath.o ${srcDir}/edepmath.cpp ${incDir}/edepmath.h)
-add_library(weisskopf.o ${srcDir}/weisskopf.cpp ${incDir}/weisskopf.h)
-add_library(lindhard.o ${srcDir}/lindhard.cpp ${incDir}/lindhard.h ${incDir}/edepmath.h)
-add_library(cascadeProd.o ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h ${headers})
+add_library(isotope_info ${srcDir}/isotope_info.cpp ${incDir}/isotope_info.h)
+add_library(rootUtil ${srcDir}/rootUtil.cpp ${incDir}/rootUtil.h)
+add_library(edepmath ${srcDir}/edepmath.cpp ${incDir}/edepmath.h)
+add_library(weisskopf ${srcDir}/weisskopf.cpp ${incDir}/weisskopf.h)
+add_library(lindhard ${srcDir}/lindhard.cpp ${incDir}/lindhard.h ${incDir}/edepmath.h)
+add_library(cascadeProd ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h ${headers})
 
 add_executable(regexPlayground ${binDir}/regexPlayground.cpp)
 
-link_libraries(weisskopf.o lindhard.o cascadeProd.o edepmath.o rootUtil.o)
-add_library(libncap.so SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp ${incDir}/isotope_info.h ${incDir}/rootUtil.h ${incDir}/edepmath.h ${incDir}/weisskopf.h ${incDir}/lindhard.h ${incDir}/cascadeProd.h)
+link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil)
+add_library(libncap SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp ${incDir}/isotope_info.h ${incDir}/rootUtil.h ${incDir}/edepmath.h ${incDir}/weisskopf.h ${incDir}/lindhard.h ${incDir}/cascadeProd.h)
 
-link_libraries(libncap.so weisskopf.o lindhard.o cascadeProd.o edepmath.o rootUtil.o ${ROOT_LIBRARIES})
+link_libraries(libncap weisskopf lindhard cascadeProd edepmath rootUtil ${ROOT_LIBRARIES})
 
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
 add_executable(fetchYieldModel ${testBin}/fetchYieldModel.cpp)

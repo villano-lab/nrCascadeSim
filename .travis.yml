@@ -72,7 +72,7 @@ install:
 
 script:
   #make repository code (my code)
-  - cmake ./
+  - cmake -DUSE_GCOV=ON ./
   - make
   - sudo make install
   #- make tests
