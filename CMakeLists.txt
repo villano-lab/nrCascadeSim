@@ -101,12 +101,16 @@ add_library(libncap SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${s
 link_libraries(libncap ${ROOT_LIBRARIES})
 
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
-add_executable(fetchYieldModel ${testBin}/fetchYieldModel.cpp)
-add_executable(printIsotopeInfo ${testBin}/printIsotopeInfo.cpp)
-add_executable(readLevelfile ${testBin}/readLevelfile.cpp)
-add_executable(realizeAndSave ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
+add_executable(fetchYieldModel EXCLUDE_FROM_ALL ${testBin}/fetchYieldModel.cpp)
+add_executable(printIsotopeInfo EXCLUDE_FROM_ALL ${testBin}/printIsotopeInfo.cpp)
+add_executable(readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
+add_executable(realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
 install(TARGETS realizeCascades regexPlayground DESTINATION ${INSTALL_DIR})
-install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
+#install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
 set_property(GLOBAL PROPERTY ADDITIONAL_CLEAN_FILES ${INSTALL_DIR}/realizeCascades ${INSTALL_DIR}/regexPlayground ${testBin}/fetchYieldModel ${testBin}/printIsotopeInfo ${testBin}/readLevelfile ${testBin}/realizeAndSave)
+
+add_custom_target(tests 
+                WORKING_DIRECTORY ${testBin}
+                DEPENDS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave)
