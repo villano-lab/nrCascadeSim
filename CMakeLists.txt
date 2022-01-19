@@ -24,7 +24,7 @@ SET(srcDir ${PROJECT_SOURCE_DIR}/src/)
 SET(binDir ${PROJECT_SOURCE_DIR}/bin/)
 SET(CMAKE_STATIC_LIBRARY_SUFFIX ".o")
 SET(libFLAG "-L. -L$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)")
-SET(INSTALL_DIR /usr/lib)
+SET(INSTALL_DIR /usr/local/bin)
 # Make necessary bin/lib directory
 # SET(runScript "$(shell mkdir -p 'bin/lib')") #hopefully don't need this anymore
 # Send files to the right places
