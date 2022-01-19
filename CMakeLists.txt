@@ -24,21 +24,61 @@ SET(cFlags "-D__GIT_VERSION=\'$(GIT_VERSION)'")
 # Make necessary bin/lib directory
 # SET(runScript "$(shell mkdir -p 'bin/lib')") #hopefully don't need this anymore
 # Send files to the right places
+include_directories(${incDir})
+
+file(GLOB sources ${srcDir}/*.cpp)
+file(GLOB headers ${incDir}/*.h)
+
+#----------------------------------------------------------------------------
+#Find ROOT
+
+#list(APPEND CMAKE_PREFIX_PATH "$ENV{ROOTSYS}") //only if ROOT made with CMake
+list(APPEND CMAKE_MODULE_PATH "$ENV{ROOTSYS}/etc/cmake/")
+list(APPEND CMAKE_PREFIX_PATH "$ENV{ROOTSYS}")
+message(STATUS "CMAKE_PREFIX_PATH: " ${CMAKE_PREFIX_PATH})
+message(STATUS "CMAKE_MODULE_PATH: " ${CMAKE_PREFIX_PATH})
+get_directory_property(_vars_before VARIABLES)
+find_package(ROOT REQUIRED COMPONENTS RIO Net)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+include_directories(${ROOT_INCLUDE_DIRS})
+get_directory_property(_vars VARIABLES)
+
+
+if (ROOT_FOUND)
+    message(STATUS "Libraries for ROOT found")
+    message(STATUS "Package Version: " ${ROOT_VERSION})
+    message(STATUS "Include DIRS: " ${ROOT_INCLUDE_DIR})
+else()
+    message(FATAL_ERROR "Failed to find ROOT.")
+endif()
+
+#list(REMOVE_ITEM _vars _vars_before ${_vars_before})
+#foreach(_var IN LISTS _vars)
+#    message(STATUS "${_var} = ${${_var}}")
+#endforeach()
+
+#----------------------------------------------------------------------------
+#Setup the ROOT include directories 
+
+#include(${ROOT_USE_FILE})
+include_directories(${ROOT_INCLUDE_DIR})
+
+#-----------------------------------------------------------------------------
+#Main part
 
 
 add_library(isotope_info.o ${srcDir}/isotope_info.cpp ${incDir}/isotope_info.h)
 add_library(rootUtil.o ${srcDir}/rootUtil.cpp ${incDir}/rootUtil.h)
 add_library(edepmath.o ${srcDir}/edepmath.cpp ${incDir}/edepmath.h)
 add_library(weisskopf.o ${srcDir}/weisskopf.cpp ${incDir}/weisskopf.h)
-add_library(lindhard.o ${srcDir}/lindhard.cpp ${incDir}/lindhard.h)
-add_library(cascadeProd.o ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h)
+add_library(lindhard.o ${srcDir}/lindhard.cpp ${incDir}/lindhard.h ${incDir}/edepmath.h)
+add_library(cascadeProd.o ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h ${headers})
 
 add_executable(regexPlayground ${binDir}/regexPlayground.cpp)
 
-link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/weisskopf.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lindhard.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cascadeProd.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/edepmath.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/rootUtil.o)
-add_library(libncap.so SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp)
-
-link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libncap.so ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/weisskopf.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/lindhard.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/cascadeProd.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/edepmath.o ${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/rootUtil.o)
+link_libraries(weisskopf.o lindhard.o cascadeProd.o edepmath.o rootUtil.o)
+add_library(libncap.so SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp ${incDir}/isotope_info.h ${incDir}/rootUtil.h ${incDir}/edepmath.h ${incDir}/weisskopf.h ${incDir}/lindhard.h ${incDir}/cascadeProd.h)
+link_libraries(libncap.so weisskopf.o lindhard.o cascadeProd.o edepmath.o rootUtil.o)
 #link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libncap.so) #link libncap to all later executables.
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
 add_executable(fetchYieldModel ${testBin}/fetchYieldModel.cpp)

@@ -72,6 +72,7 @@ install:
 
 script:
   #make repository code (my code)
+  - cmake ./
   - make
   - sudo make install
   - make tests
