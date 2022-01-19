@@ -10,6 +10,9 @@ project(nrCascadeSim)
 SET(rootFlags `root-config --cflags`)
 #trick for getting the git version in the code
 SET(gitVersion "$(shell sh -c 'git describe --abrev=4 --always')")
+message("git version: ${GIT_VERSION}")
+set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__GIT_VERSION=\\\"${GIT_VERSION}\\\"")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__GIT_VERSION=\\\"${GIT_VERSION}\\\"")
 # other variables
 #SET(topDir $(shell pwd))    #obsolete - we will mark this using CMake
 #SET(buildDir $(topDir)/bin) #obsolete - we will mark this using CMake
@@ -20,7 +23,7 @@ SET(incDir ${PROJECT_SOURCE_DIR}/inc/)
 SET(srcDir ${PROJECT_SOURCE_DIR}/src/)
 SET(binDir ${PROJECT_SOURCE_DIR}/bin/)
 SET(libFLAG "-L. -L$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)")
-SET(cFlags "-D__GIT_VERSION=\'$(GIT_VERSION)'")
+SET(INSTALL_DIR /usr/lib)
 # Make necessary bin/lib directory
 # SET(runScript "$(shell mkdir -p 'bin/lib')") #hopefully don't need this anymore
 # Send files to the right places
@@ -78,16 +81,18 @@ add_executable(regexPlayground ${binDir}/regexPlayground.cpp)
 
 link_libraries(weisskopf.o lindhard.o cascadeProd.o edepmath.o rootUtil.o)
 add_library(libncap.so SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp ${incDir}/isotope_info.h ${incDir}/rootUtil.h ${incDir}/edepmath.h ${incDir}/weisskopf.h ${incDir}/lindhard.h ${incDir}/cascadeProd.h)
-link_libraries(libncap.so weisskopf.o lindhard.o cascadeProd.o edepmath.o rootUtil.o)
-#link_libraries(${CMAKE_LIBRARY_OUTPUT_DIRECTORY}/libncap.so) #link libncap to all later executables.
+
+link_libraries(libncap.so weisskopf.o lindhard.o cascadeProd.o edepmath.o rootUtil.o ${ROOT_LIBRARIES})
+
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
 add_executable(fetchYieldModel ${testBin}/fetchYieldModel.cpp)
 add_executable(printIsotopeInfo ${testBin}/printIsotopeInfo.cpp)
 add_executable(readLevelfile ${testBin}/readLevelfile.cpp)
 add_executable(realizeAndSave ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
+install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${INSTALL_DIR})
+
 #[[ #comment out all this stuff
-all: realizeCascades regexPlayground $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/rootUtil.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/edepmath.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/cascadeProd.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/isotope_info.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/weisskopf.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/lindhard.o $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/libncap.so
 
 $(CMAKE_LIBRARY_OUTPUT_DIRECTORY)/isotope_info.o: $(srcDir)/isotope_info.cpp $(incDir)/isotope_info.h 
 	$(CXX) -fPIC -c $(CFLAGS) $(INCFLAG) $(srcDir)/isotope_info.cpp  `root-config --cflags` $(LIBFLAG) -fprofile-arcs -ftest-coverage
