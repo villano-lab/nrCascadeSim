@@ -26,8 +26,11 @@ SET(CMAKE_STATIC_LIBRARY_SUFFIX ".o")
 SET(CMAKE_STATIC_LIBRARY_PREFIX "")
 SET(CMAKE_SHARED_LIBRARY_PREFIX "")
 #SET(libFLAG "-L. -L$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)")
-SET(INSTALL_DIR /usr/local/bin)
-SET(LIB_INSTALL_DIR /usr/local/lib)
+if(NOT CMAKE_INSTALL_PREFIX)
+    SET(CMAKE_INSTALL_PREFIX ~/bin)
+endif(NOT CMAKE_INSTALL_PREFIX)
+message("Install prefix: ${CMAKE_INSTALL_PREFIX}")
+SET(LIB_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/../lib)
 # Make necessary bin/lib directory
 # SET(runScript "$(shell mkdir -p 'bin/lib')") #hopefully don't need this anymore
 # Send files to the right places
@@ -41,18 +44,27 @@ if("${isSystemDir}" STREQUAL "-1")
     set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 endif("${isSystemDir}" STREQUAL "-1")
 
-
+if(NOT ${TEST_OUTPUT_DIR})
+    SET(TEST_OUTPUT_DIR ${testBin})
+endif(NOT ${TEST_OUTPUT_DIR})
 
 file(GLOB sources ${srcDir}/*.cpp)
 file(GLOB headers ${incDir}/*.h)
 
 #Coverage
+if(NOT USE_GCOV)
+    SET(USE_GCOV OFF)
+endif(NOT USE_GCOV)
+message("Use GCOV? ${USE_GCOV}")
 if(USE_GCOV)
 	SET(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage")
 	SET(GCC_COVERAGE_LINK_FLAGS    "-coverage")
 	SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
  	SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
+    message("Set up coverage flags.")
 endif(USE_GCOV)
+message("CXX Flags: ${CMAKE_CXX_FLAGS}")
+message("Linker Flags: ${CMAKE_EXE_LINKER_FLAGS}")
 
 #----------------------------------------------------------------------------
 #Find ROOT
@@ -112,17 +124,20 @@ add_library(libncap SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${s
 link_libraries(libncap ${ROOT_LIBRARIES})
 
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
-add_executable(fetchYieldModel EXCLUDE_FROM_ALL ${testBin}/fetchYieldModel.cpp)
-add_executable(printIsotopeInfo EXCLUDE_FROM_ALL ${testBin}/printIsotopeInfo.cpp)
-add_executable(readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
-add_executable(realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
+add_executable(${TEST_OUTPUT_DIR}/fetchYieldModel EXCLUDE_FROM_ALL ${testBin}/fetchYieldModel.cpp)
+add_executable(${TEST_OUTPUT_DIR}/printIsotopeInfo EXCLUDE_FROM_ALL ${testBin}/printIsotopeInfo.cpp)
+add_executable(${TEST_OUTPUT_DIR}/readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
+add_executable(${TEST_OUTPUT_DIR}/realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
-install(TARGETS realizeCascades regexPlayground DESTINATION ${INSTALL_DIR})
-install(TARGETS libncap DESTINATION ${LIB_INSTALL_DIR})
+install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
+#install(TARGETS libncap DESTINATION ${LIB_INSTALL_DIR})
 #install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
-set_property(GLOBAL PROPERTY ADDITIONAL_CLEAN_FILES ${INSTALL_DIR}/realizeCascades ${INSTALL_DIR}/regexPlayground ${testBin}/fetchYieldModel ${testBin}/printIsotopeInfo ${testBin}/readLevelfile ${testBin}/realizeAndSave)
+set_property(GLOBAL PROPERTY ADDITIONAL_CLEAN_FILES ${TEST_OUTPUT_DIR}/fetchYieldModel ${TEST_OUTPUT_DIR}/printIsotopeInfo ${TEST_OUTPUT_DIR}/readLevelfile ${TEST_OUTPUT_DIR}/realizeAndSave)
 
 add_custom_target(tests 
-                WORKING_DIRECTORY ${testBin}
-                DEPENDS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave)
+                DEPENDS ${TEST_OUTPUT_DIR}/fetchYieldModel ${TEST_OUTPUT_DIR}/printIsotopeInfo ${TEST_OUTPUT_DIR}/readLevelfile ${TEST_OUTPUT_DIR}/realizeAndSave)
+
+add_custom_target(uninstall
+                COMMAND rm ${CMAKE_INSTALL_PREFIX}/realizeCascades
+                COMMAND rm ${CMAKE_INSTALL_PREFIX}/regexPlayground)
