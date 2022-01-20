@@ -44,9 +44,10 @@ if("${isSystemDir}" STREQUAL "-1")
     set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 endif("${isSystemDir}" STREQUAL "-1")
 
-if(NOT ${TEST_OUTPUT_DIR})
+if(NOT TEST_OUTPUT_DIR)
     SET(TEST_OUTPUT_DIR ${testBin})
-endif(NOT ${TEST_OUTPUT_DIR})
+endif(NOT TEST_OUTPUT_DIR)
+message("Tests output directory: ${TEST_OUTPUT_DIR} (Default: ${testBin})")
 
 file(GLOB sources ${srcDir}/*.cpp)
 file(GLOB headers ${incDir}/*.h)
@@ -124,19 +125,24 @@ add_library(libncap SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${s
 link_libraries(libncap ${ROOT_LIBRARIES})
 
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
-add_executable(${TEST_OUTPUT_DIR}/fetchYieldModel EXCLUDE_FROM_ALL ${testBin}/fetchYieldModel.cpp)
-add_executable(${TEST_OUTPUT_DIR}/printIsotopeInfo EXCLUDE_FROM_ALL ${testBin}/printIsotopeInfo.cpp)
-add_executable(${TEST_OUTPUT_DIR}/readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
-add_executable(${TEST_OUTPUT_DIR}/realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
+add_executable(fetchYieldModel EXCLUDE_FROM_ALL ${testBin}/fetchYieldModel.cpp)
+add_executable(printIsotopeInfo EXCLUDE_FROM_ALL ${testBin}/printIsotopeInfo.cpp)
+add_executable(readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
+add_executable(realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
 install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
 #install(TARGETS libncap DESTINATION ${LIB_INSTALL_DIR})
 #install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
 set_property(GLOBAL PROPERTY ADDITIONAL_CLEAN_FILES ${TEST_OUTPUT_DIR}/fetchYieldModel ${TEST_OUTPUT_DIR}/printIsotopeInfo ${TEST_OUTPUT_DIR}/readLevelfile ${TEST_OUTPUT_DIR}/realizeAndSave)
+#^ why does this line do nothing!?
 
 add_custom_target(tests 
-                DEPENDS ${TEST_OUTPUT_DIR}/fetchYieldModel ${TEST_OUTPUT_DIR}/printIsotopeInfo ${TEST_OUTPUT_DIR}/readLevelfile ${TEST_OUTPUT_DIR}/realizeAndSave)
+                DEPENDS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave
+                COMMAND mv fetchYieldModel ${TEST_OUTPUT_DIR}
+                COMMAND mv realizeAndSave ${TEST_OUTPUT_DIR}
+                COMMAND mv readLevelfile ${TEST_OUTPUT_DIR}
+                COMMAND mv printIsotopeInfo ${TEST_OUTPUT_DIR})
 
 add_custom_target(uninstall
                 COMMAND rm ${CMAKE_INSTALL_PREFIX}/realizeCascades
