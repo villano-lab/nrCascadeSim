@@ -25,12 +25,23 @@ SET(binDir ${PROJECT_SOURCE_DIR}/bin/)
 SET(CMAKE_STATIC_LIBRARY_SUFFIX ".o")
 SET(CMAKE_STATIC_LIBRARY_PREFIX "")
 SET(CMAKE_SHARED_LIBRARY_PREFIX "")
-SET(libFLAG "-L. -L$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)")
+#SET(libFLAG "-L. -L$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)")
 SET(INSTALL_DIR /usr/local/bin)
+SET(LIB_INSTALL_DIR /usr/local/lib)
 # Make necessary bin/lib directory
 # SET(runScript "$(shell mkdir -p 'bin/lib')") #hopefully don't need this anymore
 # Send files to the right places
 include_directories(${incDir})
+
+#Get linker to work for make install
+set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_INSTALL_PREFIX}/lib" isSystemDir)
+if("${isSystemDir}" STREQUAL "-1")
+    set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+endif("${isSystemDir}" STREQUAL "-1")
+
+
 
 file(GLOB sources ${srcDir}/*.cpp)
 file(GLOB headers ${incDir}/*.h)
@@ -107,6 +118,7 @@ add_executable(readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
 add_executable(realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
 install(TARGETS realizeCascades regexPlayground DESTINATION ${INSTALL_DIR})
+install(TARGETS libncap DESTINATION ${LIB_INSTALL_DIR})
 #install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
 set_property(GLOBAL PROPERTY ADDITIONAL_CLEAN_FILES ${INSTALL_DIR}/realizeCascades ${INSTALL_DIR}/regexPlayground ${testBin}/fetchYieldModel ${testBin}/printIsotopeInfo ${testBin}/readLevelfile ${testBin}/realizeAndSave)

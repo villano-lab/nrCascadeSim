@@ -75,7 +75,7 @@ script:
   - cmake -DUSE_GCOV=ON ./
   - make
   - sudo make install
-  #- make tests
+  - make tests
 
   # activate conda environment
   - source activate piptest
