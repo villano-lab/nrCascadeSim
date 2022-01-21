@@ -70,17 +70,22 @@ install:
    - sudo chmod 777 tests/test_realizeCascades.sh
    - sudo chmod 777 get_checksums.sh
 
+   # set up build dir
+   - mkdir ~/nrCascadeSim
+   - cd ~/nrCascadeSim
+
 script:
   #make repository code (my code)
-  - cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin -DUSE_GCOV=ON ./
+  - cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin -DUSE_GCOV=ON ~/nrCascadeSim
   - make
   - sudo make install
   - make tests
   # Send tests to directory they were written to run from.
-  - mv readLevelfile tests/bin
-  - mv realizeAndSave tests/bin
-  - mv printIsotopeInfo tests/bin
-  - mv fetchYieldModel tests/bin
+  - mv readLevelfile ~/nrCascadeSim/tests/bin
+  - mv realizeAndSave ~/nrCascadeSim/tests/bin
+  - mv printIsotopeInfo ~/nrCascadeSim/tests/bin
+  - mv fetchYieldModel ~/nrCascadeSim/tests/bin
+  - cd ~/nrCascadeSim/
 
   # activate conda environment
   - source activate piptest
