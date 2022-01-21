@@ -64,6 +64,7 @@ install:
    - tar -zxvf lcov-1.14.tar.gz
    - cd lcov-1.14
    - sudo make install
+   - ls /usr/local/lib | grep libncap
    - cd ../
    - lcov --directory ./ --zerocounters
 
@@ -107,8 +108,10 @@ script:
   - travis_wait 50 py.test
 
   #clean up
-  - cd ../
-  - sudo make clean
+  - cd ~/build/nrCascadeSim_build
+  - make clean
+  - sudo make uninstall
+
 
 # Send coverage info to codecov
 after_success: 

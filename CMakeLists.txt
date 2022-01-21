@@ -142,4 +142,5 @@ add_custom_target(tests
 add_custom_target(uninstall
                 COMMAND rm ${CMAKE_INSTALL_PREFIX}/realizeCascades
                 COMMAND rm ${CMAKE_INSTALL_PREFIX}/regexPlayground
+                COMMAND rm ${LIB_INSTALL_DIR}/libncap.so
 )
