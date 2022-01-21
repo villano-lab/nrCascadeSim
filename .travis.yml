@@ -64,7 +64,6 @@ install:
    - tar -zxvf lcov-1.14.tar.gz
    - cd lcov-1.14
    - sudo make install
-   - ls /usr/local/lib | grep libncap
    - cd ../
    - lcov --directory ./ --zerocounters
 
@@ -81,6 +80,7 @@ script:
   - cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
   - make
   - sudo make install
+  - ls /usr/local/lib | grep libncap
   - make tests
   # Send tests to directory they were written to run from.
   - mv readLevelfile ~/build/villano-lab/nrCascadeSim/tests/bin
