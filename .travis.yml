@@ -76,6 +76,11 @@ script:
   - make
   - sudo make install
   - make tests
+  # Send tests to directory they were written to run from.
+  - mv readLevelfile tests/bin
+  - mv realizeAndSave tests/bin
+  - mv printIsotopeInfo tests/bin
+  - mv fetchYieldModel tests/bin
 
   # activate conda environment
   - source activate piptest

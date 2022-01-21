@@ -44,9 +44,10 @@ if("${isSystemDir}" STREQUAL "-1")
     set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 endif("${isSystemDir}" STREQUAL "-1")
 
+#[[ no longer used
 if(NOT TEST_OUTPUT_DIR)
     SET(TEST_OUTPUT_DIR ${testBin})
-endif(NOT TEST_OUTPUT_DIR)
+endif(NOT TEST_OUTPUT_DIR) #]]
 message("Tests output directory: ${TEST_OUTPUT_DIR} (Default: ${testBin})")
 
 file(GLOB sources ${srcDir}/*.cpp)
@@ -134,16 +135,11 @@ install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${CMAKE_INST
 #install(TARGETS libncap DESTINATION ${LIB_INSTALL_DIR})
 #install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
-set_property(GLOBAL PROPERTY ADDITIONAL_CLEAN_FILES ${TEST_OUTPUT_DIR}/fetchYieldModel ${TEST_OUTPUT_DIR}/printIsotopeInfo ${TEST_OUTPUT_DIR}/readLevelfile ${TEST_OUTPUT_DIR}/realizeAndSave)
-#^ why does this line do nothing!?
-
 add_custom_target(tests 
                 DEPENDS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave
-                COMMAND mv fetchYieldModel ${TEST_OUTPUT_DIR}
-                COMMAND mv realizeAndSave ${TEST_OUTPUT_DIR}
-                COMMAND mv readLevelfile ${TEST_OUTPUT_DIR}
-                COMMAND mv printIsotopeInfo ${TEST_OUTPUT_DIR})
+)
 
 add_custom_target(uninstall
                 COMMAND rm ${CMAKE_INSTALL_PREFIX}/realizeCascades
-                COMMAND rm ${CMAKE_INSTALL_PREFIX}/regexPlayground)
+                COMMAND rm ${CMAKE_INSTALL_PREFIX}/regexPlayground
+)
