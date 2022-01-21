@@ -71,12 +71,12 @@ install:
    - sudo chmod 777 get_checksums.sh
 
    # set up build dir
-   - mkdir ~/nrCascadeSim
-   - cd ~/nrCascadeSim
+   - mkdir ~/nrCascadeSim_build
+   - cd ~/nrCascadeSim_build
 
 script:
   #make repository code (my code)
-  - cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin -DUSE_GCOV=ON ~/nrCascadeSim
+  - cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin -DUSE_GCOV=ON ~/villano-lab/nrCascadeSim
   - make
   - sudo make install
   - make tests
