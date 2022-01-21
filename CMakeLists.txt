@@ -132,7 +132,7 @@ add_executable(readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
 add_executable(realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
 install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
-#install(TARGETS libncap DESTINATION ${LIB_INSTALL_DIR})
+install(TARGETS libncap DESTINATION ${LIB_INSTALL_DIR})
 #install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
 add_custom_target(tests 
