@@ -104,7 +104,7 @@ include_directories(${ROOT_INCLUDE_DIR})
 
 #And set the c++ standard to match whatever was used for root
 
-execute_process(COMMAND bash "-c" "root-config --cflags | awk '{print $2}' | cut -c9-10" OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE CMAKE_CXX_STANDARD)
+execute_process(COMMAND bash "-c" "root-config --cflags | awk '{for(i=1; i<=NF; i++){if(match($i, /^\-std\=c\+\+/)) print $i}}' | cut -c9-10" OUTPUT_STRIP_TRAILING_WHITESPACE OUTPUT_VARIABLE CMAKE_CXX_STANDARD)
 message("C++ Standard: ${CMAKE_CXX_STANDARD}. (Detected from ROOT.)")
 
 #-----------------------------------------------------------------------------
