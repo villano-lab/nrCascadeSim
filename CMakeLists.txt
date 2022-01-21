@@ -30,18 +30,18 @@ if(NOT CMAKE_INSTALL_PREFIX)
     SET(CMAKE_INSTALL_PREFIX ~/bin)
 endif(NOT CMAKE_INSTALL_PREFIX)
 message("Install prefix: ${CMAKE_INSTALL_PREFIX}")
-SET(LIB_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/../lib)
+#SET(LIB_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/../lib)
 # Make necessary bin/lib directory
 # SET(runScript "$(shell mkdir -p 'bin/lib')") #hopefully don't need this anymore
 # Send files to the right places
 include_directories(${incDir})
 
 #Get linker to work for make install
-set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/../lib")
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_INSTALL_PREFIX}/lib" isSystemDir)
+list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_INSTALL_PREFIX}/../lib" isSystemDir)
 if("${isSystemDir}" STREQUAL "-1")
-    set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+    set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/../lib")
 endif("${isSystemDir}" STREQUAL "-1")
 
 #[[ no longer used
@@ -132,7 +132,7 @@ add_executable(readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
 add_executable(realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
 install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
-install(TARGETS libncap DESTINATION ${LIB_INSTALL_DIR})
+install(TARGETS libncap DESTINATION ${CMAKE_INSTALL_RPATH})
 #install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
 add_custom_target(tests 
@@ -142,5 +142,5 @@ add_custom_target(tests
 add_custom_target(uninstall
                 COMMAND rm ${CMAKE_INSTALL_PREFIX}/realizeCascades
                 COMMAND rm ${CMAKE_INSTALL_PREFIX}/regexPlayground
-                COMMAND rm ${LIB_INSTALL_DIR}/libncap.so
+                COMMAND rm ${CMAKE_INSTALL_RPATH}/libncap.so
 )
