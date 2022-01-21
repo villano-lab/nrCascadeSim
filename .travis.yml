@@ -82,11 +82,11 @@ script:
   - sudo make install
   - make tests
   # Send tests to directory they were written to run from.
-  - mv readLevelfile ~/build/nrCascadeSim/tests/bin
-  - mv realizeAndSave ~/build/nrCascadeSim/tests/bin
-  - mv printIsotopeInfo ~/build/nrCascadeSim/tests/bin
-  - mv fetchYieldModel ~/build/nrCascadeSim/tests/bin
-  - cd ~/build/nrCascadeSim/
+  - mv readLevelfile ~/build/villano-lab/nrCascadeSim/tests/bin
+  - mv realizeAndSave ~/build/villano-lab/nrCascadeSim/tests/bin
+  - mv printIsotopeInfo ~/build/villano-lab/nrCascadeSim/tests/bin
+  - mv fetchYieldModel ~/build/villano-lab/nrCascadeSim/tests/bin
+  - cd ~/build/villano-lab/nrCascadeSim/
 
   # activate conda environment
   - source activate piptest
