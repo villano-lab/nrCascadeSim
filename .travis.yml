@@ -72,21 +72,21 @@ install:
    - sudo chmod 777 get_checksums.sh
 
    # set up build dir
-   - mkdir ~/nrCascadeSim_build
-   - cd ~/nrCascadeSim_build
+   - mkdir ~/build/nrCascadeSim_build
+   - cd ~/build/nrCascadeSim_build
 
 script:
   #make repository code (my code)
-  - cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin -DUSE_GCOV=ON ~/villano-lab/nrCascadeSim
+  - cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
   - make
   - sudo make install
   - make tests
   # Send tests to directory they were written to run from.
-  - mv readLevelfile ~/nrCascadeSim/tests/bin
-  - mv realizeAndSave ~/nrCascadeSim/tests/bin
-  - mv printIsotopeInfo ~/nrCascadeSim/tests/bin
-  - mv fetchYieldModel ~/nrCascadeSim/tests/bin
-  - cd ~/nrCascadeSim/
+  - mv readLevelfile ~/build/nrCascadeSim/tests/bin
+  - mv realizeAndSave ~/build/nrCascadeSim/tests/bin
+  - mv printIsotopeInfo ~/build/nrCascadeSim/tests/bin
+  - mv fetchYieldModel ~/build/nrCascadeSim/tests/bin
+  - cd ~/build/nrCascadeSim/
 
   # activate conda environment
   - source activate piptest
