@@ -44,6 +44,7 @@ jobs:
       python: 3.7
 
 install:
+   - pwd
    - sudo chmod 777 .travis/install.sh
    - ls -lh .travis/install.sh
    - source .travis/install.sh
