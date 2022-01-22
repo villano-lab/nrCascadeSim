@@ -29,7 +29,7 @@ jobs:
       python: 3.7
     - os: linux
       dist: xenial
-      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=606
+      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=606; UPLOAD_COVERAGE="true"
       language: python
       python: 3.7
     - os: linux
