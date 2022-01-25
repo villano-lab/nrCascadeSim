@@ -9,10 +9,13 @@ project(nrCascadeSim)
 # everybody here needs root
 SET(rootFlags `root-config --cflags`)
 #trick for getting the git version in the code
-SET(gitVersion "$(shell sh -c 'git describe --abrev=4 --always')")
+execute_process (
+    COMMAND bash -c "cd ${PROJECT_SOURCE_DIR} ; git describe --abbrev=4 --always|xargs echo -n"
+    OUTPUT_VARIABLE GIT_VERSION 
+)
 message("git version: ${GIT_VERSION}")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__GIT_VERSION=\\\"${GIT_VERSION}\\\"")
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__GIT_VERSION=\\\"${GIT_VERSION}\\\"")
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__GIT_VERSION=\"\\\"${GIT_VERSION}\\\"\"")
+SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__GIT_VERSION=\"${GIT_VERSION}\"")
 # other variables
 #SET(topDir $(shell pwd))    #obsolete - we will mark this using CMake
 #SET(buildDir $(topDir)/bin) #obsolete - we will mark this using CMake
