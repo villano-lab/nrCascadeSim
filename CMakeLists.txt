@@ -120,7 +120,7 @@ add_library(cascadeProd ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h ${head
 
 add_executable(regexPlayground ${binDir}/regexPlayground.cpp)
 
-link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil)
+link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil ${ROOT_LIBRARIES})
 add_library(libncap SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp ${incDir}/isotope_info.h ${incDir}/rootUtil.h ${incDir}/edepmath.h ${incDir}/weisskopf.h ${incDir}/lindhard.h ${incDir}/cascadeProd.h)
 
 link_libraries(libncap ${ROOT_LIBRARIES})
