@@ -114,5 +114,4 @@ script:
 
 # Send coverage info to codecov
 after_success: 
-  - cd ~/build/villano-lab/nrCascadeSim
-  - if [ "$UPLOAD_COVERAGE" == "true" ]; then source .travis/uploadtocodecov.sh; fi
+  - if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.travis/uploadtocodecov.sh; fi
