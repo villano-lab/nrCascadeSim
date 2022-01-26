@@ -78,7 +78,7 @@ install:
 script:
   #make repository code (my code)
   - cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin -DUSE_GCOV=ON --enable-rpath ~/build/villano-lab/nrCascadeSim
-  - make
+  - make VERBOSE=1
   - sudo make install
   - make tests
   # Send tests to directory they were written to run from.
