@@ -43,14 +43,13 @@ message("Install prefix: ${CMAKE_INSTALL_PREFIX}")
 include_directories(${incDir})
 
 #Get linker to work for make install
-##[[
 list( APPEND CMAKE_INSTALL_RPATH ${CMAKE_LIB_PREFIX} ${ROOT_INCLUDE_DIR})
 set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
 list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_LIB_PREFIX} ${ROOT_INCLUDE_DIR}" isSystemDir)
 if("${isSystemDir}" STREQUAL "-1")
     list(APPEND CMAKE_INSTALL_RPATH "${CMAKE_LIB_PREFIX} ${ROOT_INCLUDE_DIR}")
 endif("${isSystemDir}" STREQUAL "-1")
-#]]
+
 
 #[[ no longer used
 if(NOT TEST_OUTPUT_DIR)
