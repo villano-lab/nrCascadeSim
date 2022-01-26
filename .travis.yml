@@ -92,6 +92,7 @@ script:
   - source activate piptest
 
   # test help functions
+  - otool -L `which realizeCascades`
   - realizeCascades --help
   - regexPlayground --help
 
