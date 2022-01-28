@@ -58,7 +58,7 @@ install:
    - source root/bin/thisroot.sh
    - echo "root libraries.."
    - echo `root-config --cflags --glibs`
-   - ls ~/build/villano-lab/nrCascadeSim/root/lib
+   - ls -lh ~/build/villano-lab/nrCascadeSim/root/lib
 
    # install and set up lcov
    - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
@@ -93,7 +93,6 @@ script:
   - source activate piptest
 
   # test help functions
-  - otool -L `which realizeCascades`
   - realizeCascades --help
   - regexPlayground --help
 
