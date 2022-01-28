@@ -15,7 +15,6 @@ execute_process (
 )
 message("git version: ${GIT_VERSION}")
 SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -D__GIT_VERSION=\"\\\"${GIT_VERSION}\\\"\"")
-SET(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -D__GIT_VERSION=\"${GIT_VERSION}\"")
 # other variables
 #SET(topDir $(shell pwd))    #obsolete - we will mark this using CMake
 #SET(buildDir $(topDir)/bin) #obsolete - we will mark this using CMake
@@ -30,10 +29,10 @@ SET(CMAKE_STATIC_LIBRARY_PREFIX "")
 SET(CMAKE_SHARED_LIBRARY_PREFIX "")
 #SET(libFLAG "-L. -L$(CMAKE_LIBRARY_OUTPUT_DIRECTORY)")
 if(NOT CMAKE_INSTALL_PREFIX)
-    SET(CMAKE_INSTALL_PREFIX ~/bin)
+    SET(CMAKE_INSTALL_PREFIX ~/)
 endif(NOT CMAKE_INSTALL_PREFIX)
 if(NOT CMAKE_LIB_PREFIX)
-    SET(CMAKE_LIB_PREFIX ${CMAKE_INSTALL_PREFIX}/../lib)
+    SET(CMAKE_LIB_PREFIX ${CMAKE_INSTALL_PREFIX})
 endif(NOT CMAKE_LIB_PREFIX)
 message("Install prefix: ${CMAKE_INSTALL_PREFIX}")
 #SET(LIB_INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/../lib)
@@ -41,39 +40,6 @@ message("Install prefix: ${CMAKE_INSTALL_PREFIX}")
 # SET(runScript "$(shell mkdir -p 'bin/lib')") #hopefully don't need this anymore
 # Send files to the right places
 include_directories(${incDir})
-
-#Get linker to work for make install
-list( APPEND CMAKE_INSTALL_RPATH ${CMAKE_LIB_PREFIX} ${ROOT_INCLUDE_DIR})
-set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-#list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_LIB_PREFIX} ${ROOT_INCLUDE_DIR}" isSystemDir)
-#if("${isSystemDir}" STREQUAL "-1")
-#    list(APPEND CMAKE_INSTALL_RPATH "${CMAKE_LIB_PREFIX} ${ROOT_INCLUDE_DIR}")
-#endif("${isSystemDir}" STREQUAL "-1")
-
-
-#[[ no longer used
-if(NOT TEST_OUTPUT_DIR)
-    SET(TEST_OUTPUT_DIR ${testBin})
-endif(NOT TEST_OUTPUT_DIR) #]]
-message("Tests output directory: ${TEST_OUTPUT_DIR} (Default: ${testBin})")
-
-file(GLOB sources ${srcDir}/*.cpp)
-file(GLOB headers ${incDir}/*.h)
-
-#Coverage
-if(NOT USE_GCOV)
-    SET(USE_GCOV OFF)
-endif(NOT USE_GCOV)
-message("Use GCOV? ${USE_GCOV}")
-if(USE_GCOV)
-	SET(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage")
-	SET(GCC_COVERAGE_LINK_FLAGS    "-coverage")
-	SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
- 	SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
-    message("Set up coverage flags.")
-endif(USE_GCOV)
-message("CXX Flags: ${CMAKE_CXX_FLAGS}")
-message("Linker Flags: ${CMAKE_EXE_LINKER_FLAGS}")
 
 #----------------------------------------------------------------------------
 #Find ROOT
@@ -115,6 +81,45 @@ execute_process(COMMAND bash "-c" "root-config --cflags | awk '{for(i=1; i<=NF; 
 message("C++ Standard: ${CMAKE_CXX_STANDARD}. (Detected from ROOT.)")
 
 #-----------------------------------------------------------------------------
+
+
+
+
+#Get linker to work for make install
+list( APPEND CMAKE_INSTALL_RPATH ${CMAKE_LIB_PREFIX}/lib)
+set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
+list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_LIB_PREFIX}/lib" isSystemDir)
+if("${isSystemDir}" STREQUAL "-1")
+    list(APPEND CMAKE_INSTALL_RPATH "${CMAKE_LIB_PREFIX}/lib")
+endif("${isSystemDir}" STREQUAL "-1")
+
+
+#[[ no longer used
+if(NOT TEST_OUTPUT_DIR)
+    SET(TEST_OUTPUT_DIR ${testBin})
+endif(NOT TEST_OUTPUT_DIR) #]]
+message("Tests output directory: ${TEST_OUTPUT_DIR} (Default: ${testBin})")
+
+file(GLOB sources ${srcDir}/*.cpp)
+file(GLOB headers ${incDir}/*.h)
+
+#----------------------------------------------------------------------------
+#Coverage
+if(NOT USE_GCOV)
+    SET(USE_GCOV OFF)
+endif(NOT USE_GCOV)
+message("Use GCOV? ${USE_GCOV}")
+if(USE_GCOV)
+	SET(GCC_COVERAGE_COMPILE_FLAGS "-fprofile-arcs -ftest-coverage")
+	SET(GCC_COVERAGE_LINK_FLAGS    "-coverage")
+	SET(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
+ 	SET(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} ${GCC_COVERAGE_LINK_FLAGS}")
+    message("Set up coverage flags.")
+endif(USE_GCOV)
+message("CXX Flags: ${CMAKE_CXX_FLAGS}")
+message("Linker Flags: ${CMAKE_EXE_LINKER_FLAGS}")
+
+#----------------------------------------------------------------------------
 #Main part
 
 
@@ -138,8 +143,8 @@ add_executable(printIsotopeInfo EXCLUDE_FROM_ALL ${testBin}/printIsotopeInfo.cpp
 add_executable(readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
 add_executable(realizeAndSave EXCLUDE_FROM_ALL ${testBin}/realizeAndSave.cpp ${incDir}/cascadeProd.h)
 
-install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX})
-install(TARGETS libncap LIBRARY DESTINATION ${CMAKE_LIB_PREFIX})
+install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
+install(TARGETS libncap LIBRARY DESTINATION ${CMAKE_LIB_PREFIX}/lib)
 #install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
 add_custom_target(tests 
@@ -147,7 +152,5 @@ add_custom_target(tests
 )
 
 add_custom_target(uninstall
-                COMMAND rm ${CMAKE_INSTALL_PREFIX}/realizeCascades
-                COMMAND rm ${CMAKE_INSTALL_PREFIX}/regexPlayground
-                COMMAND rm ${CMAKE_LIB_PREFIX}/libncap.so
+                COMMAND xargs rm < install_manifest.txt 
 )
