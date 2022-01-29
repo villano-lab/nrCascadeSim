@@ -59,7 +59,7 @@ get_directory_property(_vars VARIABLES)
 if (ROOT_FOUND)
     message(STATUS "Libraries for ROOT found")
     message(STATUS "Package Version: " ${ROOT_VERSION})
-    message(STATUS "Include DIRS: " ${ROOT_INCLUDE_DIR})
+    message(STATUS "Include DIRS: " ${ROOT_INCLUDE_DIRS})
 else()
     message(FATAL_ERROR "Failed to find ROOT.")
 endif()
@@ -73,7 +73,7 @@ endif()
 #Setup the ROOT include directories 
 
 #include(${ROOT_USE_FILE})
-include_directories(${ROOT_INCLUDE_DIR})
+include_directories(${ROOT_INCLUDE_DIRS})
 
 #And set the c++ standard to match whatever was used for root
 
@@ -111,7 +111,7 @@ list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_INSTALL_PREFIX}/lib"
 if("${isSystemDir}" STREQUAL "-1")
     set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 endif("${isSystemDir}" STREQUAL "-1")
-message("RPATH for Install: ${CMAKE_INSTALL RPATH}.")
+message("RPATH for Install: ${CMAKE_INSTALL_RPATH}.")
 
 
 
