@@ -44,17 +44,9 @@ include_directories(${incDir})
 #----------------------------------------------------------------------------
 #Find ROOT
 
-#list(APPEND CMAKE_PREFIX_PATH "$ENV{ROOTSYS}") //only if ROOT made with CMake
-list(APPEND CMAKE_MODULE_PATH "$ENV{ROOTSYS}/etc/cmake/")
-list(APPEND CMAKE_PREFIX_PATH "$ENV{ROOTSYS}")
-message(STATUS "CMAKE_PREFIX_PATH: " ${CMAKE_PREFIX_PATH})
-message(STATUS "CMAKE_MODULE_PATH: " ${CMAKE_PREFIX_PATH})
-#get_directory_property(_vars_before VARIABLES)
+get_directory_property(_vars_before VARIABLES)
 find_package(ROOT REQUIRED COMPONENTS RIO Net)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
-SET(ROOT_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
-SET(ROOT_LIB_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/lib)
-include_directories(${ROOT_INCLUDE_DIRS})
+#SET(ROOT_LIB_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 get_directory_property(_vars VARIABLES)
 
 
@@ -62,7 +54,7 @@ if (ROOT_FOUND)
     message(STATUS "Libraries for ROOT found")
     message(STATUS "Package Version: " ${ROOT_VERSION})
     message(STATUS "Include DIRS: " ${ROOT_INCLUDE_DIRS})
-    message(STATUS "Lib DIRS: " ${ROOT_LIB_DIRS})
+    message(STATUS "Lib DIRS: " ${ROOT_LIBRARIES})
 else()
     message(FATAL_ERROR "Failed to find ROOT.")
 endif()
