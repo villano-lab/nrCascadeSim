@@ -59,6 +59,7 @@ install:
    - echo "root libraries.."
    - echo `root-config --cflags --glibs`
    - ls -lh ~/build/villano-lab/nrCascadeSim/root/lib
+   - ls -lh /Users/travis/build/villano-lab/nrCascadeSim/root/lib/libCore.so
 
    # install and set up lcov
    - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
