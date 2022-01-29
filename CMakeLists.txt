@@ -149,12 +149,15 @@ add_library(cascadeProd ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h ${head
 
 add_executable(regexPlayground ${binDir}/regexPlayground.cpp)
 
-link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil ${ROOT_LIBRARIES})
+#link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil PUBLIC ROOT::Core ROOT::RIO ROOT::Tree)
+link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil ROOT::Core ROOT::RIO ROOT::Tree)
 add_library(libncap SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp ${incDir}/isotope_info.h ${incDir}/rootUtil.h ${incDir}/edepmath.h ${incDir}/weisskopf.h ${incDir}/lindhard.h ${incDir}/cascadeProd.h)
 
-link_libraries(libncap ${ROOT_LIBRARIES})
+#link_libraries(libncap PUBLIC ROOT::Core ROOT::RIO ROOT::Tree)
 
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
+#target_link_libraries(realizeCascades PUBLIC ROOT::Core ROOT::RIO ROOT::Tree libncap)
+target_link_libraries(realizeCascades PUBLIC libncap)
 add_executable(fetchYieldModel EXCLUDE_FROM_ALL ${testBin}/fetchYieldModel.cpp)
 add_executable(printIsotopeInfo EXCLUDE_FROM_ALL ${testBin}/printIsotopeInfo.cpp)
 add_executable(readLevelfile EXCLUDE_FROM_ALL ${testBin}/readLevelfile.cpp)
