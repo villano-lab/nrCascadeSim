@@ -49,9 +49,10 @@ list(APPEND CMAKE_MODULE_PATH "$ENV{ROOTSYS}/etc/cmake/")
 list(APPEND CMAKE_PREFIX_PATH "$ENV{ROOTSYS}")
 message(STATUS "CMAKE_PREFIX_PATH: " ${CMAKE_PREFIX_PATH})
 message(STATUS "CMAKE_MODULE_PATH: " ${CMAKE_PREFIX_PATH})
-get_directory_property(_vars_before VARIABLES)
+#get_directory_property(_vars_before VARIABLES)
 find_package(ROOT REQUIRED COMPONENTS RIO Net)
-include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
+SET(ROOT_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include)
+SET(ROOT_LIB_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 include_directories(${ROOT_INCLUDE_DIRS})
 get_directory_property(_vars VARIABLES)
 
@@ -60,6 +61,7 @@ if (ROOT_FOUND)
     message(STATUS "Libraries for ROOT found")
     message(STATUS "Package Version: " ${ROOT_VERSION})
     message(STATUS "Include DIRS: " ${ROOT_INCLUDE_DIRS})
+    message(STATUS "Lib DIRS: " ${ROOT_LIB_DIRS})
 else()
     message(FATAL_ERROR "Failed to find ROOT.")
 endif()
@@ -101,6 +103,7 @@ set(CMAKE_SKIP_BUILD_RPATH FALSE)
 set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
+list( APPEND CMAKE_INSTALL_RPATH ${ROOT_LIB_DIRS})
 
 # add the automatically determined parts of the RPATH
 # which point to directories outside the build tree to the install RPATH
