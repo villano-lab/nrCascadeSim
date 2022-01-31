@@ -50,6 +50,8 @@ install:
    - source .travis/install.sh
    
    #diagnostic
+   - git --version
+   #diagnostic
    - git describe --abbrev=4 --always
    - echo "installing..."
    - echo $ROOTDIST
