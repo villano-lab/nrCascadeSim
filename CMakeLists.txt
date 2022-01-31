@@ -89,7 +89,7 @@ message("C++ Standard: ${CMAKE_CXX_STANDARD}. (Detected from ROOT.)")
 #endif("${isSystemDir}" STREQUAL "-1")
 
 # use, i.e. don't skip the full RPATH for the build tree
-set(CMAKE_SKIP_BUILD_RPATH TRUE)
+set(CMAKE_SKIP_BUILD_RPATH FALSE)
 
 # when building, don't use the install RPATH already
 # (but later on when installing)
