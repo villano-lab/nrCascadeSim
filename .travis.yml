@@ -48,7 +48,9 @@ install:
    - sudo chmod 777 .travis/install.sh
    - ls -lh .travis/install.sh
    - source .travis/install.sh
-
+   
+   #diagnostic
+   - git describe --abbrev=4 --always
    - echo "installing..."
    - echo $ROOTDIST
    - echo "wget command..." 
