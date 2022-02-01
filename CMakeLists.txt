@@ -46,7 +46,6 @@ include_directories(${incDir})
 
 get_directory_property(_vars_before VARIABLES)
 find_package(ROOT REQUIRED COMPONENTS RIO Net)
-#SET(ROOT_LIB_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/lib)
 get_directory_property(_vars VARIABLES)
 
 
@@ -76,17 +75,9 @@ execute_process(COMMAND bash "-c" "root-config --cflags | awk '{for(i=1; i<=NF; 
 message("C++ Standard: ${CMAKE_CXX_STANDARD}. (Detected from ROOT.)")
 
 #-----------------------------------------------------------------------------
+#RPATH shennanigans 
 
 
-
-
-#Get linker to work for make install
-#list( APPEND CMAKE_INSTALL_RPATH ${CMAKE_LIB_PREFIX}/lib)
-#set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
-#list(FIND CMAKE_PLATFORM_IMPLICIT_LINK_DIRECTORIES "${CMAKE_LIB_PREFIX}/lib" isSystemDir)
-#if("${isSystemDir}" STREQUAL "-1")
-#    list(APPEND CMAKE_INSTALL_RPATH "${CMAKE_LIB_PREFIX}/lib")
-#endif("${isSystemDir}" STREQUAL "-1")
 
 # use, i.e. don't skip the full RPATH for the build tree
 set(CMAKE_SKIP_BUILD_RPATH FALSE)
@@ -111,10 +102,6 @@ message("RPATH for Install: ${CMAKE_INSTALL_RPATH}.")
 
 
 
-#[[ no longer used
-if(NOT TEST_OUTPUT_DIR)
-    SET(TEST_OUTPUT_DIR ${testBin})
-endif(NOT TEST_OUTPUT_DIR) #]]
 message("Tests output directory: ${TEST_OUTPUT_DIR} (Default: ${testBin})")
 
 file(GLOB sources ${srcDir}/*.cpp)
@@ -149,16 +136,12 @@ add_library(cascadeProd ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h ${head
 
 add_executable(regexPlayground ${binDir}/regexPlayground.cpp)
 
-#link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil PUBLIC ROOT::Core ROOT::RIO ROOT::Tree)
 link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil ROOT::Core ROOT::RIO ROOT::Tree)
-#link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil ${ROOT_LIBRARIES})
 add_library(libncap SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp ${incDir}/isotope_info.h ${incDir}/rootUtil.h ${incDir}/edepmath.h ${incDir}/weisskopf.h ${incDir}/lindhard.h ${incDir}/cascadeProd.h)
 
-#link_libraries(libncap PUBLIC ROOT::Core ROOT::RIO ROOT::Tree)
 
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
-#target_link_libraries(realizeCascades PUBLIC ROOT::Core ROOT::RIO ROOT::Tree libncap)
-target_link_libraries(realizeCascades PUBLIC libncap)
+target_link_libraries(realizeCascades PUBLIC libncap) #libncap includes ROOT stuff I think
 add_executable(fetchYieldModel EXCLUDE_FROM_ALL ${testBin}/fetchYieldModel.cpp)
 target_link_libraries(fetchYieldModel PUBLIC libncap)
 add_executable(printIsotopeInfo EXCLUDE_FROM_ALL ${testBin}/printIsotopeInfo.cpp)

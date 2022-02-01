@@ -46,13 +46,8 @@ jobs:
 install:
    - pwd
    - sudo chmod 777 .travis/install.sh
-   - ls -lh .travis/install.sh
    - source .travis/install.sh
    
-   #diagnostic
-   - git --version
-   #diagnostic
-   - git describe --abbrev=4 --always
    - echo "installing..."
    - echo $ROOTDIST
    - echo "wget command..." 
@@ -60,10 +55,6 @@ install:
    - wget https://root.cern/download/$ROOTDIST 
    - tar -xzf $ROOTDIST 
    - source root/bin/thisroot.sh
-   - echo "root libraries.."
-   - echo `root-config --cflags --glibs`
-   - ls -lh ~/build/villano-lab/nrCascadeSim/root/lib
-   - echo $LD_LIBRARY_PATH
 
    # install and set up lcov
    - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
@@ -84,7 +75,7 @@ install:
 script:
   #make repository code (my code)
   - cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
-  - make VERBOSE=1
+  - make
   - sudo make install
   - make tests
   # Send tests to directory they were written to run from.
