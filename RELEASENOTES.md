@@ -1,5 +1,7 @@
 ## Future Releases (v1.3.3) Date XX.XX.XX 
 
+* PR #91 migrated to CMake (Issues #85, #64, #26)
+
 ## Releases (v1.3.2) Date 22.01.08 
 
 * PR #77 extended testing to more input files (Issue #35)
