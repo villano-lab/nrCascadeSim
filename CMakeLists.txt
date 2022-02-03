@@ -88,6 +88,7 @@ set(CMAKE_BUILD_WITH_INSTALL_RPATH FALSE)
 
 set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 list( APPEND CMAKE_INSTALL_RPATH ${ROOT_LIB_DIRS})
+set(RPATH "${CMAKE_BINARY_DIR}/lib")
 
 # add the automatically determined parts of the RPATH
 # which point to directories outside the build tree to the install RPATH
@@ -99,6 +100,7 @@ if("${isSystemDir}" STREQUAL "-1")
     set(CMAKE_INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/lib")
 endif("${isSystemDir}" STREQUAL "-1")
 message("RPATH for Install: ${CMAKE_INSTALL_RPATH}.")
+message("RPATH for Build: ${RPATH}.")
 
 
 
@@ -125,22 +127,26 @@ message("Linker Flags: ${CMAKE_EXE_LINKER_FLAGS}")
 
 #----------------------------------------------------------------------------
 #Main part
+## list of source files
+#set(libsrc source1.c source2.c)
+#
+## this is the "object library" target: compiles the sources only once
+#add_library(objlib OBJECT ${libsrc})
+#
+## shared libraries need PIC
+#set_property(TARGET objlib PROPERTY POSITION_INDEPENDENT_CODE 1)
+#
+## shared and static libraries built from the same object files
+#add_library(MyLib_shared SHARED $<TARGET_OBJECTS:objlib>)
+#add_library(MyLib_static STATIC $<TARGET_OBJECTS:objlib>)
 
-
-add_library(isotope_info ${srcDir}/isotope_info.cpp ${incDir}/isotope_info.h)
-add_library(rootUtil ${srcDir}/rootUtil.cpp ${incDir}/rootUtil.h)
-add_library(edepmath ${srcDir}/edepmath.cpp ${incDir}/edepmath.h)
-add_library(weisskopf ${srcDir}/weisskopf.cpp ${incDir}/weisskopf.h)
-add_library(lindhard ${srcDir}/lindhard.cpp ${incDir}/lindhard.h ${incDir}/edepmath.h)
-add_library(cascadeProd ${srcDir}/cascadeProd.cpp ${incDir}/cascadeProd.h ${headers})
+set(caplibsrc ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp  ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp)
+link_libraries(ROOT::Core ROOT::RIO ROOT::Tree)
+add_library(libncap_obj OBJECT ${caplibsrc})
+set_property(TARGET libncap_obj PROPERTY POSITION_INDEPENDENT_CODE 1)
+add_library(libncap SHARED $<TARGET_OBJECTS:libncap_obj>)
 
 add_executable(regexPlayground ${binDir}/regexPlayground.cpp)
-
-#link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil ROOT::Core ROOT::RIO ROOT::Tree ROOT::Thread ROOT::Rint ROOT::TreePlayer ROOT::ROOTVecOps ROOT::ROOTDataFrame ROOT::Postscript ROOT::Physics ROOT::Net ROOT::MultiProc ROOT::Matrix ROOT::MathCore ROOT::Imt ROOT::Hist ROOT::Graf ROOT::Graf3d ROOT::Gpad)
-link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil ROOT::Core ROOT::RIO ROOT::Tree)
-#link_libraries(weisskopf lindhard cascadeProd edepmath rootUtil ${ROOT_LIBRARIES})
-add_library(libncap SHARED ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp ${incDir}/isotope_info.h ${incDir}/rootUtil.h ${incDir}/edepmath.h ${incDir}/weisskopf.h ${incDir}/lindhard.h ${incDir}/cascadeProd.h)
-
 
 add_executable(realizeCascades ${binDir}/realizeCascades.cpp)
 target_link_libraries(realizeCascades PUBLIC libncap) #libncap includes ROOT stuff I think
