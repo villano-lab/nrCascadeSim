@@ -14,4 +14,4 @@ gpgv codecov.SHA256SUM.sig codecov.SHA256SUM
 shasum -a 256 -c codecov.SHA256SUM
 #Since we got here, uploader script checks out, so run it
 chmod +x codecov
-./codecov -t ${CODECOV_TOKEN}
+./codecov -f nrCascadeSim_coverage.info -t ${CODECOV_TOKEN}
