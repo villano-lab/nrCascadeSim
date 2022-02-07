@@ -49,7 +49,7 @@ mnt/
 out/
 coverage/
 codecov
-codecov.*
+#codecov.*
 
 #CMake files
 CMakeCache.txt
