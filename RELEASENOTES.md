@@ -1,6 +1,7 @@
 ## Future Releases (v1.3.3) Date XX.XX.XX 
 
 * PR #91 migrated to CMake (Issues #85, #64, #26)
+* PR #95 added proper coverage behavior to CMake (Issues #94, #93)
 
 ## Releases (v1.3.2) Date 22.01.08 
 
