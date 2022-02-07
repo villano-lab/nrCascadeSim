@@ -19,5 +19,5 @@ comment:
   behavior: default
   require_changes: no
 
-ifixes:
-   - "/home/travis/build/nrCascadeSim_build::"
+fixes:
+   - "/home/travis/build/nrCascadeSim_build::/home/travis/build/nrCascadeSim"
