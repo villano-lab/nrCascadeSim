@@ -20,4 +20,4 @@ comment:
   require_changes: no
 
 fixes:
-   - "/home/travis/build/nrCascadeSim_build::/home/travis/build/nrCascadeSim"
+   - "/home/travis/build/nrCascadeSim_build::/home/travis/build/villano-lab/nrCascadeSim"
