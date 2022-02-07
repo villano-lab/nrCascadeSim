@@ -104,7 +104,7 @@ script:
   - travis_wait 50 py.test
 
   #Upload coverage before relevant data is removed.
-  - cd ~/build/nrCascadeSim_build
+  #- cd ~/build/nrCascadeSim_build
   - if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.travis/uploadtocodecov.sh; fi
 
   #clean up
