@@ -22,8 +22,10 @@ def f(model,material='Si',k=0.178,q=0.00075):
             return lin.getLindhardGe_k(k)
     elif model=='Sorenson':
         return lambda Er: R68y.ySor(Er,k,0.00075)
+    elif model=='None' or model=='none' or model==None:
+        return lambda Er: 1
     else:
-        print("Unrecognized. Available models: Lindhard, Sorenson")
+        print("Unrecognized. Available models: Lindhard, Sorenson, None")
 
 #Get total deposit for the given cascade:
 def Eitot(i,l,en,en_dep,c_id,model,material='Si'): #Get yield total from a given cid and k, and choose an instance of that cascade
@@ -65,7 +67,7 @@ def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',
         print("Sorry, I didn't write that code yet... (Available method: root)")
     if resolution=='normal':
         resolution = lambda E: res(E,scalefactor)
-    elif resolution =='none':
+    elif resolution =='none' or resolution=='None' or resolution==None:
         resolution = lambda E: 0 #Define as function of E to keep code down to one line @ 81
     elif resolution == 'offset':
         if val is None:
