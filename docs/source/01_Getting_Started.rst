@@ -8,7 +8,7 @@ Installation
 
 *nrCascadeSim* is designed to run in a Unix-based system and is tested via Travis-CI_ using the
 Xenial_ (Ubuntu 16.04), Bionic_ (Ubuntu 18.04), and Focal_ (Ubuntu 20.04) distributions, all on
-x86_64 archetecture. It is also tested on Mac OSX Mojave (10.14), Catalina (10.15), and Big Sur
+x86_64 architecture. It is also tested on Mac OSX Mojave (10.14), Catalina (10.15), and Big Sur
 (11.5) via Travis-CI_. 
 
 Because of a combination of the operating systems tested and the versions of `ROOT` (see below)
