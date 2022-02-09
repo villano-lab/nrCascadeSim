@@ -127,18 +127,6 @@ message("Linker Flags: ${CMAKE_EXE_LINKER_FLAGS}")
 
 #----------------------------------------------------------------------------
 #Main part
-## list of source files
-#set(libsrc source1.c source2.c)
-#
-## this is the "object library" target: compiles the sources only once
-#add_library(objlib OBJECT ${libsrc})
-#
-## shared libraries need PIC
-#set_property(TARGET objlib PROPERTY POSITION_INDEPENDENT_CODE 1)
-#
-## shared and static libraries built from the same object files
-#add_library(MyLib_shared SHARED $<TARGET_OBJECTS:objlib>)
-#add_library(MyLib_static STATIC $<TARGET_OBJECTS:objlib>)
 
 set(caplibsrc ${srcDir}/isotope_info.cpp ${srcDir}/rootUtil.cpp ${srcDir}/edepmath.cpp  ${srcDir}/weisskopf.cpp ${srcDir}/lindhard.cpp ${srcDir}/cascadeProd.cpp)
 link_libraries(ROOT::Core ROOT::RIO ROOT::Tree)
@@ -169,4 +157,21 @@ add_custom_target(tests
 
 add_custom_target(uninstall
                 COMMAND xargs rm < install_manifest.txt 
+)
+
+#----------------------------------------------------------------------------
+#scrub target
+
+# Create OBJECT_DIR variable
+#set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/realizeCascades.dir/bin ${CMAKE_BINARY_DIR}/CMakeFiles/libncap_obj.dir/src)
+set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/realizeCascades.dir/bin)
+message("-- Object files will be output to: ${OBJECT_DIR}")
+
+# Create the gcov-clean target. This cleans the build as well as generated 
+# .gcda and .gcno files.
+add_custom_target(scrub
+COMMAND ${CMAKE_MAKE_PROGRAM} clean
+COMMAND rm -f ${OBJECT_DIR}/*.gcno
+COMMAND rm -f ${OBJECT_DIR}/*.gcda
+WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
