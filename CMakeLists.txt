@@ -164,14 +164,30 @@ add_custom_target(uninstall
 
 # Create OBJECT_DIR variable
 #set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/realizeCascades.dir/bin ${CMAKE_BINARY_DIR}/CMakeFiles/libncap_obj.dir/src)
-set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/realizeCascades.dir/bin)
+set(OBJECT_DIR ${CMAKE_BINARY_DIR}/CMakeFiles/realizeCascades.dir/bin/*.gcda
+${CMAKE_BINARY_DIR}/CMakeFiles/realizeCascades.dir/bin/*.gcno
+${CMAKE_BINARY_DIR}/CMakeFiles/regexPlayground.dir/bin/*.gcda
+${CMAKE_BINARY_DIR}/CMakeFiles/regexPlayground.dir/bin/*.gcno
+${CMAKE_BINARY_DIR}/CMakeFiles/fetchYieldModel.dir/tests/bin/*.gcda
+${CMAKE_BINARY_DIR}/CMakeFiles/fetchYieldModel.dir/tests/bin/*.gcno
+${CMAKE_BINARY_DIR}/CMakeFiles/printIsotopeInfo.dir/tests/bin/*.gcda
+${CMAKE_BINARY_DIR}/CMakeFiles/printIsotopeInfo.dir/tests/bin/*.gcno
+${CMAKE_BINARY_DIR}/CMakeFiles/readLevelfile.dir/tests/bin/*.gcda
+${CMAKE_BINARY_DIR}/CMakeFiles/readLevelfile.dir/tests/bin/*.gcno
+${CMAKE_BINARY_DIR}/CMakeFiles/realizeAndSave.dir/tests/bin/*.gcda
+${CMAKE_BINARY_DIR}/CMakeFiles/realizeAndSave.dir/tests/bin/*.gcno
+${CMAKE_BINARY_DIR}/CMakeFiles/libncap_obj.dir/src/*.gcda
+${CMAKE_BINARY_DIR}/CMakeFiles/libncap_obj.dir/src/*.gcno
+)
 message("-- Object files will be output to: ${OBJECT_DIR}")
 
 # Create the gcov-clean target. This cleans the build as well as generated 
 # .gcda and .gcno files.
 add_custom_target(scrub
 COMMAND ${CMAKE_MAKE_PROGRAM} clean
-COMMAND rm -f ${OBJECT_DIR}/*.gcno
-COMMAND rm -f ${OBJECT_DIR}/*.gcda
+#COMMAND rm -f ${OBJECT_DIR}/*.gcno
+#COMMAND rm -f ${OBJECT_DIR}/*.gcda
+COMMAND rm -f ${OBJECT_DIR}
+
 WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
 )
