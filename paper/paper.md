@@ -107,7 +107,7 @@ individual cascade, total kinetic energy deposits, and ionization energy deposit
 
 # State of the Field
 
-While there are tools, such as the GEANT4 [@Geant4] framework, that allow users to simulate
+While there are tools, such as the open-source GEANT4 [@Geant4] framework, that allow users to simulate
 neutron capture, existing tools are not built specifically for neutron capture-based nuclear
 recoils as `nrCascadeSim` is and therefore use some underlying assumptions that `nrCascadeSim`
 does not. The main approximation often used in GEANT4 that we avoid in `nrCascadeSim` is that all

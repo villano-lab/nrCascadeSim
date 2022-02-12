@@ -6,7 +6,7 @@
 Geant4
 ------
 
-`Geant4  <https://geant4.web.cern.ch/>`_ is a widely popular toolkit for particle physics. 
+`Geant4  <https://geant4.web.cern.ch/>`_ is a widely popular open-source toolkit for particle physics. 
 Unlike nrCascadeSim, Geant4 is a large toolkit with a broad range of applications 
 and less focus on any one particular application. 
 

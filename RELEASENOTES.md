@@ -3,6 +3,7 @@
 * PR #91 migrated to CMake (Issues #85, #64, #26)
 * PR #95 added proper coverage behavior to CMake (Issues #94, #93, #92)
 * PR #99 remove .gcda and .gcno files on `make scrub` (Issues #84)
+* PR #98 Include Geant4 comparison in readthedocs and example-usecases/ (Issues #86, #75)
 
 ## Release (v1.3.3) Date 22.02.11
 
