@@ -21,21 +21,6 @@ structures are prototyped below:
 .. doxygenstruct:: cri
    :members:
 
-There are then the functions related to allocating or freeing the memory associated with those
-structures (several of them are pointer-based):
-
-.. doxygenfunction:: freecli 
-   :project: nrCascadeSim
-
-.. doxygenfunction:: freecliarray
-   :project: nrCascadeSim
-
-.. doxygenfunction:: freecri 
-   :project: nrCascadeSim
-
-.. doxygenfunction:: freecriarray 
-   :project: nrCascadeSim
-
 There are also some utility functions that are used for reading the cascade input files, and they
 are prototyped below. 
 

@@ -29,7 +29,7 @@ jobs:
       python: 3.7
     - os: linux
       dist: xenial
-      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=606
+      env:  ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=606; UPLOAD_COVERAGE="true"
       language: python
       python: 3.7
     - os: linux
@@ -44,10 +44,10 @@ jobs:
       python: 3.7
 
 install:
+   - pwd
    - sudo chmod 777 .travis/install.sh
-   - ls -lh .travis/install.sh
    - source .travis/install.sh
-
+   
    - echo "installing..."
    - echo $ROOTDIST
    - echo "wget command..." 
@@ -55,8 +55,6 @@ install:
    - wget https://root.cern/download/$ROOTDIST 
    - tar -xzf $ROOTDIST 
    - source root/bin/thisroot.sh
-   - echo "root libraries.."
-   - echo `root-config --cflags --glibs`
 
    # install and set up lcov
    - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
@@ -70,11 +68,22 @@ install:
    - sudo chmod 777 tests/test_realizeCascades.sh
    - sudo chmod 777 get_checksums.sh
 
+   # set up build dir
+   - mkdir ~/build/nrCascadeSim_build
+   - cd ~/build/nrCascadeSim_build
+
 script:
   #make repository code (my code)
+  - cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
   - make
   - sudo make install
   - make tests
+  # Send tests to directory they were written to run from.
+  - mv readLevelfile ~/build/villano-lab/nrCascadeSim/tests/bin
+  - mv realizeAndSave ~/build/villano-lab/nrCascadeSim/tests/bin
+  - mv printIsotopeInfo ~/build/villano-lab/nrCascadeSim/tests/bin
+  - mv fetchYieldModel ~/build/villano-lab/nrCascadeSim/tests/bin
+  - cd ~/build/villano-lab/nrCascadeSim/
 
   # activate conda environment
   - source activate piptest
@@ -92,15 +101,13 @@ script:
 
   #need conda environment
   - cd ../example-usecase
-  - realizeCascades -n 10000 -o data/Gefile.root ../levelfiles/allge_ngam_WSlow.txt
-  - realizeCascades -n 10000 -o data/Nefile.root ../levelfiles/20ne_ngam.txt
-  - realizeCascades -n 10000 -o data/Arfile.root ../levelfiles/40ar_ngam.txt
   - travis_wait 50 py.test
 
-  #clean up
-  - cd ../
-  - sudo make clean
+  #Upload coverage before relevant data is removed.
+  - cd ~/build/villano-lab/nrCascadeSim
+  - if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.travis/uploadtocodecov.sh; fi
 
-# Send coverage info to codecov
-after_success: 
-  - if [ "$UPLOAD_COVERAGE" == "true" ]; then source .travis/uploadtocodecov.sh; fi
+  #clean up
+  - cd ~/build/nrCascadeSim_build
+  - make clean
+  - sudo make uninstall

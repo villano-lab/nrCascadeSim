@@ -57,9 +57,10 @@ If you want to contribute to `nrCascadeSim`, please check out the `contribution 
    03_Doxy_Libraries
    04_Examples
    05_Documentation
-   06_Citations
-   07_Release_History
-   08_License
-   09_Contact
+   06_Geant4_Comparison
+   07_Citations
+   08_Release_History
+   09_License
+   10_Contact
    References
 

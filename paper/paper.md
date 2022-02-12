@@ -41,7 +41,7 @@ then the state will eventually change so that it is zero.  This can happen eithe
 in multiple steps &mdash; that is, the captured neutron may go from its state to the ground state,
 or it may go to another state with lower energy that is not the ground state (provided that one
 exists).  The cascade refers to the particular "path" of energy levels that a captured neutron
-takes to get to the ground state from the neutron separation energy. Currently the code assumes
+takes to get to the ground state from the neutron separation energy. Currently, the code assumes
 that the neutrons that enter the nuclear system have zero kinetic energy; this is a good
 approximation for thermal neutrons because 0.0254\ eV (the average kinetic energy of a thermal
 neutron) is small compared to most nuclear recoil energy scales, making it negligible.
@@ -107,13 +107,22 @@ individual cascade, total kinetic energy deposits, and ionization energy deposit
 
 # State of the Field
 
-While there are tools, such as the GEANT4 [@Geant4] framework, that allow users to simulate
+While there are tools, such as the open-source GEANT4 [@Geant4] framework, that allow users to simulate
 neutron capture, existing tools are not built specifically for neutron capture-based nuclear
 recoils as `nrCascadeSim` is and therefore use some underlying assumptions that `nrCascadeSim`
 does not. The main approximation often used in GEANT4 that we avoid in `nrCascadeSim` is that all
 recoils decay directly to the ground state. While this works for some applications, it is
 necessary to be more precise when an accurate spectrum of neutron capture-based recoils is needed
-for analyses such as calibration or background subtraction.
+for analyses such as calibration or background subtraction. Figure \ref{G4comp} shows a
+comparison for the energy deposits produced by Geant4 for natural silicon compared with those
+produced by `nrCascadeSim`. The figure does not include any instrumentation resolution and shows a
+highly prominent peak around 1.25 keV recoil energy (coming from capture on $^{29}$Si directly to
+the ground state) whereas the `nrCascadeSim` shows another direct-to-ground contribution (from
+capture on $^{28}$Si) at around 1.0 keV recoil energy and generally far more "spread out" recoils
+coming from two- or more step cascades. 
+
+![An overlaid histogram showing how the Geant4 `v10.7.3` energy deposits compare with those from
+`nrCascadeSim` for natural silicon. \label{G4comp}](Silicon_comparison.pdf)
 
 Recently, the power of the neutron capture-induced events has been acknowledged in the
 CE$\mathrm{\nu}$NS field [@crab]. That initial study, however, used the FIFRELIN code
