@@ -122,7 +122,7 @@ capture on $^{28}$Si) at around 1.0 keV recoil energy and generally far more "sp
 coming from two- or more step cascades. 
 
 ![An overlaid histogram showing how the Geant4 `v10.7.3` energy deposits compare with those from
-`nrCascadeSim` for natural silicon. \label{G4comp}](Silicon_comparison.pdf =500x)
+`nrCascadeSim` for natural silicon. \label{G4comp}](Silicon_comparison.pdf)
 
 Recently, the power of the neutron capture-induced events has been acknowledged in the
 CE$\mathrm{\nu}$NS field [@crab]. That initial study, however, used the FIFRELIN code
