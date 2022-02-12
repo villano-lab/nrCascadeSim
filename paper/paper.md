@@ -116,13 +116,13 @@ necessary to be more precise when an accurate spectrum of neutron capture-based 
 for analyses such as calibration or background subtraction. Figure \ref{G4comp} shows a
 comparison for the energy deposits produced by Geant4 for natural silicon compared with those
 produced by `nrCascadeSim`. The figure does not include any instrumentation resolution and shows a
-highly prominent peak around 1.25 keV recoil energy (coming from capture on $^{28}$Si directly to
+highly prominent peak around 1.25 keV recoil energy (coming from capture on $^{29}$Si directly to
 the ground state) whereas the `nrCascadeSim` shows another direct-to-ground contribution (from
-another isotope) at around 1.0 keV recoil energy and generally far more "spread out" recoils
+capture on $^{28}$Si) at around 1.0 keV recoil energy and generally far more "spread out" recoils
 coming from two- or more step cascades. 
 
 ![An overlaid histogram showing how the Geant4 `v10.7.3` energy deposits compare with those from
-`nrCascadeSim` for natural silicon. \label{G4comp}](Silicon_comparison.pdf)
+`nrCascadeSim` for natural silicon. \label{G4comp}](Silicon_comparison.pdf =500x)
 
 Recently, the power of the neutron capture-induced events has been acknowledged in the
 CE$\mathrm{\nu}$NS field [@crab]. That initial study, however, used the FIFRELIN code
