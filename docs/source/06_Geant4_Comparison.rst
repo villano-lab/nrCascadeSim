@@ -1,6 +1,6 @@
-==================
-State of the Field
-==================
+====================
+6. Geant4 Comparison
+====================
 
 ------
 Geant4
@@ -31,14 +31,14 @@ The energies plotted are the total energy deposits for a single event -
 if an event had multiple steps, then the energies for each step were summed before adding them to the plot.
 The histograms are weighted to show the portion of events falling in each energy bin.
 
-.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/example-usecase/plots/Silicon_Comparison.png
+.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/example-usecase/plots/Silicon_comparison.png
    :width: 500
 
-.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/example-usecase/plots/Germanium_Comparison.png
+.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/example-usecase/plots/Germanium_comparison.png
    :width: 500
 
-.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/example-usecase/plots/Neon_Comparison.png
+.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/example-usecase/plots/Neon_comparison.png
    :width: 500
 
-.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/example-usecase/plots/Argon_Comparison.png
+.. image:: https://raw.githubusercontent.com/villano-lab/nrCascadeSim/master/example-usecase/plots/Argon_comparison.png
    :width: 500
