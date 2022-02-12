@@ -1,4 +1,10 @@
-## Future Releases (v1.3.2) Date XX.XX.XX 
+## Future Release (v1.4.0) Date XX.XX.XX
+
+## Release (v1.3.3) Date 22.02.11
+
+* Hotfix 1.3.3 to add Geant4 comparison plots to master so docs render correctly before next release. 
+
+## Release (v1.3.2) Date 22.01.08 
 
 * PR #77 extended testing to more input files (Issue #35)
 * PR #78 updated documentation to systematicall include units of all parameters (Issue #74)
