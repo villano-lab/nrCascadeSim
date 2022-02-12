@@ -14,8 +14,8 @@ and less focus on any one particular application.
 Comparison
 ^^^^^^^^^^
 
-*Note: You can find the full code for this comparison in 
-`example-usecase/Z_G4Comparison.ipynb <https://github.com/villano-lab/nrCascadeSim/blob/master/example-usecase/Z_G4Comparison.ipynb>`_.*
+*Note: You can find the full code for this comparison in:*
+`example-usecase/Z_G4Comparison.ipynb <https://github.com/villano-lab/nrCascadeSim/blob/master/example-usecase/Z_G4Comparison.ipynb>`_.
 
 Most notably, Geant4 seems to be much more likely to generate single-step events, 
 in which all of the energy from the event is deposited at once, than nrCascadeSim.
