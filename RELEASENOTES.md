@@ -1,4 +1,6 @@
-## Future Release (v1.4.0) Date XX.XX.XX
+## Future Release (v1.4.1) Date XX.XX.XX
+
+## Release (v1.4.0) Date 22.02.12
 
 * PR #91 migrated to CMake (Issues #85, #64, #26)
 * PR #95 added proper coverage behavior to CMake (Issues #94, #93, #92)
