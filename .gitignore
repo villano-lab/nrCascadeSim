@@ -61,4 +61,4 @@ bin/cmake_install.cmake
 
 #other stuff
 tests/inputfile.txt
-
+log.txt

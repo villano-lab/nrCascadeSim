@@ -2,6 +2,7 @@ This directory contains scripts that you may find useful.
 
 ## Scripts
 `scale.sh` - Multiply [something] by a factor.  
+`csv2db.py` - Pull information from [Nudat](https://www.nndc.bnl.gov/nudat3/)'s `nndc.csv` and put it into a sqlite3 database file `isotopes.db`.
 
 ## Example Commands
 `combinecommand.txt` - Combine two levelfiles in an organized way without duplicates. (I think - Though I only see one file being called here?)  

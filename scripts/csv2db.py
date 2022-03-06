@@ -19,7 +19,7 @@ elements = [
 ]
 
 #Set up command
-command = "INSERT INTO Isotopes (Name, Element, Z, N, A, Separation) \nVALUES\n"
+command = "INSERT INTO Isotopes (Name, Element, Z, N, A, Delta, Separation) \nVALUES\n"
 for idx,row in csv.iterrows():
 	z = row["z"]
 	n = row["n"]
@@ -29,7 +29,10 @@ for idx,row in csv.iterrows():
 	separation = str(row["neutronSeparationEnergy(keV)"]).split()[0]
 	if separation == "nan":
 		separation = "NULL"
-	command += ("\t ('"+name+"', '"+element+"', "+str(z)+", "+str(row["n"])+", "+astr+", "+separation+"),\n")
+	delta = str(float(str(row["massExcess(keV)"]).split()[0])/1000)
+	if delta == "nan":
+		delta = "NULL"
+	command += ("\t ('"+name+"', '"+element+"', "+str(z)+", "+str(row["n"])+", "+astr+", "+delta+", "+separation+"),\n")
 command = command[:-2] + ";"#Change last comma to semicolon, stripping the " \n" along the way.
 
 #Print a preview of the formatted command before running.
@@ -47,5 +50,6 @@ print(command, file=open("log.txt", "w"))
 print("\nRunning command...")
 cur.execute(command)
 db.commit()
+print("Committed!")
 
 db.close()
