@@ -69,6 +69,17 @@ On Linux machines, you can build `gcc` via the `apt-get` manager::
 
 If, for some reason, you need to use a C++ standard older than 11, please use nrCascadeSim v1.2.2 or older.
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+2. `CMake <https://cmake.org/>`_
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+.. To install *gcc* on a Mac, we can use `homebrew <https://brew.sh/>`_ ::
+
+..	brew install cmake
+
+On Linux machines, you can build `cmake` via the `apt-get` manager::
+
+	sudo apt-get install cmake
 
 ^^^^^^^^^^^^^^^^
 Download & Build
