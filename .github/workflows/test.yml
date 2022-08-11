@@ -106,9 +106,8 @@ jobs:
         run: |
           tar -xzf root_v*
           source root/bin/thisroot.sh
-
       - name: set up lcov
-        run:
+        run: |
           wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
           tar -zxvf lcov-1.14.tar.gz
           cd lcov-1.14
