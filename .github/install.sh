@@ -1,5 +1,6 @@
 #!/bin/bash
 
+echo "OS Type: $OSTYPE."
 if [  "$OSTYPE" == "darwin"* ]; then
 
     # Install some custom requirements on macOS
