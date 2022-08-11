@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ $TRAVIS_OS_NAME = 'osx' ]; then
+if [  "$OSTYPE" == "darwin"* ]; then
 
     # Install some custom requirements on macOS
     # e.g. brew install pyenv-virtualenv
