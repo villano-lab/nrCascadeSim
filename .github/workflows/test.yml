@@ -119,7 +119,7 @@ jobs:
           sudo chmod 777 tests/test_realizeCascades.sh
           sudo chmod 777 get_checksums.sh
 
-          mkdir ~/build/nrCascadeSim_build
+          mkdir -P ~/build/nrCascadeSim_build
           cd ~/build/nrCascadeSim_build
       - name: make
         run: |
