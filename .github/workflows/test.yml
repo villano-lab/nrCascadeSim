@@ -14,6 +14,7 @@ jobs:
             rootdist: '6.20.00'
           - os: ubuntu-20
             rootdist: '6.20.00'
+        
     steps:
       - uses: actions/checkout@v2
       - name: Initial Setup
@@ -119,7 +120,7 @@ jobs:
           sudo chmod 777 tests/test_realizeCascades.sh
           sudo chmod 777 get_checksums.sh
 
-          mkdir -P ~/build/nrCascadeSim_build
+          mkdir -p ~/build/nrCascadeSim_build
           cd ~/build/nrCascadeSim_build
       - name: make
         run: |
