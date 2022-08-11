@@ -15,6 +15,7 @@ jobs:
           - os: ubuntu-20
             rootdist: '6.20.00'
     steps:
+      - uses: actions/checkout@v2
       - name: "Set env for MacOS 10 ROOT 6.20"
         if: (matrix.os == 'macos-10.15') && (matrix.rootdist == '6.20.00')
         env: 
