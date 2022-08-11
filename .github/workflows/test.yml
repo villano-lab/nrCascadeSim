@@ -6,8 +6,8 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        fail-fast: false
         rootdist: ['6.20.00', '6.24.06']
         os: [macos-10.15, macos-11, ubuntu-18, ubuntu-16, ubuntu-20]
         exclude: 
