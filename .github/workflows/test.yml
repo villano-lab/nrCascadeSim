@@ -66,6 +66,7 @@ jobs:
       - name: run tests
         run: |
           pwd
+          ls -a
           sudo chmod 777 .github/install.sh
           source .github/install.sh
 
