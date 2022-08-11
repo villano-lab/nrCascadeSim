@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "OS Type: $OSTYPE."
-if [  "$OSTYPE" == "darwin"* ]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Install some custom requirements on macOS
     # e.g. brew install pyenv-virtualenv
