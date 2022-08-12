@@ -61,6 +61,8 @@ jobs:
           sudo chmod 777 get_checksums.sh
 
           mkdir ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
+
+          conda init bash
       - name: Install lcov
         run: |
           wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
@@ -88,7 +90,7 @@ jobs:
         run: |
           cd ~/work/nrCascadeSim/nrCascadeSim
           #activate conda environment
-          source activate piptest
+          conda activate piptest
 
           #test help functions
           realizeCascades --help
