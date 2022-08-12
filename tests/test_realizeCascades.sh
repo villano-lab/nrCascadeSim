@@ -14,13 +14,13 @@ fi
 # Check md5sum for all tested inputfiles.
 
 #Set up to generate filenames. Need to remove `.` and `/` special characters by changing them to `-`.
-echo TRAVIS_OS_NAME: ${{ matrix.os }}
-if [ "${{ matrix.os }}" == "osx" ]; then
+#echo TRAVIS_OS_NAME: ${{ matrix.os }}
+#if [ "${{ matrix.os }}" == "osx" ]; then
         #echo went into if
-        export ${{ matrix.os }}=$(echo $TRAVIS_OSX_IMAGE | sed 's/\./-/g' | sed 's/\//-/g')
+        #export ${{ matrix.os }}=$(echo $TRAVIS_OSX_IMAGE | sed 's/\./-/g' | sed 's/\//-/g')
         #echo finished sed
-fi
-echo ${{ matrix.os }}: $${{ matrix.os }}
+#fi
+echo OS: ${{ matrix.os }}
 export ROOT_VERSION=$(echo $ROOTDIST | cut -c 7-13 | sed 's/\./-/g')
 echo ROOT_VERSION: $ROOT_VERSION
 for input in Si28_ngam_all_cascades_rfmt_sorted 20ne_ngam allge_ngam_WFast allge_ngam_WSlow 40ar_ngam v3_natSi; do
