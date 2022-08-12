@@ -116,6 +116,7 @@ jobs:
         run: |
           tar -xzf root_v*
           source root/bin/thisroot.sh
+          root --version
       - name: set up lcov
         run: |
           wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
@@ -126,6 +127,8 @@ jobs:
           lcov --directory ./ --zerocounters
       - name: final setup
         run: |
+          root --version
+
           sudo chmod 777 tests/test_realizeCascades.sh
           sudo chmod 777 get_checksums.sh
 
