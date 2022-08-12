@@ -8,7 +8,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     clang --version
     brew search llvm
 
-    if [[ ${{ matrix.os }} == 'macos-11' ]]; then 
+
+    if [[ "$OSTYPE" == "darwin20" ]]; then 
         brew install llvm@12
     fi
 
