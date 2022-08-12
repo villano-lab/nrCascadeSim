@@ -133,13 +133,13 @@ jobs:
           cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
       - name: make
         run: |
-          cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
+          cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/work/nrCascadeSim/nrCascadeSim
           make
           sudo make install
           make tests
           #Send tests to directory they were written to be run from.
-          mv readLevelfile realizeAndSave printIsotopeInfo fetchYieldModel ~/build/villano-lab/nrCascadeSim/tests/bin
-          cd ~/build/villano-lab/nrCascadeSim/
+          mv readLevelfile realizeAndSave printIsotopeInfo fetchYieldModel ~/work/nrCascadeSim/nrCascadeSim/tests/bin
+          cd ~/work/nrCascadeSim/nrCascadeSim/
       - name: run tests
         run: |
           #activate conda environment
@@ -161,8 +161,8 @@ jobs:
 
       - name: upload coverage
         run: |
-          cd ~/build/villano-lab/nrCascadeSim
-          source ~/build/villano-lab/nrCascadeSim/.github/uploadtocodecov.sh
+          cd ~/work/nrCascadeSim/nrCascadeSim
+          source ~/work/nrCascadeSim/nrCascadeSim/.github/uploadtocodecov.sh
 
       - name: make clean
         run: |
