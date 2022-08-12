@@ -70,7 +70,7 @@ jobs:
           sudo make install
           cd ../
           lcov --directory ./ --zerocounters
-      - name: Install ROOT & make
+      - name: Install ROOT, make, Run Tests
         run: |
           source .github/install.sh
           echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
@@ -86,8 +86,7 @@ jobs:
           make tests
           #Send tests to directory they were written to be run from.
           mv readLevelfile realizeAndSave printIsotopeInfo fetchYieldModel ~/work/nrCascadeSim/nrCascadeSim/tests/bin
-      - name: Run Tests
-        run: |
+      
           cd ~/work/nrCascadeSim/nrCascadeSim
           #activate conda environment
           source activate piptest #I think it's actually already activated?
