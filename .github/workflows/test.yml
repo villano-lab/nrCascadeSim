@@ -72,60 +72,20 @@ jobs:
           ls -a
           sudo chmod 777 .github/install.sh
           source .github/install.sh
-      - name: "Get ROOT for MacOS 10 ROOT 6.20"
-        if: (matrix.os == 'macos-10.15') && (matrix.rootdist == '6.20.00')
+
+          sudo chmod 777 tests/test_realizeCascades.sh
+          sudo chmod 777 get_checksums.sh
+
+          mkdir ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
+      - name: Install ROOT
         run: |
-          echo $ROOTDIST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
           wget https://root.cern/download/$ROOTDIST
-      - name: "Get ROOT for MacOS 10 ROOT 6.24"
-        if: (matrix.os == 'macos-10.15') && (matrix.rootdist == '6.24.06')       
-        run: |
-          echo $ROOTDIST
-          echo "wget command: wget https://root.cern/download/$ROOTDIST"
-          wget https://root.cern/download/$ROOTDIST
-      - name: "Get ROOT for MacOS 11 ROOT 6.24"
-        if: (matrix.os == 'macos-11') && (matrix.rootdist == '6.24.06')
-        run: |
-          echo $ROOTDIST
-          echo "wget command: wget https://root.cern/download/$ROOTDIST"
-          wget https://root.cern/download/$ROOTDIST
-      - name: "Get ROOT for Ubuntu 16 ROOT 6.20"
-        if: (matrix.os == 'ubuntu-16') && (matrix.rootdist == '6.20.00')
-        run: |
-          echo $ROOTDIST
-          echo "wget command: wget https://root.cern/download/$ROOTDIST"
-          wget https://root.cern/download/$ROOTDIST
-      - name: "Get ROOT for Ubuntu 16 ROOT 6.24"
-        if: (matrix.os == 'ubuntu-16') && (matrix.rootdist == '6.24.06')
-        run: |
-          echo $ROOTDIST
-          echo "wget command: wget https://root.cern/download/$ROOTDIST"
-          wget https://root.cern/download/$ROOTDIST
-      - name: "Get ROOT for Ubuntu 18 ROOT 6.20"
-        if: (matrix.os == 'ubuntu-18') && (matrix.rootdist == '6.20.00')
-        run: |
-          echo $ROOTDIST
-          echo "wget command: wget https://root.cern/download/$ROOTDIST"
-          wget https://root.cern/download/$ROOTDIST
-      - name: "Get ROOT for Ubuntu 18 ROOT 6.24"
-        if: (matrix.os == 'ubuntu-18') && (matrix.rootdist == '6.24.06')
-        run: |
-          echo $ROOTDIST
-          echo "wget command: wget https://root.cern/download/$ROOTDIST"
-          wget https://root.cern/download/$ROOTDIST
-      - name: "Get ROOT for Ubuntu 20 ROOT 6.24"
-        if: (matrix.os == 'ubuntu-20') && (matrix.rootdist == '6.24.06')
-        run: |
-          echo $ROOTIDST
-          echo "wget command: wget https://root.cern/download/$ROOTDIST"
-          wget https://root.cern/download/$ROOTDIST
-      - name: install root
-        run: |
           tar -xzf root_v*
           source root/bin/thisroot.sh
+          echo "~/root/bin/thisroot.sh" >> .bashrc
           root --version
-      - name: set up lcov
+      - name: Install lcov
         run: |
           wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
           tar -zxvf lcov-1.14.tar.gz
@@ -133,18 +93,11 @@ jobs:
           sudo make install
           cd ../
           lcov --directory ./ --zerocounters
-      - name: final setup
-        run: |
-          echo "~/root/bin/thisroot.sh" >> .bashrc
-          root --version
-
-          sudo chmod 777 tests/test_realizeCascades.sh
-          sudo chmod 777 get_checksums.sh
-
-          mkdir ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
-          cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
       - name: make
         run: |
+          cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
+          root --version
+
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/work/nrCascadeSim/nrCascadeSim
           make
           sudo make install
