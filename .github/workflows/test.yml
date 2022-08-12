@@ -90,7 +90,7 @@ jobs:
         run: |
           cd ~/work/nrCascadeSim/nrCascadeSim
           #activate conda environment
-          conda activate piptest
+          #conda activate piptest #I think it's actually already activated?
 
           #test help functions
           realizeCascades --help
