@@ -129,8 +129,8 @@ jobs:
           sudo chmod 777 tests/test_realizeCascades.sh
           sudo chmod 777 get_checksums.sh
 
-          mkdir ~/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
-          cd ~/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
+          mkdir ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
+          cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
       - name: make
         run: |
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
