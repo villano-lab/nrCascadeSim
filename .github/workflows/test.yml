@@ -86,7 +86,7 @@ jobs:
           make tests
           #Send tests to directory they were written to be run from.
           mv readLevelfile realizeAndSave printIsotopeInfo fetchYieldModel ~/work/nrCascadeSim/nrCascadeSim/tests/bin
-      
+
           cd ~/work/nrCascadeSim/nrCascadeSim
           #activate conda environment
           source activate piptest #I think it's actually already activated?
