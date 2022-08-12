@@ -27,7 +27,7 @@ jobs:
           - BUILDLINE: 539
             rootver: '6.24.06'
             os: macos-11
-            ROOTDIST: "root_v6.24.06.macos-11-x86_64-clang120.tar.gz"
+            ROOTDIST: "root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"
           - BUILDLINE: 203
             rootver: '6.20.00'
             os: ubuntu-16
@@ -63,11 +63,12 @@ jobs:
           mkdir ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
       - name: Install ROOT
         run: |
+          pwd
           echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
           wget https://root.cern/download/${{ matrix.ROOTDIST }}
           tar -xzf root_v*
           source root/bin/thisroot.sh
-          echo "~/root/bin/thisroot.sh" >> .bashrc
+          echo "source ~/root/bin/thisroot.sh" >> ~/.bashrc
           root --version
       - name: Install lcov
         run: |
