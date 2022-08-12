@@ -24,11 +24,11 @@ echo OS: ${{ matrix.os }}
 export ROOT_VERSION=$(echo $ROOTDIST | cut -c 7-13 | sed 's/\./-/g')
 echo ROOT_VERSION: $ROOT_VERSION
 for input in Si28_ngam_all_cascades_rfmt_sorted 20ne_ngam allge_ngam_WFast allge_ngam_WSlow 40ar_ngam v3_natSi; do
-        DYLD_LIBRARY_PATH="${ROOT_LIB}" realizeCascades -sn 100000 -o "${input}_${ROOT_VERSION}_${${{ matrix.os }}}.root?reproducible=fixedname" -d 1 ../levelfiles/$input.txt
+        DYLD_LIBRARY_PATH="${ROOT_LIB}" realizeCascades -sn 100000 -o "${input}_${ROOT_VERSION}_${{ matrix.os }}.root?reproducible=fixedname" -d 1 ../levelfiles/$input.txt
         if [[ "$OSTYPE" == "darwin"* ]]; then
-                md5 -r "${input}_${ROOT_VERSION}_${${{ matrix.os }}}.root"
+                md5 -r "${input}_${ROOT_VERSION}_${{ matrix.os }}}.root"
         else
-                md5sum "${input}_${ROOT_VERSION}_${${{ matrix.os }}}.root"
+                md5sum "${input}_${ROOT_VERSION}_${{ matrix.os }}}.root"
         fi
 done
 
