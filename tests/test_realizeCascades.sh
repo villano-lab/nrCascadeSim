@@ -28,4 +28,4 @@ for input in Si28_ngam_all_cascades_rfmt_sorted 20ne_ngam allge_ngam_WFast allge
 	md5sum "${input}_${ROOT_VERSION}_${TRAVIS_DIST}.root"
 done
 
-md5sum --check "../.travis/checksums" --ignore-missing
+md5sum --check "../.github/checksums" --ignore-missing
