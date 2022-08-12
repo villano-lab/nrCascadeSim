@@ -86,8 +86,9 @@ jobs:
           mv readLevelfile realizeAndSave printIsotopeInfo fetchYieldModel ~/work/nrCascadeSim/nrCascadeSim/tests/bin
       - name: Run Tests
         run: |
+          cd ~/work/nrCascadeSim/nrCascadeSim
           #activate conda environment
-          conda activate piptest
+          source activate piptest
 
           #test help functions
           realizeCascades --help
