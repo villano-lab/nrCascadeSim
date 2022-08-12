@@ -69,6 +69,7 @@ jobs:
           tar -xzf root_v*
           source root/bin/thisroot.sh
           echo "source ~/root/bin/thisroot.sh" >> ~/.bashrc
+          tail ~/.bashrc
           root --version
       - name: Install lcov
         run: |
@@ -81,6 +82,7 @@ jobs:
       - name: make
         run: |
           cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
+          tail ~/.bashrc
           root --version
 
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/work/nrCascadeSim/nrCascadeSim
@@ -89,7 +91,6 @@ jobs:
           make tests
           #Send tests to directory they were written to be run from.
           mv readLevelfile realizeAndSave printIsotopeInfo fetchYieldModel ~/work/nrCascadeSim/nrCascadeSim/tests/bin
-          cd ~/work/nrCascadeSim/nrCascadeSim/
       - name: Run Tests
         run: |
           #activate conda environment
@@ -100,7 +101,7 @@ jobs:
           regexPlayground --help
 
           #do the tests
-          cd tests
+          cd ~/work/nrCascadeSim/nrCascadeSim/tests
           ./test_realizeCascades.sh
           bash test_examples.sh
           regexPlayground
