@@ -5,13 +5,11 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Install some custom requirements on macOS
     # e.g. brew install pyenv-virtualenv
-    clang --version
     brew search llvm
-
-
     if [[ "$OSTYPE" == "darwin20" ]]; then 
         brew install llvm@12
     fi
+    clang --version
 
     alias md5sum="md5 -r"
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
