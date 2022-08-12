@@ -79,8 +79,8 @@ jobs:
           mkdir ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
       - name: Install ROOT
         run: |
-          echo "wget command: wget https://root.cern/download/$ROOTDIST"
-          wget https://root.cern/download/$ROOTDIST
+          echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
+          wget https://root.cern/download/${{ matrix.ROOTDIST }}
           tar -xzf root_v*
           source root/bin/thisroot.sh
           echo "~/root/bin/thisroot.sh" >> .bashrc
