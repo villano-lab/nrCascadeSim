@@ -55,7 +55,6 @@ jobs:
           pwd
           ls -a
           sudo chmod 777 .github/install.sh
-          source .github/install.sh
 
           sudo chmod 777 tests/test_realizeCascades.sh
           sudo chmod 777 get_checksums.sh
@@ -73,6 +72,7 @@ jobs:
           lcov --directory ./ --zerocounters
       - name: Install ROOT & make
         run: |
+          source .github/install.sh
           echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
           wget https://root.cern/download/${{ matrix.ROOTDIST }}
           tar -xzf root_v*
@@ -90,7 +90,7 @@ jobs:
         run: |
           cd ~/work/nrCascadeSim/nrCascadeSim
           #activate conda environment
-          #conda activate piptest #I think it's actually already activated?
+          source activate piptest #I think it's actually already activated?
 
           #test help functions
           realizeCascades --help
