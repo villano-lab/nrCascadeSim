@@ -61,16 +61,6 @@ jobs:
           sudo chmod 777 get_checksums.sh
 
           mkdir ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
-      - name: Install ROOT
-        run: |
-          pwd
-          echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
-          wget https://root.cern/download/${{ matrix.ROOTDIST }}
-          tar -xzf root_v*
-          source root/bin/thisroot.sh
-          echo "source ~/root/bin/thisroot.sh" >> ~/.bashrc
-          tail ~/.bashrc
-          root --version
       - name: Install lcov
         run: |
           wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
@@ -79,10 +69,13 @@ jobs:
           sudo make install
           cd ../
           lcov --directory ./ --zerocounters
-      - name: make
+      - name: Install ROOT & make
         run: |
+          echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
+          wget https://root.cern/download/${{ matrix.ROOTDIST }}
+          tar -xzf root_v*
+          source root/bin/thisroot.sh
           cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
-          tail ~/.bashrc
           root --version
 
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/work/nrCascadeSim/nrCascadeSim
