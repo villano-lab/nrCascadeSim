@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         rootdist: ['6.20.00', '6.24.06']
         os: [macos-10.15, macos-11, ubuntu-18, ubuntu-16, ubuntu-20]
@@ -39,7 +39,31 @@ jobs:
             os: ubuntu-18
           - BUILDLINE: 740
             rootdist: '6.24.06'
-            os: ubutu-20
+            os: ubuntu-20
+          - ROOTDIST: "root_v6.20.00.macosx64-10.15-clang110.tar.gz"
+            rootdist: '6.20.00'
+            os: macos-10.15
+          - ROOTDIST: "root_v6.24.06.macosx64-10.15-clang110.tar.gz"
+            rootdist: '6.24.06'
+            os: macos-10.15
+          - ROOTDIST: "root_v6.24.06.macos-11-x86_64-clang120.tar.gz"
+            rootdist: '6.24.06'
+            os: macos-11
+          - ROOTDIST: "root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"
+            rootdist: '6.20.00'
+            os: ubuntu-16
+          - ROOTDIST: "root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"
+            rootdist: '6.24.06'
+            os: ubuntu-16
+          - ROOTDIST: "root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"
+            rootdist: '6.20.00'
+            os: ubuntu-18
+          - ROOTDIST: "root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz"
+            rootdist: '6.24.06'
+            os: ubuntu-18
+          - ROOTDIST: "root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz"
+            rootdist: '6.24.06'
+            os: ubuntu-20
     steps:
       - uses: actions/checkout@v2
       - name: Initial Setup
@@ -50,64 +74,48 @@ jobs:
           source .github/install.sh
       - name: "Get ROOT for MacOS 10 ROOT 6.20"
         if: (matrix.os == 'macos-10.15') && (matrix.rootdist == '6.20.00')
-        env: 
-          ROOTDIST: "root_v6.20.00.macosx64-10.15-clang110.tar.gz"
         run: |
           echo $ROOTDIST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
           wget https://root.cern/download/$ROOTDIST
       - name: "Get ROOT for MacOS 10 ROOT 6.24"
-        if: (matrix.os == 'macos-10.15') && (matrix.rootdist == '6.24.06')
-        env:
-          ROOTDIST: "root_v6.20.00.macosx64-10.15-clang110.tar.gz"
+        if: (matrix.os == 'macos-10.15') && (matrix.rootdist == '6.24.06')       
         run: |
           echo $ROOTDIST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
           wget https://root.cern/download/$ROOTDIST
       - name: "Get ROOT for MacOS 11 ROOT 6.24"
         if: (matrix.os == 'macos-11') && (matrix.rootdist == '6.24.06')
-        env:
-          ROOTDIST: "root_v6.24.06.macos-11-x86_64-clang120.tar.gz"
         run: |
           echo $ROOTDIST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
           wget https://root.cern/download/$ROOTDIST
       - name: "Get ROOT for Ubuntu 16 ROOT 6.20"
         if: (matrix.os == 'ubuntu-16') && (matrix.rootdist == '6.20.00')
-        env:
-          ROOTDIST: "root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"
         run: |
           echo $ROOTDIST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
           wget https://root.cern/download/$ROOTDIST
       - name: "Get ROOT for Ubuntu 16 ROOT 6.24"
         if: (matrix.os == 'ubuntu-16') && (matrix.rootdist == '6.24.06')
-        env:
-          ROOTDIST: "root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"
         run: |
           echo $ROOTDIST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
           wget https://root.cern/download/$ROOTDIST
       - name: "Get ROOT for Ubuntu 18 ROOT 6.20"
         if: (matrix.os == 'ubuntu-18') && (matrix.rootdist == '6.20.00')
-        env: 
-          ROOTDIST: "root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"
         run: |
           echo $ROOTDIST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
           wget https://root.cern/download/$ROOTDIST
       - name: "Get ROOT for Ubuntu 18 ROOT 6.24"
         if: (matrix.os == 'ubuntu-18') && (matrix.rootdist == '6.24.06')
-        env:
-          ROOTDIST: "root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz"
         run: |
           echo $ROOTDIST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
           wget https://root.cern/download/$ROOTDIST
       - name: "Get ROOT for Ubuntu 20 ROOT 6.24"
         if: (matrix.os == 'ubuntu-20') && (matrix.rootdist == '6.24.06')
-        env:
-          ROOTDIST: "root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz"
         run: |
           echo $ROOTIDST
           echo "wget command: wget https://root.cern/download/$ROOTDIST"
@@ -127,6 +135,7 @@ jobs:
           lcov --directory ./ --zerocounters
       - name: final setup
         run: |
+          echo "~/root/bin/thisroot.sh" >> .bashrc
           root --version
 
           sudo chmod 777 tests/test_realizeCascades.sh
