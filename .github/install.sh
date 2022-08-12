@@ -5,6 +5,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Install some custom requirements on macOS
     # e.g. brew install pyenv-virtualenv
+    clang --version
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
     bash ~/miniconda.sh -b -p $HOME/miniconda
     export PATH="$HOME/miniconda/bin:$PATH"
