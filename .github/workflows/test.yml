@@ -43,7 +43,7 @@ jobs:
           - ROOTDIST: "root_v6.20.00.macos-10.15-x86_64-clang110.tar.gz"
             rootver: '6.20.00'
             os: macos-10.15
-          - ROOTDIST: "root_v6.24.06.macos-10.15-x86_64-clang110.tar.gz"
+          - ROOTDIST: "root_v6.24.06.macos-10.15-x86_64-clang120.tar.gz"
             rootver: '6.24.06'
             os: macos-10.15
           - ROOTDIST: "root_v6.24.06.macos-11-x86_64-clang120.tar.gz"
@@ -105,7 +105,7 @@ jobs:
           #Send tests to directory they were written to be run from.
           mv readLevelfile realizeAndSave printIsotopeInfo fetchYieldModel ~/work/nrCascadeSim/nrCascadeSim/tests/bin
           cd ~/work/nrCascadeSim/nrCascadeSim/
-      - name: run tests
+      - name: Run Tests
         run: |
           #activate conda environment
           source activate piptest
@@ -124,13 +124,13 @@ jobs:
           cd ../example-usecase
           pytest
 
-      - name: upload coverage
+      - name: Upload Coverage
         run: |
           cd ~/work/nrCascadeSim/nrCascadeSim
           source ~/work/nrCascadeSim/nrCascadeSim/.github/uploadtocodecov.sh
 
       - name: make clean
         run: |
-          cd ~/build/nrCascadeSim_build
+          cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
           make clean
           sudo make uninstall
