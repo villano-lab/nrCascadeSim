@@ -29,8 +29,4 @@ for input in Si28_ngam_all_cascades_rfmt_sorted 20ne_ngam allge_ngam_WFast allge
         md5sum "${input}_${ROOT_VERSION}_$MATRIX_OS.root"
 done
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-        md5 -r --check "../.github/checksums" --ignore-missing
-else
-        md5sum --check "../.github/checksums" --ignore-missing
-fi
+md5sum --check "../.github/checksums" --ignore-missing
