@@ -5,7 +5,11 @@
 lcov --directory ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build/ --capture --output-file nrCascadeSim_coverage.info
 genhtml nrCascadeSim_coverage.info
 #Download the main uploader script
-curl -Os https://uploader.codecov.io/latest/linux/codecov
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    curl -Os https://uploader.codecov.io/latest/macos/codecov
+else
+    curl -Os https://uploader.codecov.io/latest/linux/codecov
+fi
 #Check the uploader script
 curl https://keybase.io/codecovsecurity/pgp_keys.asc | gpg --no-default-keyring --keyring trustedkeys.gpg --import
 curl -Os https://uploader.codecov.io/latest/linux/codecov.SHA256SUM
