@@ -10,9 +10,14 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         sw_vers
         brew install llvm@12
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
-        #sudo rm -rf /Library/Developer/CommandLineTools
-        #xcode-select --install
-        xcode-select -p
+        export LDFLAGS="-L/usr/local/opt/llvm@12/lib"
+        export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
+        sudo rm -rf /Library/Developer/CommandLineTools
+        xcode-select --install
+        while [ xcode-select -p == "" ]
+        do
+            wait 1
+        done
         xcode-select -p | ls
         ls /Applications/Xcode_13.2.1.app/Contents/Developer
         tree /Library/Developer/CommandLineTools/SDKs/Macosx12.1.sdk
