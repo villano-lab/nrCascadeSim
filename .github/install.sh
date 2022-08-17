@@ -5,7 +5,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Install some custom requirements on macOS
     # e.g. brew install pyenv-virtualenv
-    brew search llvm
+    brew install tree
     if [[ "$OSTYPE" == "darwin20" ]]; then 
         sw_vers
         brew install llvm@12
