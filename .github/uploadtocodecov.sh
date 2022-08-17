@@ -2,7 +2,7 @@
 #Haha! This needs a key you do not have! So only I can use it.
 
 #Compile the info
-lcov --directory ~/nrCascadeSim/nrCascadeSim/nrCascadeSim_build/ --capture --output-file nrCascadeSim_coverage.info
+lcov --directory ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build/ --capture --output-file nrCascadeSim_coverage.info
 genhtml nrCascadeSim_coverage.info
 #Download the main uploader script
 curl -Os https://uploader.codecov.io/latest/linux/codecov

@@ -136,8 +136,8 @@ db2f34331f1562aab29d2017dee1d046  v3_cross_sections_and_abundance_6.20.00_xenial
 f00eb560e4e4f3c9e9184701bb66ffcd  v3_cross_sections_and_abundance_scaling_6.20.00_xenial.root
 460fc441b7c172928072a97caf743f95  v3_natSi_6.20.00_xenial.root
 ##### Linux Ubuntu ubuntu-18.04
-ab5fbbba1d45df41a3f65560a8e970f8  20ne_ngam_6.20.00_ubuntu-18.04.root
-f89e4d0d53ee097a46b752aaf80378ea  40ar_ngam_6.20.00_ubuntu-18.04.root
+e995404e71bf53a94608a3ee86904887  20ne_ngam_6.20.00_ubuntu-18.04.root
+039f3cad710ee5b33488eb247b696201  40ar_ngam_6.20.00_ubuntu-18.04.root
 ec2560dac09d2438376ea74fa24f0023  70ge_ngam_6.20.00_ubuntu-18.04.root
 4b2827331cb0ef5a10ccc82235b7f1dd  72ge_ngam_6.20.00_ubuntu-18.04.root
 76d1120fe9b323d9acbfa557d8faec63  73ge_ngam_6.20.00_ubuntu-18.04.root
@@ -151,9 +151,9 @@ ec8b36bc7f68274b49b377c474764e4b  G4_72ge_6.20.00_ubuntu-18.04.root
 12a0187e30347e038bf3760a0039444c  G4_73ge_6.20.00_ubuntu-18.04.root
 486b2ee2e92219be17534b4bbbef6ab5  G4_74ge_6.20.00_ubuntu-18.04.root
 9f9c134e039c9e84428df6c70f5f36cb  G4_76ge_6.20.00_ubuntu-18.04.root
-65d019c17a7631d74717d975039d1bf6  Si28_ngam_all_cascades_rfmt_sorted_6.20.00_ubuntu-18.04.root
-27c7344ace1ce8460094a67ead2a6f9a  allge_ngam_WFast_6.20.00_ubuntu-18.04.root
-fd16bbc862e63b93a49cce008d32ee4c  allge_ngam_WSlow_6.20.00_ubuntu-18.04.root
+871fb309ea7715ea93ad9b1476b2a8a6  Si28_ngam_all_cascades_rfmt_sorted_6.20.00_ubuntu-18.04.root
+0a93351b705a345493f802971089f932  allge_ngam_WFast_6.20.00_ubuntu-18.04.root
+0c07234c6d55c137ab18e552a1990a15  allge_ngam_WSlow_6.20.00_ubuntu-18.04.root
 8b65bbf73813f7d853928d1651dff882  allge_ngam_inf_6.20.00_ubuntu-18.04.root
 f00eb560e4e4f3c9e9184701bb66ffcd  cross_sections_and_abundance_6.20.00_ubuntu-18.04.root
 f00eb560e4e4f3c9e9184701bb66ffcd  cross_sections_and_abundance_and_scaling_6.20.00_ubuntu-18.04.root
@@ -168,7 +168,7 @@ dd31c887dd0ae4ae5965755b0f447068  v3_30Si_4biggest_6.20.00_ubuntu-18.04.root
 f6b5f6aaa1f9c871c9c299ea78d0f4e1  v3_30Si_4biggest_scaled_6.20.00_ubuntu-18.04.root
 f00eb560e4e4f3c9e9184701bb66ffcd  v3_cross_sections_and_abundance_6.20.00_ubuntu-18.04.root
 f00eb560e4e4f3c9e9184701bb66ffcd  v3_cross_sections_and_abundance_scaling_6.20.00_ubuntu-18.04.root
-08e16db13270e6e3c414d7f2135da6c8  v3_natSi_6.20.00_ubuntu-18.04.root
+2362e6d6b2594ad6768cc2d13f8b339b  v3_natSi_6.20.00_ubuntu-18.04.root
 ##### Linux Ubuntu ubuntu-20.04
 #  20ne_ngam_6.20.00_ubuntu-20.04.root
 #  40ar_ngam_6.20.00_ubuntu-20.04.root

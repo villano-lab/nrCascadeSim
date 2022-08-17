@@ -10,8 +10,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         sw_vers
         brew install llvm@12
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
-        sudo rm -rf /Library/Developer/CommandLineTools
+        #sudo rm -rf /Library/Developer/CommandLineTools
         xcode-select --install
+        xcode-select -p
         xcode-select -p | ls
         ls /Library/Developer/CommandLineTools/Packages
         open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.6.pkg
