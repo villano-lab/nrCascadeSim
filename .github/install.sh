@@ -7,9 +7,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # e.g. brew install pyenv-virtualenv
     brew search llvm
     if [[ "$OSTYPE" == "darwin20" ]]; then 
+        sw_vers
         brew install llvm@12
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
-        export CONDA_BUILD_SYSROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/
     fi
     clang --version
 
