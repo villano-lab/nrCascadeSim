@@ -3,6 +3,7 @@
 
 #Compile the info
 lcov --directory ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build/ --capture --output-file nrCascadeSim_coverage.info
+head nrCascadeSim_coverage.info
 genhtml nrCascadeSim_coverage.info
 #Download the main uploader script
 if [[ "$OSTYPE" == "darwin"* ]]; then
