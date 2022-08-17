@@ -60,7 +60,10 @@ jobs:
           sudo make install
           cd ../
           lcov --directory ./ --zerocounters
-      - name: Install ROOT, make, Run Tests, Upload Coverage
+      - name: Install ROOT, make, Run Tests
+        env:
+          MATRIX_OS: ${{ matrix.os }}
+          ROOT_VERSION: ${{ matrix.rootver }}
         run: |
           source .github/install.sh
           echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
@@ -95,7 +98,10 @@ jobs:
           cd ../example-usecase
           pytest
 
+      - name: Upload Coverage
+        run: | 
           cd ~/work/nrCascadeSim/nrCascadeSim
+          chmod +r *
           source ~/work/nrCascadeSim/nrCascadeSim/.github/uploadtocodecov.sh
 
       - name: make clean
