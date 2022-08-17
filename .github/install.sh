@@ -15,7 +15,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         xcode-select -p
         xcode-select -p | ls
         ls /Applications/Xcode_13.2.1.app/Contents/Developer
-        tree /Library/Developer
+        tree /Library/Developer/CommandLineTools/SDKs/Macosx12.1.sdk
         #open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.6.pkg
     fi
     clang --version
