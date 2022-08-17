@@ -9,9 +9,9 @@ jobs:
       fail-fast: false
       matrix:
         rootver: ['6.20.00', '6.24.06']
-        os: [macos-10.15, ubuntu-18, ubuntu-16, ubuntu-20]
+        os: [macos-10.15, ubuntu-18.04, ubuntu-20.04]
         exclude:
-          - os: ubuntu-20
+          - os: ubuntu-20.04
             rootver: '6.20.00'
         include:
           - BUILDLINE: 2
@@ -22,29 +22,21 @@ jobs:
             rootver: '6.24.06'
             os: macos-10.15
             ROOTDIST: "root_v6.24.06.macos-10.15-x86_64-clang120.tar.gz"
-          #- BUILDLINE: 539
-          #  rootver: '6.27.01'
-          #  os: macos-11
-          #  ROOTDIST: "root_v6.27.01.macos-11.6-x86_64-clang120.tar.gz"
-          - BUILDLINE: 203
-            rootver: '6.20.00'
-            os: ubuntu-16
-            ROOTDIST: "root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"
-          - BUILDLINE: 606
-            rootver: '6.24.06'
-            os: ubuntu-16
-            ROOTDIST: "root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"
+          - BUILDLINE: 539
+            rootver: '6.27.01'
+            os: macos-11
+            ROOTDIST: "root_v6.27.01.macos-11.6-x86_64-clang120.tar.gz"
           - BUILDLINE: 270
             rootver: '6.20.00'
-            os: ubuntu-18
+            os: ubuntu-18.04
             ROOTDIST: "root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"
           - BUILDLINE: 573
             rootver: '6.24.06'
-            os: ubuntu-18
+            os: ubuntu-18.04
             ROOTDIST: "root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz"
           - BUILDLINE: 740
             rootver: '6.24.06'
-            os: ubuntu-20
+            os: ubuntu-20.04
             ROOTDIST: "root_v6.24.06.Linux-ubuntu20-x86_64-gcc9.3.tar.gz"
     steps:
       - uses: actions/checkout@v2
@@ -68,7 +60,7 @@ jobs:
           sudo make install
           cd ../
           lcov --directory ./ --zerocounters
-      - name: Install ROOT, make, Run Tests
+      - name: Install ROOT, make, Run Tests, Upload Coverage
         run: |
           source .github/install.sh
           echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
@@ -103,8 +95,6 @@ jobs:
           cd ../example-usecase
           pytest
 
-      - name: Upload Coverage
-        run: |
           cd ~/work/nrCascadeSim/nrCascadeSim
           source ~/work/nrCascadeSim/nrCascadeSim/.github/uploadtocodecov.sh
 
