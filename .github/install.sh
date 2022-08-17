@@ -9,6 +9,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     if [[ "$OSTYPE" == "darwin20" ]]; then 
         brew install llvm@12
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
+        export CONDA_BUILD_SYSROOT=/Library/Developer/CommandLineTools/SDKs/MacOSX11.3.sdk/
     fi
     clang --version
 
