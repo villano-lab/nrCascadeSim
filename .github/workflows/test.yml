@@ -101,7 +101,7 @@ jobs:
       - name: Upload Coverage
         run: | 
           cd ~/work/nrCascadeSim/nrCascadeSim
-          chmod +r *
+          ls
           source ~/work/nrCascadeSim/nrCascadeSim/.github/uploadtocodecov.sh
 
       - name: make clean
