@@ -11,7 +11,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         brew install llvm@12
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
         #sudo rm -rf /Library/Developer/CommandLineTools
-        xcode-select --install
+        #xcode-select --install
         xcode-select -p
         xcode-select -p | ls
         ls /Library/Developer/CommandLineTools/Packages
