@@ -10,6 +10,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         sw_vers
         brew install llvm@12
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
+        sudo rm -rf /Library/Developer/CommandLineTools
+        xcode-select --install
     fi
     clang --version
 
