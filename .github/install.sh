@@ -12,7 +12,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
         sudo rm -rf /Library/Developer/CommandLineTools
         xcode-select --install
-        open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg
+        ls /Library/Developer/CommandLineTools/Packages
+        open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.6.pkg
     fi
     clang --version
 
