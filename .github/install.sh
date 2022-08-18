@@ -15,9 +15,10 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         sudo rm -rf /Library/Developer/CommandLineTools
         export OLDXCODE="`xcode-select -p`"
         xcode-select --install
+        ps -aux | grep xcode
         while [ `xcode-select -p` == $OLDXCODE ];
         do
-            wait 1
+            #wait 1
             xcode-select -p
         done
         xcode-select -p
