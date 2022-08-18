@@ -13,15 +13,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         export LDFLAGS="-L/usr/local/opt/llvm@12/lib"
         export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
         sudo rm -rf /Library/Developer/CommandLineTools
-        xcode-select --install
         xcode-select -p
-        while [ ${xcode-select -p} == "" ];
+        xcode-select --install
+        while [ `xcode-select -p` == "" ];
         do
             wait 1
         done
+        xcode-select -p
         xcode-select -p | ls
         ls /Applications/Xcode_13.2.1.app/Contents/Developer
-        tree /Library/Developer/CommandLineTools/SDKs/Macosx12.1.sdk
+        #tree /Library/Developer/CommandLineTools/SDKs/Macosx12.1.sdk
         #open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.6.pkg
     fi
     clang --version
