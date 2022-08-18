@@ -22,7 +22,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         #export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
         xcode-select -p
         xcode-select -p | ls
-        ls /Applications/Xcode_13.2.1.app/Contents/Developer
+        ls /Library/Developer/CommandLineTools/SDKs/
         #tree /Library/Developer/CommandLineTools/SDKs/Macosx12.1.sdk
         #open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.6.pkg
     fi
@@ -35,9 +35,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     hash -r
 
     #get codecov program
-    curl -Os https://uploader.codecov.io/latest/macos/codecov
-
-    chmod +x codecov
+    #curl -Os https://uploader.codecov.io/latest/macos/codecov
+    #chmod +x codecov
 
 
     case "${TOXENV}" in
