@@ -5,18 +5,18 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Install some custom requirements on macOS
     # e.g. brew install pyenv-virtualenv
-    brew install tree
+    #brew install tree
     if [[ "$OSTYPE" == "darwin20" ]]; then 
         export OLDXCODE="`xcode-select -p`"
         sudo rm -rf /Library/Developer/CommandLineTools
         xcode-select --install
         export PROCESS="`ps aux | grep xcode | awk '{ print $2 }'`"
         sw_vers
-        brew install llvm@12
+        #brew install llvm@12
+        wait $PROCESS
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
         export LDFLAGS="-L/usr/local/opt/llvm@12/lib"
         export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
-        wait $PROCESS
         xcode-select -p
         xcode-select -p | ls
         ls /Applications/Xcode_13.2.1.app/Contents/Developer
