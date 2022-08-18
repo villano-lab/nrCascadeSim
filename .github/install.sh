@@ -14,7 +14,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
         sudo rm -rf /Library/Developer/CommandLineTools
         xcode-select --install
-        while [ xcode-select -p == "" ]
+        xcode-select -p
+        while [ ${xcode-select -p} == "" ];
         do
             wait 1
         done
