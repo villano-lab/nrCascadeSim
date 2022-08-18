@@ -13,7 +13,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         export PROCESS="`ps aux | grep xcode | awk '{ print $2 }'`"
         sw_vers
         #brew install llvm@12
-        while [ -n "`ps aux | grep xcode`" ];
+        while [ -n "`ps aux | grep xcode | grep -v grep`" ];
         do
             sleep 1;
         done
