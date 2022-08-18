@@ -22,7 +22,9 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         #export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
         #xcode-select -p
         #xcode-select -p | ls
-        ls /Library/Developer/CommandLineTools/SDKs/
+        ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/
+        ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/
+        ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/
         #tree /Library/Developer/CommandLineTools/SDKs/Macosx12.1.sdk
         #open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.6.pkg
     fi
