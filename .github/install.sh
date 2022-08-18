@@ -8,6 +8,7 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     brew install tree
     if [[ "$OSTYPE" == "darwin20" ]]; then 
         export OLDXCODE="`xcode-select -p`"
+        sudo rm -rf /Library/Developer/CommandLineTools
         xcode-select --install
         export PROCESS="`ps aux | grep xcode | awk '{ print $2 }'`"
         sw_vers
@@ -15,7 +16,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
         export LDFLAGS="-L/usr/local/opt/llvm@12/lib"
         export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
-        sudo rm -rf /Library/Developer/CommandLineTools
         wait $PROCESS
         xcode-select -p
         xcode-select -p | ls
