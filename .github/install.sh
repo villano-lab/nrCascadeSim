@@ -13,10 +13,13 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         export PROCESS="`ps aux | grep xcode | awk '{ print $2 }'`"
         sw_vers
         #brew install llvm@12
-        wait $PROCESS
-        export PATH="/usr/local/opt/llvm@12/bin:$PATH"
-        export LDFLAGS="-L/usr/local/opt/llvm@12/lib"
-        export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
+        while [ -n "`ps aux | grep xcode`" ];
+        do
+            sleep 1;
+        done
+        #export PATH="/usr/local/opt/llvm@12/bin:$PATH"
+        #export LDFLAGS="-L/usr/local/opt/llvm@12/lib"
+        #export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
         xcode-select -p
         xcode-select -p | ls
         ls /Applications/Xcode_13.2.1.app/Contents/Developer
