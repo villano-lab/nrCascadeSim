@@ -7,20 +7,16 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # e.g. brew install pyenv-virtualenv
     brew install tree
     if [[ "$OSTYPE" == "darwin20" ]]; then 
+        export OLDXCODE="`xcode-select -p`"
+        xcode-select --install
+        export PROCESS="`ps aux | grep xcode | awk '{ print $2 }'`"
         sw_vers
         brew install llvm@12
         export PATH="/usr/local/opt/llvm@12/bin:$PATH"
         export LDFLAGS="-L/usr/local/opt/llvm@12/lib"
         export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
         sudo rm -rf /Library/Developer/CommandLineTools
-        export OLDXCODE="`xcode-select -p`"
-        xcode-select --install
-        ps aux | grep xcode
-        while [ `xcode-select -p` == $OLDXCODE ];
-        do
-            #wait 1
-            xcode-select -p
-        done
+        wait $PROCESS
         xcode-select -p
         xcode-select -p | ls
         ls /Applications/Xcode_13.2.1.app/Contents/Developer
