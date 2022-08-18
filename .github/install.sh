@@ -13,11 +13,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         export LDFLAGS="-L/usr/local/opt/llvm@12/lib"
         export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
         sudo rm -rf /Library/Developer/CommandLineTools
-        xcode-select -p
+        xcode-select -p | export OLDXCODE
         xcode-select --install
-        while [ `xcode-select -p` == "" ];
+        while [ `xcode-select -p` == $OLDXCODE ];
         do
             wait 1
+            xcode-select -p
         done
         xcode-select -p
         xcode-select -p | ls
