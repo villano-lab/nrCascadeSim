@@ -1,3 +1,4 @@
+version: 2
 jobs:
   include:
     - os: osx
@@ -26,71 +27,76 @@ jobs:
       docker.image: python
       python: 3.7
 
-run:
-   - pwd
-   - sudo chmod 777 .github/install.sh
-   - source .github/install.sh
-   
-   - echo "installing..."
-   - echo $ROOTDIST
-   - echo "wget command..." 
-   - echo "wget https://root.cern/download/"$ROOTDIST 
-   - wget https://root.cern/download/$ROOTDIST 
-   - tar -xzf $ROOTDIST 
-   - source root/bin/thisroot.sh
+  steps:
+    - run:
+      name: install
+      command: |
+        pwd
+        sudo chmod 777 .github/install.sh
+        source .github/install.sh
+      
+        echo "installing..."
+        echo $ROOTDIST
+        echo "wget command..." 
+        echo "wget https://root.cern/download/"$ROOTDIST 
+        wget https://root.cern/download/$ROOTDIST 
+        tar -xzf $ROOTDIST 
+        source root/bin/thisroot.sh
 
-   # install and set up lcov
-   - wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
-   - tar -zxvf lcov-1.14.tar.gz
-   - cd lcov-1.14
-   - sudo make install
-   - cd ../
-   - lcov --directory ./ --zerocounters
+      # install and set up lcov
+        wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
+        tar -zxvf lcov-1.14.tar.gz
+        cd lcov-1.14
+        sudo make install
+        cd ../
+        lcov --directory ./ --zerocounters
 
-   # give self permission to run scripts
-   - sudo chmod 777 tests/test_realizeCascades.sh
-   - sudo chmod 777 get_checksums.sh
+      # give self permission to run scripts
+        sudo chmod 777 tests/test_realizeCascades.sh
+        sudo chmod 777 get_checksums.sh
 
-   # set up build dir
-   - mkdir ~/build/nrCascadeSim_build
-   - cd ~/build/nrCascadeSim_build
+      # set up build dir
+        mkdir ~/build/nrCascadeSim_build
+        cd ~/build/nrCascadeSim_build
+  
+    - run:
+      name: Test
+      command: |
+      #make repository code (my code)
+        cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
+        make
+        sudo make install
+        make tests
+      # Send tests to directory they were written to run from.
+        mv readLevelfile ~/build/villano-lab/nrCascadeSim/tests/bin
+        mv realizeAndSave ~/build/villano-lab/nrCascadeSim/tests/bin
+        mv printIsotopeInfo ~/build/villano-lab/nrCascadeSim/tests/bin
+        mv fetchYieldModel ~/build/villano-lab/nrCascadeSim/tests/bin
+        cd ~/build/villano-lab/nrCascadeSim/
 
-run:
-  #make repository code (my code)
-  - cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
-  - make
-  - sudo make install
-  - make tests
-  # Send tests to directory they were written to run from.
-  - mv readLevelfile ~/build/villano-lab/nrCascadeSim/tests/bin
-  - mv realizeAndSave ~/build/villano-lab/nrCascadeSim/tests/bin
-  - mv printIsotopeInfo ~/build/villano-lab/nrCascadeSim/tests/bin
-  - mv fetchYieldModel ~/build/villano-lab/nrCascadeSim/tests/bin
-  - cd ~/build/villano-lab/nrCascadeSim/
+      # activate conda environment
+        source activate piptest
 
-  # activate conda environment
-  - source activate piptest
+      # test help functions
+        realizeCascades --help
+        regexPlayground --help
 
-  # test help functions
-  - realizeCascades --help
-  - regexPlayground --help
+      #do the tests
+        cd tests
+        ./test_realizeCascades.sh
+        bash test_examples.sh
+        regexPlayground
+        realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
 
-  #do the tests
-  - cd tests
-  - ./test_realizeCascades.sh
-  - bash test_examples.sh
-  - regexPlayground
-  - realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
+      #need conda environment
+        cd ../example-usecase
+        travis_wait 50 py.test
 
-  #need conda environment
-  - cd ../example-usecase
-  - travis_wait 50 py.test
+      #Upload coverage before relevant data is removed.
+        cd ~/build/villano-lab/nrCascadeSim
+        if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.github/uploadtocodecov.sh; fi
 
-  #Upload coverage before relevant data is removed.
-  - cd ~/build/villano-lab/nrCascadeSim
-  - if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.github/uploadtocodecov.sh; fi
-
-  #clean up
-  - cd ~/build/nrCascadeSim_build
-  - make clean
-  - sudo make uninstall
+      #clean up
+        cd ~/build/nrCascadeSim_build
+        make clean
+        sudo make uninstall
