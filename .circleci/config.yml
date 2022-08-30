@@ -13,7 +13,7 @@ jobs:
     working_directory: /tmp/src
     matrix: 
       include:
-        - os: osx
+        - os: macos
           osx_image: xcode13.1 
           environment:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; BUILDLINE=539
           docker.image: generic 
