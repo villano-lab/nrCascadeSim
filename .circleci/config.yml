@@ -114,8 +114,11 @@ jobs:
           sudo make uninstall
 
 workflows:
+  version: 2
   build-and-test:
     jobs:
       - setup
       - build
+          requires: setup
       - test
+          requires: build
