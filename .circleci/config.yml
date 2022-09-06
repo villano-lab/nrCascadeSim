@@ -1,48 +1,31 @@
-version: 2
+version: 2.1
 
 executors:
-  xenial-root.20:
+  xenial-root20:
     docker:
-      resource_class: medium
-      image: ubuntu/xenial
+      - image: ubuntu/xenial
     environment: ROOTDIST="root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=203
-  bionic-root.20:
+  bionic-root20:
     docker:
-      resource_class: medium
-      image: ubuntu/bionic
+      - image: ubuntu/bionic
     environment: ROOTDIST="root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"; BUILDLINE=270
-  xenial-root.24:
+  xenial-root24:
     docker:
-      resource_class: medium
-      image: ubuntu/xenial
+      - image: ubuntu/xenial
     environment: ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=606; UPLOAD_COVERAGE="true"
-  bionic-root.24:
+  bionic-root24:
     docker:
-      resource_class: medium
-      image: ubuntu/bionic
+      - image: ubuntu/bionic
     environment: ROOTDIST="root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz"; BUILDLINE=673
   mac:
     macos:
       xcode: "13.1"
     environment:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; BUILDLINE=539
 
-jobs:
-  setup:
-    environment:
-      - TZ: "/usr/share/zoneinfo/America/Denver"
+commands: 
+  install_root:
     steps:
-      - run:
-          name: Test if the user has defined the repository name
-          command: apk add --no-cache pigz python3
-  build:
-    working_directory: /tmp/src
-    python: 3.7
-
-  test:
-    steps:
-      - run:
-        name: install
-        command: |
+      - run: |
           pwd
           sudo chmod 777 .github/install.sh
           source .github/install.sh
@@ -54,70 +37,118 @@ jobs:
           wget https://root.cern/download/$ROOTDIST 
           tar -xzf $ROOTDIST 
           source root/bin/thisroot.sh
-
-          # install and set up lcov
+  install_lcov:
+    steps:
+      - run: |
           wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
           tar -zxvf lcov-1.14.tar.gz
           cd lcov-1.14
           sudo make install
           cd ../
           lcov --directory ./ --zerocounters
-
-          # give self permission to run scripts
+  permissions:
+    steps:
+      - run: |
           sudo chmod 777 tests/test_realizeCascades.sh
           sudo chmod 777 get_checksums.sh
-
-          # set up build dir
+  directories:
+    steps:
+      - run: |
           mkdir ~/build/nrCascadeSim_build
           cd ~/build/nrCascadeSim_build
-    
-      - run:
-        name: Test
-        command: |
-          #make repository code (my code)
+  make:
+    steps:
+      - run: |
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
           make
           sudo make install
           make tests
-          # Send tests to directory they were written to run from.
+  reorganize:
+    steps:
+      - run: |
           mv readLevelfile ~/build/villano-lab/nrCascadeSim/tests/bin
           mv realizeAndSave ~/build/villano-lab/nrCascadeSim/tests/bin
           mv printIsotopeInfo ~/build/villano-lab/nrCascadeSim/tests/bin
           mv fetchYieldModel ~/build/villano-lab/nrCascadeSim/tests/bin
           cd ~/build/villano-lab/nrCascadeSim/
-
-          # activate conda environment
-          source activate piptest
-
-          # test help functions
+  activate:
+    steps:
+      - run: source activate piptest
+  helptests:
+    steps:
+      - run: |
           realizeCascades --help
           regexPlayground --help
-
-          #do the tests
+  maintests:
+    steps:
+      - run: |
           cd tests
           ./test_realizeCascades.sh
           bash test_examples.sh
           regexPlayground
           realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
-
-          #need conda environment
+  pytests:
+    steps:
+      - run: |
           cd ../example-usecase
           travis_wait 50 py.test
-
-          #Upload coverage before relevant data is removed.
+  coverage:
+    steps:
+      - run: |
           cd ~/build/villano-lab/nrCascadeSim
           if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.github/uploadtocodecov.sh; fi
-
-          #clean up
+  cleanup:
+    steps:
+      - run: |
           cd ~/build/nrCascadeSim_build
           make clean
           sudo make uninstall
 
+jobs:
+  #setup:
+  #  environment:
+  #    - TZ: "/usr/share/zoneinfo/America/Denver"
+  #  steps:
+  #    - run:
+  #        name: Test if the user has defined the repository name
+  #        command: apk add --no-cache pigz python3
+  #build:
+  #  working_directory: /tmp/src
+  #  python: 3.7
+  #  parameters:
+  #    run_on:
+  #      type: executor
+  #  executor: << parameters.run_on >>
+
+  test:
+    #python: 3.7
+    parameters:
+      run_on:
+        type: executor
+    executor: << parameters.run_on >>
+    steps:
+      - install_root
+      - install_lcov
+      - permissions
+      - directories       
+      - make   
+      - reorganize
+      - activate
+      - helptests
+      - maintests
+      - pytests
+      - coverage
+      - cleanup
+
 workflows:
-  version: 2
+  #version: 2
   build_test:
     jobs:
-      - build
+      #- build:
+      #    matrix:
+      #      parameters:
+      #        run_on: [xenial-root20, xenial-root24, bionic-root20, bionic-root24, mac]
       - test:
-          requires: 
-            - build
+          matrix:
+            parameters:
+              run_on: [xenial-root20, xenial-root24, bionic-root20, bionic-root24, mac]
