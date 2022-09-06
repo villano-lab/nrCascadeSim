@@ -10,13 +10,6 @@ jobs:
   build:
     working_directory: /tmp/src
     resource_class: medium
-    matrix: 
-      include:
-        - macos:
-            xcode: "13.1" 
-          environment:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; BUILDLINE=539
-          docker.image: generic 
-          python: 3.7
       #  - docker: 
       #      image: ubuntu/xenial
        #   environment:  ROOTDIST="root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=203
@@ -117,7 +110,14 @@ workflows:
   version: 2
   build_test:
     jobs:
-      - build
+      - build:
+          matrix: 
+            include:
+              - macos:
+                  xcode: "13.1" 
+                environment:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; BUILDLINE=539
+                docker.image: generic 
+                python: 3.7
       - test:
           requires: 
             - build
