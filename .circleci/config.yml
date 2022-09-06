@@ -117,8 +117,7 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - setup
       - build
-          requires: setup
       - test
-          requires: build
+          requires: 
+            - build
