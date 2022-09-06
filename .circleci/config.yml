@@ -8,18 +8,16 @@ jobs:
           name: Test if the user has defined the repository name
           command: apk add --no-cache pigz python3
   build:
-    #environment:
-    #  - TZ: "/usr/share/zoneinfo/America/Denver"
     working_directory: /tmp/src
     resource_class: medium
-    #matrix: 
-     # include:
-    macos:
-      xcode: "13.1" 
-    environment:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; BUILDLINE=539
-    docker.image: generic 
-    python: 3.7
-     #   - docker: 
+    matrix: 
+      include:
+        - macos:
+            xcode: "13.1" 
+          environment:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; BUILDLINE=539
+          docker.image: generic 
+          python: 3.7
+      #  - docker: 
       #      image: ubuntu/xenial
        #   environment:  ROOTDIST="root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=203
         #  docker.image: python
@@ -114,3 +112,10 @@ jobs:
           cd ~/build/nrCascadeSim_build
           make clean
           sudo make uninstall
+
+workflows:
+  build-and-test:
+    jobs:
+      - setup
+      - build
+      - test
