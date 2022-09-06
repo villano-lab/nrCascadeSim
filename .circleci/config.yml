@@ -8,8 +8,8 @@ jobs:
           name: Test if the user has defined the repository name
           command: apk add --no-cache pigz python3
   build:
-    environment:
-      - TZ: "/usr/share/zoneinfo/America/Denver"
+    #environment:
+    #  - TZ: "/usr/share/zoneinfo/America/Denver"
     working_directory: /tmp/src
     resource_class: medium
     #matrix: 
