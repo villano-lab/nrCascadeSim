@@ -3,18 +3,22 @@ version: 2
 executors:
   xenial-root.20:
     docker:
+      resource_class: medium
       image: ubuntu/xenial
     environment: ROOTDIST="root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=203
   bionic-root.20:
     docker:
+      resource_class: medium
       image: ubuntu/bionic
     environment: ROOTDIST="root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"; BUILDLINE=270
   xenial-root.24:
     docker:
+      resource_class: medium
       image: ubuntu/xenial
     environment: ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=606; UPLOAD_COVERAGE="true"
   bionic-root.24:
     docker:
+      resource_class: medium
       image: ubuntu/bionic
     environment: ROOTDIST="root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz"; BUILDLINE=673
   mac:
@@ -32,7 +36,6 @@ jobs:
           command: apk add --no-cache pigz python3
   build:
     working_directory: /tmp/src
-    resource_class: medium
     python: 3.7
 
   test:
