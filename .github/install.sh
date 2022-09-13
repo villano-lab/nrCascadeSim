@@ -22,15 +22,17 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
         #export CPPFLAGS="-I/usr/local/opt/llvm@12/include"
         #xcode-select -p
         #xcode-select -p | ls
-        ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/
-        ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/
-        ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/
+        #ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/
+        #ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/
+        #ls /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/
         #tree /Library/Developer/CommandLineTools/SDKs/Macosx12.1.sdk
         #open /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_11.6.pkg
     fi
     clang --version
 
+    echo "Installing md5sha1sum..."
     brew install md5sha1sum
+    echo "Installing miniconda..."
     wget https://repo.anaconda.com/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O ~/miniconda.sh
     bash ~/miniconda.sh -b -p $HOME/miniconda
     export PATH="$HOME/miniconda/bin:$PATH"
@@ -40,15 +42,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     #curl -Os https://uploader.codecov.io/latest/macos/codecov
     #chmod +x codecov
 
-
-    case "${TOXENV}" in
-        py32)
-            # Install some custom Python 3.2 requirements on macOS
-            ;;
-        py33)
-            # Install some custom Python 3.3 requirements on macOS
-            ;;
-    esac
 else
     # Install some custom requirements on Linux
     #get apt-get and conda
