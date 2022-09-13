@@ -40,9 +40,7 @@ commands:
       - run: |
           pwd
           ls -a
-          cd ~
-          pwd
-          ls -a
+          git clone git@github.com:villano-lab/galactic-spin-W1
           sudo chmod 777 .github/install.sh
           source .github/install.sh
         
