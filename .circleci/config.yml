@@ -35,13 +35,17 @@ executors:
     environment:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; BUILDLINE=539
 
 commands: 
+  clone_repo:
+    steps:
+      - run: |
+          pwd
+          ls -a
+          sudo apt-get install git || git clone git@gitub.com:villano-lab/galactic-spin-W1
   install_root:
     steps:
       - run: |
           pwd
           ls -a
-          git clone git@github.com:villano-lab/galactic-spin-W1
-          sudo chmod 777 .github/install.sh
           source .github/install.sh
         
           echo "installing..."
@@ -63,6 +67,7 @@ commands:
   permissions:
     steps:
       - run: |
+          sudo chmod 777 .github/install.sh
           sudo chmod 777 tests/test_realizeCascades.sh
           sudo chmod 777 get_checksums.sh
   directories:
@@ -141,9 +146,10 @@ jobs:
         type: executor
     executor: << parameters.run_on >>
     steps:
+      - clone_repo
+      - permissions
       - install_root
       - install_lcov
-      - permissions
       - directories       
       - make   
       - reorganize
