@@ -36,15 +36,15 @@ executors:
 
 commands:
   install_requirements:
+    description: "Install General Requirements"
     steps:
-      - name: "Install General Requirements"
-        run: | 
+      - run: | 
           apt-get update -y && apt-get upgrade -y && apt-get install -y sudo && sudo apt-get install -y git || echo ""
           sudo apt-get install wget || brew install wget
   install_root:
+    description: "Install ROOT"
     steps:
-      - name: "Install ROOT"
-        run: |
+      - run: |
           pwd
           ls -a
           source .github/install.sh
@@ -57,9 +57,9 @@ commands:
           tar -xzf $ROOTDIST 
           source root/bin/thisroot.sh
   install_lcov:
+    description: "Install lcov"
     steps:
-      - name: "Install lcov"
-        run: |
+      - run: |
           wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
           tar -zxvf lcov-1.14.tar.gz
           cd lcov-1.14
@@ -67,30 +67,30 @@ commands:
           cd ../
           lcov --directory ./ --zerocounters
   permissions:
+    description: "Set Up Permissions"
     steps:
-      - name: "Set Up Permissions"
-        run: |
+      - run: |
           sudo chmod 777 .github/install.sh
           sudo chmod 777 tests/test_realizeCascades.sh
           sudo chmod 777 get_checksums.sh
   directories:
+    description: "Set Up Directories"
     steps:
-      - name: "Set Up Directories"
-        run: |
+      - run: |
           mkdir ~/build/nrCascadeSim_build
           cd ~/build/nrCascadeSim_build
   make:
+    description: "make"
     steps:
-      - name: "make"
-        run: |
+      - run: |
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
           make
           sudo make install
           make tests
   reorganize:
+    description: "Reorganize Generated Files"
     steps:
-      - name: "Reorganize Generated Files"
-        run: |
+      - run: |
           mv readLevelfile ~/build/villano-lab/nrCascadeSim/tests/bin
           mv realizeAndSave ~/build/villano-lab/nrCascadeSim/tests/bin
           mv printIsotopeInfo ~/build/villano-lab/nrCascadeSim/tests/bin
@@ -100,36 +100,36 @@ commands:
     steps:
       - run: source activate piptest
   helptests:
+    description: "Test Help Functions"
     steps:
-      - name: "Test Help Functions"
-        run: |
+      - run: |
           realizeCascades --help
           regexPlayground --help
   maintests:
+    description: "Run Main Tests"
     steps:
-      - name: "Run Main Tests"
-        run: |
+      - run: |
           cd tests
           ./test_realizeCascades.sh
           bash test_examples.sh
           regexPlayground
           realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
   pytests:
+    description: "Run Python Test"
     steps:
-      - name: "Run Python Test"
-        run: |
+      - run: |
           cd ../example-usecase
           python py.test
   coverage:
+    description: "Generate Coverage Report"
     steps:
-      - name: "Generate Coverage Report"
-        run: |
+      - run: |
           cd ~/build/villano-lab/nrCascadeSim
           if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.github/uploadtocodecov.sh; fi
   cleanup:
+    description: "Clean Up"
     steps:
-      - name: "Clean Up"
-        run: |
+      - run: |
           cd ~/build/nrCascadeSim_build
           make clean
           sudo make uninstall
