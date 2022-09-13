@@ -35,6 +35,11 @@ executors:
     environment:  ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz"; BUILDLINE=539
 
 commands:
+  install_requirements:
+    steps:
+      - run: | 
+          apt-get update && apt-get upgrade && apt-get install sudo && sudo apt-get install git || echo ""
+          sudo apt-get install wget || brew install wget
   install_root:
     steps:
       - run: |
@@ -140,6 +145,7 @@ jobs:
         type: executor
     executor: << parameters.run_on >>
     steps:
+      - install_requirements
       - checkout
       - permissions
       - install_root
