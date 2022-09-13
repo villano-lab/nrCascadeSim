@@ -40,7 +40,7 @@ commands:
       - run: |
           pwd
           ls -a
-          sudo apt-get install git || git clone git@gitub.com:villano-lab/galactic-spin-W1
+          apt-get install sudo || sudo apt-get install git || git clone https://github.com/villano-lab/galactic-spin-W1
   install_root:
     steps:
       - run: |
