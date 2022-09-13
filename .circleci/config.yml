@@ -4,18 +4,30 @@ executors:
   xenial-root20:
     docker:
       - image: ubuntu/xenial
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
     environment: ROOTDIST="root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=203
   bionic-root20:
     docker:
       - image: ubuntu/bionic
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
     environment: ROOTDIST="root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz"; BUILDLINE=270
   xenial-root24:
     docker:
       - image: ubuntu/xenial
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
     environment: ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz"; BUILDLINE=606; UPLOAD_COVERAGE="true"
   bionic-root24:
     docker:
       - image: ubuntu/bionic
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
     environment: ROOTDIST="root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz"; BUILDLINE=673
   mac:
     macos:
@@ -27,6 +39,7 @@ commands:
     steps:
       - run: |
           pwd
+          ls
           sudo chmod 777 .github/install.sh
           source .github/install.sh
         
