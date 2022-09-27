@@ -39,7 +39,7 @@ commands:
     description: "Install General Requirements"
     steps:
       - run: | 
-      	  export $vars
+          export $vars
           apt-get update -y && apt-get upgrade -y && apt-get install -y sudo && sudo apt-get install -y git || echo ""
           sudo apt-get install wget || brew install wget
   install_root:
