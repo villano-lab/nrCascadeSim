@@ -48,9 +48,12 @@ else
     # Install some custom requirements on Linux
     #get apt-get and conda
     sudo apt-get update -y || true
+    sudo apt-get upgrade -y || true
     sleep 10
-    sudo apt-get install -y make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev curl snap
-    snap install cmake --version
+    sudo apt-get install -y make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev curl snapd
+    sudo snap install core
+    snap --version
+    sudo snap install cmake --version
     sleep 10
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
     bash miniconda.sh -b -p $HOME/miniconda
