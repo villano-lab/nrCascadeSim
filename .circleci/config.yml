@@ -46,6 +46,8 @@ commands:
     description: "Install ROOT"
     steps:
       - run: |
+          echo $vars
+          export $vars
           pwd
           ls -a
           source .github/install.sh
@@ -125,6 +127,7 @@ commands:
     description: "Generate Coverage Report"
     steps:
       - run: |
+          export $vars
           cd ~/build/villano-lab/nrCascadeSim
           if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.github/uploadtocodecov.sh; fi
   cleanup:
