@@ -14,40 +14,40 @@ executors:
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    environment: vars= ROOTDIST="root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz" BUILDLINE=270
+    environment: custom_vars= ROOTDIST="root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz" BUILDLINE=270
   xenial-root24:
     docker:
       - image: ubuntu:xenial
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    environment: vars= ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz" BUILDLINE=606 UPLOAD_COVERAGE="true"
+    environment: custom_vars= ROOTDIST="root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz" BUILDLINE=606 UPLOAD_COVERAGE="true"
   bionic-root24:
     docker:
       - image: ubuntu:bionic
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    environment: vars= ROOTDIST="root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz" BUILDLINE=673
+    environment: custom_vars= ROOTDIST="root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz" BUILDLINE=673
   mac:
     macos:
       xcode: "13.1"
-    environment: vars= ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz" BUILDLINE=539
+    environment: custom_vars= ROOTDIST="root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz" BUILDLINE=539
 
 commands:
   install_requirements:
     description: "Install General Requirements"
     steps:
       - run: | 
-          export $vars
+          export $custom_vars
           apt-get update -y && apt-get upgrade -y && apt-get install -y sudo && sudo apt-get install -y git || echo ""
           sudo apt-get install wget || brew install wget
   install_root:
     description: "Install ROOT"
     steps:
       - run: |
-          echo $vars
-          export $vars
+          echo $custom_vars
+          export $custom_vars
           pwd
           ls -a
           source .github/install.sh
