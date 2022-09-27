@@ -80,13 +80,13 @@ commands:
     description: "Set Up Directories"
     steps:
       - run: |
-          mkdir ~/build/nrCascadeSim_build
-          cd ~/build/nrCascadeSim_build
+          mkdir ~/project/nrCascadeSim_build
+          cd ~/project/nrCascadeSim_build
   make:
     description: "make"
     steps:
       - run: |
-          cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/build/villano-lab/nrCascadeSim
+          cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/project/villano-lab/nrCascadeSim
           make
           sudo make install
           make tests
@@ -94,11 +94,11 @@ commands:
     description: "Reorganize Generated Files"
     steps:
       - run: |
-          mv readLevelfile ~/build/villano-lab/nrCascadeSim/tests/bin
-          mv realizeAndSave ~/build/villano-lab/nrCascadeSim/tests/bin
-          mv printIsotopeInfo ~/build/villano-lab/nrCascadeSim/tests/bin
-          mv fetchYieldModel ~/build/villano-lab/nrCascadeSim/tests/bin
-          cd ~/build/villano-lab/nrCascadeSim/
+          mv readLevelfile ~/project/villano-lab/nrCascadeSim/tests/bin
+          mv realizeAndSave ~/project/villano-lab/nrCascadeSim/tests/bin
+          mv printIsotopeInfo ~/project/villano-lab/nrCascadeSim/tests/bin
+          mv fetchYieldModel ~/project/villano-lab/nrCascadeSim/tests/bin
+          cd ~/project/villano-lab/nrCascadeSim/
   activate:
     steps:
       - run: source activate piptest
@@ -128,13 +128,13 @@ commands:
     steps:
       - run: |
           export $vars
-          cd ~/build/villano-lab/nrCascadeSim
-          if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/build/villano-lab/nrCascadeSim/.github/uploadtocodecov.sh; fi
+          cd ~/project/villano-lab/nrCascadeSim
+          if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/project/villano-lab/nrCascadeSim/.github/uploadtocodecov.sh; fi
   cleanup:
     description: "Clean Up"
     steps:
       - run: |
-          cd ~/build/nrCascadeSim_build
+          cd ~/project/nrCascadeSim_build
           make clean
           sudo make uninstall
 
