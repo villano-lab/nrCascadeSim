@@ -7,32 +7,32 @@ executors:
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    environment: custom_vars= ROOTDIST=root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=203
+    environment: custom_vars= ROOTDIST=root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=104 MATRIX_OS=xenial
   bionic-root20:
     docker:
       - image: ubuntu:bionic
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    environment: custom_vars= ROOTDIST=root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz BUILDLINE=270
+    environment: custom_vars= ROOTDIST=root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz BUILDLINE=138 MATRIX_OS=ubuntu-18.04
   xenial-root24:
     docker:
       - image: ubuntu:xenial
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    environment: custom_vars= ROOTDIST=root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=606 UPLOAD_COVERAGE="true"
+    environment: custom_vars= ROOTDIST=root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=309 UPLOAD_COVERAGE="true" MATRIX_OS=xenial
   bionic-root24:
     docker:
       - image: ubuntu:bionic
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    environment: custom_vars= ROOTDIST=root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz BUILDLINE=673
+    environment: custom_vars= ROOTDIST=root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz BUILDLINE=343 MATRIX_OS=ubuntu-18.04
   mac:
     macos:
       xcode: "13.1"
-    environment: custom_vars= ROOTDIST=root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz BUILDLINE=539
+    environment: custom_vars= ROOTDIST=root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz BUILDLINE=241 MATRIX_OS=xcode13-1
 
 commands:
   install_requirements:
@@ -122,6 +122,7 @@ commands:
           export PATH="$HOME/miniconda/bin:$PATH"
           export $custom_vars
           echo $BUILDLINE
+          export ROOT_VERSION=$(echo $ROOTDIST | cut -c 7-13 | sed 's/\./-/g')
           source activate piptest
           python --version
           alias python3="python"
