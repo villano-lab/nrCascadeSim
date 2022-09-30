@@ -56,6 +56,7 @@ commands:
     description: "Install ROOT"
     steps:
       - run: |        
+          echo $custom_vars
           export $custom_vars
           echo "installing..."
           echo $ROOTDIST
@@ -142,7 +143,7 @@ commands:
     description: "Generate Coverage Report"
     steps:
       - run: |
-          export $vars
+          export $custom_vars
           cd ~/project
           if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/project/.github/uploadtocodecov.sh; fi
   cleanup:
