@@ -62,7 +62,7 @@ commands:
           echo "source ~/project/root/bin/thisroot.sh" >> ~/.bashrc
           echo $ROOT_DIR
           ls ~/project/root/
-          ROOT_DIR = ~/project/root/
+          export ROOT_DIR = ~/project/root/
   install_lcov:
     description: "Install lcov"
     steps:

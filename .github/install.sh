@@ -50,13 +50,13 @@ else
     echo "Setting up apt-get packages"
     sudo apt-get update -y || true
     sudo apt-get upgrade -y || true
-    sudo apt-get install -y make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev curl snapd
-    echo "Setting up snap packages"
-    #sudo snap install core
-    snap --version
-    sudo systemctl start snapd
-    sudo systemctl status snapd.service
-    sudo snap install cmake
+    sudo apt-get install -y make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev curl
+    echo "Setting up cmake"
+    wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
+    tar -xzvf cmake-3.24.2.tar.gz
+    ./bootstrap
+    make
+    make install
     echo "Setting up miniconda"
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
     bash miniconda.sh -b -p $HOME/miniconda
