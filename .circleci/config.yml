@@ -114,11 +114,13 @@ commands:
           mv fetchYieldModel ~/project/tests/bin
           cd ~/project       
   maintests:
-    description: "Run Main Tests"
+    description: "Run Tests"
     steps:
       - run: |
           export ROOT_DIR=~/project/root/
           source $ROOT_DIR/bin/thisroot.sh
+          export PATH="$HOME/miniconda/bin:$PATH"
+          source activate piptest
           python --version
           alias python3="python"
           realizeCascades --help
@@ -128,12 +130,6 @@ commands:
           bash test_examples.sh
           regexPlayground
           realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
-  pytests:
-    description: "Run Python Test"
-    steps:
-      - run: |
-          export PATH="$HOME/miniconda/bin:$PATH"
-          source activate piptest
           cd ../example-usecase
           python py.test
   coverage:
@@ -184,7 +180,6 @@ jobs:
       - make   
       - reorganize
       - maintests
-      - pytests
       - coverage
       - cleanup
 
