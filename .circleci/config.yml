@@ -147,6 +147,7 @@ commands:
     steps:
       - run: |
           cd ~/project/nrCascadeSim_build
+          ls
           make clean
           sudo make uninstall
 
