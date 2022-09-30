@@ -120,6 +120,8 @@ commands:
           export ROOT_DIR=~/project/root/
           source $ROOT_DIR/bin/thisroot.sh
           export PATH="$HOME/miniconda/bin:$PATH"
+          export $custom_vars
+          echo $BUILDLINE
           source activate piptest
           python --version
           alias python3="python"
