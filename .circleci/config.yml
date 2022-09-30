@@ -134,7 +134,7 @@ commands:
           regexPlayground
           realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
           cd ../example-usecase
-          python py.test
+          python test_local.py
   coverage:
     description: "Generate Coverage Report"
     steps:
