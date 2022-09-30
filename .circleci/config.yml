@@ -97,6 +97,7 @@ commands:
       - run: |
           export ROOT_DIR=~/project/root/
           echo $ROOT_DIR
+          cmake --version
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/project
           make
           sudo make install

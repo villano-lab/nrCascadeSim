@@ -52,9 +52,9 @@ else
     sudo apt-get upgrade -y || true
     sudo apt-get install -y make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev curl
     echo "Setting up cmake"
-    wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
-    tar -xzf cmake-3.24.2.tar.gz
-    cd cmake-3.24.2
+    wget https://github.com/Kitware/CMake/releases/download/v3.10.3/cmake-3.10.3.tar.gz
+    tar -xzf cmake-3.10.3.tar.gz
+    cd cmake-3.10.3
     ./bootstrap
     make
     make install
