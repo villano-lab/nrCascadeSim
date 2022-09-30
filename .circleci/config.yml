@@ -119,6 +119,7 @@ commands:
       - run: |
           export ROOT_DIR=~/project/root/
           source $ROOT_DIR/bin/thisroot.sh
+          python --version
           realizeCascades --help
           regexPlayground --help
           cd tests
@@ -166,7 +167,7 @@ jobs:
   #  executor: << parameters.run_on >>
 
   test:
-    #python: 3.7
+    python: 3.7
     parameters:
       run_on:
         type: executor
