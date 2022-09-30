@@ -42,12 +42,16 @@ commands:
           export $custom_vars
           apt-get update -y && apt-get upgrade -y && apt-get install -y sudo && sudo apt-get install -y git || echo ""
           sudo apt-get install wget || brew install wget
-          
+  install_script:
+    description: "install.sh"
+    steps:
+      - run: |
           echo $custom_vars
           export $custom_vars
           pwd
           ls -a
           source .github/install.sh
+          cmake --version
   install_root:
     description: "Install ROOT"
     steps:
@@ -171,6 +175,7 @@ jobs:
       - install_requirements
       - checkout
       - permissions
+      - install_script
       - install_root
       - install_lcov
       - directories       
