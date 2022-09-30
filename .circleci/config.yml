@@ -7,7 +7,7 @@ executors:
         auth:
           username: $DOCKER_USER
           password: $DOCKER_PASS
-    environment: ROOTDIST=root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=203
+    environment: custom_vars= ROOTDIST=root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=203
   bionic-root20:
     docker:
       - image: ubuntu:bionic
@@ -112,22 +112,15 @@ commands:
           mv realizeAndSave ~/project/tests/bin
           mv printIsotopeInfo ~/project/tests/bin
           mv fetchYieldModel ~/project/tests/bin
-          cd ~/project
-  activate:
-    steps:
-      - run: 
-          export PATH="$HOME/miniconda/bin:$PATH"
-          source activate piptest
-  helptests:
-    description: "Test Help Functions"
-    steps:
-      - run: |
-          realizeCascades --help
-          regexPlayground --help
+          cd ~/project       
   maintests:
     description: "Run Main Tests"
     steps:
       - run: |
+          export ROOT_DIR=~/project/root/
+          source $ROOT_DIR/bin/thisroot.sh
+          realizeCascades --help
+          regexPlayground --help
           cd tests
           ./test_realizeCascades.sh
           bash test_examples.sh
@@ -137,6 +130,8 @@ commands:
     description: "Run Python Test"
     steps:
       - run: |
+          export PATH="$HOME/miniconda/bin:$PATH"
+          source activate piptest
           cd ../example-usecase
           python py.test
   coverage:
@@ -186,8 +181,6 @@ jobs:
       - directories       
       - make   
       - reorganize
-      - activate
-      - helptests
       - maintests
       - pytests
       - coverage
