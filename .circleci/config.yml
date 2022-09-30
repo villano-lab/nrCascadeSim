@@ -114,7 +114,9 @@ commands:
           cd ~/project
   activate:
     steps:
-      - run: source activate piptest
+      - run: 
+          export PATH="$HOME/miniconda/bin:$PATH"
+          source activate piptest
   helptests:
     description: "Test Help Functions"
     steps:
