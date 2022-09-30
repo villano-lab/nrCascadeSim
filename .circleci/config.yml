@@ -59,6 +59,7 @@ commands:
           wget https://root.cern/download/$ROOTDIST 
           tar -xzf $ROOTDIST 
           source root/bin/thisroot.sh
+          echo "source ~/project/root/bin/thisroot.sh" >> ~/.bashrc
   install_lcov:
     description: "Install lcov"
     steps:
