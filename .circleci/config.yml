@@ -96,6 +96,7 @@ commands:
     steps:
       - run: |
           export ROOT_DIR=~/project/root/
+          source $ROOT_DIR/bin/thisroot.sh
           echo $ROOT_DIR
           cmake --version
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/project
