@@ -53,10 +53,12 @@ else
     sudo apt-get install -y make g++ gcc binutils libx11-dev libxpm-dev libxft-dev libxext-dev openssl libssl-dev curl
     echo "Setting up cmake"
     wget https://github.com/Kitware/CMake/releases/download/v3.24.2/cmake-3.24.2.tar.gz
-    tar -xzvf cmake-3.24.2.tar.gz
+    tar -xzf cmake-3.24.2.tar.gz
+    cd cmake-3.24.2
     ./bootstrap
     make
     make install
+    cd ../
     echo "Setting up miniconda"
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
     bash miniconda.sh -b -p $HOME/miniconda
