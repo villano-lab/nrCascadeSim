@@ -90,6 +90,7 @@ commands:
     description: "make"
     steps:
       - run: |
+          export ROOT_DIR=~/project/root/
           echo $ROOT_DIR
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/project
           make
