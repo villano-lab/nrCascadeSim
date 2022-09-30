@@ -60,6 +60,9 @@ commands:
           tar -xzf $ROOTDIST 
           source root/bin/thisroot.sh
           echo "source ~/project/root/bin/thisroot.sh" >> ~/.bashrc
+          echo $ROOT_DIR
+          ls ~/project/root/
+          ROOT_DIR = ~/project/root/
   install_lcov:
     description: "Install lcov"
     steps:
@@ -87,6 +90,7 @@ commands:
     description: "make"
     steps:
       - run: |
+          echo $ROOT_DIR
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/project
           make
           sudo make install

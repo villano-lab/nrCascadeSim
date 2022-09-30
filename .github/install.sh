@@ -54,6 +54,8 @@ else
     echo "Setting up snap packages"
     #sudo snap install core
     snap --version
+    sudo systemctl start snapd
+    sudo systemctl status snapd.service
     sudo snap install cmake
     echo "Setting up miniconda"
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
