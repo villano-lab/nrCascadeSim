@@ -77,9 +77,10 @@ jobs:
           source root/bin/thisroot.sh
           cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
           root --version
+          
 
           cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/work/nrCascadeSim/nrCascadeSim
-          make
+          sudo make
           sudo make install
           make tests
           #Send tests to directory they were written to be run from.
