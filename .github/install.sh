@@ -57,7 +57,7 @@ else
     cd cmake-3.10.3
     ./bootstrap
     make
-    make install
+    sudo make install
     cd ../
     echo "Setting up miniconda"
     wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
