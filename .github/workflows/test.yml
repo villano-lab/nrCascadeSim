@@ -78,10 +78,9 @@ jobs:
           cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
           root --version
           
-
-          sudo cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/work/nrCascadeSim/nrCascadeSim
-          sudo make
-          sudo make install
+          cmake -DUSE_GCOV=ON ~/work/nrCascadeSim/nrCascadeSim
+          make
+          make install
           make tests
           #Send tests to directory they were written to be run from.
           mv readLevelfile realizeAndSave printIsotopeInfo fetchYieldModel ~/work/nrCascadeSim/nrCascadeSim/tests/bin
