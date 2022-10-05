@@ -100,7 +100,7 @@ jobs:
           echo "Converting root version to checksum-compatible format."
           sed 's/\./\-/g' file.sh >> file.sh
           cat file.sh
-          source file
+          source ./file.sh
           echo $ROOT_VER
           ./test_realizeCascades.sh
           bash test_examples.sh
