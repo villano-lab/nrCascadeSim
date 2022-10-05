@@ -95,6 +95,10 @@ jobs:
 
           #do the tests
           cd ~/work/nrCascadeSim/nrCascadeSim/tests
+          echo "export ROOT_VER=${ROOT_VER}" >> file.sh
+          sed 's/\./\-/g' file.sh >> file.sh
+          source file
+          echo $ROOT_VER
           ./test_realizeCascades.sh
           bash test_examples.sh
           regexPlayground
