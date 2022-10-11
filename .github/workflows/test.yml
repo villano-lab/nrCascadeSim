@@ -95,6 +95,13 @@ jobs:
 
           #do the tests
           cd ~/work/nrCascadeSim/nrCascadeSim/tests
+          echo $ROOT_VER
+          echo "export ROOT_VER=${ROOT_VER}" >> file.sh
+          echo "Converting root version to checksum-compatible format."
+          sed 's/\./\-/g' file.sh >> file.sh
+          cat file.sh
+          source ./file.sh
+          echo $ROOT_VER
           ./test_realizeCascades.sh
           bash test_examples.sh
           regexPlayground
