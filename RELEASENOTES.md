@@ -1,5 +1,5 @@
 ## Future Release (v1.4.1) Date XX.XX.XX
-* PR #? migrated from Travis-CI to GitHub Actions (Issue #88)
+* PR #105 migrated from Travis-CI to GitHub Actions and CircleCI (Issue #88)
 
 ## Release (v1.4.0) Date 22.02.12
 

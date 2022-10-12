@@ -1,4 +1,5 @@
-[![Build Status](https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master)](https://app.travis-ci.com/villano-lab/nrCascadeSim)
+[![CircleCI Status](https://dl.circleci.com/status-badge/img/gh/villano-lab/nrCascadeSim/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/villano-lab/nrCascadeSim/tree/master)
+[![GitHub Actions Status](https://github.com/villano-lab/nrCascadeSim/actions/workflows/test.yml/badge.svg)](https://github.com/villano-lab/nrCascadeSim/actions/workflows/test.yml)
 [![Documentation Status](https://readthedocs.org/projects/nrcascadesim/badge/?version=latest)](https://nrcascadesim.readthedocs.io/en/latest/?badge=latest)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![arXiv: 2104.02742](https://img.shields.io/badge/arXiv-2104.02742-orange.svg?style=flat)](https://arxiv.org/abs/2104.02742)
