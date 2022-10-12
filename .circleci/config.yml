@@ -1,0 +1,201 @@
+version: 2.1
+
+executors:
+  xenial-root20:
+    docker:
+      - image: ubuntu:xenial
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
+    environment: custom_vars= ROOTDIST=root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=104 MATRIX_OS=xenial
+  bionic-root20:
+    docker:
+      - image: ubuntu:bionic
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
+    environment: custom_vars= ROOTDIST=root_v6.20.00.Linux-ubuntu18-x86_64-gcc7.4.tar.gz BUILDLINE=138 MATRIX_OS=ubuntu-18.04
+  xenial-root24:
+    docker:
+      - image: ubuntu:xenial
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
+    environment: custom_vars= ROOTDIST=root_v6.24.06.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=309 UPLOAD_COVERAGE="true" MATRIX_OS=xenial
+  bionic-root24:
+    docker:
+      - image: ubuntu:bionic
+        auth:
+          username: $DOCKER_USER
+          password: $DOCKER_PASS
+    environment: custom_vars= ROOTDIST=root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz BUILDLINE=343 MATRIX_OS=ubuntu-18.04
+  mac:
+    macos:
+      xcode: "13.0.0"
+    environment: custom_vars= ROOTDIST=root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz BUILDLINE=241 MATRIX_OS=xcode13-1
+
+commands:
+  install_requirements:
+    description: "Install General Requirements"
+    steps:
+      - run: | 
+          export $custom_vars
+          apt-get update -y && apt-get upgrade -y && apt-get install -y sudo && sudo apt-get install -y git || echo ""
+          sudo apt-get install wget || brew install wget
+  install_script:
+    description: "install.sh"
+    steps:
+      - run: |
+          echo $custom_vars
+          export $custom_vars
+          pwd
+          ls -a
+          source .github/install.sh
+          cmake --version
+  install_root:
+    description: "Install ROOT"
+    steps:
+      - run: |        
+          echo $custom_vars
+          export $custom_vars
+          echo "installing..."
+          echo $ROOTDIST
+          echo "wget command..." 
+          echo "wget https://root.cern/download/"$ROOTDIST 
+          wget https://root.cern/download/$ROOTDIST 
+          tar -xzf $ROOTDIST 
+          source root/bin/thisroot.sh
+          echo "source ~/project/root/bin/thisroot.sh" >> ~/.bashrc
+          echo $ROOT_DIR
+          ls ~/project/root/
+          export ROOT_DIR=~/project/root/
+  install_lcov:
+    description: "Install lcov"
+    steps:
+      - run: |
+          wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
+          tar -zxvf lcov-1.14.tar.gz
+          cd lcov-1.14
+          sudo make install
+          cd ../
+          lcov --directory ./ --zerocounters
+  permissions:
+    description: "Set Up Permissions"
+    steps:
+      - run: |
+          sudo chmod 777 .github/install.sh
+          sudo chmod 777 tests/test_realizeCascades.sh
+          sudo chmod 777 get_checksums.sh
+  directories:
+    description: "Set Up Directories"
+    steps:
+      - run: |
+          mkdir ~/project/nrCascadeSim_build
+          cd ~/project/nrCascadeSim_build
+  make:
+    description: "make"
+    steps:
+      - run: |
+          export ROOT_DIR=~/project/root/
+          source $ROOT_DIR/bin/thisroot.sh
+          echo $ROOT_DIR
+          cmake --version
+          cmake -DCMAKE_INSTALL_PREFIX=/usr/local -DUSE_GCOV=ON ~/project
+          make
+          sudo make install
+          make tests
+  reorganize:
+    description: "Reorganize Generated Files"
+    steps:
+      - run: |
+          mv readLevelfile ~/project/tests/bin
+          mv realizeAndSave ~/project/tests/bin
+          mv printIsotopeInfo ~/project/tests/bin
+          mv fetchYieldModel ~/project/tests/bin
+          cd ~/project       
+  maintests:
+    description: "Run Tests"
+    steps:
+      - run: |
+          export ROOT_DIR=~/project/root/
+          source $ROOT_DIR/bin/thisroot.sh
+          export PATH="$HOME/miniconda/bin:$PATH"
+          export $custom_vars
+          echo $BUILDLINE
+          export ROOT_VERSION=$(echo $ROOTDIST | cut -c 7-13 | sed 's/\./-/g')
+          source activate piptest
+          python --version
+          alias python3="python"
+          realizeCascades --help
+          regexPlayground --help
+          cd tests
+          ./test_realizeCascades.sh
+          bash test_examples.sh
+          regexPlayground
+          realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
+          cd ../example-usecase
+          python test_local.py
+  coverage:
+    description: "Generate Coverage Report"
+    steps:
+      - run: |
+          export $custom_vars
+          cd ~/project
+          if [ "$UPLOAD_COVERAGE" == "true" ]; then source ~/project/.github/uploadtocodecov.sh; fi
+  cleanup:
+    description: "Clean Up"
+    steps:
+      - run: |
+          cd ~/project
+          ls
+          make clean
+          sudo make uninstall
+
+jobs:
+  #setup:
+  #  environment:
+  #    - TZ: "/usr/share/zoneinfo/America/Denver"
+  #  steps:
+  #    - run:
+  #        name: "Test if the user has defined the repository name"
+  #        command: apk add --no-cache pigz python3
+  #build:
+  #  working_directory: /tmp/src
+  #  python: 3.7
+  #  parameters:
+  #    run_on:
+  #      type: executor
+  #  executor: << parameters.run_on >>
+
+  test:
+    #python: 3.7
+    parameters:
+      run_on:
+        type: executor
+    executor: << parameters.run_on >>
+    steps:
+      - install_requirements
+      - checkout
+      - permissions
+      - install_script
+      - install_root
+      - install_lcov
+      - directories       
+      - make   
+      - reorganize
+      - maintests
+      - coverage
+      - cleanup
+
+workflows:
+  #version: 2
+  build_test:
+    jobs:
+      #- build:
+      #    matrix:
+      #      parameters:
+      #        run_on: [xenial-root20, xenial-root24, bionic-root20, bionic-root24, mac]
+      - test:
+          matrix:
+            parameters:
+              run_on: [xenial-root20, xenial-root24, bionic-root20, bionic-root24, mac]
