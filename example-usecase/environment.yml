@@ -12,3 +12,4 @@ dependencies:
   - pip:
     - uproot==3.12.0
     - papermill 
+    - pandas

@@ -1,6 +1,18 @@
-## Future Releases (v1.3.3) Date XX.XX.XX 
+## Future Release (v1.4.1) Date XX.XX.XX
+* PR #105 migrated from Travis-CI to GitHub Actions and CircleCI (Issue #88)
 
-## Releases (v1.3.2) Date 22.01.08 
+## Release (v1.4.0) Date 22.02.12
+
+* PR #91 migrated to CMake (Issues #85, #64, #26)
+* PR #95 added proper coverage behavior to CMake (Issues #94, #93, #92)
+* PR #99 remove .gcda and .gcno files on `make scrub` (Issues #84)
+* PR #98 Include Geant4 comparison in readthedocs and example-usecases/ (Issues #86, #75)
+
+## Release (v1.3.3) Date 22.02.11
+
+* Hotfix 1.3.3 to add Geant4 comparison plots to master so docs render correctly before next release. 
+
+## Release (v1.3.2) Date 22.01.08 
 
 * PR #77 extended testing to more input files (Issue #35)
 * PR #78 updated documentation to systematicall include units of all parameters (Issue #74)

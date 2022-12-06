@@ -8,7 +8,7 @@ Installation
 
 *nrCascadeSim* is designed to run in a Unix-based system and is tested via Travis-CI_ using the
 Xenial_ (Ubuntu 16.04), Bionic_ (Ubuntu 18.04), and Focal_ (Ubuntu 20.04) distributions, all on
-x86_64 archetecture. It is also tested on Mac OSX Mojave (10.14), Catalina (10.15), and Big Sur
+x86_64 architecture. It is also tested on Mac OSX Mojave (10.14), Catalina (10.15), and Big Sur
 (11.5) via Travis-CI_. 
 
 Because of a combination of the operating systems tested and the versions of `ROOT` (see below)
@@ -80,25 +80,36 @@ The `nrCascadeSim` source code can be downloaded by cloning this `git repository
    git clone https://github.com/villano-lab/nrCascadeSim.git
    cd nrCascadeSim 
 
-The code is compiled and the executable and library is built by `Make <https://www.gnu.org/software/make/>`_. To build run the following commands from the repository's root folder.::
+The code is compiled and the executable and library is built by `CMake <https://cmake.org/>`_. To build, choose a build directory `/path/to/build/` and do.::
 
-	make	
-	sudo make install
+        mkdir -p /path/to/build
+        cd /path/to/build
+	cmake -DCMAKE_INSTALL_PREFIX=/path/to/install /path/to/source	
+	make
 
-If everything worked well, the executable and library file are created as::
+If everything worked well, the executable and library file are created in the build directory as::
 
-	bin/realizeCascades
-	bin/lib/libncap.so	
+	realizeCascades
+	regexPlayground
+	lib/libncap.so	
+
+And various `.o` files. If you would like to build the testing suite, use::
+
+        make tests
 
 To clean the installation use::
 
 	make clean
 
-or::
+To install to the directory `/path/to/install` use::
 
-	sudo make clean
+        make install
 
-if after a `sudo make install`.
+From the build directory. Then, if you want to uninstall use::
+
+        make uninstall
+       
+
 
 
 ---------------------------------------

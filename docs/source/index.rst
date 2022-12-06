@@ -4,9 +4,12 @@
 .. .. image:: https://codecov.io/gh/temken/obscura/branch/master/graph/badge.svg?token=1Pe1QMcngr
 ..   :target: https://codecov.io/gh/temken/obscura
 ..   :alt: Code Coverage 
-.. image:: https://app.travis-ci.com/villano-lab/nrCascadeSim.svg?branch=master 
-   :target: https://app.travis-ci.com/villano-lab/nrCascadeSim
-   :alt: Build Status 
+.. image:: https://github.com/villano-lab/nrCascadeSim/actions/workflows/test.yml/badge.svg
+   :target: https://github.com/villano-lab/nrCascadeSim/actions/workflows/test.yml
+   :alt: GitHub Actions Status
+.. image:: https://dl.circleci.com/status-badge/img/gh/villano-lab/nrCascadeSim/tree/master.svg?style=svg
+   :target: https://dl.circleci.com/status-badge/redirect/gh/villano-lab/nrCascadeSim/tree/master
+   :alt: CircleCI Status
 .. image:: https://readthedocs.org/projects/nrcascadesim/badge/?version=latest
    :target: https://nrcascadesim.readthedocs.io/en/latest/?badge=latest
    :alt: Documentation Status
@@ -57,9 +60,10 @@ If you want to contribute to `nrCascadeSim`, please check out the `contribution 
    03_Doxy_Libraries
    04_Examples
    05_Documentation
-   06_Citations
-   07_Release_History
-   08_License
-   09_Contact
+   06_Geant4_Comparison
+   07_Citations
+   08_Release_History
+   09_License
+   10_Contact
    References
 
