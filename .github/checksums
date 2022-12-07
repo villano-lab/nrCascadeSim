@@ -118,8 +118,8 @@ ec8b36bc7f68274b49b377c474764e4b  G4_72ge_6-20-00_xenial.root
 486b2ee2e92219be17534b4bbbef6ab5  G4_74ge_6-20-00_xenial.root
 9f9c134e039c9e84428df6c70f5f36cb  G4_76ge_6-20-00_xenial.root
 3e9f2a218d3f6ba897904a2ca8cc618d  Si28_ngam_all_cascades_rfmt_sorted_6-20-00_xenial.root
-dfca53a994b326cb31f2f8d97b62f6e2  v1_natGe_WFast_6-20-00_xenial.root
-c5e916e1c3d7eedf782d20f9bcdb3303  v1_natGe_WSlow_6-20-00_xenial.root
+bda0caecc506116eede89310ee5ecb9e  v1_natGe_WFast_6-20-00_xenial.root
+32c1bacbfbf74d4662f2a0e5716f6dbc  v1_natGe_WSlow_6-20-00_xenial.root
 8b65bbf73813f7d853928d1651dff882  allge_ngam_inf_6-20-00_xenial.root
 #  cross_sections_and_abundance_6-20-00_xenial.root
 f00eb560e4e4f3c9e9184701bb66ffcd  cross_sections_and_abundance_and_scaling_6-20-00_xenial.root
@@ -152,8 +152,8 @@ ec8b36bc7f68274b49b377c474764e4b  G4_72ge_6-20-00_ubuntu-18.04.root
 486b2ee2e92219be17534b4bbbef6ab5  G4_74ge_6-20-00_ubuntu-18.04.root
 9f9c134e039c9e84428df6c70f5f36cb  G4_76ge_6-20-00_ubuntu-18.04.root
 b662f51ff978f6e76ffd1b4402fb4dbd  Si28_ngam_all_cascades_rfmt_sorted_6-20-00_ubuntu-18.04.root
-fce61951788a702ab9b0ff0ec7e2cb3a  v1_natGe_WFast_6-20-00_ubuntu-18.04.root
-211f4833a26d30202d8b0aba29110234  v1_natGe_WSlow_6-20-00_ubuntu-18.04.root
+bf9d72f237d90d3fa0825d798981742d  v1_natGe_WFast_6-20-00_ubuntu-18.04.root
+18380375e19aa33e503ac93b74d8eb43  v1_natGe_WSlow_6-20-00_ubuntu-18.04.root
 8b65bbf73813f7d853928d1651dff882  allge_ngam_inf_6-20-00_ubuntu-18.04.root
 f00eb560e4e4f3c9e9184701bb66ffcd  cross_sections_and_abundance_6-20-00_ubuntu-18.04.root
 f00eb560e4e4f3c9e9184701bb66ffcd  cross_sections_and_abundance_and_scaling_6-20-00_ubuntu-18.04.root
@@ -323,8 +323,8 @@ f6714dacc3e74f36c01ce521ae46fe34  G4_72ge_6-24-06_xenial.root
 5b1a39c24f88fc35fc94a2b8cfa363bb  G4_74ge_6-24-06_xenial.root
 f99eb0a1da02dcb6fc1280dc52f7525b  G4_76ge_6-24-06_xenial.root
 e38c561bfed333a60b093ce655cdea73  Si28_ngam_all_cascades_rfmt_sorted_6-24-06_xenial.root
-d1744297800be4103ff5bd9194623406  v1_natGe_WFast_6-24-06_xenial.root
-1bbdb314201df876454f80364f4aa770  v1_natGe_WSlow_6-24-06_xenial.root
+717fdb719cd47ec3db55bd083f89931f  v1_natGe_WFast_6-24-06_xenial.root
+446a93c7b65e1388c319a4fbdd57174c  v1_natGe_WSlow_6-24-06_xenial.root
 ce5f433935016ce552f5c53165653da2  allge_ngam_inf_6-24-06_xenial.root
 657fdab11e47fd305fe7e116bd8599fb  cross_sections_and_abundance_6-24-06_xenial.root
 #  cross_sections_and_abundance_and_scaling_6-24-06_xenial.root
@@ -357,8 +357,8 @@ f6714dacc3e74f36c01ce521ae46fe34  G4_72ge_6-24-06_ubuntu-18.04.root
 5b1a39c24f88fc35fc94a2b8cfa363bb  G4_74ge_6-24-06_ubuntu-18.04.root
 f99eb0a1da02dcb6fc1280dc52f7525b  G4_76ge_6-24-06_ubuntu-18.04.root
 e38c561bfed333a60b093ce655cdea73  Si28_ngam_all_cascades_rfmt_sorted_6-24-06_ubuntu-18.04.root
-d1744297800be4103ff5bd9194623406  v1_natGe_WFast_6-24-06_ubuntu-18.04.root
-1bbdb314201df876454f80364f4aa770  v1_natGe_WSlow_6-24-06_ubuntu-18.04.root
+717fdb719cd47ec3db55bd083f89931f  v1_natGe_WFast_6-24-06_ubuntu-18.04.root
+446a93c7b65e1388c319a4fbdd57174c  v1_natGe_WSlow_6-24-06_ubuntu-18.04.root
 ce5f433935016ce552f5c53165653da2  allge_ngam_inf_6-24-06_ubuntu-18.04.root
 #  cross_sections_and_abundance_6-24-06_ubuntu-18.04.root
 #  cross_sections_and_abundance_and_scaling_6-24-06_ubuntu-18.04.root
@@ -391,8 +391,8 @@ a5085860bb15a031721c9bf04c652894  G4_73ge_6-24-06_ubuntu-20.04.root
 f76a6973933e18ec71d8faf2f40ae71e  G4_74ge_6-24-06_ubuntu-20.04.root
 f99eb0a1da02dcb6fc1280dc52f7525b  G4_76ge_6-24-06_ubuntu-20.04.root
 6119a78ef8c534b6bcdd497d796b89b9  Si28_ngam_all_cascades_rfmt_sorted_6-24-06_ubuntu-20.04.root
-fdfad0957f8bb6e6dc353ce3d5e335ad  v1_natGe_WFast_6-24-06_ubuntu-20.04.root
-efd05e6e6f03401fc1e9f45bdf8a322d  v1_natGe_WSlow_6-24-06_ubuntu-20.04.root
+cca2fe7dd4f49478b479a040ad0b7448  v1_natGe_WFast_6-24-06_ubuntu-20.04.root
+f6e18c3372cea1d9073eb61f41114bd8  v1_natGe_WSlow_6-24-06_ubuntu-20.04.root
 299e06a280188b010517c47d654231e3  allge_ngam_inf_6-24-06_ubuntu-20.04.root
 #  cross_sections_and_abundance_6-24-06_ubuntu-20.04.root
 #  cross_sections_and_abundance_and_scaling_6-24-06_ubuntu-20.04.root
