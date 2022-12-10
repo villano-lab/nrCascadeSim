@@ -1,6 +1,6 @@
-## Release (v1.4.1) Date 22.12.08
+## Release (v1.4.1) Date 22.12.07
 * PR #105 migrated from Travis-CI to GitHub Actions and CircleCI (Issue #88)
-* PR #106 updated the naming scheme of and fixed a typo in the Germanium levelfiles
+* Updated the naming scheme of and fixed a typo in the Germanium levelfiles
 
 ## Release (v1.4.0) Date 22.02.12
 
