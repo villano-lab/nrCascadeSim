@@ -17,7 +17,7 @@ You can replace the file by running the script `generate.sh` or by the command b
 
 ## Files
 
-* `Yields_and_Resolutions.ipynb` - the notebook serving as the example described above.
+* `Yields_and_Resolutions_??.ipynb` - the notebooks serving as the example described above. The last two characters indicate the material used for simulation.
 * `Z_G4Comparison.ipynb` - a notebook comparing data output with nrCascadeSim to data output with Geant4 in the context of applying yield models.
 * `environment.yml` - a conda environment yml file including everything needed to run this example.
 * `generate.sh` - a short shell script for running a new simulation using nrCascadeSim. Note that this will overwrite the provided file.

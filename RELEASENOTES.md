@@ -1,4 +1,11 @@
-## Future Release (v1.4.1) Date XX.XX.XX
+## Release (v1.4.2) Date 22.12.08
+
+* Hotfix 1.4.2 to sort Ge levelfile rows by greatest to least probability.
+
+## Release (v1.4.1) Date 22.12.07
+
+* PR #105 migrated from Travis-CI to GitHub Actions and CircleCI (Issue #88)
+* Updated the naming scheme of and fixed a typo in the Germanium levelfiles
 
 ## Release (v1.4.0) Date 22.02.12
 

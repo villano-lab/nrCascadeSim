@@ -19,7 +19,8 @@ def _exec_papermill(input_nb, args):
 
 def test():
     print('Testing Jupyter notebooks...')
-    _exec_notebook('Yields_and_Resolutions.ipynb')
+    _exec_notebook('Yields_and_Resolutions_Si.ipynb')
+    _exec_notebook('Yields_and_Resolutions_Ge.ipynb')
     _exec_notebook('Z_G4Comparison.ipynb')
     #_exec_papermill('edelweiss_res.ipynb', None) # causes problem
     #_exec_papermill('edelweiss_C_systematicErrors_allParameters.ipynb', {'Test': True})
