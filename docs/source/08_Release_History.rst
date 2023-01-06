@@ -2,6 +2,8 @@
 Release history
 ===============
 
+* 08.12.2022: Release of `v1.4.2 <https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.4.2>`_
+* 07.12.2022: Release of `v1.4.1 <https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.4.1>`_
 * 12.02.2022: Release of `v1.4.0 <https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.4.0>`_
 * 11.02.2022: Release of `v1.3.3 <https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.3.3>`_
 * 08.01.2022: Release of `v1.3.2 <https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.3.2>`_

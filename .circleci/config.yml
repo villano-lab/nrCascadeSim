@@ -132,7 +132,7 @@ commands:
           ./test_realizeCascades.sh
           bash test_examples.sh
           regexPlayground
-          realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
+          realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/v1_natGe_WSlow.txt
           cd ../example-usecase
           python test_local.py
   coverage:

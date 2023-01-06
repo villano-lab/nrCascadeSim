@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ${{ matrix.os }}
     strategy:
-      fail-fast: true
+      fail-fast: false
       matrix:
         rootver: ['6.20.00', '6.24.06']
         os: [macos-10.15, ubuntu-18.04, ubuntu-20.04]
@@ -105,7 +105,7 @@ jobs:
           ./test_realizeCascades.sh
           bash test_examples.sh
           regexPlayground
-          realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/allge_ngam_WSlow.txt
+          realizeCascades -n 1 -o "verbosetest.root" ../levelfiles/v1_natGe_WSlow.txt
 
           cd ../example-usecase
           pytest
