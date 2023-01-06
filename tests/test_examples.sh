@@ -1,7 +1,7 @@
 #!/bin/bash
 #Setup
 #Test realizeAndSave and if the result is nonempty - Ge
-cp ../levelfiles/allge_ngam_WSlow.txt ./inputfile.txt
+cp ../levelfiles/v1_natGe_WSlow.txt ./inputfile.txt
 bin/realizeAndSave >/dev/null
 python3 isempty.py
 # Ne
