@@ -20,12 +20,12 @@ def f(model,material='Si',k=0.178,q=0.00075):
             return lin.getLindhardSi_k(k)
         elif material in ['Ge', 'ge', 'germanium', 'Germanium']:
             return lin.getLindhardGe_k(k)
-    elif model=='Sorenson':
+    elif model=='Sorensen':
         return lambda Er: R68y.ySor(Er,k,0.00075)
     elif model=='None' or model=='none' or model==None:
         return lambda Er: 1
     else:
-        print("Unrecognized. Available models: Lindhard, Sorenson, None")
+        print("Unrecognized. Available models: Lindhard, Sorensen, None")
 
 #Get total deposit for the given cascade:
 def Eitot(i,l,en,en_dep,c_id,model,material='Si'): #Get yield total from a given cid and k, and choose an instance of that cascade
@@ -109,3 +109,11 @@ def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',
     print(len(a_list[0]))
     return xc,n_rel,n_sim
 """
+
+def process(inputfile,outputfile,seed=None,resolution=1,model='Lindhard'):
+    data = np.ndarray.flatten(np.asarray(histogramable(inputfile,model=model,seed=seed,scalefactor=resolution)[0]))
+    file = open(outputfile,'w')
+    for x in data:
+        if not np.isnan(x): #don't save nan values; they'll just be discarded by the plots anyway.
+            file.write(str(x)+"\n")
+    file.close()
