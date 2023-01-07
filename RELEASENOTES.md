@@ -1,3 +1,6 @@
+## Release (v1.5.0) Date Future
+* PR #108 introduced a function and script for reformatting data output by nrCascadeSim and input to the `example-usecase` notebooks.
+
 ## Release (v1.4.2) Date 22.12.08
 
 * Hotfix 1.4.2 to sort Ge levelfile rows by greatest to least probability.
