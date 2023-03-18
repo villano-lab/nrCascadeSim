@@ -53,7 +53,7 @@ def res(E,scalefactor=1):
     eps  = 3.8
     return np.sqrt(res0**2 + Fano*eps*E)*scalefactor
 
-def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',material='Si',method='root',resolution='normal',val=None,scalefactor=1,seed=None): #Build a histogram from the file
+def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',material='Si',method='root',resolution='normal',val=None,scalefactor=1,seed=None,flat=False): #Build a histogram from the file
     if seed != None:
         np.random.seed(seed)
     if method=='root':
@@ -63,8 +63,14 @@ def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',
         en_dep = cas.array('delE')
         c_id = cas.array('cid')
         totalpoints = cas.numentries
+    elif method=='pandas': #Build a histogram from the array passed in. Assumes layout is as root. Allows more flexibility
+        cas = file
+        en = cas['E'].to_numpy()
+        en_dep = cas['delE'].to_numpy()
+        c_id = cas['cid'].to_numpy()
+        totalpoints = len(c_id)
     else:
-        print("Sorry, I didn't write that code yet... (Available method: root)")
+        print("Sorry, I didn't write that code yet... (Available methods: root, pandas)")
     if resolution=='normal':
         resolution = lambda E: res(E,scalefactor)
     elif resolution =='none' or resolution=='None' or resolution==None:
@@ -86,20 +92,28 @@ def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',
     for i in range(max(c_id)):
         if len(c_id[c_id==i]) > maxcidlength:
             maxcidlength = len(c_id[c_id==i])
-    plottable = np.zeros([max(c_id)+1,maxcidlength]) 
-    for i in range(max(c_id)+1):
-        for j in range(len(c_id[c_id==i])):                   #Up to the number of events,
-            plottable[i,j] = Eitot(i,j,en,en_dep,c_id,model,material)  #Calculate the energy deposit.
-        for j in range(len(c_id[c_id==i]),len(c_id[c_id==0])):#For any leftover points,
-            plottable[i,j] = np.nan                           #The value is not a number
-    a_list = []
-    for i in range(max(c_id)):
-        a_list.append(plottable[i,:])
-        labels.append('ID: '+str(i))
-    for i,vec in np.ndenumerate(a_list):
-        x,y = i #Restructure enumeration
-        a_list[x][y] += np.random.normal(scale=resolution(a_list[x][y]))
-    return a_list,labels
+    if not flat: #default case
+        plottable = np.zeros([max(c_id)+1,maxcidlength]) 
+        for i in range(max(c_id)+1):
+            for j in range(len(c_id[c_id==i])):                   #Up to the number of events,
+                plottable[i,j] = Eitot(i,j,en,en_dep,c_id,model,material)  #Calculate the energy deposit.
+            for j in range(len(c_id[c_id==i]),len(c_id[c_id==0])):#For any leftover points,
+                plottable[i,j] = np.nan                           #The value is not a number
+        a_list = []
+        for i in range(max(c_id)):
+            a_list.append(plottable[i,:])
+            labels.append('ID: '+str(i))
+        for i,vec in np.ndenumerate(a_list):
+            x,y = i #Restructure enumeration
+            a_list[x][y] += np.random.normal(scale=resolution(a_list[x][y]))
+        return a_list,labels
+    else: #return a single flat array, discarding all CID tracking.
+        plottable = np.array([])
+        for i in range(max(c_id)+1):
+            for j in range(len(c_id[c_id==i])):
+                plottable = np.append(plottable,Eitot(i,j,en,en_dep,c_id,model,material))
+        return plottable
+    
 """
     bins = np.arange(binmin,binmax,binsize)
     n_sim,nx_sim = np.histogram(a_list,bins)
