@@ -58,19 +58,18 @@ def histogramable(file,binsize=8,binmin=0,binmax=425,labels=[],model='Lindhard',
         np.random.seed(seed)
     if method=='root':
         x = uproot.open(file)
-        cas = x['cascade'].arrays(lib="pd")
-        en = cas['E']
-        en_dep = cas['delE']
-        c_id = cas['cid']
-        totalpoints = cas.numentries
+        cas = x['cascade'].arrays(library="pd")
+        en = cas['E'].to_numpy()
+        en_dep = cas['delE'].to_numpy()
+        c_id = cas['cid'].to_numpy()
     elif method=='pandas': #Build a histogram from the array passed in. Assumes layout is as root. Allows more flexibility
         cas = file
         en = cas['E'].to_numpy()
         en_dep = cas['delE'].to_numpy()
         c_id = cas['cid'].to_numpy()
-        totalpoints = len(c_id)
     else:
         print("Sorry, I didn't write that code yet... (Available methods: root, pandas)")
+    totalpoints = len(c_id)
     if resolution=='normal':
         resolution = lambda E: res(E,scalefactor)
     elif resolution =='none' or resolution=='None' or resolution==None:
