@@ -1,6 +1,6 @@
-numpy>=1.22.4
+numpy==1.22.4
 scipy
-matplotlib
+matplotlib==3.5.1
 ipykernel
 pytest
 uproot==3.12.0
