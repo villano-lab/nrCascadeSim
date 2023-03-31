@@ -13,6 +13,8 @@
 
 #include <iostream>
 
+double s2 = 0.1; //declare without defining to re-enable user input
+
 //do a generalized multi-step cascade (for now just print a table and do one event)
 //eventually: can do n events, put in a yield model function, generalize to other elements 
 vector<cri> geCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev, vector<double> &taus, double A, mt19937 *mtrand) // vector<double> &Elev ---> vector<double> &Elev
@@ -181,7 +183,7 @@ double rgeS2(double E, double M, double t)
   //stopping power (constant)
   //double s2 = 0.32; //from Lindhard Paper Notes on Atomic Collisions II
   //if you're going to use a constant 0.1 is probably a better estimate in this region
-  double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
+  //double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
 
   //number density in natural units
   double Ntilde = 3.3739e-10; //in MeV**3
@@ -230,7 +232,7 @@ double vgeS2(double E, double M, double t)
   //stopping power (constant)
   //double s2 = 0.32; //from Lindhard Paper Notes on Atomic Collisions II
   //if you're going to use a constant 0.1 is probably a better estimate in this region
-  double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
+  //double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
 
   //number density in natural units
   double Ntilde = 3.3739e-10; //in MeV**3
@@ -436,7 +438,7 @@ double rsiS2(double E, double M, double t)
   //stopping power (constant)
   //double s2 = 0.32; //from Lindhard Paper Notes on Atomic Collisions II
   //if you're going to use a constant 0.1 is probably a better estimate in this region
-  double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
+  //double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
 
   //number density in natural units
   double Ntilde = 3.3739e-10; //in MeV**3
@@ -485,7 +487,7 @@ double vsiS2(double E, double M, double t)
   //stopping power (constant)
   //double s2 = 0.32; //from Lindhard Paper Notes on Atomic Collisions II
   //if you're going to use a constant 0.1 is probably a better estimate in this region
-  double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
+  //double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
 
   //number density in natural units
   double Ntilde = 3.3739e-10; //in MeV**3
@@ -694,7 +696,7 @@ double rarS2(double E, double M, double t)
   //stopping power (constant)
   //double s2 = 0.32; //from Lindhard Paper Notes on Atomic Collisions II
   //if you're going to use a constant 0.1 is probably a better estimate in this region
-  double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
+  //double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
 
   //number density in natural units
   //this is a gas, need a pressure
@@ -754,7 +756,7 @@ double varS2(double E, double M, double t)
   //stopping power (constant)
   //double s2 = 0.32; //from Lindhard Paper Notes on Atomic Collisions II
   //if you're going to use a constant 0.1 is probably a better estimate in this region
-  double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
+  //double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
 
   //number density in natural units
   //this is a gas, need a pressure
@@ -973,7 +975,7 @@ double rneS2(double E, double M, double t)
   //stopping power (constant)
   //double s2 = 0.32; //from Lindhard Paper Notes on Atomic Collisions II
   //if you're going to use a constant 0.1 is probably a better estimate in this region
-  double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
+  //double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
 
   //number density in natural units
   //this is a gas, need a pressure
@@ -1033,7 +1035,7 @@ double vneS2(double E, double M, double t)
   //stopping power (constant)
   //double s2 = 0.32; //from Lindhard Paper Notes on Atomic Collisions II
   //if you're going to use a constant 0.1 is probably a better estimate in this region
-  double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
+  //double s2 = 0.1; //from Lindhard Paper Notes on Atomic Collisions II
 
   //number density in natural units
   //this is a gas, need a pressure
