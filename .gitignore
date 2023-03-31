@@ -18,6 +18,7 @@ docs/build
 tests/bin/*
 !tests/bin/*.*
 tests/*_output.txt
+.jupyter/
 
 #checkpoints and caching
 *-checkpoint.*
@@ -56,8 +57,8 @@ CMakeCache.txt
 CMakeFiles/
 CMakeLists.txt.save
 bin/*CMake**
-bin/Makefile
-bin/cmake_install.cmake
+Makefile
+cmake_install.cmake
 
 #other stuff
 tests/inputfile.txt
