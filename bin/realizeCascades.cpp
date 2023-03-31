@@ -59,7 +59,8 @@ void print_usage (FILE* stream, int exit_code)
            "                                     Currently must use `--verbose=<level>` or `-v<level>` - no spaces.\n"
            "  -V, --version                      Print version and exit\n"
            "  -l, --log           <filename>     Log additional output to the specified file.\n"
-           "                                     If this option is not used, no logging will occur.\n");
+           "                                     If this option is not used, no logging will occur.\n"
+           );//"  -S, --stopping      <number>       Stopping power (default: 0.1)\n");
 
         printf("Report bugs to: villaa-at-gmail-dot-com \n");
         printf("realizeCascades (nrCascadeSim) home page: <https://github.com/villano-lab/nrCascadeSim> \n");
@@ -92,6 +93,7 @@ int main(int argc, char** argv) {
     {"seed",      required_argument,  0, 'd'},
     {"verbose",   optional_argument,  0, 'v'},
     {"version",   no_argument,        0, 'V'},
+    {"stopping",  required_argument,  0, 'S'},
     {0,0,0,0},
   };
 
@@ -100,12 +102,12 @@ int main(int argc, char** argv) {
   int iarg=0;
   string logfile;
 
-  //turn off getopt error message
-  opterr=1; 
+  opterr=1; //turn off getopt error message
+  double s2 = 0.1; //set default stopping power
 
   while(iarg != -1)
   {
-    iarg = getopt_long(argc, argv, "+l:n:o:shd:v::V", longopts, &index);
+    iarg = getopt_long(argc, argv, "+l:n:o:shd:S:v::V", longopts, &index);
 
     switch (iarg)
     {
@@ -159,6 +161,10 @@ int main(int argc, char** argv) {
 
       case '?':
         print_usage(stderr,1);
+        break;
+
+      case 'S':
+        s2 = atof(optarg);
         break;
     }
   } 
@@ -226,6 +232,10 @@ int main(int argc, char** argv) {
           }
           logging << endl;
         }
+      }
+
+      if(verbosity > 0){
+        cout << "s2: " << s2 << endl;
       }
 
       if (verbosity >= 2){
