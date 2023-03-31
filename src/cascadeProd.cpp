@@ -32,7 +32,7 @@ vector<cri> geCascade(int n, int cid, double Sn, int nlev, vector<double> &Elev,
   outinfo = vector<cri>(n);
 
   //string of isotope name
-  char isoname[5]; 
+  char isoname[5];
   sprintf(isoname,"%dGe",(int)A);
 
   for(int ev=0;ev<n;ev++){
