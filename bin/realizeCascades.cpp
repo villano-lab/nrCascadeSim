@@ -105,8 +105,6 @@ int main(int argc, char** argv) {
   opterr=1; //turn off getopt error message
   double s2 = 0.1; //set default stopping power
 
-  double s2 = 0.1;
-
   while(iarg != -1)
   {
     iarg = getopt_long(argc, argv, "+l:n:o:shd:S:v::V", longopts, &index);
