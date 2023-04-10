@@ -21,15 +21,15 @@ You can find more detailed documentation of *nrCascadeSim* [here](https://nrcasc
 
 If you decide to use this code, or if you want to add a reference to it, please cite the latest archived version,
 
-> Villano, A.N., Harris, K., Brown, S. , 2022, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.4.2] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
+> Villano, A.N., Harris, K., Brown, S. , 2022, nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.5.0] [[DOI:10.5281/zenodo.5579857]](https://zenodo.org/record/5579857).
 
 ```
 @software{nrcascadesim,
   author = {Villano, A.N. and Harris, K. and Brown S.},
-  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.4.2]}},
+  title = {{nrCascadeSim - A tool for generating nuclear recoil spectra resulting from neutron capture [Code, v1.5.0]}},
   year         = {2022},
   publisher    = {Zenodo},
-  version      = {v1.4.2},
+  version      = {v1.5.0},
   doi          = {DOI:10.5281/zenodo.5579857},
   url          = {https://doi.org/10.5281/zenodo.5579857},
   howpublished={The code can be found under \url{https://github.com/villano-lab}.}
@@ -38,6 +38,7 @@ If you decide to use this code, or if you want to add a reference to it, please 
 
 ## VERSION HISTORY
 
+- 03.31.2023: Release of [version 1.5.0](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.5.0)
 - 08.12.2022: Release of [version 1.4.2](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.4.2)
 - 07.12.2022: Release of [version 1.4.1](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.4.1)
 - 12.02.2022: Release of [version 1.4.0](https://github.com/villano-lab/nrCascadeSim/releases/tag/v1.4.0)

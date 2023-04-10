@@ -60,7 +60,6 @@ bin/*CMake**
 cmake_install.cmake
 Makefile
 
-
 #other stuff
 tests/inputfile.txt
 
