@@ -1,3 +1,6 @@
+## Release (v1.5.1) Date Future
+* Updated builds used in GitHub Actions due to deprecation of Ubuntu 18.04. (Ubuntu 18.04 is still verified through Circle-CI.)
+
 ## Release (v1.5.0) Date 23.03.31
 * PR #108 introduced a function and script for reformatting data output by nrCascadeSim and input to the `example-usecase` notebooks.
 * Fixed some version conflicts in `example-usecase/environment.yml`.
