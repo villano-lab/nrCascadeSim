@@ -58,7 +58,7 @@ jobs:
 
           conda init bash
       - name: Install lcov
-        if: ${{ matrix.os == 'ubuntu-18.04' }}
+        if: ${{ matrix.os == 'ubuntu-20.04' }}
         run: |
           wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
           tar -zxvf lcov-1.14.tar.gz
