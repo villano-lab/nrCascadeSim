@@ -94,4 +94,4 @@ conda info -a
 conda create -n piptest pip
 source activate piptest
 pip install -r example-usecase/requirements.txt
-conda list papermill
+conda list

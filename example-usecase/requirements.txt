@@ -1,12 +1,13 @@
-numpy==1.22.4
+numpy
 scipy
 matplotlib
 ipykernel
 pytest
-uproot==3.12.0
+uproot
 papermill
 pandas
-awkward==0.12
+awkward
+awkward-pandas
 #Only really needed for testing - user can comment out but doesn't hurt anything
 nbconvert
 #hashlib
