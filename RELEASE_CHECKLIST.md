@@ -7,7 +7,7 @@ Please be sure to do the following when making a release.
 3. Update the front-facing README in the Version history and citations sections. (in 4 places including version history -- find em' all!)
 5. Update release notes `RELEASENOTES.md`.
 6. Update `docs/source/index.rst` if badges changed.
-7. Restore fail-on-warning on `.readthedocs.yaml` if it was turned off.
+7. Restore fail_on_warning on `.readthedocs.yaml` if it was turned off.
 8. Make a release on github.
 9. Be sure the `stable` build of readthedocs points to the new release.
 10. Be sure to create a version on readthedocs of the new release. 
