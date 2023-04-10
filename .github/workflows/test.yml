@@ -60,7 +60,7 @@ jobs:
       - name: Install lcov
         if: ${{ matrix.os == 'ubuntu-20.04' }}
         run: |
-          wget http://downloads.sourceforge.net/ltp/lcov-1.14.tar.gz
+          wget https://github.com/linux-test-project/lcov/releases/download/v1.16/lcov-1.16.tar.gz
           tar -zxvf lcov-1.14.tar.gz
           cd lcov-1.14
           sudo make install
