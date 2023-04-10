@@ -13,3 +13,4 @@ dependencies:
     - uproot==3.12.0
     - papermill 
     - pandas
+    - awkward-pandas
