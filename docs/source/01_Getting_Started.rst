@@ -6,16 +6,28 @@
 Installation
 ------------
 
-*nrCascadeSim* is designed to run in a Unix-based system and is tested via Travis-CI_ using the
-Xenial_ (Ubuntu 16.04), Bionic_ (Ubuntu 18.04), and Focal_ (Ubuntu 20.04) distributions, all on
-x86_64 architecture. It is also tested on Mac OSX Mojave (10.14), Catalina (10.15), and Big Sur
-(11.5) via Travis-CI_. 
+*nrCascadeSim* is designed to run in a Unix-based system and is tested via multiple CI systems. 
+It is hypothetically compatible with most versions of ROOT. 
+The table below describes the combinations of tests run.
+
+.. table:: Version Support
+        :widths: auto
+
+        =====================        ============       ==================      ====================
+        Operating System             C++ Standard       ROOT Versions           Last Working Version
+        =====================        ============       ==================      ====================
+        Ubuntu 16.04: Xenial_        `c++11`            v6.20/00, v6.24/06      Current
+        Ubuntu 18.04: Bionic_        `c++14`            v6.20/00, v6.24/06      Current
+        Ubuntu 20.04: Focal_         `c++17`            v6.24/06                Current
+        MacOS 10.15: Catalina        `c++11`            v6.20/00, v6.24/06      Current
+        MacOS 11: Big Sur            `c++11`            v6.24/06                v1.5.0
+        Mac M1 ??                    `c++??`            v?.??/??                not yet implemented
+        =====================        ============       ==================      ===================
 
 Because of a combination of the operating systems tested and the versions of `ROOT` (see below)
 the Travis-CI_ tests three C++ compiler standards: `c++11` (Xenial_, Mojave, Catalina, Big Sur);
 `c++14` (Bionic_); and `c++17` (Focal_). 
 
-.. _Travis-CI: https://app.travis-ci.com/github/villano-lab/nrCascadeSim
 .. _Xenial: https://docs.travis-ci.com/user/reference/xenial/ 
 .. _Bionic: https://docs.travis-ci.com/user/reference/bionic/ 
 .. _Focal:  https://docs.travis-ci.com/user/reference/focal/
@@ -30,6 +42,7 @@ Dependencies
 
 Travis-CI_ tests two versions of `ROOT`: 6.24.06 and 6.20.00. It is assumed (though not explicitly
 tested) that the versions in between those two versions will also work. 
+See Table 1 above for more information.
 
 To install `ROOT` please follow the instructions on the `CERN  <https://root.cern/install/>`_
 website.

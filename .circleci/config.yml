@@ -29,10 +29,10 @@ executors:
           username: $DOCKER_USER
           password: $DOCKER_PASS
     environment: custom_vars= ROOTDIST=root_v6.24.06.Linux-ubuntu18-x86_64-gcc7.5.tar.gz BUILDLINE=343 MATRIX_OS=ubuntu-18.04
-  mac:
-    macos:
-      xcode: "13.4.1"
-    environment: custom_vars= ROOTDIST=root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz BUILDLINE=241 MATRIX_OS=xcode13-1
+  #mac:
+   # macos:
+    #  xcode: 
+    #environment: custom_vars= ROOTDIST=root_v6.24.06.macos-11.5-x86_64-clang120.tar.gz BUILDLINE=241 MATRIX_OS=xcode13-1
 
 commands:
   install_requirements:

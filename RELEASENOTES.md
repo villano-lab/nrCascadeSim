@@ -1,5 +1,7 @@
 ## Release (v1.5.1) Date Future
 * Updated builds used in GitHub Actions due to deprecation of Ubuntu 18.04. (Ubuntu 18.04 is still verified through Circle-CI.)
+* Deprecated MacOS 11 Big Sur due to reduced CI support.
+* Added a table in [https://nrcascadesim.readthedocs.io/en/latest/01_Getting_Started.html](Getting Started) to track ROOT version compatibility.
 
 ## Release (v1.5.0) Date 23.03.31
 * PR #108 introduced a function and script for reformatting data output by nrCascadeSim and input to the `example-usecase` notebooks.
