@@ -188,14 +188,9 @@ jobs:
       - cleanup
 
 workflows:
-  #version: 2
   build_test:
     jobs:
-      #- build:
-      #    matrix:
-      #      parameters:
-      #        run_on: [xenial-root20, xenial-root24, bionic-root20, bionic-root24, mac]
       - test:
           matrix:
             parameters:
-              run_on: [xenial-root20, xenial-root24, bionic-root20, bionic-root24, mac]
+              run_on: [xenial-root20, xenial-root24, bionic-root20, bionic-root24]
