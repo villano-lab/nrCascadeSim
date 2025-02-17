@@ -53,7 +53,7 @@ If you decide to use this code, or if you want to add a reference to it, please 
 
 ## AUTHORS & CONTACT
 
-The authors of *nrCascadeSim* are [A.N. Villano](https://github.com/villaa), [K. Harris](https://github.com/gerudo7), and S. Brown.
+The authors of *nrCascadeSim* are [A.N. Villano](https://github.com/villaa), [K. Mickelson](https://github.com/nuclearGoblin), and S. Brown.
 
 For questions, support, bug reports, or other suggestions, please open an [issue](https://github.com/villano-lab/nrCascadeSim/issues).
 
