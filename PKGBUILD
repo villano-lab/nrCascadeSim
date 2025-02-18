@@ -11,19 +11,17 @@ url="https://github.com/villano-lab/nrCascadeSim"
 source=("${url}/archive/refs/tags/v${pkgver}.tar.gz")
 md5sums=('c8ff62ecbb3ef2b9800f40896d3baced')
 
-srcdir=src/${pkgname}-${pkgver}
-builddir=build
-installdir=install
+srcdir=${pkgdir}/src/${pkgname}-${pkgver}
 
 build(){
-	mkdir -p $builddir
-	cd $builddir
-	echo cmake -DCMAKE_INSTALL_PREFIX="${installdir}" ${srcdir}
-	cmake -DCMAKE_INSTALL_PREFIX="${installdir}" ${srcdir}/${pkgname}-${pkgver}
+	echo $srcdir
+	mkdir -p ${srcdir}/build
+	cd ${srcdir}/build
+	cmake -DCMAKE_INSTALL_PREFIX="${pkgdir}" ${srcdir}/${pkgname}-${pkgver}
 	make
 }
 
 package() {
-	cd $builddir
+	cd ${srcdir}/build
 	make install
 }

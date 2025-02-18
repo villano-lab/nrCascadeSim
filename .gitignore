@@ -59,7 +59,8 @@ CMakeLists.txt.save
 bin/*CMake**
 cmake_install.cmake
 Makefile
+install/
+build/
 
 #other stuff
 tests/inputfile.txt
-

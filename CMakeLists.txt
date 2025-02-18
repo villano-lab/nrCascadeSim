@@ -149,6 +149,7 @@ target_link_libraries(realizeAndSave PUBLIC libncap)
 
 install(TARGETS realizeCascades regexPlayground RUNTIME DESTINATION ${CMAKE_INSTALL_PREFIX}/bin)
 install(TARGETS libncap LIBRARY DESTINATION ${CMAKE_LIB_PREFIX}/lib)
+install(DIRECTORY ${CMAKE_CURRENT_LIST_DIR}/levelfiles/ DESTINATION ${CMAKE_INSTALL_PREFIX}/levelfiles)
 #install(TARGETS fetchYieldModel printIsotopeInfo readLevelfile realizeAndSave DESTINATION ${testBin})
 
 add_custom_target(tests 
