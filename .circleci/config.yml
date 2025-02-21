@@ -4,9 +4,9 @@ executors:
   xenial-root20:
     docker:
       - image: ubuntu:xenial
-        auth:
-          username: $DOCKER_USER
-          password: $DOCKER_PASS
+        #auth:
+          #username: $DOCKER_USER
+          #password: $DOCKER_PASS
     environment: custom_vars= ROOTDIST=root_v6.20.00.Linux-ubuntu16-x86_64-gcc5.4.tar.gz BUILDLINE=104 MATRIX_OS=xenial
   bionic-root20:
     docker:

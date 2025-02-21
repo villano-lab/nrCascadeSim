@@ -20,7 +20,8 @@ The table below describes the combinations of tests run.
         Ubuntu 18.04: Bionic_        `c++14`            v6.20/00, v6.24/06      Current
         Ubuntu 20.04: Focal_         `c++17`            v6.24/06                Current
         MacOS 10.15: Catalina        `c++11`            v6.20/00, v6.24/06      v1.5.0
-        MacOS 11: Big Sur            `c++11`            v6.24/06                Current
+        MacOS 11: Big Sur            `c++11`            v6.24/06                v1.5.0
+        MacOS 12: ??                 `c++??`            v6.20/00, v6.24/06      Current
         Mac M1 ??                    `c++??`            v?.??/??                not yet implemented
         =====================        ============       ==================      ===================
 
