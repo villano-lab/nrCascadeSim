@@ -19,13 +19,13 @@ The table below describes the combinations of tests run.
         Ubuntu 16.04: Xenial_        `c++11`            v6.20/00, v6.24/06      Current
         Ubuntu 18.04: Bionic_        `c++14`            v6.20/00, v6.24/06      Current
         Ubuntu 20.04: Focal_         `c++17`            v6.24/06                Current
-        MacOS 10.15: Catalina        `c++11`            v6.20/00, v6.24/06      Current
-        MacOS 11: Big Sur            `c++11`            v6.24/06                v1.5.0
+        MacOS 10.15: Catalina        `c++11`            v6.20/00, v6.24/06      v1.5.0
+        MacOS 11: Big Sur            `c++11`            v6.24/06                Current
         Mac M1 ??                    `c++??`            v?.??/??                not yet implemented
         =====================        ============       ==================      ===================
 
 Because of a combination of the operating systems tested and the versions of `ROOT` (see below)
-the Travis-CI_ tests three C++ compiler standards: `c++11` (Xenial_, Mojave, Catalina, Big Sur);
+the Travis-CI_ tests three C++ compiler standards: `c++11` (Xenial_, Mojave, Big Sur);
 `c++14` (Bionic_); and `c++17` (Focal_). 
 
 .. _Xenial: https://docs.travis-ci.com/user/reference/xenial/ 
@@ -50,7 +50,7 @@ website.
 It is intended that *nrCascadeSim* is compatible with all versions; known compatibility with
 version 6. 
 
-On Linux machines, you can also install `ROOT` via a `pre-packaged binary
+On Ubuntu and some other Linux systems, you can also install `ROOT` via a `pre-packaged binary
 <https://root.cern/install/#download-a-pre-compiled-binary-distribution>`_ run::
 
 	wget https://root.cern/download/root_v6.24.02.Linux-ubuntu20-x86_64-gcc9.3.tar.gz
