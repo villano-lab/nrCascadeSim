@@ -55,10 +55,14 @@ jobs:
           source ~/miniconda3/bin/activate
           ls ~/miniconda3/bin
           which conda
+          conda init bash
       - name: Initial Setup
         run: | 
           pwd
-          ls -a
+          
+          echo "Check ~/micionda3/bin to see if the binaries persisted between steps"
+          ls ~/*conda*/bin
+
           sudo chmod 777 .github/install.sh
 
           sudo chmod 777 tests/test_realizeCascades.sh
