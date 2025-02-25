@@ -59,9 +59,10 @@ jobs:
       - name: Initial Setup
         run: | 
           pwd
-          
-          echo "Check ~/micionda3/bin to see if the binaries persisted between steps"
-          ls ~/*conda*/bin
+
+          export PATH="${PATH}:~/miniconda3/bin"
+          echo "Source activate manually for miniconda, pass for pre-installed conda"
+          source ~/miniconda3/bin/activate || true
 
           sudo chmod 777 .github/install.sh
 
