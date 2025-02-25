@@ -1,6 +1,6 @@
 ## Release (v1.5.1) Date Future
-* Updated builds used in GitHub Actions due to deprecation of Ubuntu 18.04. (Ubuntu 18.04 is still verified through Circle-CI.)
-* Deprecated MacOS 11 Big Sur due to reduced CI support.
+* Updated builds used in GitHub Actions due to their deprecation of Ubuntu 18.04. (Ubuntu 18.04 is still verified through Circle-CI.)
+* Deprecated MacOS due to reduced CI support. Newer versions are supported by CI but not by the ROOT versions supported by nrCascadeSim.
 * Added a table in [https://nrcascadesim.readthedocs.io/en/latest/01_Getting_Started.html](Getting Started) to track ROOT version compatibility.
 
 ## Release (v1.5.0) Date 23.03.31

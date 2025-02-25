@@ -21,11 +21,10 @@ The table below describes the combinations of tests run.
         Ubuntu 20.04: Focal_         `c++17`            v6.24/06                Current
         MacOS 10.15: Catalina        `c++11`            v6.20/00, v6.24/06      v1.5.0
         MacOS 11: Big Sur            `c++11`            v6.24/06                v1.5.0
-        MacOS 13: Ventura                 `c++??`       v6.20/00, v6.24/06      Current
         =====================        ============       ==================      ===================
 
 Because of a combination of the operating systems tested and the versions of `ROOT` (see below)
-the Travis-CI_ tests three C++ compiler standards: `c++11` (Xenial_, Mojave, Big Sur);
+the Travis-CI_ tests three C++ compiler standards: `c++11` (Xenial_);
 `c++14` (Bionic_); and `c++17` (Focal_). 
 
 .. _Xenial: https://docs.travis-ci.com/user/reference/xenial/ 
@@ -76,7 +75,7 @@ Using a pre-compiled binary or installing from most package managers will not wo
 You almost certainly have a version of `gcc` already and *nrCascadeSim* is compatible with version
 4.4.7 or newer.
 
-On Linux machines, you can build `gcc` via the `apt-get` manager::
+On Ubuntu and some other Linux systems, you can get `gcc` via the `apt-get` manager::
 
 	sudo apt-get install gcc
 
