@@ -84,12 +84,12 @@ jobs:
       - name: Install ROOT (MacOS)
         env:
           ROOT_VERSION: ${{ matrix.rootver }}
-        if: ${{matrix.os == 'macos*' }}
+        if: ${{matrix.os == 'macos-13' }}
         run: |
           source .github/install.sh
           brew install root --version=$ROOT_VERSION
       - name: Install ROOT (Linux)
-        if: ${{matrix.os != 'macos*'}}
+        if: ${{matrix.os != 'macos-13'}}
         run: |
           source .github/install.sh
           echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
