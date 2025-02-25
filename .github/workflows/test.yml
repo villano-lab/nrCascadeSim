@@ -14,14 +14,14 @@ jobs:
           - os: ubuntu-20.04
             rootver: '6.20.00'
         include:
-          - BUILDLINE: 2
-            rootver: '6.20.00'
-            os: macos-13
-            ROOTDIST: "root_v6.20.00.macosx64-12-clang110.tar.gz"
-          - BUILDLINE: 472
-            rootver: '6.24.06'
-            os: macos-13
-            ROOTDIST: "root_v6.24.06.macos-13-x86_64-clang120.tar.gz"
+          #- BUILDLINE: 2
+          #  rootver: '6.20.00'
+          #  os: macos-13
+          #  ROOTDIST: "root_v6.20.00.macosx64-12-clang110.tar.gz"
+          #- BUILDLINE: 472
+          #  rootver: '6.24.06'
+          #  os: macos-13
+          #  ROOTDIST: "root_v6.24.06.macos-13-x86_64-clang120.tar.gz"
           # No longer supported; handled by circle
           #- BUILDLINE: 539
           #  rootver: '6.27.01'
