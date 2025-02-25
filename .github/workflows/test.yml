@@ -87,7 +87,7 @@ jobs:
         if: ${{matrix.os == 'macos-13' }}
         run: |
           source .github/install.sh
-          brew install root --version=$ROOT_VERSION
+          brew install root@$ROOT_VERSION
       - name: Install ROOT (Linux)
         if: ${{matrix.os != 'macos-13'}}
         run: |
@@ -95,12 +95,12 @@ jobs:
           echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
           wget https://root.cern/download/${{ matrix.ROOTDIST }}
           tar -xzf root_v*
-          source root/bin/thisroot.sh
       - name: Install ROOT, make, Run Tests
         env:
           MATRIX_OS: ${{ matrix.os }}
           ROOT_VERSION: ${{ matrix.rootver }}
         run: |
+          source root/bin/thisroot.sh || true
           cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
           root --version
 
