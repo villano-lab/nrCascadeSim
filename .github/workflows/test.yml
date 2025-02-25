@@ -95,12 +95,12 @@ jobs:
           echo "wget command: wget https://root.cern/download/${{ matrix.ROOTDIST }}"
           wget https://root.cern/download/${{ matrix.ROOTDIST }}
           tar -xzf root_v*
-      - name: Install ROOT, make, Run Tests
+      - name: make, Run Tests
         env:
           MATRIX_OS: ${{ matrix.os }}
           ROOT_VERSION: ${{ matrix.rootver }}
         run: |
-          source root/bin/thisroot.sh || true
+          source root/bin/thisroot.sh
           cd ~/work/nrCascadeSim/nrCascadeSim/nrCascadeSim_build
           root --version
 
